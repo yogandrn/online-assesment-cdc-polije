@@ -21,6 +21,7 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="admin/images/favicon.png" />
 </head>
+
 <body>
   <div class="container-scroller">
 
@@ -35,7 +36,7 @@
 
         @yield('content')
 
-        @include('partials.footer')
+        <!-- @include('partials.footer') -->
       </div>
 
     </div>
@@ -67,4 +68,5 @@
   <script src="admin/js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
 </body>
+
 </html>
