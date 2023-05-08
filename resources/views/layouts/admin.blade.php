@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="admin/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="admin/vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" type="admin/text/css" href="js/select.dataTables.min.css">
