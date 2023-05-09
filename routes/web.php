@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::name('server.')->prefix('server')->group(function () {
+Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [HomeController::class, 'index']);
     
 });
