@@ -21,13 +21,13 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="administration/images/favicon.png" />
 </head>
+
 <body>
   <div class="container-scroller">
 
     @include('partials.navbar')
 
     <div class="container-fluid page-body-wrapper">
-      @include('partials.setting-panel')
 
       @include('partials.sidebar')
 
@@ -67,4 +67,5 @@
   <script src="administration/js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
 </body>
+
 </html>
