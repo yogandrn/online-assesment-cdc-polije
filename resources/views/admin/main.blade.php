@@ -5,38 +5,57 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>{{ $title }}</title>
+    <title></title>
 
-    @include('pages.core')
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo_polije.png" />
+
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+    <!-- Nucleo Icons -->
+    <link href="assets/administration/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="assets/administration/css/nucleo-svg.css" rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="assets/administration/css/nucleo-svg.css" rel="stylesheet" />
 
     <!-- CSS -->
-    <link id="pagestyle" href="assets/css/style.css?v=2.0.2" rel="stylesheet" />
+    <link id="admintyle" href="assets/administration/css/style.css?v=2.0.2" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <!-- Sidenav -->
-    @include('pages.sidenav')
+    @include('admin.sidenav')
 
-    <!-- <main class="main-content position-relative border-radius-lg "> -->
-    <div class="main-content position-relative max-height-vh-100 h-100">
+    <main class="main-content position-relative border-radius-lg ">
+        <!-- <div class="main-content position-relative max-height-vh-100 h-100"> -->
+
         <!-- Navbar -->
-        @include('pages.navbar')
+        @include('admin.navbar')
 
         <!-- Content -->
         @yield('container')
 
         <!-- Footer -->
-        @include('pages.footer')
-    </div>
-    <!-- </main> -->
+        @include('admin.footer')
+        </div>
+        <!-- </main> -->
+    </main>
 
     <!--   Core JS Files   -->
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="assets/js/plugins/chartjs.min.js"></script>
-
+    <script src="../assets/administration/js/core/popper.min.js"></script>
+    <script src="../assets/administration/js/core/bootstrap.min.js"></script>
+    <script src="../assets/administration/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../assets/administration/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../assets/administration/js/plugins/chartjs.min.js"></script>
     <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -45,7 +64,6 @@
         gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
         gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
         gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
-
         new Chart(ctx1, {
             type: "line",
             data: {
@@ -121,7 +139,6 @@
             },
         });
     </script>
-
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -131,12 +148,10 @@
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
-
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/script.min.js?v=2.0.2"></script>
-
+    <script src="../assets/administration/js/argon-dashboard.min.js?v=2.0.4"></script>
 </body>
 
 </html>
