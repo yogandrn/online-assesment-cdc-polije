@@ -58,7 +58,7 @@
     <div class="col-md-6 grid-margin stretch-card">
       <div class="card tale-bg">
         <div class="card-people mt-auto">
-          <img src="admin/images/dashboard/dashboard.jpg" alt="people">
+          <img src="administration/images/dashboard/dashboard.jpg" alt="people">
           <div class="weather-info">
             <div class="d-flex">
               <!-- <div>
