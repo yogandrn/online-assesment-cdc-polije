@@ -20,6 +20,6 @@ Route::get('/', function () {
 });
 
 Route::name('admin.')->prefix('admin')->group(function () {
-    Route::get('/admin', [DashboardController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index']);
     Route::get('/kepribadian', [KepribadianController::class, 'index']);
 });
