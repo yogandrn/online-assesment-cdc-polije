@@ -88,11 +88,24 @@
               </a>
             </div>
           </li>
+          @auth
+          
           <li class="nav-item">
-            <a class="nav-link btn btn-default d-none d-lg-block" href="javascript:void(0)" onclick="scrollToDownload()">
-              <i class="tim-icons icon-cloud-download-93"></i> Download
+            <form action="/logout" method="post">
+              @csrf
+            <button type="submit" class="nav-link btn btn-default d-none d-lg-block"role="button">Logout</button></form>
+            {{-- <a class="nav-link btn btn-default d-none d-lg-block" href="javascript:void(0)" >
+               Logout
+            </a> --}}
+          </li>
+          @else
+
+          <li class="nav-item">
+            <a class="nav-link btn btn-default d-none d-lg-block" href="/login">
+              Login
             </a>
           </li>
+          @endauth
         </ul>
       </div>
     </div>

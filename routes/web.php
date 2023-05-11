@@ -21,11 +21,18 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('index.blade.php');
 // });
-Route::name('landingpage.')->prefix('/')->group(function(){
-    Route::get('/', [HomeController::class, 'index']);
-    Route::get('/login', [LoginController::class, 'index']);
-    Route::get('/register', [RegisterController::class, 'index']);
-});
+// Route::name('landingpage.')->prefix('/')->group(function(){
+//     Route::get('/', [HomeController::class, 'index']);
+//     Route::get('/login', [LoginController::class, 'index']);
+//     Route::get('/register', [RegisterController::class, 'index']);
+// });
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [LoginController::class, 'register']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);

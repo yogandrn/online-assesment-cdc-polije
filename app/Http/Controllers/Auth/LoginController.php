@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,23 +10,23 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('users.login');
+        return view('auth.login');
     }
 
-    public function authenticate(Request $request)
+    public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+        $validated = $request->validate([
+            'email' => 'required|string|max:255|email:dns',
+            'password' => 'required|string|max:255',
         ]);
- 
-        if (Auth::attempt($credentials)) {
+
+        if (Auth::attempt($validated)) {
             $request->session()->regenerate();
- 
-            return redirect()->intended('/');
+
+            return redirect()->intended('/admin');
         }
- 
-        return back()->with('loginError', 'Failed to login!');
+
+        return back()->with('login-error', 'Failed to Login!');
     }
 
     public function logout(Request $request)

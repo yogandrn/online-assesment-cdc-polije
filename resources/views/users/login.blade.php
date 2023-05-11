@@ -33,6 +33,9 @@
   <link href="{{url('assets/login/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{url('assets/login/css/argon-dashboard.css?v=2.0.4')}}" rel="stylesheet" />
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/sign-in/">
+
+  {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> --}}
 </head>
 
 <body class="">
@@ -97,32 +100,49 @@
         <div class="container">
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+              @if (session()->has('success'))
+                  <div class="alert alert-success alert-dismissable fade show justify-content-between" role="alert">
+                    {{session('success')}}
+                    <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close" style="text-align: end"></button>
+                  </div>
+              @endif
+              @if (session()->has('loginError'))
+                  <div class="alert alert-danger alert-dismissable fade show justify-content-between" role="alert">
+                    {{session('loginError')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end"></button>
+                  </div>
+              @endif
               <div class="card card-plain">
                 <div class="card-header pb-0 text-start">
                   <h4 class="font-weight-bolder">Sign In</h4>
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form role="form" action="/login" method="post">
+                    @csrf
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                      <input type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email" aria-label="Email" name="email" required maxlength="255" 
+                      value="{{ old('email')}}">
+                    @error('email')
+                        <div class="invalid-feedback" > {{$message}}</div>
+                    @enderror
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password">
+                      <input type="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" name="password" required maxlength="255" >
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe">
                       <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
                     </div>
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
                     Don't have an account?
-                    <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                    <a href="/register" class="text-primary text-gradient font-weight-bold">Sign up</a>
                   </p>
                 </div>
               </div>
