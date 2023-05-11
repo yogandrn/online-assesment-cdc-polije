@@ -21,15 +21,15 @@ class CreateUsersTable extends Migration
             $table->string('jenjang');
             $table->string('jurusan');
             $table->string('program_studi');
-            $table->string('foto');
-            $table->string('ijazah');
+            $table->string('foto')->default('img/photo.png');
+            $table->string('ijazah')->default('img/ijazah.png');
             $table->string('no_telp');
-            $table->string('url_linkedin');
+            $table->string('url_linkedin')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('status');
+            $table->string('status')->default('inactive');
             $table->timestamps();
         });
     }
