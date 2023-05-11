@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KepribadianController;
-use App\Http\Controllers\landingpage\HomeController;
 use App\Http\Controllers\Users\LoginController;
+use App\Http\Controllers\Users\RegisterController;
+use App\Http\Controllers\Users\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,16 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', function () {
-//     return view('index');
+//     return view('index.blade.php');
 // });
+Route::name('landingpage.')->prefix('/')->group(function(){
+    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/login', [LoginController::class, 'index']);
+    Route::get('/register', [RegisterController::class, 'index']);
+});
 
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('/kepribadian', [KepribadianController::class, 'index']);
 });
-
-
-Route::name('users.')->prefix('users')->group(function () {
-    Route::get('/', [LoginController::class, 'index']);
-});
-
