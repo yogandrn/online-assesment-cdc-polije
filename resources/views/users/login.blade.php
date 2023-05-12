@@ -109,7 +109,7 @@
               @if (session()->has('loginError'))
                   <div class="alert alert-danger alert-dismissable fade show justify-content-between" role="alert">
                     {{session('loginError')}}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end; display:inline-flex; "></button>
                   </div>
               @endif
               <div class="card card-plain">

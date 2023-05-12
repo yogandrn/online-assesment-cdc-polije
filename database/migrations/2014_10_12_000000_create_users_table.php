@@ -16,11 +16,11 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('jenis_kandidat');
-            $table->string('nim');
+            $table->string('nim')->nullable();
             $table->string('nama');
-            $table->string('jenjang');
-            $table->string('jurusan');
-            $table->string('program_studi');
+            $table->string('jenjang')->nullable();
+            $table->string('jurusan')->nullable();
+            $table->string('program_studi')->nullable();
             $table->string('foto')->default('img/photo.png');
             $table->string('ijazah')->default('img/ijazah.png');
             $table->string('no_telp');

@@ -100,6 +100,18 @@
     <div class="container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+          @if (session()->has('success'))
+                  <div class="alert alert-success alert-dismissable fade show justify-content-between" role="alert">
+                    {{session('success')}}
+                    <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close" style="text-align: end"></button>
+                  </div>
+              @endif
+              @if (session()->has('registerError'))
+                  <div class="alert alert-danger alert-dismissable fade show justify-content-between" role="alert">
+                    {{session('registerError')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end; display:inline-flex; "></button>
+                  </div>
+              @endif
           <div class="card z-index-0">
             <div class="card-header text-center pt-4">
               <h5>Register with</h5>
@@ -149,43 +161,44 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form">
+              <form role="form" method="post" action="/register">
+                @csrf
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Name" aria-label="Name">
+                  <input type="text" class="form-control" placeholder="Name" aria-label="Name" name="nama">
                 </div>
                 <div class="mb-3">
-                  <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+                  <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="email">
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="No. Telp" aria-label="No. Telp">
+                  <input type="tel" class="form-control" placeholder="No. Telp" aria-label="No. Telp" name="no_telp">
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Nim" aria-label="Nim">
+                  <input type="text" class="form-control" placeholder="Nim" aria-label="Nim" name="nim">
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Mahasiswa/Alumni/Umum" aria-label="Status/Jenis Kandidat">
+                  <input type="text" class="form-control" placeholder="Mahasiswa/Alumni/Umum" aria-label="Status/Jenis Kandidat" name="jenis_kandidat">
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="D4/S1/lainnya" aria-label="Jenjang">
+                  <input type="text" class="form-control" placeholder="D4/S1/lainnya" aria-label="Jenjang" name="jenjang">
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Jurusan" aria-label="Jurusan">
+                  <input type="text" class="form-control" placeholder="Jurusan" aria-label="Jurusan" name="jurusan">
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Prodi" aria-label="Prodi">
+                  <input type="text" class="form-control" placeholder="Prodi" aria-label="Prodi" name="program_studi">
                 </div>
                 <div class="mb-3">
-                  <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password">
                 </div>
           
                 <div class="form-check form-check-info text-start">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
                   <label class="form-check-label" for="flexCheckDefault">
                     I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
+                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2" role="button">Sign up</button>
                 </div>
                 <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;" class="text-dark font-weight-bolder">Sign in</a></p>
               </form>

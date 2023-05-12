@@ -31,7 +31,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [LoginController::class, 'register']);
+Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::name('admin.')->prefix('admin')->group(function () {
