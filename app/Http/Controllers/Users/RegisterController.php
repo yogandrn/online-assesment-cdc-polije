@@ -19,10 +19,10 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama' => 'required|string|max:255|alpha',
+            'nama' => 'required|string|max:255|',
             'email' => 'unique:users|required|string|email:dns',
             'password' => 'required|string|alpha_num',
-            'no_telp' => 'required|numeric|phone|unique:users',
+            'no_telp' => 'required|numeric|string|unique:users',
         ]);
 
         if ($validator->fails()) {
