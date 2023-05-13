@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KepribadianController;
+use App\Http\Controllers\Admin\LoginAdminController;
 use App\Http\Controllers\Users\LoginController;
 use App\Http\Controllers\Users\RegisterController;
 use App\Http\Controllers\Users\HomeController;
@@ -27,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 //     Route::get('/register', [RegisterController::class, 'index']);
 // });
 
+// Route for User 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -34,7 +36,11 @@ Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+// Route for Admin 
 Route::name('admin.')->prefix('admin')->group(function () {
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/login', [LoginAdminController::class, 'index']);
+    Route::post('/login', [LoginAdminController::class, 'login']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/kepribadian', [KepribadianController::class, 'index']);
+
 });
