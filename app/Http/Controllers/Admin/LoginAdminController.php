@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class LoginAdminController extends Controller
 {
     public function index()
     {
-        return view('auth.login');
+        return view('admin.login');
     }
 
     public function login(Request $request)
@@ -21,9 +21,14 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($validated)) {
-            $request->session()->regenerate();
+            if (auth()->user()->roles == 'ADMIN') {
+                $request->session()->regenerate();
 
-            return redirect()->intended('/admin');
+                return redirect()->intended('/admin/dashboard');
+            } else {
+                return back()->with('login-error', 'You have no access!');
+            }
+
         }
 
         return back()->with('login-error', 'Failed to Login!');
@@ -35,6 +40,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/admin/login');
     }
 }

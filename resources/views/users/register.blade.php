@@ -86,12 +86,12 @@
   </nav> -->
   <!-- End Navbar -->
   <main class="main-content  mt-0">
-    <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
+    <div class="page-header align-items-start min-vh-40 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top; position:cover">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-5 text-center mx-auto">
-            <h1 class="text-white mb-2 mt-5">Welcome!</h1>
+          <div class="col-lg-8 text-center mx-auto">
+            <h1 class="text-white mb-2 mt-3">Welcome!</h1>
             <p class="text-lead text-white">Use these forms to login or create new account in Online Assessment Test CDC Polije.</p>
           </div>
         </div>
@@ -99,7 +99,7 @@
     </div>
     <div class="container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
-        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+        <div class="col-xl-8 col-lg-9 col-md-9 mx-auto">
           @if (session()->has('success'))
                   <div class="alert alert-success alert-dismissable fade show justify-content-between" role="alert">
                     {{session('success')}}
@@ -114,9 +114,9 @@
               @endif
           <div class="card z-index-0">
             <div class="card-header text-center pt-4">
-              <h5>Register with</h5>
+              <h5>Register Now</h5>
             </div>
-            <div class="row px-xl-5 px-sm-4 px-3">
+            {{-- <div class="row px-xl-5 px-sm-4 px-3">
               <div class="col-3 ms-auto px-1">
                 <a class="btn btn-outline-light w-100" href="javascript:;">
                   <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
@@ -159,36 +159,101 @@
                   or
                 </p>
               </div>
-            </div>
+            </div> --}}
             <div class="card-body">
               <form role="form" method="post" action="/register">
                 @csrf
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Name" aria-label="Name" name="nama">
+                  <label for="jenis_kandidat">Jenis Kandidat</label>
+                  <select name="jenis_kandidat" id="jenis_kandidat" aria-label="jenis_kandidat" class="form-control">
+                    <option value="Mahasiswa" selected>Mahasiswa Polije</option>
+                    <option value="Alumni">Alumni Polije</option>
+                    <option value="Umum">Umum</option>
+                  </select>
                 </div>
+                
+                
+                
+                
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="email">
+                  <label for="nama">Nama Lengkap</label>
+                  <input type="text" class="form-control" placeholder="Nama Lengkap" aria-label="Name" name="nama" id="nama" required>
                 </div>
-                <div class="mb-3">
-                  <input type="tel" class="form-control" placeholder="No. Telp" aria-label="No. Telp" name="no_telp">
+                <div class="mb-3" id="input-nim">
+                  <label for="nim">NIM</label>
+                  <input type="text" name="nim" id="nim" aria-label="nim" class="form-control" minlength="4" maxlength="10" required placeholder="Nim" >
                 </div>
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Nim" aria-label="Nim" name="nim">
+                <div class="mb-3" id="input-jenjang">
+                  <label for="jenjang">Jenjang</label>
+                  <select name="jenjang" id="jenjang" aria-label="jenjang" class="form-control">
+                    <option value="SMA/SMK/MA" selected>SMA/SMK/MA</option>
+                    <option value="D1">D1</option>
+                    <option value="D2">D2</option>
+                    <option value="D3">D3</option>
+                    <option value="D4/S1">D4/S1</option>
+                  </select>
                 </div>
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Mahasiswa/Alumni/Umum" aria-label="Status/Jenis Kandidat" name="jenis_kandidat">
+                <div class="row">
+                  <div class="col-lg-6 col-md-12" >
+                  </div>
+                  <div class="col-lg-6 col-md-12" >
+                  </div>
                 </div>
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="D4/S1/lainnya" aria-label="Jenjang" name="jenjang">
+                <div class="row">
+                  <div class="col-lg-6 col-md-12" id="select-jurusan">
+                    <div class="mb-3">
+                      <label for="jurusan">Jurusan</label>
+                      <select name="jurusan" id="jurusan" aria-label="jurusan" class="form-control" style="width: 100%">
+                        <option value="Produksi Pertanian" selected>Produksi Pertanian</option>
+                        <option value="Teknologi Pertanian">Teknologi Pertanian</option>
+                        <option value="Peternakan">Peternakan</option>
+                        <option value="Manajemen Agribisnis">Manajemen Agribisnis</option>
+                        <option value="Teknologi Informasi">Teknologi Informasi</option>
+                        <option value="Bahasa, Komunikasi & Pariwisata">Bahasa, Komunikasi & Pariwisata</option>
+                        <option value="Kesehatan">Kesehatan</option>
+                        <option value="Teknik">Teknik</option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <div class="col-lg-6 col-md-12" id="select-prodi">
+                    <div class="mb-3">
+                      <label for="program_studi">Program Studi</label>
+                      {{-- <input list="program_studi" name="program_studi" class="form-control">
+                        <datalist id="program_studi">
+                          <option value="Manajemen Informatika" selected></option>
+                          <option value="Teknik Komputer"></option>
+                          <option value="Teknik Informatika"></option>
+                        </datalist> --}}
+                      <select name="program_studi" id="program_studi" aria-label="program_studi" class="form-control">
+                        <option value="SMA/SMK/MA" selected>SMA/SMK/MA</option>
+                        <option value="D1">D1</option>
+                        <option value="D2">D2</option>
+                        <option value="D3">D3</option>
+                        <option value="D4/S1">D4/S1</option>
+                      </select>
+                    </div>
+
+                  </div>
                 </div>
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Jurusan" aria-label="Jurusan" name="jurusan">
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-12">
+                    <div class="mb-3">
+                      <label for="email">Email</label>
+                      <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="email" id="email" required minlength="4" maxlength="255">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-12">
+                    <div class="mb-3">
+                      <label for="no_telp">Nomor Telepon</label>
+                      <input type="tel" class="form-control" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp" required minlength="9" maxlength="15">
+                    </div>
+                  </div>
                 </div>
+                
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Prodi" aria-label="Prodi" name="program_studi">
-                </div>
-                <div class="mb-3">
-                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password" id="password" required minlength="8" maxlength="255">
                 </div>
           
                 <div class="form-check form-check-info text-start">
@@ -200,7 +265,7 @@
                 <div class="text-center">
                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2" role="button">Sign up</button>
                 </div>
-                <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;" class="text-dark font-weight-bolder">Sign in</a></p>
+                <p class="text-sm mt-3 mb-0">Already have an account? <a href="/login" class="text-dark font-weight-bolder">Sign in</a></p>
               </form>
             </div>
           </div>
@@ -267,6 +332,22 @@
   <script src="{{url('assets/login/js/core/bootstrap.min.js')}}"></script>
   <script src="{{url('assets/login/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{url('assets/login/js/plugins/smooth-scrollbar.min.js')}}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#jenis_kandidat').on('change', function() {
+        if (this.value == 'Umum') {
+          $('#input-nim').hide();
+          $('#select-prodi').hide();
+          $('#select-jurusan').hide();
+        } else {
+          $('#input-nim').show()
+          $('#select-prodi').show()
+          $('#select-jurusan').show()
+        }
+      })
+    })
+  </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

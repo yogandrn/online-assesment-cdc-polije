@@ -121,10 +121,10 @@
                   <form role="form" action="/login" method="post">
                     @csrf
                     <div class="mb-3">
-                      <input type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email" aria-label="Email" name="email" required maxlength="255" 
+                      <input type="text" id="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email" aria-label="Email" name="email" required maxlength="255" 
                       value="{{ old('email')}}">
                     @error('email')
-                        <div class="invalid-feedback" > {{$message}}</div>
+                        <div class="invalid-feedback" >{{$message}}</div>
                     @enderror
                     </div>
                     <div class="mb-3">
