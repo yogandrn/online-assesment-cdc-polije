@@ -26,7 +26,7 @@ class LoginAdminController extends Controller
 
                 return redirect()->intended('/admin/dashboard');
             } else {
-                return back()->with('login-error', 'Failed to Login!');
+                return back()->with('login-error', 'You have no access!');
             }
 
         }

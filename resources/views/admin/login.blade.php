@@ -111,23 +111,30 @@
     {{-- <div class="overlay"></div> --}}
     <br><br><br>
     <div class="row justify-content-center">
-      @if (session()->has('success'))
-                  <div class="alert alert-success alert-dismissable fade show justify-content-between" role="alert">
-                    {{session('success')}}
-                    <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close" style="text-align: end"></button>
-                  </div>
-              @endif
-              @if (session()->has('login-error'))
-                  <div class="alert alert-danger alert-dismissable fade show justify-content-between" role="alert">
-                    {{session('login-error')}}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end; display:inline-flex; "></button>
-                  </div>
-              @endif
+
       <div class="col-lg-4 col-xl-4 col-md-6 col-sm-10">
+        <h1 class="h3 mb-3 font-weight-semibold text-center">Sign In</h1>
+        @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissable fade show justify-content-between" role="alert">
+          {{session('success')}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end"></button>
+        </div>
+        @endif
+        @if (session()->has('login-error'))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('login-error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            {{-- <div class="alert alert-danger alert-dismissable fade show justify-content-between" role="alert">
+              {{session('login-error')}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end; display:inline-flex; "></button>
+            </div> --}}
+        @endif
         <form class="form-signin" method="post" action="/admin/login">
           {{-- <img class="mb-4 mt-6 text-center" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> --}}
           @csrf
-          <h1 class="h3 mb-3 font-weight-semibold text-center">Sign In</h1>
           <div class="mb-3">
             <label for="inputEmail" class="sr-only">Email address</label>
             <input type="text" id="inputEmail" class="form-control  @error('email') is-invalid @enderror" placeholder="Email address"

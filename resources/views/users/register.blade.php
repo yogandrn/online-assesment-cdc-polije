@@ -166,8 +166,8 @@
                 <div class="mb-3">
                   <label for="jenis_kandidat">Jenis Kandidat</label>
                   <select name="jenis_kandidat" id="jenis_kandidat" aria-label="jenis_kandidat" class="form-control">
-                    <option value="Mahasiswa" selected>Mahasiswa</option>
-                    <option value="Alumni">Alumni</option>
+                    <option value="Mahasiswa" selected>Mahasiswa Polije</option>
+                    <option value="Alumni">Alumni Polije</option>
                     <option value="Umum">Umum</option>
                   </select>
                 </div>
@@ -177,46 +177,54 @@
                 
                 <div class="mb-3">
                   <label for="nama">Nama Lengkap</label>
-                  <input type="text" class="form-control" placeholder="Nama Lengkap" aria-label="Name" name="nama" id="nama">
+                  <input type="text" class="form-control" placeholder="Nama Lengkap" aria-label="Name" name="nama" id="nama" required>
+                </div>
+                <div class="mb-3" id="input-nim">
+                  <label for="nim">NIM</label>
+                  <input type="text" name="nim" id="nim" aria-label="nim" class="form-control" minlength="4" maxlength="10" required placeholder="Nim" >
+                </div>
+                <div class="mb-3" id="input-jenjang">
+                  <label for="jenjang">Jenjang</label>
+                  <select name="jenjang" id="jenjang" aria-label="jenjang" class="form-control">
+                    <option value="SMA/SMK/MA" selected>SMA/SMK/MA</option>
+                    <option value="D1">D1</option>
+                    <option value="D2">D2</option>
+                    <option value="D3">D3</option>
+                    <option value="D4/S1">D4/S1</option>
+                  </select>
                 </div>
                 <div class="row">
-                  <div class="col-lg-6 col-md-12">
-                    <div class="mb-3">
-                      <label for="nim">NIM</label>
-                      <input type="text" name="nim" id="nim" aria-label="nim" class="form-control" minlength="4" maxlength="10" required placeholder="Nim" >
-                        
-                    </div>
+                  <div class="col-lg-6 col-md-12" >
                   </div>
-                  <div class="col-lg-6 col-md-12">
-                    <div class="mb-3">
-                      <label for="jenjang">Jenjang</label>
-                      <select name="jenjang" id="jenjang" aria-label="jenjang" class="form-control">
-                        <option value="SMA/SMK/MA" selected>SMA/SMK/MA</option>
-                        <option value="D1">D1</option>
-                        <option value="D2">D2</option>
-                        <option value="D3">D3</option>
-                        <option value="D4/S1">D4/S1</option>
-                      </select>
-                    </div>
+                  <div class="col-lg-6 col-md-12" >
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-6 col-md-12">
+                  <div class="col-lg-6 col-md-12" id="select-jurusan">
                     <div class="mb-3">
                       <label for="jurusan">Jurusan</label>
                       <select name="jurusan" id="jurusan" aria-label="jurusan" class="form-control" style="width: 100%">
-                        <option value="SMA/SMK/MA" selected>SMA/SMK/MA</option>
-                        <option value="D1">D1</option>
-                        <option value="D2">D2</option>
-                        <option value="D3">D3</option>
-                        <option value="D4/S1">D4/S1</option>
+                        <option value="Produksi Pertanian" selected>Produksi Pertanian</option>
+                        <option value="Teknologi Pertanian">Teknologi Pertanian</option>
+                        <option value="Peternakan">Peternakan</option>
+                        <option value="Manajemen Agribisnis">Manajemen Agribisnis</option>
+                        <option value="Teknologi Informasi">Teknologi Informasi</option>
+                        <option value="Bahasa, Komunikasi & Pariwisata">Bahasa, Komunikasi & Pariwisata</option>
+                        <option value="Kesehatan">Kesehatan</option>
+                        <option value="Teknik">Teknik</option>
                       </select>
                     </div>
 
                   </div>
-                  <div class="col-lg-6 col-md-12">
+                  <div class="col-lg-6 col-md-12" id="select-prodi">
                     <div class="mb-3">
                       <label for="program_studi">Program Studi</label>
+                      {{-- <input list="program_studi" name="program_studi" class="form-control">
+                        <datalist id="program_studi">
+                          <option value="Manajemen Informatika" selected></option>
+                          <option value="Teknik Komputer"></option>
+                          <option value="Teknik Informatika"></option>
+                        </datalist> --}}
                       <select name="program_studi" id="program_studi" aria-label="program_studi" class="form-control">
                         <option value="SMA/SMK/MA" selected>SMA/SMK/MA</option>
                         <option value="D1">D1</option>
@@ -228,18 +236,24 @@
 
                   </div>
                 </div>
-                <div class="mb-3">
-                  <label for="email">Email</label>
-                  <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="email" id="email">
-                </div>
-                <div class="mb-3">
-                  <label for="no_telp">Nomor Telepon</label>
-                  <input type="tel" class="form-control" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp">
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-12">
+                    <div class="mb-3">
+                      <label for="email">Email</label>
+                      <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="email" id="email" required minlength="4" maxlength="255">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-12">
+                    <div class="mb-3">
+                      <label for="no_telp">Nomor Telepon</label>
+                      <input type="tel" class="form-control" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp" required minlength="9" maxlength="15">
+                    </div>
+                  </div>
                 </div>
                 
                 <div class="mb-3">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password" id="password">
+                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password" id="password" required minlength="8" maxlength="255">
                 </div>
           
                 <div class="form-check form-check-info text-start">
@@ -318,6 +332,22 @@
   <script src="{{url('assets/login/js/core/bootstrap.min.js')}}"></script>
   <script src="{{url('assets/login/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{url('assets/login/js/plugins/smooth-scrollbar.min.js')}}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#jenis_kandidat').on('change', function() {
+        if (this.value == 'Umum') {
+          $('#input-nim').hide();
+          $('#select-prodi').hide();
+          $('#select-jurusan').hide();
+        } else {
+          $('#input-nim').show()
+          $('#select-prodi').show()
+          $('#select-jurusan').show()
+        }
+      })
+    })
+  </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

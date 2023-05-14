@@ -30,9 +30,9 @@ use Illuminate\Support\Facades\Route;
 
 // Route for User 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -40,7 +40,10 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('/login', [LoginAdminController::class, 'index']);
     Route::post('/login', [LoginAdminController::class, 'login']);
-    Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/kepribadian', [KepribadianController::class, 'index']);
+
+    Route::group(['middleware' => ['auth', 'admin']], function() {
+        Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('/kepribadian', [KepribadianController::class, 'index']);
+    });
 
 });
