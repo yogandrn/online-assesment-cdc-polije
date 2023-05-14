@@ -140,8 +140,8 @@
             <input type="text" id="inputEmail" class="form-control  @error('email') is-invalid @enderror" placeholder="Email address"
              required autofocus name="email" value="{{ old('email')}}">
             @error('email')
-                        <div class="invalid-feedback text-start" >{{$message}}</div>
-                    @enderror
+              <div class="invalid-feedback text-start" >{{$message}}</div>
+            @enderror
           </div>
           <div class="mb-4">
             <label for="inputPassword" class="sr-only">Password</label>

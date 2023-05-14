@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('nim')->nullable();
             $table->string('nama');
             $table->string('jenjang')->nullable();
+            $table->string('perguruan_tinggi')->nullable();
             $table->string('jurusan')->nullable();
             $table->string('program_studi')->nullable();
             $table->string('foto')->default('img/photo.png');

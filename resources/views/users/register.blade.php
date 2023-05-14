@@ -177,17 +177,22 @@
                 
                 <div class="mb-3">
                   <label for="nama">Nama Lengkap</label>
-                  <input type="text" class="form-control" placeholder="Nama Lengkap" aria-label="Name" name="nama" id="nama" required>
+                  <input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Lengkap" aria-label="Name" value="{{old('nama')}}" name="nama" id="nama" required >
+                  @error('nama')
+                    <div class="invalid-feedback text-start" >{{$message}}</div>
+                  @enderror
                 </div>
                 <div class="mb-3" id="input-nim">
                   <label for="nim">NIM</label>
-                  <input type="text" name="nim" id="nim" aria-label="nim" class="form-control" minlength="4" maxlength="10" required placeholder="Nim" >
+                  <input type="text" name="nim" id="nim" aria-label="nim" class="form-control @error('email') is-invalid @enderror" value="{{old('nim')}}" minlength="4" maxlength="10" placeholder="Nim" >
+                  @error('nim')
+                  <div class="invalid-feedback text-start" >{{$message}}</div>
+                  @enderror
                 </div>
                 <div class="mb-3" id="input-jenjang">
                   <label for="jenjang">Jenjang</label>
                   <select name="jenjang" id="jenjang" aria-label="jenjang" class="form-control">
-                    <option value="SMA/SMK/MA" selected>SMA/SMK/MA</option>
-                    <option value="D1">D1</option>
+                    <option value="D1" selected>D1</option>
                     <option value="D2">D2</option>
                     <option value="D3">D3</option>
                     <option value="D4/S1">D4/S1</option>
@@ -236,24 +241,57 @@
 
                   </div>
                 </div>
+
+                {{-- Input Jurusan dan Prodi  --}}
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-12" id="input-jurusan">
+                    <div class="mb-3">
+                      <label for="jurusan">Jurusan/Fakultas</label>
+                      <input type="text" class="form-control @error('jurusan') is-invalid @enderror" placeholder="Jurusan/Fakultas" aria-label="Jurusan" name="jurusan" id="jurusan" value="{{old('jurusan')}}" required minlength="4" maxlength="255">
+                      @error('jurusan')
+                        <div class="invalid-feedback text-start" >{{$message}}</div>
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-12" id="input-prodi">
+                    <div class="mb-3">
+                      <label for="program_studi">Program Studi</label>
+                      <input type="text" class="form-control @error('program_studi') is-invalid @enderror" placeholder="Program Studi" aria-label="Program Studi" name="program_studi" id="program_studi" value="{{old('program_studi')}}" required minlength="9" maxlength="15">
+                      @error('program_studi')
+                        <div class="invalid-feedback text-start" >{{$message}}</div>
+                      @enderror
+                    </div>
+                  </div>
+                </div>
+
+                {{-- Email dan No. Telp  --}}
                 <div class="row">
                   <div class="col-xl-6 col-lg-6 col-md-12">
                     <div class="mb-3">
                       <label for="email">Email</label>
-                      <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="email" id="email" required minlength="4" maxlength="255">
+                      <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email" aria-label="Email" name="email" id="email" value="{{old('email')}}" required minlength="4" maxlength="255">
+                      @error('email')
+                        <div class="invalid-feedback text-start" >{{$message}}</div>
+                      @enderror
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-12">
                     <div class="mb-3">
                       <label for="no_telp">Nomor Telepon</label>
-                      <input type="tel" class="form-control" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp" required minlength="9" maxlength="15">
+                      <input type="tel" class="form-control no_telp" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp" value="{{old('no_telp')}}" required minlength="9" maxlength="15">
+                      @error('no_telp')
+                      <div class="invalid-feedback text-start" >{{$message}}</div>
+                      @enderror
                     </div>
                   </div>
                 </div>
                 
                 <div class="mb-3">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password" id="password" required minlength="8" maxlength="255">
+                  <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" aria-label="Password" name="password" id="password" required minlength="8" maxlength="255">
+                  @error('password')
+                  <div class="invalid-feedback text-start" >{{$message}}</div>
+                  @enderror
                 </div>
           
                 <div class="form-check form-check-info text-start">
@@ -340,10 +378,16 @@
           $('#input-nim').hide();
           $('#select-prodi').hide();
           $('#select-jurusan').hide();
+          $('#input-jurusan').show();
+          $('#input-prodi').show();
+          $('#input-ptn').show();
         } else {
           $('#input-nim').show()
           $('#select-prodi').show()
           $('#select-jurusan').show()
+          $('#input-jurusan').hide();
+          $('#input-prodi').hide();
+          $('#input-ptn').hide();
         }
       })
     })
