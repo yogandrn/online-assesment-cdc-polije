@@ -9,6 +9,8 @@ use App\Http\Controllers\Users\LoginController;
 use App\Http\Controllers\Users\RegisterController;
 use App\Http\Controllers\Users\HomeController;
 use App\Http\Controllers\Users\MenuController;
+use App\Http\Controllers\Users\GayakepribadianController;
+use App\Http\Controllers\Users\MinatkarirController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +43,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::name('users.')->prefix('users')->group(function () {
     Route::get('/', [MenuController::class, 'index'])->middleware(['auth']);
+    Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
+    Route::get('/minatkarir', [MinatkarirController::class, 'index']);
 });
 
 // Route for Admin 
