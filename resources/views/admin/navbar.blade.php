@@ -2,7 +2,7 @@
     <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
             <!-- {{-- <h6 class="font-weight-bolder text-white mb-0">{{ $nama_halaman }}</h6> --}} -->
-            <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
+            <h3 class="font-weight-bolder text-white mb-0">{{ $title }}</h3>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <ul class="navbar-nav  justify-content-end">

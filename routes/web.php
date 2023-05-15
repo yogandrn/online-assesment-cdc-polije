@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KepribadianController;
+use App\Http\Controllers\Admin\KarirController;
+use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\LoginAdminController;
 use App\Http\Controllers\Users\LoginController;
 use App\Http\Controllers\Users\RegisterController;
@@ -37,8 +39,8 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::name('users.')->prefix('users')->group(function() {
-    Route::get('/', [MenuController::class, 'index'])->middleware('auth');
+Route::name('users.')->prefix('users')->group(function () {
+    Route::get('/', [MenuController::class, 'index']);
 });
 
 // Route for Admin 
@@ -46,9 +48,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('/login', [LoginAdminController::class, 'index']);
     Route::post('/login', [LoginAdminController::class, 'login']);
 
-    Route::group(['middleware' => ['auth', 'admin']], function() {
+    Route::group(['middleware' => ['auth', 'admin']], function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
         Route::get('/kepribadian', [KepribadianController::class, 'index']);
+        Route::get('/karir', [KarirController::class, 'index']);
+        Route::get('/profil', [ProfilController::class, 'index']);
     });
-
 });
