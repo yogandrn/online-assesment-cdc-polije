@@ -40,7 +40,7 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::name('users.')->prefix('users')->group(function () {
-    Route::get('/', [MenuController::class, 'index']);
+    Route::get('/', [MenuController::class, 'index'])->middleware(['auth']);
 });
 
 // Route for Admin 
