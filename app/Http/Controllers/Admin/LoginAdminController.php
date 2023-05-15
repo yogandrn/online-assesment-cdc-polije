@@ -28,7 +28,6 @@ class LoginAdminController extends Controller
             } else {
                 return back()->with('login-error', 'You have no access!');
             }
-
         }
 
         return back()->with('login-error', 'Failed to Login!');
@@ -40,6 +39,6 @@ class LoginAdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/admin/login');
+        return redirect('/login');
     }
 }
