@@ -19,8 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
     <!-- Nucleo Icons -->
-    {{-- <link href="/assets/administration/css/nucleo-icons.css" rel="stylesheet" /> --}}
-    {{-- <link href="{{url('assets/administration/css/nucleo-icons.css')}}" rel="stylesheet" /> --}}
+    <link href="/assets/administration/css/nucleo-icons.css" rel="stylesheet" />
     <link href="{{url('assets/administration/css/nucleo-svg.css')}}" rel="stylesheet" />
 
     <!-- Font Awesome Icons -->

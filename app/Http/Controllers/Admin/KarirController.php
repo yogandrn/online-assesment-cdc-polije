@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class KepribadianController extends Controller
+class KarirController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class KepribadianController extends Controller
      */
     public function index()
     {
-        $title = 'Gaya Kepribadian';
-        return view('admin.kepribadian')->with('title', $title);
+        $title = 'Minat Karir';
+        return view('admin.karir')->with('title', $title);
     }
 
     /**

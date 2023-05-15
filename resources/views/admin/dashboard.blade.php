@@ -2,7 +2,6 @@
 
 @section('container')
 
-<!-- Card Menu -->
 <div class="container-fluid py-4">
   <div class="row">
     <div class="col-6 col-md-4 mb-xl-0 mb-4">
