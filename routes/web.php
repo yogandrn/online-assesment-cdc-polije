@@ -3,8 +3,9 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KepribadianController;
 use App\Http\Controllers\Admin\KarirController;
-use App\Http\Controllers\Admin\ProfilController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\LoginAdminController;
+use App\Http\Controllers\Admin\LogoutAdminController;
 use App\Http\Controllers\Users\LoginController;
 use App\Http\Controllers\Users\RegisterController;
 use App\Http\Controllers\Users\HomeController;
@@ -52,6 +53,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
         Route::get('/kepribadian', [KepribadianController::class, 'index']);
         Route::get('/karir', [KarirController::class, 'index']);
-        Route::get('/profil', [ProfilController::class, 'index']);
+        Route::get('/user', [UserController::class, 'index']);
+        Route::get('/login', [LoginAdminController::class, 'logout']);
     });
 });

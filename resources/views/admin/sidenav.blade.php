@@ -37,13 +37,19 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ ($title === "Profil") ? 'active' : '' }}" href="{{ url('/admin/profil') }}">
+                <a class="nav-link {{ ($title === "User") ? 'active' : '' }}" href="{{ url('/admin/user') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Profil</span>
+                    <span class="nav-link-text ms-1">User</span>
                 </a>
             </li>
         </ul>
     </div>
+    <form action="{{url('logout')}}" method="POST" class="mx-2">
+        @csrf
+        <div class="d-flex align-items-center">
+            <button type="submit" class="btn btn-primary btn-sl btn-sl w-100 mt-3 mb-0"> <i class="fas fa-power-off text-white text-sm opacity-10"></i> Logout</button>
+        </div>
+    </form>
 </aside>

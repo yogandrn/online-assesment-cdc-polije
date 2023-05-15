@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProfilController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        $title = 'Profil';
-        return view('admin.profil')->with('title', $title);
+        $title = 'User';
+        return view('admin.user')->with('title', $title);
     }
 
     /**
