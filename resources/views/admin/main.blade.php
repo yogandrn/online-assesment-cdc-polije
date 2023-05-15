@@ -28,6 +28,9 @@
 
     <!-- CSS -->
     <link id="admintyle" href="{{url('assets/administration/css/style.css?v=2.0.2')}}" rel="stylesheet" />
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -56,6 +59,10 @@
     <script src="{{url('assets/administration/js/plugins/perfect-scrollbar.min.js')}}"></script>
     <script src="{{url('assets/administration/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script src="{{url('assets/administration/js/plugins/chartjs.min.js')}}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
     <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
 
