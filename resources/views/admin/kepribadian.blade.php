@@ -5,7 +5,7 @@
 <div class="container-fluid py-4">
     <div class="card mb-4">
         <div class="card-body px-0 pt-0 pb-2">
-            <table id="table-register" class="table table-bordered table-hover">
+            <table id="myTable" class="table table-stripped">
                 <thead>
                     <tr>
                         <th>No</th>
