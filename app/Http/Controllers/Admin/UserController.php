@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,8 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        $users = User::all();
         $title = 'User';
-        return view('admin.user')->with('title', $title);
+        return view('admin.user', compact('users'))->with('title', $title);
     }
 
     /**

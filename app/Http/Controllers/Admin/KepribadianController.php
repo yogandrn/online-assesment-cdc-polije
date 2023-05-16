@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class KepribadianController extends Controller
@@ -14,8 +15,9 @@ class KepribadianController extends Controller
      */
     public function index()
     {
+        $questions = Question::where('id_kuisioner', '1')->get();
         $title = 'Gaya Kepribadian';
-        return view('admin.kepribadian')->with('title', $title);
+        return view('admin.kepribadian', compact('questions'))->with('title', $title);
     }
 
     /**

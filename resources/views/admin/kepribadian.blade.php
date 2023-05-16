@@ -3,19 +3,37 @@
 @section('container')
 
 <div class="container-fluid py-4">
-    <div class="card mb-4">
-        <div class="card-body px-0 pt-0 pb-2">
-            <table id="myTable" class="table table-stripped">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Judul Berita</th>
-                        <th>Kategori Berita</th>
-                        <th>Nama Media</th>
-                        <th>Tanggal Berita</th>
-                    </tr>
-                </thead>
-            </table>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- <div class="card-header">
+                        <h4 class="card-title">Basic Datatable</h4>
+                    </div> -->
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="display" style="font-size: 12px">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Pertanyaan</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                @foreach($questions as $item)
+                                <tbody>
+                                    <tr>
+                                        <td>{{$loop -> iteration}}</td>
+                                        <td>{{$item -> pertanyaan}}</td>
+                                        <td>System Architect</td>
+                                    </tr>
+                                </tbody>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

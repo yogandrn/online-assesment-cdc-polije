@@ -24578,9 +24578,9 @@ hr.horizontal.gray-light {
   border-bottom: 1px solid #e9ecef;
 }
 
-.table th {
+/* .table th {
   font-weight: 600;
-}
+} */
 
 .table td .progress {
   height: 3px;

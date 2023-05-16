@@ -9,12 +9,7 @@
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-uppercase font-weight-bold">Gaya Kepribadian</p>
-                <h5 class="font-weight-bolder">
-                  1234
-                </h5>
-              </div>
+              <h5 class="text mb-0 text-uppercase font-weight-bold">Gaya Kepribadian</h5>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
@@ -30,12 +25,7 @@
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-uppercase font-weight-bold">Minat Karir</p>
-                <h5 class="font-weight-bolder">
-                  1234
-                </h5>
-              </div>
+              <h5 class="text mb-0 text-uppercase font-weight-bold">Minat Karir</h5>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
@@ -51,12 +41,7 @@
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-uppercase font-weight-bold">User Pages</p>
-                <h5 class="font-weight-bolder">
-                  1234
-                </h5>
-              </div>
+              <h5 class="text mb-0 text-uppercase font-weight-bold">User</h5>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-dark shadow-dark text-center rounded-circle">

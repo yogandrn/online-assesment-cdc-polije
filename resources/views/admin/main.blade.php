@@ -31,6 +31,8 @@
 
     <!-- Datatables -->
     <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+
+    <link href="{{url('assets/administration/tabel/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -69,6 +71,15 @@
     <Script>
         let table = new DataTable('#myTable');
     </Script>
+
+    <script src="{{url('assets/administration/tabel/vendor/global/global.min.js')}}"></script>
+    <script src="{{url('assets/administration/tabel/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+    <!-- Apex Chart -->
+    <script src="{{url('assets/administration/tabel/vendor/apexchart/apexchart.js')}}"></script>
+
+    <!-- Datatable -->
+    <script src="{{url('assets/administration/tabel/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url('assets/administration/tabel/js/plugins-init/datatables.init.js')}}"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
