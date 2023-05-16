@@ -47,8 +47,8 @@ function showQuestions() {
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement('button');
         button.innerHTML = answer.text;
-        button.classList.add("btn-outline-dark");
-        button.classList.add("btn");
+        button.classList.add("btn-outlined-dark");
+        button.classList.add("button");
         button.classList.add("w-100");
         button.classList.add("mb-3");
         button.classList.add("text-left");
@@ -85,9 +85,34 @@ function selectAnswer(e) {
             button.classList.add("btn-danger");
 
         }
+        button.classList.remove('btn-outlined-dark')
+        button.classList.add('disabled');
         button.disabled = true;
     });
     nextButton.style.display = "block";
+}
+
+function handleNextButton() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestions();
+    } else {
+        showScore();
+    }
+}
+
+nextButton.addEventListener("click", ()=> {
+    if (currentQuestionIndex < questions.length) {
+        handleNextButton();
+    } else {
+        startQuiz();
+    }
+}); 
+
+function showScore() {
+    resetState();
+    questionElement.innerHTML = "Your score is ${score}";
+
 }
 
 startQuiz();

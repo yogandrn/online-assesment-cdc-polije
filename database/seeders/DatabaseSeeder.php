@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Test;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -41,6 +42,14 @@ class DatabaseSeeder extends Seeder
             'roles' => 'ADMIN',
             'password' => Hash::make('admin123'),
 
+        ]);
+
+        Test::create([
+            'judul_kuisioner' => 'Gaya Kepribadian'
+        ]);
+
+        Test::create([
+            'judul_kuisioner' => 'Minat Karir',
         ]);
 
     }

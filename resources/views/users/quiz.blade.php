@@ -18,6 +18,36 @@
         .p-l {
             padding: 1.5rem 1.8rem 1.5rem 1.8rem; 
         }
+
+        .button {
+            display: inline-block;
+            font-weight: 400;
+            color: #212529;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0.5rem 0.8rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .btn-outlined-dark {
+            color: #343a40;
+            border-color: #343a40;
+        }
+
+        .btn-outlined-dark:hover {
+            color: #fff;
+            background-color: #343a40;
+            border-color: #343a40;
+        }
     </style>
   </head>
   <body style="background-color: #5e72e4;">
@@ -30,11 +60,11 @@
                         Gak bahaya tah ?
                     </div>
                     <div id="answer-buttons" class="mb-2">
-                        <button class="btn btn-outline-dark w-100 text-left mb-3">Yo Gak</button>
-                        <button class="btn btn-outline-dark w-100 text-left mb-3">Bahaya Poll</button>
-                        <button class="btn btn-outline-dark w-100 text-left mb-3">YNTKTS</button>
+                        <button class="button btn-outlined-dark w-100 text-left mb-3">Yo Gak</button>
+                        <button class="button btn-outlined-dark w-100 text-left mb-3">Bahaya Poll</button>
+                        <button class="button btn-outlined-dark w-100 text-left mb-3">YNTKTS</button>
                     </div>
-                    <button id="next-button" class="btn btn-primary ml-auto d-none">Next</button>
+                    <button id="next-button" class="btn btn-primary ml-auto" style="display: none;">Next</button>
                 </div>
             </div>
         </div>
