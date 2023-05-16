@@ -59,6 +59,21 @@
               </a>
             </div>
           </li>
+
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="fa fa-cogs d-lg-none d-xl-none"></i> Hallo {{auth()->user()->nama}}
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="examples/register-page.html" class="dropdown-item">
+                <i class="tim-icons icon-single-02"></i>View Profile
+              </a>
+              <a href="examples/landing-page.html" class="dropdown-item">
+                <i class="tim-icons icon-minimal-right"></i>Logout
+              </a>
+            </div>
+          </li>
+          
           <!-- @auth
           
           <li class="nav-item">

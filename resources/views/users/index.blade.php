@@ -118,18 +118,18 @@
       <div class="squares square7"></div>
       <div class="container">
         <div class="content-center brand">
-          <h2c class="h1-seo">Wellcome</h2c>
+          <h2c class="h1-seo">Welcome</h2c>
           <h3>Selamat Datang Pengguna fasilitas layanan Online Personal Assessment Test CDC Polije.</h3>
-            <a href="https://www.creative-tim.com/product/blk-design-system" class="btn btn-warning btn-sm" role="button">
+            <a href="#about" class="btn btn-warning btn-sm" data-target="#about" role="button">
               About us
             </a>
         </div>
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="about">
           <div class="container">
-            <div class="title">
+            <div class="title" >
               <h3>About us</h3>
             </div>
             <div class="row justify-content-between align-items-center">
