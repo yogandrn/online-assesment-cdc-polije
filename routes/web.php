@@ -41,6 +41,7 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+
 Route::name('users.')->prefix('users')->group(function () {
     Route::get('/', [MenuController::class, 'index'])->middleware(['auth']);
     Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
@@ -59,4 +60,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/user', [UserController::class, 'index']);
         Route::get('/logout', [LoginAdminController::class, 'logout']);
     });
+});
+
+
+// cuman nge tes
+Route::get('/test', function() {
+    return view('users.quiz');
 });
