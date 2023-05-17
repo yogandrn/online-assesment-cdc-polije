@@ -54,18 +54,35 @@
 <!-- Modal -->
 <!-- Tambah Modal -->
 <div class="modal fade" id="tambahmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="tambahmodalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tambahmodalLabel">Modal title</h5>
+                <h5 class="modal-title" id="tambahmodalLabel">Tambah Data Gaya Kepribadian</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Pertanyaan</label>
+                                <textarea class="form-control" name="pertanyaan_kepribadian" id="pertanyaan_kepribadian" type="text" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Jawaban</label>
+                                <textarea class="form-control" name="jawaban_kepribadian" id="jawaban_kepribadian" type="text" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Bobot/Nilai</label>
+                                <input class="form-control" name="nilai_kepribadian" id="nilai_kepribadian" type="text" required></input>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
@@ -76,15 +93,32 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editmodalLabel">Modal title</h5>
+                <h5 class="modal-title" id="editmodalLabel">Edit Data Gaya Kepribadian</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Pertanyaan</label>
+                                <textarea class="form-control" name="pertanyaan_kepribadian" id="pertanyaan_kepribadian" type="text" value=""></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Jawaban</label>
+                                <textarea class="form-control" name="jawaban_kepribadian" id="jawaban_kepribadian" type="text" value=""></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Bobot/Nilai</label>
+                                <input class="form-control" name="nilai_kepribadian" id="nilai_kepribadian" type="text" value=""></input>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
@@ -95,21 +129,20 @@
     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="modal-title-notification">Your attention is required</h6>
+                <h6 class="modal-title" id="modal-title-notification">Hapus Data</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="py-3 text-center">
-                    <i class="ni ni-bell-55 ni-3x"></i>
-                    <h4 class="text-gradient text-danger mt-4">You should read this!</h4>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <i class="ni ni-fat-remove ni-3x"></i>
+                    <h6 class="text-gradient text-danger mt-4">Apakah Anda yakin untuk menghapus data ini?</h6>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-white">Ok, Got it</button>
-                <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Hapus</button>
             </div>
         </div>
     </div>
