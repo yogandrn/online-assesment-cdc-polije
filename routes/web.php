@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route for User 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -43,10 +43,12 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 
 Route::name('users.')->prefix('users')->group(function () {
-    Route::get('/', [MenuController::class, 'index'])->middleware(['auth']);
-    Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
-    Route::get('/minatkarir', [MinatkarirController::class, 'index']);
-    Route::get('/minatkarir/test', [MinatkarirController::class, 'start']);
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/', [MenuController::class, 'index']);
+        Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
+        Route::get('/minatkarir', [MinatkarirController::class, 'index']);
+        Route::get('/minatkarir/test', [MinatkarirController::class, 'start']);
+    });
 });
 
 // Route for Admin 

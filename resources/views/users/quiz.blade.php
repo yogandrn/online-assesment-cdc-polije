@@ -57,12 +57,11 @@
                 <hr>
                 <div class="quiz">
                     <div id="question" class="mb-4">
-                        Gak bahaya tah ?
+                        question
                     </div>
                     <div id="answer-buttons" class="mb-2">
-                        <button class="button btn-outlined-dark w-100 text-left mb-3">Yo Gak</button>
-                        <button class="button btn-outlined-dark w-100 text-left mb-3">Bahaya Poll</button>
-                        <button class="button btn-outlined-dark w-100 text-left mb-3">YNTKTS</button>
+                        <button class="button btn-outlined-dark w-100 text-left mb-3">answer</button>
+                       
                     </div>
                     <button id="next-button" class="btn btn-primary ml-auto" style="display: none;">Next</button>
                 </div>
