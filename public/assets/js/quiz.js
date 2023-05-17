@@ -30,7 +30,7 @@ const answerButtons = document.getElementById('answer-buttons');
 const nextButton = document.getElementById('next-button');
 
 let currentQuestionIndex = 0;
-let score = 0;
+let score = parseInt(0);
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -55,6 +55,8 @@ function showQuestions() {
         answerButtons.appendChild(button);
         if (answer.point == 5) {
             button.dataset.point = answer.point;
+        } else {
+            button.dataset.point = answer.point;
         }
         console.log(button.dataset.point);
         button.addEventListener("click", selectAnswer);
@@ -71,7 +73,8 @@ function resetState() {
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const point = selectedBtn.dataset.point;
-    score += point;
+    score = parseInt(score) + parseInt(point);
+    // score += parseInt(point);
     console.log(point);
     if (point == 5) {
         selectedBtn.classList.add("btn-success");
@@ -79,7 +82,7 @@ function selectAnswer(e) {
         selectedBtn.classList.add("btn-danger");
     }
     Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.point ==5) {
+        if (button.dataset.point == 5) {
             button.classList.add("btn-success");
         } else {
             button.classList.add("btn-danger");
@@ -111,7 +114,7 @@ nextButton.addEventListener("click", ()=> {
 
 function showScore() {
     resetState();
-    questionElement.innerHTML = "Your score is ${score}";
+    questionElement.innerHTML = 'Your score is ' + parseInt(score) ;
 
 }
 

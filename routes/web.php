@@ -46,6 +46,7 @@ Route::name('users.')->prefix('users')->group(function () {
     Route::get('/', [MenuController::class, 'index'])->middleware(['auth']);
     Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
     Route::get('/minatkarir', [MinatkarirController::class, 'index']);
+    Route::get('/minatkarir/test', [MinatkarirController::class, 'start']);
 });
 
 // Route for Admin 
@@ -65,5 +66,5 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
 // cuman nge tes
 Route::get('/test', function() {
-    return view('users.quiz');
+    return view('users.test');
 });

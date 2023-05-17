@@ -52,8 +52,8 @@
   </head>
   <body style="background-color: #5e72e4;">
         <div class="row justify-content-center container mx-auto " style="margin-top: 5rem">
-            <div class="col-xl-8 col-lg-8 col-md-9 p-l bg-light border rounded shadow">
-                <h2 class="font-weight-bold">Tes Kejujuran</h2>
+            <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow">
+                <h2 class="font-weight-bold">Minat Karir</h2>
                 <hr>
                 <div class="quiz">
                     <div id="question" class="mb-4">
@@ -81,6 +81,139 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     -->
-    <script src="{{url('assets/js/quiz.js')}}"></script>
+    {{-- <script src="{{url('assets/js/quiz.js')}}"></script> --}}
+    <script>
+    //     const questions = [
+    //     {
+    //         question : 'Siapa dalang pembunuhan Munir ?',
+    //         answers : [
+    //             {text : 'SpongeBob', point : 4},
+    //             {text : 'BoboiBoy', point : 2},
+    //             {text : 'Shiva', point : 5},
+    //         ]
+    //     },
+    //     {
+    //         question : 'Apa kepanjangan PKI ?',
+    //         answers : [
+    //             {text : 'Pusat Komunikasi dan Informasi', point : 5},
+    //             {text : 'Pusat Kerajaan Indonesia', point : 1},
+    //             {text : 'Pusat Kendali Iman', point : 3},
+    //         ]
+    //     },
+    //     {
+    //         question : 'Apa yang membuat kamu kuat ?',
+    //         answers : [
+    //             {text : 'Gala', point : 5},
+    //             {text : 'Cipung', point : 4},
+    //             {text : 'Ameena', point : 3},
+    //         ]
+    //     },
+    // ];
+
+    let questions = {!! json_encode($questions) !!};
+
+
+
+    const questionElement = document.getElementById('question');
+    const answerButtons = document.getElementById('answer-buttons');
+    const nextButton = document.getElementById('next-button');
+
+    let currentQuestionIndex = 0;
+    let score = parseInt(0);
+
+    
+    function startQuiz() {
+        console.log(questions);
+        currentQuestionIndex = 0;
+        score = 0;
+        nextButton.innerHTML = 'Next';
+        showQuestions();
+    }
+
+    function showQuestions() {
+        resetState();
+        let currentQuestion = questions[currentQuestionIndex];
+        let questionNo = currentQuestionIndex +1;
+        questionElement.innerHTML = questionNo + ". " + currentQuestion.pertanyaan;
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement('button');
+            button.innerHTML = answer.jawaban;
+            button.classList.add("btn-outlined-dark");
+            button.classList.add("button");
+            button.classList.add("w-100");
+            button.classList.add("mb-3");
+            button.classList.add("text-left");
+            answerButtons.appendChild(button);
+            button.dataset.bobot = answer.bobot;
+            // if (answer.point == 5) {
+            // } else {
+            //     button.dataset.point = answer.point;
+            // }
+            console.log(button.dataset.bobot);
+            button.addEventListener("click", selectAnswer);
+        });
+    }
+
+    function resetState() {
+        nextButton.style.display = "none";
+        while (answerButtons.firstChild ) {
+            answerButtons.removeChild(answerButtons.firstChild);
+        }
+    }
+
+    function selectAnswer(e) {
+        const selectedBtn = e.target;
+        let bobot = selectedBtn.dataset.bobot;
+        score = parseInt(score) + parseInt(bobot);
+        // score += parseInt(bobot);
+        console.log(bobot);
+        // if (bobot == 5) {
+        //     selectedBtn.classList.add("btn-success");
+        // } else {
+        //     selectedBtn.classList.add("btn-danger");
+        // }
+        Array.from(answerButtons.children).forEach(button => {
+            // if (button.dataset.bobot == 5) {
+            //     button.classList.add("btn-success");
+            // } else {
+            //     button.classList.add("btn-danger");
+
+            // }
+            if (button.dataset.bobot == bobot) {
+                button.classList.add('btn-dark')
+                button.classList.remove('btn-outlined-dark')
+            }
+            button.classList.add('disabled');
+            button.disabled = true;
+        });
+        nextButton.style.display = "block";
+    }
+
+    function handleNextButton() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestions();
+        } else {
+            showScore();
+        }
+    }
+
+    nextButton.addEventListener("click", ()=> {
+        if (currentQuestionIndex < questions.length) {
+            handleNextButton();
+        } else {
+            startQuiz();
+        }
+    }); 
+
+    function showScore() {
+        resetState();
+        questionElement.innerHTML = 'Your score is ' + parseInt(score) ;
+
+    }
+
+    startQuiz();
+
+    </script>
   </body>
 </html>

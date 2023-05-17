@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Answer;
+use App\Models\Question;
 use App\Models\Test;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -22,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'yogandrn@gmail.com',
             'no_telp' => '08976863864',
             'nim' => 'e41201747',
-            'jenis_kandidat' => 'mahasiswa',
+            'jenis_kandidat' => 'Mahasiswa',
             'jenjang' => 'D4/S1',
             'jurusan' => 'Teknologi Informasi',
             'program_studi' => 'Teknik Informatika',
@@ -50,6 +52,52 @@ class DatabaseSeeder extends Seeder
 
         Test::create([
             'judul_kuisioner' => 'Minat Karir',
+        ]);
+
+        Question::create([
+            'id_kuisioner' => 1,
+            'pertanyaan' => 'Apa yang paling kamu inginkan ?',
+        ]);
+        
+        Question::create([
+            'id_kuisioner' => 1,
+            'pertanyaan' => 'Apa yang paling kamu benci ?',
+        ]);
+
+        Answer::create([
+            'id_pertanyaan' => 1,
+            'jawaban' => 'Uang',
+            'bobot' => 9,
+        ]);
+
+        Answer::create([
+            'id_pertanyaan' => 1,
+            'jawaban' => 'Puan',
+            'bobot' => 3,
+        ]);
+
+        Answer::create([
+            'id_pertanyaan' => 1,
+            'jawaban' => 'Jabatan',
+            'bobot' => 7,
+        ]);
+
+        Answer::create([
+            'id_pertanyaan' => 2,
+            'jawaban' => 'Skripsi',
+            'bobot' => 9,
+        ]);
+
+        Answer::create([
+            'id_pertanyaan' => 2,
+            'jawaban' => 'PKI',
+            'bobot' => 3,
+        ]);
+
+        Answer::create([
+            'id_pertanyaan' => 2,
+            'jawaban' => 'Project',
+            'bobot' => 7,
         ]);
 
     }
