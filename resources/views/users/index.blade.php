@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="/assets/img/logo_polije.png">
   <title>
     Online Test Assessment-CDC Polije.ac.id
   </title>
@@ -144,7 +144,7 @@
                 <div id="carouselExampleControls" class="carousel slide">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="d-block w-100" src="assets/img/denys.jpg" alt="First slide">
+                      <img class="d-block w-100" src="assets/login/img/Gedung-Pascasarjana-2.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
                       <img class="d-block w-100" src="assets/img/fabien-bazanegue.jpg" alt="Second slide">
