@@ -5,12 +5,12 @@
 <!-- Card Menu -->
     <div class="section section-examples" data-background-color="black">
         <img src="assets/img/path1.png" class="path">
-        <div class="space-50"></div>
+        <div class="space-25"></div>
         <div class="container text-center">
           <div class="row">
             <div class="col-sm-6">
               <a href="examples/Gaya Kepribadian">
-                <img src="assets/img/landing-page.png" alt="Image" class="img-raised">
+                <img src="assets/img/kepribadian.jpg" alt="Image" class="img-raised" width="400">
               </a>
               <br></br>
               <button class="btn btn-warning" data-toggle="modal" data-target="#myModal">
@@ -20,7 +20,7 @@
             </div>
             <div class="col-sm-6">
               <a href="examples/Minat Karir">
-                <img src="assets/img/profile-page.png" alt="Image" class="img-raised">
+                <img src="assets/img/minatkarir.jpg" alt="Image" class="img-raised" width="400">
               </a>
               <br></br>
               <button class="btn btn-warning" data-toggle="modal" data-target="#Modalku">
