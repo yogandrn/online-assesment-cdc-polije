@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('jenis_kandidat')->nullable();
             $table->string('nim')->nullable();
             $table->string('nama');
@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('perguruan_tinggi')->nullable();
             $table->string('jurusan')->nullable();
             $table->string('program_studi')->nullable();
-            $table->string('foto')->default('img/photo.png');
-            $table->string('ijazah')->default('img/ijazah.png');
+            $table->string('foto')->nullable();
+            $table->string('ijazah')->nullable();
             $table->string('no_telp');
             $table->string('url_linkedin')->nullable();
             $table->string('email')->unique();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuisionersTable extends Migration
+class CreatePernyataanMinatKarirTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateQuisionersTable extends Migration
      */
     public function up()
     {
-        Schema::create('quisioners', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('judul_kuisioner');
+        Schema::create('pernyataan_minat_karir', function (Blueprint $table) {
+            $table->id();
+            $table->string('pernyataan');
+            $table->foreignId('minat_karir_id')->constrained('minat_karir');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateQuisionersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quisioners');
+        Schema::dropIfExists('pernyataan_minat_karir');
     }
 }

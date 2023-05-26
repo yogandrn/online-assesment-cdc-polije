@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        
+        // $this->call([
+            
+        // ]);
         User::create([
             'nama' => 'Yoga Andrian',
             'email' => 'yogandrn@gmail.com',
@@ -46,59 +50,59 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        Test::create([
-            'judul_kuisioner' => 'Gaya Kepribadian'
-        ]);
+        // Test::create([
+        //     'judul_kuisioner' => 'Gaya Kepribadian'
+        // ]);
 
-        Test::create([
-            'judul_kuisioner' => 'Minat Karir',
-        ]);
+        // Test::create([
+        //     'judul_kuisioner' => 'Minat Karir',
+        // ]);
 
-        Question::create([
-            'id_kuisioner' => 1,
-            'pertanyaan' => 'Apa yang paling kamu inginkan ?',
-        ]);
+        // Question::create([
+        //     'id_kuisioner' => 1,
+        //     'pertanyaan' => 'Apa yang paling kamu inginkan ?',
+        // ]);
         
-        Question::create([
-            'id_kuisioner' => 1,
-            'pertanyaan' => 'Apa yang paling kamu benci ?',
-        ]);
+        // Question::create([
+        //     'id_kuisioner' => 1,
+        //     'pertanyaan' => 'Apa yang paling kamu benci ?',
+        // ]);
 
-        Answer::create([
-            'id_pertanyaan' => 1,
-            'jawaban' => 'Uang',
-            'bobot' => 9,
-        ]);
+        // Answer::create([
+        //     'id_pertanyaan' => 1,
+        //     'jawaban' => 'Uang',
+        //     'bobot' => 9,
+        // ]);
 
-        Answer::create([
-            'id_pertanyaan' => 1,
-            'jawaban' => 'Puan',
-            'bobot' => 3,
-        ]);
+        // Answer::create([
+        //     'id_pertanyaan' => 1,
+        //     'jawaban' => 'Puan',
+        //     'bobot' => 3,
+        // ]);
 
-        Answer::create([
-            'id_pertanyaan' => 1,
-            'jawaban' => 'Jabatan',
-            'bobot' => 7,
-        ]);
+        // Answer::create([
+        //     'id_pertanyaan' => 1,
+        //     'jawaban' => 'Jabatan',
+        //     'bobot' => 7,
+        // ]);
 
-        Answer::create([
-            'id_pertanyaan' => 2,
-            'jawaban' => 'Skripsi',
-            'bobot' => 9,
-        ]);
+        // Answer::create([
+        //     'id_pertanyaan' => 2,
+        //     'jawaban' => 'Skripsi',
+        //     'bobot' => 9,
+        // ]);
 
-        Answer::create([
-            'id_pertanyaan' => 2,
-            'jawaban' => 'PKI',
-            'bobot' => 3,
-        ]);
+        // Answer::create([
+        //     'id_pertanyaan' => 2,
+        //     'jawaban' => 'PKI',
+        //     'bobot' => 3,
+        // ]);
 
-        Answer::create([
-            'id_pertanyaan' => 2,
-            'jawaban' => 'Project',
-            'bobot' => 7,
-        ]);
+        // Answer::create([
+        //     'id_pertanyaan' => 2,
+        //     'jawaban' => 'Project',
+        //     'bobot' => 7,
+        // ]);
 
     }
 }
