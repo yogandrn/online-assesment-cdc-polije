@@ -17,9 +17,9 @@ class CreateHasilKepribadianTable extends Migration
             $table->id();
             $table->foreignId('test_history_id')->constrained('test_histories');
             $table->foreignId('user_id')->constrained('users');
+            $table->float('tingkat', 10, 2);
             $table->foreignId('kepribadian_id')->constrained('kepribadian');
-            $table->timestamp('created_at')->default(now());
-            $table->timestamp('updated_at')->default(now());
+            $table->timestamps();
         });
     }
 
