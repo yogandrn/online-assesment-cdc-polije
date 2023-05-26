@@ -17,7 +17,8 @@ class CreatePernyataanMinatKarirTable extends Migration
             $table->id();
             $table->string('pernyataan');
             $table->foreignId('minat_karir_id')->constrained('minat_karir');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(now());
+            $table->timestamp('updated_at')->default(now());
         });
     }
 

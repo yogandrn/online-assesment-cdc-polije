@@ -16,7 +16,8 @@ class CreatePernyataanKepribadianTable extends Migration
         Schema::create('pernyataan_kepribadian', function (Blueprint $table) {
             $table->id();
             $table->string('pernyataan');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(now());
+            $table->timestamp('updated_at')->default(now());
         });
     }
 

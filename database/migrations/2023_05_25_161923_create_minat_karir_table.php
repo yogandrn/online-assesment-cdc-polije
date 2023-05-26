@@ -18,7 +18,8 @@ class CreateMinatKarirTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('saran_karir');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(now());
+            $table->timestamp('updated_at')->default(now());
         });
     }
 

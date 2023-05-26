@@ -20,35 +20,39 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         
-        // $this->call([
-            
+        $this->call([
+           UserSeeder::class, 
+           KepribadianSeeder::class, 
+           MinatKarirSeeder::class, 
+           PernyataanKepribadianSeeder::class, 
+           PernyataanMinatKarirSeeder::class, 
+        ]);
+        // User::create([
+        //     'nama' => 'Yoga Andrian',
+        //     'email' => 'yogandrn@gmail.com',
+        //     'no_telp' => '08976863864',
+        //     'nim' => 'e41201747',
+        //     'jenis_kandidat' => 'Mahasiswa',
+        //     'jenjang' => 'D4/S1',
+        //     'jurusan' => 'Teknologi Informasi',
+        //     'program_studi' => 'Teknik Informatika',
+        //     'password' => bcrypt('password'),
+
         // ]);
-        User::create([
-            'nama' => 'Yoga Andrian',
-            'email' => 'yogandrn@gmail.com',
-            'no_telp' => '08976863864',
-            'nim' => 'e41201747',
-            'jenis_kandidat' => 'Mahasiswa',
-            'jenjang' => 'D4/S1',
-            'jurusan' => 'Teknologi Informasi',
-            'program_studi' => 'Teknik Informatika',
-            'password' => bcrypt('password'),
 
-        ]);
+        // User::create([
+        //     'nama' => 'Admin CDC',
+        //     'email' => 'admin@gmail.com',
+        //     'no_telp' => '0858550993221',
+        //     'nim' => 'e4120000',
+        //     'jenis_kandidat' => 'Administrator',
+        //     'jenjang' => 'D4/S1',
+        //     'jurusan' => 'Teknologi Informasi',
+        //     'program_studi' => 'Teknik Informatika',
+        //     'roles' => 'ADMIN',
+        //     'password' => Hash::make('admin123'),
 
-        User::create([
-            'nama' => 'Admin CDC',
-            'email' => 'admin@gmail.com',
-            'no_telp' => '0858550993221',
-            'nim' => 'e4120000',
-            'jenis_kandidat' => 'Administrator',
-            'jenjang' => 'D4/S1',
-            'jurusan' => 'Teknologi Informasi',
-            'program_studi' => 'Teknik Informatika',
-            'roles' => 'ADMIN',
-            'password' => Hash::make('admin123'),
-
-        ]);
+        // ]);
 
         // Test::create([
         //     'judul_kuisioner' => 'Gaya Kepribadian'

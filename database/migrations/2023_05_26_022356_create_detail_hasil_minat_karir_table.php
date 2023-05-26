@@ -17,7 +17,8 @@ class CreateDetailHasilMinatKarirTable extends Migration
             $table->id();
             $table->foreignId('hasil_minat_karir_id')->constrained('hasil_minat_karir');
             $table->foreignId('minat_karir_id')->constrained('minat_karir');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(now());
+            $table->timestamp('updated_at')->default(now());
         });
     }
 
