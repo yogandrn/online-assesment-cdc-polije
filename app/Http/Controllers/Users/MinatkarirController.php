@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Models\MinatKarir;
 use App\Models\PernyataanMinatKarir;
 use App\Models\Question;
+use App\Models\TestHistory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MinatkarirController extends Controller
 {
@@ -14,8 +17,26 @@ class MinatkarirController extends Controller
         return view('users.minatkarir');
     }
 
-    public function start(Request $request)
+    public function start()
     {
+        
+        
+        return view('users.start');
+        
+        // return redirect('/minatkarir/test/' . $test->id);
+    }
+    
+    public function doingTest(Request $request)
+    {
+        
+        //create test session
+        $test = TestHistory::create([
+            'user_id' => Auth::user()->id,
+            'jenis_test' => 'Minat Karir',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
         $data = array();
         $answer = [
             ['text' => 'Ya', 'point' => 1],
@@ -57,8 +78,10 @@ class MinatkarirController extends Controller
         // array_push($data, $realistic, $investigative, $artistic, $social, $enterprise, $conventional);
 
         foreach ($query as $qst) :
-            array_push($data,['pernyataan' => $qst['pernyataan'], 'type' => $qst['minat_karir_id'], 'answers' => $answer]);
+            array_push($data,['id'=> $qst['id'], 'pernyataan' => $qst['pernyataan'], 'type' => $qst['minat_karir_id'], 'answers' => $answer]);
         endforeach;
-        return view('users.quiz', ['questions' => $data]);
+        // dd($data);
+        return view('users.test-minat', ['questions' => $data, 'test_id' => $test->id]);
     }
+
 }

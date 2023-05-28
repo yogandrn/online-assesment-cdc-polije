@@ -17,7 +17,7 @@ class CreateTestHistoriesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('jenis_test');
-            $table->timestamp('started_at');
+            $table->timestamps();
         });
     }
 

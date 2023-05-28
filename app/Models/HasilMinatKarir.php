@@ -15,16 +15,16 @@ class HasilMinatKarir extends Model
 
     public function test()
     {
-        return $this->belongsTo('test_histories', 'test_history_id', 'id');
+        return $this->belongsTo(TestHistory::class, 'test_history_id', 'id');
     }
 
     public function user()
     {
-        return $this->belongsTo('users', 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function hasil()
+    public function detail()
     {
-        return $this->hasMany('detail_hasil_minat_karir', 'hasil_minat_karir_id', 'id');
+        return $this->hasMany(DetailHasilMinatKarir::class, 'hasil_minat_karir_id', 'id');
     }
 }
