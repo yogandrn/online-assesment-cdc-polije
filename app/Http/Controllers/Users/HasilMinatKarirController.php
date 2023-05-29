@@ -7,15 +7,20 @@ use App\Models\DetailHasilMinatKarir;
 use App\Models\HasilMinatKarir;
 use App\Models\TestHistory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HasilMinatKarirController extends Controller
 {
 
     public function detail($id)
     {
-        $result = HasilMinatKarir::where('test_history_id', $id)->with(['detail', 'user'])->first();
+        $result = HasilMinatKarir::where('test_history_id', $id)->with(['user'])->first();
+        $minatkarir = DetailHasilMinatKarir::where('hasil_minat_karir_id', $result->id)->orderBy('point', 'desc')->limit(2)->get();
 
-        return view('users.result', ['result' => $result]);
+        return view('users.result', ['test_data' => $result, 'hasil' => $minatkarir]);
+        // return response()->json([
+        //     'test_data' => $result, 'hasil' => $minatkarir
+        // ]);
     }
 
     public function store(Request $request)
@@ -28,7 +33,7 @@ class HasilMinatKarirController extends Controller
         $score6 = 0;
 
         $data = $request->all();
-        for ($i=1; $i <= 20; $i++) { 
+        for ($i=1; $i <= 60; $i++) { 
             if ($i > 0 && $i <= 10) {
                 $assc = strval($i);
                 $score1 = $score1 + intval($request[$assc] ?? 0);
@@ -51,12 +56,12 @@ class HasilMinatKarirController extends Controller
 
             if ($i > 40 && $i <= 50) {
                 $assc = strval($i);
-                $score4 = $score4 + intval($request[$assc] ?? 0);
+                $score5 = $score5 + intval($request[$assc] ?? 0);
             }
 
             if ($i > 50 && $i <= 60) {
                 $assc = strval($i);
-                $score4 = $score4 + intval($request[$assc] ?? 0);
+                $score6 = $score6 + intval($request[$assc] ?? 0);
             }
 
         }
@@ -66,7 +71,7 @@ class HasilMinatKarirController extends Controller
 
         $hasil = HasilMinatKarir::create([
             'test_history_id' => $request->test_history_id,
-            'user_id' => $request->test_history_id,
+            'user_id' => Auth::user()->id,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

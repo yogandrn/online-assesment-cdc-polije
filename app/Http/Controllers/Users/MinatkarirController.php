@@ -20,8 +20,7 @@ class MinatkarirController extends Controller
     public function start()
     {
         
-        
-        return view('users.start');
+        return view('users.start', ['title' => 'Minat Karir', 'route' => '/users/minatkarir/test']);
         
         // return redirect('/minatkarir/test/' . $test->id);
     }
@@ -42,7 +41,7 @@ class MinatkarirController extends Controller
             ['text' => 'Ya', 'point' => 1],
             ['text' => 'Tidak', 'point' => 0],
         ];
-        $query = PernyataanMinatKarir::orderBy('id', 'asc')->limit(20)->get();
+        $query = PernyataanMinatKarir::get();
         $realistic = array();
         $investigative = array();
         $artistic = array();

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -53,13 +54,13 @@
     
     <div class="row justify-content-center container mx-auto " style="margin-top: 5rem">
         <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow">
-            <h2 class="font-weight-bold">{{ $title }}</h2>
-            <hr>
-            <a href="{{ $route }}" role="button" class="btn btn-primary">Start</a>
-            {{-- <form action="/minatkarir/test/{{$id}}" method="get">
-            @csrf
-                <button type="submit" class="btn btn-primary">Start</button>
-            </form> --}}
+            {{-- <h2>{{$test_data['test_history_id']}}</h2> --}}
+            <br>
+            <h2>{{$test_data['user']['nama']}}</h2>
+            <h5>{{ $item['minat_karir']['name'] }}</h5>
+            <p>{!! $item['minat_karir']['description'] !!}</p>
+            <p>Karir yang disarankan : {{ $item['minat_karir']['saran_karir'] }}</p>
+
         </div>
     </div>
   </body>

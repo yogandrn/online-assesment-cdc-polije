@@ -15,16 +15,16 @@ class HasilKepribadian extends Model
 
     public function test()
     {
-        return $this->belongsTo('test_histories', 'test_history_id', 'id');
+        return $this->belongsTo(TestHistory::class, 'test_history_id', 'id');
     }
 
     public function user()
     {
-        return $this->belongsTo('users', 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function kepribadian()
     {
-        return $this->belongsTo('kepribadian', 'kepribadian_id', 'id');
+        return $this->belongsTo(Kepribadian::class, 'kepribadian_id', 'id');
     }
 }

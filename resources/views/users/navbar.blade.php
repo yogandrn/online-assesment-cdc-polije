@@ -68,9 +68,12 @@
               <a href="examples/register-page.html" class="dropdown-item">
                 <i class="tim-icons icon-single-02"></i>View Profile
               </a>
-              <a href="/" id="logout" class="dropdown-item">
-                <i class="tim-icons icon-minimal-right"></i>Logout 
-              </a>
+              <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="dropdown-item">
+                  <i class="tim-icons icon-minimal-right"></i>Logout 
+                </button>
+             
             </div>
           </li>
           

@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route for User 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
@@ -52,6 +52,10 @@ Route::name('users.')->prefix('users')->group(function () {
         Route::get('/minatkarir/test', [MinatkarirController::class, 'doingTest']);
         Route::post('/minatkarir/store', [HasilMinatKarirController::class, 'store']);
         Route::get('/minatkarir/result/{id}', [HasilMinatKarirController::class, 'detail']);
+        Route::get('/gayakepribadian/start', [GayakepribadianController::class, 'start']);
+        Route::get('/gayakepribadian/test', [GayakepribadianController::class, 'doingTest']);
+        Route::post('/gayakepribadian/store', [HasilMinatKarirController::class, 'store']);
+        Route::get('/gayakepribadian/result/{id}', [HasilMinatKarirController::class, 'detail']);
     });
 });
 

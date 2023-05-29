@@ -52,18 +52,19 @@
 
     
     <div class="row justify-content-center container mx-auto " style="margin-top: 5rem">
-        <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow">
-            <h2 class="font-weight-bold">Minat Karir</h2>
+        <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow-lg">
+            <h2 class="font-weight-bold">Gaya Kepribadian</h2>
             <hr>
             <form action="/users/minatkarir/store" method="post">
             @csrf
-                <div class="quiz ">
+                <div class="quiz">
                     <input type="hidden" name="test_history_id" value="{{ $test_id }}">
                     @php
                         $no = 1 ;
                     @endphp
                     @foreach ($questions as $question)
-                        <div class="mb-">{{$question['pernyataan']}}</div>
+                    <div class="container shadow-sm rounded mb-3 px-4 py-2">
+                        <div class="mb-1 mt-2">{{$question['pernyataan']}}</div>
                         @foreach ($question['answers'] as $item)
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="{{$question['id']}}" id="option-{{ $question['id'] . '-' . $item['text'] }}" value="{{ intval($item['point']) }}" >
@@ -76,8 +77,9 @@
                             $no++;
                         @endphp
                         @endforeach
-                        <br>
+                        
                     
+                    </div>
                     @endforeach
                     {{-- <div id="question" class="mb-4">
                         question
