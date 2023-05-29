@@ -52,21 +52,21 @@
         </div>
         <ul class="navbar-nav">
           <li class="nav-item p-0">
-            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-              <i class="fab fa-twitter"></i>
-              <p class="d-lg-none d-xl-none">Twitter</p>
+            <a class="nav-link" rel="tooltip" title="Message us on Whatsapp" data-placement="bottom" href="https://wa.me/+628113591500" target="https://wa.me/+628113591500">
+              <i class="fab fa-whatsapp"></i>
+              <p class="d-lg-none d-xl-none">Whatsapp</p>
             </a>
           </li>
           <li class="nav-item p-0">
-            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://web.facebook.com/jpc.polije?_rdc=1&_rdr" target="_blank">
               <i class="fab fa-facebook-square"></i>
               <p class="d-lg-none d-xl-none">Facebook</p>
             </a>
           </li>
           <li class="nav-item p-0">
-            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-              <i class="fab fa-instagram"></i>
-              <p class="d-lg-none d-xl-none">Instagram</p>
+            <a class="nav-link" rel="tooltip" title="Follow us on Linkedin" data-placement="bottom" href="https://www.linkedin.com/in/job-placement-center-ab33a61a4/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+              <p class="d-lg-none d-xl-none">Linkedin</p>
             </a>
           </li>
           <li class="dropdown nav-item">

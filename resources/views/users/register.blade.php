@@ -86,7 +86,7 @@
   </nav> -->
   <!-- End Navbar -->
   <main class="main-content  mt-0">
-    <div class="page-header align-items-start min-vh-40 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top; position:cover">
+    <div class="page-header align-items-start min-vh-40 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('/assets/login/img/career.jpg'); ">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
@@ -231,11 +231,11 @@
                           <option value="Teknik Informatika"></option>
                         </datalist> --}}
                       <select name="program_studi" id="program_studi" aria-label="program_studi" class="form-control">
-                        <option value="SMA/SMK/MA" selected>SMA/SMK/MA</option>
-                        <option value="D1">D1</option>
-                        <option value="D2">D2</option>
-                        <option value="D3">D3</option>
-                        <option value="D4/S1">D4/S1</option>
+                        <option value="TIF" selected>TIF</option>
+                        <option value="MIF">MIF</option>
+                        <option value="TKK">TKK</option>
+                        <option value="MIK">MIK</option>
+                        <option value="TRP">TRP</option>
                       </select>
                     </div>
 
@@ -314,7 +314,7 @@
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <footer class="footer py-5">
     <div class="container">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-8 mb-4 mx-auto text-center">
           <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Company
@@ -352,13 +352,13 @@
             <span class="text-lg fab fa-github"></span>
           </a>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="col-8 mx-auto text-center mt-1">
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> Soft by Creative Tim.
+            </script> Soft by JTI ASIK Team.
           </p>
         </div>
       </div>

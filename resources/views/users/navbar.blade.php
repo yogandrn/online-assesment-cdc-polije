@@ -27,21 +27,21 @@
         </div>
         <ul class="navbar-nav">
           <li class="nav-item p-0">
-            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-              <i class="fab fa-twitter"></i>
-              <p class="d-lg-none d-xl-none">Twitter</p>
+            <a class="nav-link" rel="tooltip" title="Message us on Whatsapp" data-placement="bottom" href="https://wa.me/+628113591500" target="https://wa.me/+628113591500">
+              <i class="fab fa-whatsapp"></i>
+              <p class="d-lg-none d-xl-none">Whatsapp</p>
             </a>
           </li>
           <li class="nav-item p-0">
-            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://web.facebook.com/jpc.polije?_rdc=1&_rdr" target="_blank">
               <i class="fab fa-facebook-square"></i>
               <p class="d-lg-none d-xl-none">Facebook</p>
             </a>
           </li>
           <li class="nav-item p-0">
-            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-              <i class="fab fa-instagram"></i>
-              <p class="d-lg-none d-xl-none">Instagram</p>
+            <a class="nav-link" rel="tooltip" title="Follow us on Linkedin" data-placement="bottom" href="https://www.linkedin.com/in/job-placement-center-ab33a61a4/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+              <p class="d-lg-none d-xl-none">Linkedin</p>
             </a>
           </li>
           <li class="dropdown nav-item">
@@ -51,10 +51,10 @@
             <div class="dropdown-menu dropdown-with-icons">
               <!-- <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
               </a> -->
-              <a href="examples/register-page.html" class="dropdown-item">
+              <a href="/users" class="dropdown-item">
                 <i class="tim-icons icon-bullet-list-67"></i>Gaya Kepribadian
               </a>
-              <a href="examples/landing-page.html" class="dropdown-item">
+              <a href="/users" class="dropdown-item">
                 <i class="tim-icons icon-image-02"></i>Minat Karir
               </a>
             </div>
@@ -68,8 +68,8 @@
               <a href="examples/register-page.html" class="dropdown-item">
                 <i class="tim-icons icon-single-02"></i>View Profile
               </a>
-              <a href="examples/landing-page.html" class="dropdown-item">
-                <i class="tim-icons icon-minimal-right"></i>Logout
+              <a href="/" id="logout" class="dropdown-item">
+                <i class="tim-icons icon-minimal-right"></i>Logout 
               </a>
             </div>
           </li>

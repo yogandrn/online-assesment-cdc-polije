@@ -5,12 +5,19 @@
 <!-- Card Menu -->
     <div class="section section-examples" data-background-color="black">
         <img src="assets/img/path1.png" class="path">
-        <div class="space-25"></div>
+        <div class="container">
+          <div class="content-center brand">
+            <p style="text-align: center;">This is Our Services</p>
+            <p style="text-align: center;">Get to Know Your Personality</p>
+          </div>
+        </div>
+        <div class="space-20"></div>
+        <br></br>
         <div class="container text-center">
           <div class="row">
             <div class="col-sm-6">
               <a href="examples/Gaya Kepribadian">
-                <img src="assets/img/kepribadian.jpg" alt="Image" class="img-raised" width="400">
+                <img src="assets/img/kepribadian.jpg" alt="Image" class="img-raised" width="350">
               </a>
               <br></br>
               <button class="btn btn-warning" data-toggle="modal" data-target="#myModal">
@@ -20,7 +27,7 @@
             </div>
             <div class="col-sm-6">
               <a href="examples/Minat Karir">
-                <img src="assets/img/minatkarir.jpg" alt="Image" class="img-raised" width="400">
+                <img src="assets/img/minatkarir.jpg" alt="Image" class="img-raised" width="350">
               </a>
               <br></br>
               <button class="btn btn-warning" data-toggle="modal" data-target="#Modalku">
