@@ -17,7 +17,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Pertanyaan</th>
+                                        <th>Pernyataan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -25,9 +25,9 @@
                                 <tbody>
                                     <tr>
                                         <td>{{$loop -> iteration}}</td>
-                                        <td>{{$item -> pertanyaan}}</td>
+                                        <td>{{$item -> pernyataan}}</td>
                                         <td>
-                                            <a href="javascript:;" class="text-warning font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#editmodal" data-original-title="Edit user">
+                                            <a href="javascript:;" class="text-warning font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#editmodal{{ $item->id }}" data-original-title="Edit user">
                                                 Edit
                                             </a>
 
@@ -41,6 +41,36 @@
                                         </td>
                                     </tr>
                                 </tbody>
+
+                                <!-- Edit Modal -->
+                                <div class="modal fade" id="editmodal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editmodalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editmodalLabel">Edit Pernyataan Gaya Kepribadian</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form method="POST" action="{{ url('admin/kepribadian/'. $item->id) }}">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-">
+                                                            <div class="form-group">
+                                                                <label for="example-text-input" class="form-control-label">Pertanyaan</label>
+                                                                <textarea class="form-control" name="input_pernyataan_kepribadian" id="pertanyaan_kepribadian" type="text">{{ $item->pernyataan }}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                 @endforeach
                             </table>
                         </div>
@@ -57,7 +87,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tambahmodalLabel">Tambah Data Gaya Kepribadian</h5>
+                <h5 class="modal-title" id="tambahmodalLabel">Tambah Pernyataan Gaya Kepribadian</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -65,16 +95,8 @@
                     <div class="row">
                         <div class="col-">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Pertanyaan</label>
+                                <label for="example-text-input" class="form-control-label">Pernyataan</label>
                                 <textarea class="form-control" name="pertanyaan_kepribadian" id="pertanyaan_kepribadian" type="text" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Jawaban</label>
-                                <textarea class="form-control" name="jawaban_kepribadian" id="jawaban_kepribadian" type="text" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Bobot/Nilai</label>
-                                <input class="form-control" name="nilai_kepribadian" id="nilai_kepribadian" type="text" required></input>
                             </div>
                         </div>
                     </div>
@@ -82,47 +104,13 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-primary">Tambah</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Edit Modal -->
-<div class="modal fade" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editmodalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editmodalLabel">Edit Data Gaya Kepribadian</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="" method="POST" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-">
-                            <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Pertanyaan</label>
-                                <textarea class="form-control" name="pertanyaan_kepribadian" id="pertanyaan_kepribadian" type="text" value=""></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Jawaban</label>
-                                <textarea class="form-control" name="jawaban_kepribadian" id="jawaban_kepribadian" type="text" value=""></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Bobot/Nilai</label>
-                                <input class="form-control" name="nilai_kepribadian" id="nilai_kepribadian" type="text" value=""></input>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary">Simpan</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- Hapus Modal -->
 <div class="modal fade" id="hapusmodal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="hapusmodal" aria-hidden="true">

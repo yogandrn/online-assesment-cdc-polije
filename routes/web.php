@@ -62,15 +62,15 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::group(['middleware' => ['auth', 'admin']], function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
-        Route::get('/kepribadian', [KepribadianController::class, 'index']);
         Route::get('/karir', [KarirController::class, 'index']);
         Route::get('/user', [UserController::class, 'index']);
         Route::get('/logout', [LoginAdminController::class, 'logout']);
     });
+    Route::resource('/kepribadian', KepribadianController::class);
 });
 
 
 // cuman nge tes
-Route::get('/test', function() {
+Route::get('/test', function () {
     return view('users.test');
 });

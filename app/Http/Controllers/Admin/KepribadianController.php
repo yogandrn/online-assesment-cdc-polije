@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Question;
+use App\Models\PernyataanKepribadian;
 use Illuminate\Http\Request;
 
 class KepribadianController extends Controller
@@ -15,7 +15,7 @@ class KepribadianController extends Controller
      */
     public function index()
     {
-        $questions = Question::where('id_kuisioner', '1')->get();
+        $questions = PernyataanKepribadian::find(1)->get();
         $title = 'Gaya Kepribadian';
         return view('admin.kepribadian', compact('questions'))->with('title', $title);
     }
@@ -70,9 +70,17 @@ class KepribadianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($request, $id)
     {
-        //
+        $pernyataanKepribadian = PernyataanKepribadian::findOrFail($id);
+
+        $pernyataanKepribadian->pernyataan = $request->input_pernyataan_kepribadian;
+
+        if ($pernyataanKepribadian->update()) {
+            return redirect('adminkepribadian')->with('success', 'Data berhasil diperbarui');
+        } else {
+            return redirect('adminkepribadian')->with('error', 'Gagal memperbarui data');
+        }
     }
 
     /**
