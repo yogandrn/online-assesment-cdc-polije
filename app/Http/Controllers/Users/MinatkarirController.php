@@ -15,7 +15,20 @@ class MinatkarirController extends Controller
 {
     public function index()
     {
-        return view('users.minatkarir');
+        $tesMinatKarir = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Minat Karir')->first();
+        $isMinatKarirAvailable = 'false';
+        $minatkarirAvailableAt = \Carbon\Carbon::now();
+        if (!$tesMinatKarir) {
+            $isMinatKarirAvailable = 'true';
+        } else {
+            if (\Carbon\Carbon::now()->subDays(90) <  $tesMinatKarir['created_at']) {
+                $isMinatKarirAvailable = 'false';
+                $minatkarirAvailableAt = \Carbon\Carbon::parse($tesMinatKarir['created_at'])->addDays(90)->format('d M Y H:i:s');
+            } else {
+                $isMinatKarirAvailable = 'true';
+            }
+        }
+        return view('users.minatkarir', ['is_available' => $isMinatKarirAvailable, 'available_at' => $minatkarirAvailableAt]);
     }
 
     public function start()

@@ -13,7 +13,20 @@ class GayakepribadianController extends Controller
 {
     public function index()
     {
-        return view('users.gayakepribadian');
+        $tesKepribadian = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Gaya Kepribadian')->first();
+        $isKepribadianAvailable = 'false';
+        $kepribadianAvailableAt = \Carbon\Carbon::now();
+        if (!$tesKepribadian) {
+            $isKepribadianAvailable = 'true';
+        } else {
+            if (\Carbon\Carbon::now()->subDays(90) <  $tesKepribadian['created_at']) {
+                $isKepribadianAvailable = 'false';
+                $kepribadianAvailableAt = \Carbon\Carbon::parse($tesKepribadian['created_at'])->addDays(90)->format('d M Y H:i:s');
+            } else {
+                $isKepribadianAvailable = 'true';
+            }
+        }
+        return view('users.gayakepribadian', ['is_available' => $isKepribadianAvailable, 'available_at' => $kepribadianAvailableAt]);
     }
 
     public function start()

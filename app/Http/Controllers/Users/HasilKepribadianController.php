@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class HasilKepribadianController extends Controller
 {
-    public function detail($id)
+    public function detail($token)
     {
-        $result = HasilKepribadian::where('test_history_id', $id)->with(['kepribadian','user'])->first();
+        $result = HasilKepribadian::where('test_token', $token)->with(['kepribadian','user'])->first();
         return view('users.hasil-kepribadian', ['hasil' => $result, ]);
         // return response()->json(['hasil' => $result, ]);
     }
@@ -54,7 +54,7 @@ class HasilKepribadianController extends Controller
         ]);
         
 
-        return redirect('/users/gayakepribadian/result/' . $hasil->id);
+        return redirect('/users/gayakepribadian/result/' . $hasil['token']);
 
     }
 }

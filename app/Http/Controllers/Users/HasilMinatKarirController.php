@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Auth;
 class HasilMinatKarirController extends Controller
 {
 
-    public function detail($id)
+    public function detail($token)
     {
-        $result = HasilMinatKarir::where('test_history_id', $id)->with(['user'])->first();
+        $result = HasilMinatKarir::where('test_token', $token)->with(['user'])->first();
         $minatkarir = DetailHasilMinatKarir::where('hasil_minat_karir_id', $result['id'])->orderBy('point', 'desc')->limit(2)->get();
 
         return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir]);
@@ -84,7 +84,7 @@ class HasilMinatKarirController extends Controller
         ]);
         
         DetailHasilMinatKarir::create([
-            'hasil_minat_karir_id' => $hasil->id,
+            'hasil_minat_karir_id' => $hasil['id'],
             'minat_karir_id' => 1,
             'point' => $score1,
             'created_at' => now(),
@@ -92,7 +92,7 @@ class HasilMinatKarirController extends Controller
         ]);
 
         DetailHasilMinatKarir::create([
-            'hasil_minat_karir_id' => $hasil->id,
+            'hasil_minat_karir_id' => $hasil['id'],
             'minat_karir_id' => 2,
             'point' => $score2,
             'created_at' => now(),
@@ -100,7 +100,7 @@ class HasilMinatKarirController extends Controller
         ]);
         
         DetailHasilMinatKarir::create([
-            'hasil_minat_karir_id' => $hasil->id,
+            'hasil_minat_karir_id' => $hasil['id'],
             'minat_karir_id' => 3,
             'point' => $score3,
             'created_at' => now(),
@@ -108,7 +108,7 @@ class HasilMinatKarirController extends Controller
         ]);
 
         DetailHasilMinatKarir::create([
-            'hasil_minat_karir_id' => $hasil->id,
+            'hasil_minat_karir_id' => $hasil['id'],
             'minat_karir_id' => 4,
             'point' => $score4,
             'created_at' => now(),
@@ -116,7 +116,7 @@ class HasilMinatKarirController extends Controller
         ]);
         
         DetailHasilMinatKarir::create([
-            'hasil_minat_karir_id' => $hasil->id,
+            'hasil_minat_karir_id' => $hasil['id'],
             'minat_karir_id' => 5,
             'point' => $score5,
             'created_at' => now(),
@@ -124,7 +124,7 @@ class HasilMinatKarirController extends Controller
         ]);
 
         DetailHasilMinatKarir::create([
-            'hasil_minat_karir_id' => $hasil->id,
+            'hasil_minat_karir_id' => $hasil['id'],
             'minat_karir_id' => 6,
             'point' => $score6,
             'created_at' => now(),
@@ -133,7 +133,7 @@ class HasilMinatKarirController extends Controller
 
         $test = TestHistory::find($request->test_history_id);
 
-        return redirect('/users/minatkarir/result/' . $hasil->id);
+        return redirect('/users/minatkarir/result/' . $hasil['token']);
 
     }
 

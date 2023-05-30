@@ -40,8 +40,8 @@ Route::get('/', [HomeController::class, 'index'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'register']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/register', [RegisterController::class, 'register'])->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 
 Route::name('users.')->prefix('users')->group(function () {
@@ -49,12 +49,12 @@ Route::name('users.')->prefix('users')->group(function () {
         Route::get('/', [MenuController::class, 'index'])->name('home');
         Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
         Route::get('/minatkarir', [MinatkarirController::class, 'index']);
-        Route::get('/minatkarir/start', [MinatkarirController::class, 'start']);
+        // Route::get('/minatkarir/start', [MinatkarirController::class, 'start']);
         Route::post('/minatkarir/start', [MinatkarirController::class, 'startTest']);
         Route::get('/minatkarir/test/{token}', [MinatkarirController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/minatkarir/store', [HasilMinatKarirController::class, 'store']);
-        Route::get('/minatkarir/result/{id}', [HasilMinatKarirController::class, 'detail']);
-        Route::get('/gayakepribadian/start', [GayakepribadianController::class, 'start']);
+        Route::get('/minatkarir/result/{token}', [HasilMinatKarirController::class, 'detail']);
+        // Route::get('/gayakepribadian/start', [GayakepribadianController::class, 'start']);
         Route::post('/gayakepribadian/start', [GayakepribadianController::class, 'startTest']);
         Route::get('/gayakepribadian/test/{token}', [GayakepribadianController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/gayakepribadian/store', [HasilKepribadianController::class, 'store']);

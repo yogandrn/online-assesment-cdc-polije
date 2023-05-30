@@ -64,7 +64,7 @@
                         $no = 1 ;
                     @endphp
                     @foreach ($questions as $question)
-                    <div class="container shadow-sm rounded mb-3 px-4 py-2">
+                    <div class="container shadow-sm rounded mb-3 px-4 py-2" style="border: 0.8px solid #949494">
                         <div class="mb-1 mt-2">{{$question['pernyataan']}}</div>
                         @foreach ($question['answers'] as $item)
                         <div class="form-check">

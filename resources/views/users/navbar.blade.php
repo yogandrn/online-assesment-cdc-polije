@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-transparent" color-on-scroll="dark">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/blk-design-system/index.html" rel="tooltip" title="Designed and Coded by JTI ASIK Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="/" rel="tooltip" title="Designed and Coded by JTI ASIK Tim" data-placement="bottom" target="self">
           <span>CDC Polije•</span> Online Assessment Test
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a>
-                Weelcome•
+                Welcome•
               </a>
             </div>
             <div class="col-6 collapse-close text-right">
@@ -51,10 +51,10 @@
             <div class="dropdown-menu dropdown-with-icons">
               <!-- <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
               </a> -->
-              <a href="/users" class="dropdown-item">
+              <a href="/users/gayakepribadian" class="dropdown-item">
                 <i class="tim-icons icon-bullet-list-67"></i>Gaya Kepribadian
               </a>
-              <a href="/users" class="dropdown-item">
+              <a href="/users/minatkarir" class="dropdown-item">
                 <i class="tim-icons icon-image-02"></i>Minat Karir
               </a>
             </div>
@@ -65,36 +65,18 @@
               <i class="fa fa-cogs d-lg-none d-xl-none"></i> Hallo {{auth()->user()->nama}}
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              <a href="examples/register-page.html" class="dropdown-item">
+              <a href="/users/profile/{{ auth()->user()->id }}" class="dropdown-item">
                 <i class="tim-icons icon-single-02"></i>View Profile
               </a>
               <form action="/logout" method="post">
                 @csrf
-                <button type="submit" class="dropdown-item">
+                <button type="submit" class="dropdown-item" onclick="return confirm('Apakah Anda yakin ingin logout?');">
                   <i class="tim-icons icon-minimal-right"></i>Logout 
                 </button>
              
             </div>
           </li>
           
-          <!-- @auth
-          
-          <li class="nav-item">
-            <form action="/logout" method="post">
-              @csrf
-            <button type="submit" class="nav-link btn btn-default d-none d-lg-block"role="button">Logout</button></form>
-            {{-- <a class="nav-link btn btn-default d-none d-lg-block" href="javascript:void(0)" >
-               Logout
-            </a> --}}
-          </li>
-          @else
-
-          <li class="nav-item">
-            <a class="nav-link btn btn-warning d-none d-lg-block" href="/login">
-              Login
-            </a>
-          </li>
-          @endauth -->
         </ul>
       </div>
     </div>
