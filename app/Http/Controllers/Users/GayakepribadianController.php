@@ -68,6 +68,6 @@ class GayakepribadianController extends Controller
             array_push($data,['id'=> $qst['id'], 'pernyataan' => $qst['pernyataan'], 'answers' => $answer]);
         endforeach;
         // dd($data);
-        return view('users.test-minat', ['questions' => $data, 'test_id' => $test->id]);
+        return view('users.test-kepribadian', ['questions' => $data, 'test_id' => $test->id]);
     }
 }

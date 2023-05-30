@@ -353,7 +353,7 @@ class PernyataanMinatKarirSeeder extends Seeder
             'updated_at' => now(),
         ]);
         PernyataanMinatKarir::create([
-            'pernyataan' => 'Saya memiliki kemampuan organisasi dan pengaturan yang baik,',
+            'pernyataan' => 'Saya memiliki kemampuan organisasi dan pengaturan yang baik.',
             'minat_karir_id' => 6,
             'created_at' => now(),
             'updated_at' => now(),

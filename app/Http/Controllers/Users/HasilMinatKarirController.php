@@ -17,7 +17,7 @@ class HasilMinatKarirController extends Controller
         $result = HasilMinatKarir::where('test_history_id', $id)->with(['user'])->first();
         $minatkarir = DetailHasilMinatKarir::where('hasil_minat_karir_id', $result->id)->orderBy('point', 'desc')->limit(2)->get();
 
-        return view('users.result', ['test_data' => $result, 'hasil' => $minatkarir]);
+        return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir]);
         // return response()->json([
         //     'test_data' => $result, 'hasil' => $minatkarir
         // ]);

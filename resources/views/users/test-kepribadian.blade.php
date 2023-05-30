@@ -55,7 +55,7 @@
         <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow">
             <h2 class="font-weight-bold">Minat Karir</h2>
             <hr>
-            <form action="/users/minatkarir/store" method="post">
+            <form action="/users/gayakepribadian/store" method="post">
             @csrf
                 <div class="quiz ">
                     <input type="hidden" name="test_history_id" value="{{ $test_id }}">
@@ -63,7 +63,8 @@
                         $no = 1 ;
                     @endphp
                     @foreach ($questions as $question)
-                        <div class="mb-">{{$question['pernyataan']}}</div>
+                    <div class="container shadow-sm rounded mb-3 px-4 py-2" style="border: 0.8px solid #949494">
+                        <div class="mb-1 mt-2">{{$question['pernyataan']}}</div>
                         @foreach ($question['answers'] as $item)
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="{{$question['id']}}" id="option-{{ $question['id'] . '-' . $item['text'] }}" value="{{ intval($item['point']) }}" >
@@ -77,6 +78,7 @@
                         @endphp
                         @endforeach
                         <br>
+                    </div>
                     
                     @endforeach
                     {{-- <div id="question" class="mb-4">
@@ -85,7 +87,7 @@
                     <div id="answer-buttons" class="mb-2">
                         <button class="button btn-outlined-dark w-100 text-left mb-3">answer</button>
                     </div> --}}
-                    <button type="submit" id="next-button" class="btn btn-primary ml-auto" style="display: block;">Next</button>
+                    <button type="submit" id="next-button" class="btn btn-primary ml-auto" style="display: block;">Submit</button>
                 </div>
             </form>
         </div>

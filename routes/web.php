@@ -10,6 +10,7 @@ use App\Http\Controllers\Users\RegisterController;
 use App\Http\Controllers\Users\HomeController;
 use App\Http\Controllers\Users\MenuController;
 use App\Http\Controllers\Users\GayakepribadianController;
+use App\Http\Controllers\Users\HasilKepribadianController;
 use App\Http\Controllers\Users\HasilMinatKarirController;
 use App\Http\Controllers\Users\MinatkarirController;
 use Illuminate\Support\Facades\Route;
@@ -54,8 +55,8 @@ Route::name('users.')->prefix('users')->group(function () {
         Route::get('/minatkarir/result/{id}', [HasilMinatKarirController::class, 'detail']);
         Route::get('/gayakepribadian/start', [GayakepribadianController::class, 'start']);
         Route::get('/gayakepribadian/test', [GayakepribadianController::class, 'doingTest']);
-        Route::post('/gayakepribadian/store', [HasilMinatKarirController::class, 'store']);
-        Route::get('/gayakepribadian/result/{id}', [HasilMinatKarirController::class, 'detail']);
+        Route::post('/gayakepribadian/store', [HasilKepribadianController::class, 'store']);
+        Route::get('/gayakepribadian/result/{id}', [HasilKepribadianController::class, 'detail']);
     });
 });
 

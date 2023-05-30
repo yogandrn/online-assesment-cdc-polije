@@ -54,13 +54,12 @@
     
     <div class="row justify-content-center container mx-auto " style="margin-top: 5rem">
         <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow">
-            {{-- <h2>{{$test_data['test_history_id']}}</h2> --}}
             <br>
-            <h2>{{$test_data['user']['nama']}}</h2>
-            <h5>{{ $item['minat_karir']['name'] }}</h5>
-            <p>{!! $item['minat_karir']['description'] !!}</p>
-            <p>Karir yang disarankan : {{ $item['minat_karir']['saran_karir'] }}</p>
-
+            <h2>{{$hasil['user']['nama']}}</h2>
+            <h5>{{ $hasil['kepribadian']['name'] }}</h5>
+            <p>{!! $hasil['kepribadian']['description'] !!}</p>
+            <hr>
+            <p>Karir yang disarankan : {!! $hasil['kepribadian']['saran_karir'] !!}</p>
         </div>
     </div>
   </body>
