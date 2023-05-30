@@ -19,16 +19,17 @@ class IsDoingTest
     public function handle(Request $request, Closure $next)
     {
 
-        $test = TestHistory::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first();
-        if (!$test) {
-            return route('users.home');
+        $test = TestHistory::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first(); //cari history test terkini
+
+        if (!$test) { // jika tidak ada
+            return redirect('/users');
+        }
+        
+        if ($test['status'] == 'FINISHED') { //jika tes nya sudah selesai
+            return redirect('/users');
         }
 
-        if ($test['status'] == 'FINISHED') {
-            return route('users.home');
-        }
-
-        return $next($request);
+        return $next($request); // handle next request 
 
     }
 }

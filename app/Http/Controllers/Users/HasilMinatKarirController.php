@@ -15,7 +15,7 @@ class HasilMinatKarirController extends Controller
     public function detail($id)
     {
         $result = HasilMinatKarir::where('test_history_id', $id)->with(['user'])->first();
-        $minatkarir = DetailHasilMinatKarir::where('hasil_minat_karir_id', $result->id)->orderBy('point', 'desc')->limit(2)->get();
+        $minatkarir = DetailHasilMinatKarir::where('hasil_minat_karir_id', $result['id'])->orderBy('point', 'desc')->limit(2)->get();
 
         return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir]);
         // return response()->json([
@@ -25,6 +25,12 @@ class HasilMinatKarirController extends Controller
 
     public function store(Request $request)
     {
+
+        TestHistory::where('id', $request->test_history_id)->update([
+            'status' => 'FINISHED',
+            'updated_at' => now(),
+        ]);
+
         $score1 = 0;
         $score2 = 0;
         $score3 = 0;
@@ -72,6 +78,7 @@ class HasilMinatKarirController extends Controller
         $hasil = HasilMinatKarir::create([
             'test_history_id' => $request->test_history_id,
             'user_id' => Auth::user()->id,
+            'test_token' => $request->token,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
