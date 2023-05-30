@@ -16,16 +16,16 @@ class KepribadianSeeder extends Seeder
     public function run()
     {
         Kepribadian::create([
-            'name' => 'Conscientiousness',
-            'description' => "Kepribadian ini adalah salah satu dimensi dari kepribadian big-five. Individu yang tinggi pada dimensi ini cenderung teratur, terorganisasi, ambisius, fokus pada pencapaian, dan disiplin. Orang yang mendapat skor tinggi dalam dimensi kepribadian ini memiliki sifat yang optimis, stabil secara emosional , terorganisir, berorientasi pada detail, dan baik dalam perencanaan.<br/>Conscientiousness, dengan kata lain sungguh-sungguh dalam melakukan tugas, bertanggung jawab, dapat diandalkan, menyukai keteraturan dan kedisiplinan. Di dalam kehidupan sehari-hari mereka tampil sebagai seorang yang hadir tepat waktu, berprestasi, teliti, dan suka melakukan pekerjaan hingga tuntas. Hal-hal yang akan mereka lakukan cenderung dipikirkan terlebih dahulu secara matang dan well organized. Ketika dihadapkan pada suatu tugas atau pekerjaan, mereka yang berkepribadian ini juga lebih mudah untuk fokus dalam menyelesaikannya sehingga rela untuk menomorduakan kesenangan pribadi dan patuh.",
-            'saran_karir' => "Akuntan, Manager, Pegawai Kantoran, Pegawai Bank, Pegawai BUMN, PNS",
+            'name' => 'High Conscientiousness',
+            'description' => "Anda memiliki kepribadian Conscientiousness tinggi. <br> Dimensi kepribadian conscientiousness merupakan sifat teratur dan berhati-hati yang ada dalam diri seseorang. Individu dengan nilai conscientiousness tinggi digambarkan sebagai seseorang yang cenderung berhati-hati dalam melakukan suatu tindakan, penuh pertimbangan dalam mengambil keputusan, memiliki disiplin diri yang tinggi, penuh tanggung jawab, sangat teratur, berorientasi pada hasil pekerjaan yang optimal, dan dapat diandalkan dalam pekerjaannya.",
+            'saran_karir' => "Petugas administrasi, pekerja kantoran, pegawai bank, dan manager.",
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         Kepribadian::create([
-            'name' => 'Non-Conscientiousness',
-            'description' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sed maiores saepe, perspiciatis hic fugiat, nesciunt optio beatae sint dolore inventore cupiditate ab omnis veritatis.<br/>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sed maiores saepe, perspiciatis hic fugiat, nesciunt optio beatae sint dolore inventore cupiditate ab omnis veritatis.",
-            'saran_karir' => "Seniman, Konten Kreator",
+            'name' => 'Low-Conscientiousness',
+            'description' => "Anda memiliki kepribadian Conscientiousness yang rendah. <br> individu dengan nilai conscientiousness rendah digambarkan sebagai individu yang cenderung kurang berhati-hati dalam menyelesaikan pekerjaan, cenderung terburu-buru baik dalam bertindak atau mengambil keputusan, cenderung kurang teratur, kurang bisa bertanggung jawab, hasil pekerjaan apa adanya, dan kurang dapat diandalkan dalam melakukan pekerjaan.",
+            'saran_karir' => "seniman, desainer grafis, penulis, musisi, pemandu wisata, fotografer, videografer, marketing",
             'created_at' => now(),
             'updated_at' => now(),
         ]);
