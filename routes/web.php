@@ -69,11 +69,12 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::group(['middleware' => ['auth', 'admin']], function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('/kepribadian', [KepribadianController::class, 'index'])->name("kepribadian");
+        Route::post('/kepribadianupdate/{id}', [KepribadianController::class, 'update'])->name("kepribadianupdate");
         Route::get('/karir', [KarirController::class, 'index']);
         Route::get('/user', [UserController::class, 'index']);
         Route::get('/logout', [LoginAdminController::class, 'logout']);
     });
-    Route::resource('/kepribadian', KepribadianController::class);
 });
 
 
