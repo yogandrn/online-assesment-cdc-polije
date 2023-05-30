@@ -70,16 +70,14 @@ class KepribadianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($request, $id)
+    public function update(Request $request, $id = null)
     {
-        $pernyataanKepribadian = PernyataanKepribadian::findOrFail($id);
-
-        $pernyataanKepribadian->pernyataan = $request->input_pernyataan_kepribadian;
-
-        if ($pernyataanKepribadian->update()) {
-            return redirect('adminkepribadian')->with('success', 'Data berhasil diperbarui');
-        } else {
-            return redirect('adminkepribadian')->with('error', 'Gagal memperbarui data');
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            PernyataanKepribadian::where(['id' => $id])->update([
+                'pernyataan' => $data['input_pernyataan_kepribadian'],
+            ]);
+            return redirect()->back()->with('success', 'Update Berhasil');
         }
     }
 
@@ -91,6 +89,12 @@ class KepribadianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $questions = PernyataanKepribadian::findOrFail($id);
+
+        if ($questions->delete()) {
+            return redirect('pernyataan')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect('pernyataan')->with('error', 'Gagal menghapus data');
+        }
     }
 }

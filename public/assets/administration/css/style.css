@@ -56,7 +56,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #67748e;
+  --bs-body-color: #344767;
   --bs-body-bg: #fff;
   --bs-border-width: 1px;
   --bs-border-style: solid;
@@ -2455,15 +2455,15 @@ progress {
 }
 
 .table {
-  --bs-table-color: #67748e;
+  --bs-table-color: #344767;
   --bs-table-bg: transparent;
   --bs-table-border-color: #e9ecef;
   --bs-table-accent-bg: transparent;
-  --bs-table-striped-color: #67748e;
+  --bs-table-striped-color: #344767;
   --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
-  --bs-table-active-color: #67748e;
+  --bs-table-active-color: #344767;
   --bs-table-active-bg: rgba(0, 0, 0, 0.1);
-  --bs-table-hover-color: #67748e;
+  --bs-table-hover-color: #344767;
   --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
   width: 100%;
   margin-bottom: 1rem;
@@ -3585,7 +3585,7 @@ textarea.form-control.is-invalid {
   --bs-btn-font-size: 0.875rem;
   --bs-btn-font-weight: 700;
   --bs-btn-line-height: 1.5;
-  --bs-btn-color: #67748e;
+  --bs-btn-color: #344767;
   --bs-btn-bg: transparent;
   --bs-btn-border-width: 1px;
   --bs-btn-border-color: transparent;
@@ -4067,7 +4067,7 @@ fieldset:disabled .btn {
   --bs-dropdown-padding-y: 0.5rem;
   --bs-dropdown-spacer: 1.625rem;
   --bs-dropdown-font-size: 0.875rem;
-  --bs-dropdown-color: #67748e;
+  --bs-dropdown-color: #344767;
   --bs-dropdown-bg: #fff;
   --bs-dropdown-border-color: transparent;
   --bs-dropdown-border-radius: 0.5rem;
@@ -4076,10 +4076,10 @@ fieldset:disabled .btn {
   --bs-dropdown-divider-bg: transparent;
   --bs-dropdown-divider-margin-y: 0.5rem;
   --bs-dropdown-box-shadow: 0 8px 26px -4px rgba(20, 20, 20, 0.15), 0 8px 9px -5px rgba(20, 20, 20, 0.06);
-  --bs-dropdown-link-color: #67748e;
+  --bs-dropdown-link-color: #344767;
   --bs-dropdown-link-hover-color: #344767;
   --bs-dropdown-link-hover-bg: #e9ecef;
-  --bs-dropdown-link-active-color: #67748e;
+  --bs-dropdown-link-active-color: #344767;
   --bs-dropdown-link-active-bg: transparent;
   --bs-dropdown-link-disabled-color: #6c757d;
   --bs-dropdown-item-padding-x: 1rem;
@@ -4382,7 +4382,7 @@ fieldset:disabled .btn {
   --bs-dropdown-link-hover-color: #fff;
   --bs-dropdown-divider-bg: transparent;
   --bs-dropdown-link-hover-bg: rgba(255, 255, 255, 0.15);
-  --bs-dropdown-link-active-color: #67748e;
+  --bs-dropdown-link-active-color: #344767;
   --bs-dropdown-link-active-bg: transparent;
   --bs-dropdown-link-disabled-color: #adb5bd;
   --bs-dropdown-header-color: #adb5bd;
@@ -5338,7 +5338,7 @@ fieldset:disabled .btn {
   --bs-accordion-inner-border-radius: 0.25rem;
   --bs-accordion-btn-padding-x: 1rem;
   --bs-accordion-btn-padding-y: 1rem;
-  --bs-accordion-btn-color: #67748e;
+  --bs-accordion-btn-color: #344767;
   --bs-accordion-btn-bg: transparent;
   --bs-accordion-btn-icon: none;
   --bs-accordion-btn-icon-width: 1rem;
@@ -5841,7 +5841,7 @@ fieldset:disabled .btn {
   --bs-list-group-action-color: #495057;
   --bs-list-group-action-hover-color: #495057;
   --bs-list-group-action-hover-bg: #f8f9fa;
-  --bs-list-group-action-active-color: #67748e;
+  --bs-list-group-action-active-color: #344767;
   --bs-list-group-action-active-bg: #e9ecef;
   --bs-list-group-disabled-color: #6c757d;
   --bs-list-group-disabled-bg: #fff;
@@ -6839,7 +6839,7 @@ fieldset:disabled .btn {
   --bs-popover-header-bg: #e9ecef;
   --bs-popover-body-padding-x: 1rem;
   --bs-popover-body-padding-y: 1rem;
-  --bs-popover-body-color: #67748e;
+  --bs-popover-body-color: #344767;
   --bs-popover-arrow-width: 1rem;
   --bs-popover-arrow-height: 0.5rem;
   --bs-popover-arrow-border: var(--bs-popover-border-color);
@@ -10544,7 +10544,7 @@ fieldset:disabled .btn {
 }
 
 .text-body {
-  color: #67748e !important;
+  color: #344767 !important;
 }
 
 .text-muted {
@@ -20300,7 +20300,7 @@ fieldset:disabled .btn {
 }
 
 .btn.bg-white:hover {
-  color: #67748e;
+  color: #344767;
 }
 
 .btn.btn-link {
@@ -22336,7 +22336,7 @@ hr.horizontal.gray-light {
 
 .navbar .sidenav-toggler-inner .sidenav-toggler-line {
   transition: all 0.15s ease;
-  background: #67748e;
+  background: #344767;
   border-radius: 0.125rem;
   position: relative;
   display: block;
@@ -22486,7 +22486,7 @@ hr.horizontal.gray-light {
   padding-left: 1rem;
   padding-right: 1rem;
   font-weight: 500;
-  color: #67748e;
+  color: #344767;
 }
 
 .navbar-vertical .navbar-nav .nav-link>i {
@@ -25024,7 +25024,7 @@ p {
 }
 
 .text-muted {
-  color: #67748e !important;
+  color: #344767 !important;
 }
 
 .text-black-50 {
