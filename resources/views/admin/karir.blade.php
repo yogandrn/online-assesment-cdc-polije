@@ -17,15 +17,15 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Pertanyaan</th>
+                                        <th>Pernyataan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                @foreach($carrier as $item)
+                                @foreach($questions as $item)
                                 <tbody>
                                     <tr>
                                         <td>{{$loop -> iteration}}</td>
-                                        <td>{{$item -> pertanyaan}}</td>
+                                        <td>{{$item -> pernyataan}}</td>
                                         <td>
                                             <a href="javascript:;" class="text-warning font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#editmodal" data-original-title="Edit user">
                                                 Edit

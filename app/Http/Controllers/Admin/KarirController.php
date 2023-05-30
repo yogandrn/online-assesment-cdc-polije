@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Question;
-use App\Models\Test;
+use App\Models\PernyataanMinatKarir;
 use Illuminate\Http\Request;
 
 class KarirController extends Controller
@@ -16,9 +15,9 @@ class KarirController extends Controller
      */
     public function index()
     {
-        $carrier = Question::where('id_kuisioner', '2')->get();
+        $questions = PernyataanMinatKarir::find(1)->get();
         $title = 'Minat Karir';
-        return view('admin.karir', compact('carrier'))->with('title', $title);
+        return view('admin.karir', compact('questions'))->with('title', $title);
     }
 
     /**
