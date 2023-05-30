@@ -59,6 +59,7 @@
             @csrf
                 <div class="quiz ">
                     <input type="hidden" name="test_history_id" value="{{ $test_id }}">
+                    <input type="hidden" name="token" value="{{ $token }}">
                     @php
                         $no = 1 ;
                     @endphp

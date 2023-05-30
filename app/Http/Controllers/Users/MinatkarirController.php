@@ -9,6 +9,7 @@ use App\Models\Question;
 use App\Models\TestHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class MinatkarirController extends Controller
 {
@@ -19,22 +20,37 @@ class MinatkarirController extends Controller
 
     public function start()
     {
-        
-        return view('users.start', ['title' => 'Minat Karir', 'route' => '/users/minatkarir/test']);
+        return view('users.start', ['title' => 'Minat Karir', 'route' => '/users/minatkarir/start']);
         
         // return redirect('/minatkarir/test/' . $test->id);
     }
-    
-    public function doingTest(Request $request)
+
+    public function startTest(Request $request)
     {
-        
-        //create test session
         $test = TestHistory::create([
             'user_id' => Auth::user()->id,
             'jenis_test' => 'Minat Karir',
+            'token' => Str::random(40),
+            'status' => 'STARTED',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        // $request->session()->put('test', $test->token);
+
+        return redirect('/users/minatkarir/test/' . $test->token);
+    }
+    
+    public function doingTest($token)
+    {
+        
+        //create test session
+        // $test = TestHistory::create([
+        //     'user_id' => Auth::user()->id,
+        //     'jenis_test' => 'Minat Karir',
+        //     'created_at' => now(),
+        //     'updated_at' => now(),
+        // ]);
 
         $data = array();
         $answer = [
@@ -79,8 +95,13 @@ class MinatkarirController extends Controller
         foreach ($query as $qst) :
             array_push($data,['id'=> $qst['id'], 'pernyataan' => $qst['pernyataan'], 'type' => $qst['minat_karir_id'], 'answers' => $answer]);
         endforeach;
-        // dd($data);
-        return view('users.test-minat', ['questions' => $data, 'test_id' => $test->id]);
+        
+        $test = TestHistory::where('token', $token)->first();
+        if (!$test) {
+            return redirect()->intended('/users');
+        }
+
+        return view('users.test-minat', ['questions' => $data, 'token' => $token, 'test_id' => $test->id]);
     }
 
 }

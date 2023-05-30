@@ -53,12 +53,13 @@
     
     <div class="row justify-content-center container mx-auto " style="margin-top: 5rem">
         <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow-lg">
-            <h2 class="font-weight-bold">Gaya Kepribadian</h2>
+            <h2 class="font-weight-bold">Test Minat Karir</h2>
             <hr>
             <form action="/users/minatkarir/store" method="post">
             @csrf
                 <div class="quiz">
                     <input type="hidden" name="test_history_id" value="{{ $test_id }}">
+                    <input type="hidden" name="token" value="{{ $token }}">
                     @php
                         $no = 1 ;
                     @endphp

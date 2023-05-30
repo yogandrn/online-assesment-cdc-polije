@@ -7,6 +7,7 @@ use App\Models\PernyataanKepribadian;
 use App\Models\TestHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class GayakepribadianController extends Controller
 {
@@ -17,18 +18,38 @@ class GayakepribadianController extends Controller
 
     public function start()
     {
-        return view('users.start', ['title' => 'Gaya Kepribadian', 'route' => '/users/gayakepribadian/test']);
+        return view('users.start', ['title' => 'Gaya Kepribadian', 'route' => '/users/gayakepribadian/start']);
     }
 
-    public function doingTest()
+    public function startTest(Request $request)
     {
-                //create test session
         $test = TestHistory::create([
             'user_id' => Auth::user()->id,
             'jenis_test' => 'Gaya Kepribadian',
+            'token' => Str::random(40),
+            'status' => 'STARTED',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        // $request->session()->put('test', $test->token);
+
+        return redirect('/users/gayakepribadian/test/' . $test->token);
+    }
+
+    public function doingTest($token)
+    {
+                //create test session
+        // $test = TestHistory::create([
+        //     'user_id' => Auth::user()->id,
+        //     'jenis_test' => 'Gaya Kepribadian',
+        //     'created_at' => now(),
+        //     'updated_at' => now(),
+        // ]);
+
+       
+        //     $request->session()->put('isDoingTest', True);
+        
 
         $data = array();
         $answer = [
@@ -68,6 +89,10 @@ class GayakepribadianController extends Controller
             array_push($data,['id'=> $qst['id'], 'pernyataan' => $qst['pernyataan'], 'answers' => $answer]);
         endforeach;
         // dd($data);
-        return view('users.test-kepribadian', ['questions' => $data, 'test_id' => $test->id]);
+        $test = TestHistory::where('token', $token)->first();
+        if (!$test) {
+            return redirect()->intended('/users');
+        }
+        return view('users.test-kepribadian', ['questions' => $data,'token' => $token, 'test_id' => $test->id]);
     }
 }

@@ -16,6 +16,7 @@ class CreateHasilKepribadianTable extends Migration
         Schema::create('hasil_kepribadian', function (Blueprint $table) {
             $table->id();
             $table->foreignId('test_history_id')->constrained('test_histories');
+            $table->string('test_token');
             $table->foreignId('user_id')->constrained('users');
             $table->float('tingkat', 10, 2);
             $table->foreignId('kepribadian_id')->constrained('kepribadian');

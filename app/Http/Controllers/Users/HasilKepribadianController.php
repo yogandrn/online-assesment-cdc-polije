@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\HasilKepribadian;
 use App\Models\PernyataanKepribadian;
+use App\Models\TestHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +21,11 @@ class HasilKepribadianController extends Controller
     public function store(Request $request)
     {
         $score = 0;
+
+        TestHistory::where('id', $request->test_history_id)->update([
+            'status' => 'FINISHED',
+            'updated_at' => now(),
+        ]);
 
         $data = $request->all();
         $pernyataan = PernyataanKepribadian::get();
@@ -39,6 +45,7 @@ class HasilKepribadianController extends Controller
         // insert data hasil tes
         $hasil = HasilKepribadian::create([
             'test_history_id' => $request->test_history_id,
+            'test_token' => $request->token,
             'user_id' => Auth::user()->id,
             'tingkat' => $tingkat,
             'kepribadian_id' => $kepribadian_id,

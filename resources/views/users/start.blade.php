@@ -54,12 +54,12 @@
     <div class="row justify-content-center container mx-auto " style="margin-top: 5rem">
         <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow">
             <h2 class="font-weight-bold">{{ $title }}</h2>
-            <hr>
-            <a href="{{ $route }}" role="button" class="btn btn-primary">Start</a>
-            {{-- <form action="/minatkarir/test/{{$id}}" method="get">
+            {{-- <hr>
+            <a href="{{ $route }}" role="button" class="btn btn-primary">Start</a> --}}
+            <form action="{{ $route }}" method="post">
             @csrf
                 <button type="submit" class="btn btn-primary">Start</button>
-            </form> --}}
+            </form>
         </div>
     </div>
   </body>

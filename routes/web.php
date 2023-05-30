@@ -46,15 +46,17 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::name('users.')->prefix('users')->group(function () {
     Route::group(['middleware' => ['auth']], function () {
-        Route::get('/', [MenuController::class, 'index']);
+        Route::get('/', [MenuController::class, 'index'])->name('home');
         Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
         Route::get('/minatkarir', [MinatkarirController::class, 'index']);
         Route::get('/minatkarir/start', [MinatkarirController::class, 'start']);
-        Route::get('/minatkarir/test', [MinatkarirController::class, 'doingTest']);
+        Route::post('/minatkarir/start', [MinatkarirController::class, 'startTest']);
+        Route::get('/minatkarir/test/{token}', [MinatkarirController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/minatkarir/store', [HasilMinatKarirController::class, 'store']);
         Route::get('/minatkarir/result/{id}', [HasilMinatKarirController::class, 'detail']);
         Route::get('/gayakepribadian/start', [GayakepribadianController::class, 'start']);
-        Route::get('/gayakepribadian/test', [GayakepribadianController::class, 'doingTest']);
+        Route::post('/gayakepribadian/start', [GayakepribadianController::class, 'startTest']);
+        Route::get('/gayakepribadian/test/{token}', [GayakepribadianController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/gayakepribadian/store', [HasilKepribadianController::class, 'store']);
         Route::get('/gayakepribadian/result/{id}', [HasilKepribadianController::class, 'detail']);
     });
