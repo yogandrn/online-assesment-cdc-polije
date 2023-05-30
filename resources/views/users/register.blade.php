@@ -224,18 +224,48 @@
                   <div class="col-lg-6 col-md-12" id="select-prodi">
                     <div class="mb-3">
                       <label for="program_studi">Program Studi</label>
-                      {{-- <input list="program_studi" name="program_studi" class="form-control">
-                        <datalist id="program_studi">
-                          <option value="Manajemen Informatika" selected></option>
-                          <option value="Teknik Komputer"></option>
-                          <option value="Teknik Informatika"></option>
-                        </datalist> --}}
+  
                       <select name="program_studi" id="program_studi" aria-label="program_studi" class="form-control">
-                        <option value="TIF" selected>TIF</option>
-                        <option value="MIF">MIF</option>
-                        <option value="TKK">TKK</option>
-                        <option value="MIK">MIK</option>
-                        <option value="TRP">TRP</option>
+                        <option value="Teknik Informatika" selected>Teknik Informatika</option>
+                        <option value="Manajemen Informatika">Manajemen Informatika</option>
+                        <option value="Teknik Komputer">Teknik Komputer</option>
+                        <option value="Teknik Informatika - Bondowoso">Teknik Informatika - Bondowoso</option>
+                        <option value="Teknik Informatika - Nganjuk">Teknik Informatika - Nganjuk</option>
+                        <option value="Teknik Informatika - Sidoarjo">Teknik Informatika - Sidoarjo</option>
+                        <option value="Teknik Informatika - Internasional">Teknik Informatika - Internasional</option>
+                        <option value="Manajemen Informatika - Internasional">Manajemen Informatika - Internasional</option>
+                        <option value="Teknik Komputer - Internasional">Teknik Komputer - Internasional</option>
+                        <option value="Manajemen Informasi Kesehatan">Manajemen Informasi Kesehatan</option>
+                        <option value="Gizi Klinik">Gizi Klinik</option>
+                        <option value="Promosi Kesehatan">Promosi Kesehatan</option>
+                        <option value="Teknik Energi Terbarukan">Teknik Energi Terbarukan</option>
+                        <option value="Mesin Otomotif">Mesin Otomotif</option>
+                        <option value="Teknologi Rekayasa Mekatronika">Teknologi Rekayasa Mekatronika</option>
+                        <option value="Produksi Tanaman Perkebukan">Produksi Tanaman Perkebukan</option>
+                        <option value="Tanaman Hortikultura">Tanaman Hortikultura</option>
+                        <option value="Teknik Produksi Benih">Teknik Produksi Benih</option>
+                        <option value="Teknik Produksi Tanaman Pangan">Teknik Produksi Tanaman Pangan</option>
+                        <option value="Budidaya Tanaman Perkebunan">Budidaya Tanaman Perkebunan</option>
+                        <option value="Pengelolaan Perkebunan Kopi">Pengelolaan Perkebunan Kopi</option>
+                        <option value="Keteknikan Pertanian">Keteknikan Pertanian</option>
+                        <option value="Teknologi Industri Pangan">Teknologi Industri Pangan</option>
+                        <option value="Teknologi Rekayasa Pangan">Teknologi Rekayasa Pangan</option>
+                        <option value="Teknologi Industri Pangan - Bondowoso">Teknologi Industri Pangan - Bondowoso</option>
+                        <option value="Produksi Ternak">Produksi Ternak</option>
+                        <option value="Manajemen Bisnis Unggas">Manajemen Bisnis Unggas</option>
+                        <option value="Teknologi Pakan Ternak">Teknologi Pakan Ternak</option>
+                        <option value="Manajemen Agribisnis">Manajemen Agribisnis</option>
+                        <option value="Manajemen Agroindustri">Manajemen Agroindustri</option>
+                        <option value="Akuntansi Sektor Publik">Akuntansi Sektor Publik</option>
+                        <option value="Manjemen Pemasaran Internasional">Manjemen Pemasaran Internasional</option>
+                        <option value="Manjemen Agribisnis - Bondowoso">Manjemen Agribisnis - Bondowoso</option>
+                        <option value="Manjemen Agribisnis - Nganjuk">Manjemen Agribisnis - Nganjuk</option>
+                        <option value="Manjemen Agroindustri - Sidoarjo">Manjemen Agroindustri - Sidoarjo</option>
+                        <option value="Manjemen Agroindustri - Internasional">Manjemen Agroindustri - Internasional</option>
+                        <option value="Agribisnis S2">Agribisnis S2</option>
+                        <option value="Bahasa Inggris Terapan">Bahasa Inggris Terapan</option>
+                        <option value="Destinasi Pariwisata">Destinasi Pariwisata</option>
+                        
                       </select>
                     </div>
 
