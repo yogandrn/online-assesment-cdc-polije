@@ -3,16 +3,19 @@
 @section('container')
 
     <div class="section container text-center col-md-9 col-lg-8 col-xl-8 col-sm-10">
-        <h3>Tes Gaya Kepribadian</h3>
+        <h2>Tes Gaya Kepribadian</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea exercitationem, odio beatae iste nulla sapiente, amet recusandae voluptate a enim adipisci! Doloribus possimus officiis et!</p>
         <br>
+        <div class="" style="border: 0.4px solid #adaaaa; height: 1px"></div>
+        <br>
+        
         @if ($is_available == 'true')
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-kepribadian">
                 Mulai
             </button>      
         @else
-            <p>Kamu sudah melakukan tes. Tes ini bisa dilakukan dalam 90 hari lagi.</p>
-            <p>{{ $available_at}}</p>
+        <h6 style="font-size: 1.08rem;">Kamu sudah melakukan tes. Tes ini bisa dilakukan dalam 90 hari lagi.</h6>
+        <h6 style="font-size: 1.08rem;">{{ $available_at}}</h6>
         @endif
     </div>
 
