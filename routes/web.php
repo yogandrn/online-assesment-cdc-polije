@@ -13,6 +13,7 @@ use App\Http\Controllers\Users\GayakepribadianController;
 use App\Http\Controllers\Users\HasilKepribadianController;
 use App\Http\Controllers\Users\HasilMinatKarirController;
 use App\Http\Controllers\Users\MinatkarirController;
+use App\Http\Controllers\Users\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,7 @@ Route::name('users.')->prefix('users')->group(function () {
         Route::get('/gayakepribadian/test/{token}', [GayakepribadianController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/gayakepribadian/store', [HasilKepribadianController::class, 'store']);
         Route::get('/gayakepribadian/result/{id}', [HasilKepribadianController::class, 'detail']);
+        Route::get('/profile',[ProfileController::class, 'index']);
     });
 });
 
