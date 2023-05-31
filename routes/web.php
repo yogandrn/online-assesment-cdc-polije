@@ -61,12 +61,8 @@ Route::name('users.')->prefix('users')->group(function () {
         Route::post('/gayakepribadian/start', [GayakepribadianController::class, 'startTest']);
         Route::get('/gayakepribadian/test/{token}', [GayakepribadianController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/gayakepribadian/store', [HasilKepribadianController::class, 'store']);
-<<<<<<< Updated upstream
-        Route::get('/gayakepribadian/result/{id}', [HasilKepribadianController::class, 'detail']);
-        Route::get('/profile', [ProfileController::class, 'index']);
-=======
+        Route::get('/profile/{id}', [ProfileController::class, 'index']);
         Route::get('/gayakepribadian/result/{token}', [HasilKepribadianController::class, 'detail']);
->>>>>>> Stashed changes
     });
 });
 
