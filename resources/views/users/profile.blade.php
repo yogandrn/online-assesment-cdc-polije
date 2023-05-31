@@ -21,8 +21,8 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label2e>Email address</label>
-                        <input type="email" class="form-control" placeholder="mike@email.com" disabled>
+                        <label>Email address</label>
+                        <input type="email" class="form-control" placeholder="mike@email.com" readonly>
                       </div>
                     </div>
                   </div>
@@ -56,13 +56,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="nim">Nim</label>
-                        <input type="text" id="nim"class="form-control" value="Mike" disabled>
+                        <input type="text" id="nim"class="form-control" value="Mike" readonly>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="">Jenjang</label>
-                        <input type="text" id="" class="form-control" value="Nim" disabled>
+                        <input type="text" id="" class="form-control" value="Nim" readonly>
                       </div>
                     </div>
                   </div>
@@ -72,13 +72,15 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text">Ijazah/KTM</label>
                     </div>
-                    <input type="file" class="form-control" placeholder="With Font Awesome Icons">
+                    <input type="file" class="form-control" >
                     </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Url Linkedin</label>
-                        <input type="url" class="form-control" value="CreativeTim">
+                        <label>Url LinkedIn</label>
+                        <input type="url" class="form-control" @if ($user->url_linkedin != null)
+                            value="{{ $user->url_linkedin}}"
+                        @else value="" @endif  placeholder="Url LinkedIn">
                       </div>
                     </div>
                     
@@ -92,7 +94,11 @@
           <div class="col-lg-4 col-md-6 ml-auto mr-auto">
             <div class="card card-coin ">
               <div class="card-header">
-                <img src="../assets/img/mike.jpg" class="img-center img-fluid rounded-circle">
+                @if ($user->foto != null)
+                  <img src="{{ url($user->foto) }}" class="img-center img-fluid rounded-circle">  
+                @else
+                  <img src="{{ url('/assets/img/user.png')}}" class="img-center img-fluid rounded-circle" style="background-color: #fff">
+                @endif
                 <h4 class="title">{{auth()->user()->nama}}</h4>
               </div>
               <div class="card-body">
