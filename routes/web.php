@@ -71,7 +71,14 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
         Route::get('/kepribadian', [KepribadianController::class, 'index'])->name("kepribadian");
         Route::post('/kepribadianupdate/{id}', [KepribadianController::class, 'update'])->name("kepribadianupdate");
-        Route::get('/karir', [KarirController::class, 'index']);
+        Route::post('/kepribadianstore', [KepribadianController::class, 'store'])->name("kepribadianstore");
+        Route::delete('/kepribadiandestroy/{id}', [KepribadianController::class, 'destroy'])->name("kepribadiandestroy");
+        Route::get('/karir/realistic', [KarirController::class, 'index']);
+        Route::get('/karir/investigative', [KarirController::class, 'index']);
+        Route::get('/karir/artistic', [KarirController::class, 'index']);
+        Route::get('/karir/social', [KarirController::class, 'index']);
+        Route::get('/karir/enterprising', [KarirController::class, 'index']);
+        Route::get('/karir/conventional', [KarirController::class, 'index']);
         Route::get('/user', [UserController::class, 'index']);
         Route::get('/logout', [LoginAdminController::class, 'logout']);
     });

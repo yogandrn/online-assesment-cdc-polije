@@ -26,15 +26,31 @@
                     <span class="nav-link-text ms-1">Gaya Kepribadian</span>
                 </a>
             </li>
-
             <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Minat Karir</span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="sidebarDropdown">
+                    <li><a class="dropdown-item" href="{{ url('/admin/karir/realistic') }}">Realistic</a></li>
+                    <li><a class="dropdown-item" href="{{ url('/admin/karir/investigative') }}">Investigative</a></li>
+                    <li><a class="dropdown-item" href="{{ url('/admin/karir/artistic') }}">Artistic</a></li>
+                    <li><a class="dropdown-item" href="{{ url('/admin/karir/social') }}">Social</a></li>
+                    <li><a class="dropdown-item" href="{{ url('/admin/karir/enterprising') }}">Enterprising</a></li>
+                    <li><a class="dropdown-item" href="{{ url('/admin/karir/conventional') }}">Conventional</a></li>
+                </ul>
+            </li>
+
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ ($title === "Minat Karir") ? 'active' : '' }}" href="{{ url('/admin/karir') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Minat Karir</span>
                 </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
                 <a class="nav-link {{ ($title === "User") ? 'active' : '' }}" href="{{ url('/admin/user') }}">

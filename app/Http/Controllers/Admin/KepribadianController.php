@@ -15,7 +15,7 @@ class KepribadianController extends Controller
      */
     public function index()
     {
-        $questions = PernyataanKepribadian::find(1)->get();
+        $questions = PernyataanKepribadian::get();
         $title = 'Gaya Kepribadian';
         return view('admin.kepribadian', compact('questions'))->with('title', $title);
     }
@@ -38,7 +38,15 @@ class KepribadianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'pernyataan' => 'required',
+        ]);
+        $data = PernyataanKepribadian::create([
+            'pernyataan' => $request->pernyataan,
+        ]);
+        if ($data) {
+            return redirect()->back()->with('success', 'Berhasil Ditambahkan');
+        }
     }
 
     /**
@@ -89,12 +97,9 @@ class KepribadianController extends Controller
      */
     public function destroy($id)
     {
-        $questions = PernyataanKepribadian::findOrFail($id);
+        $data = PernyataanKepribadian::findOrFail($id);
 
-        if ($questions->delete()) {
-            return redirect('pernyataan')->with('success', 'Data berhasil dihapus');
-        } else {
-            return redirect('pernyataan')->with('error', 'Gagal menghapus data');
-        }
+        $data->delete();
+        return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
 }
