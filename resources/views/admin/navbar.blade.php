@@ -54,7 +54,7 @@
 
     html.addEventListener("click", function(e) {
         if (body.classList.contains('g-sidenav-pinned') && !e.target.classList.contains('sidenav-toggler-line')) {
-            body.classList.remove(className);
+            // body.classList.remove(className);
         }
     });
 </script>

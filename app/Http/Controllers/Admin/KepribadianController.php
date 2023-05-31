@@ -91,15 +91,24 @@ class KepribadianController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $data = PernyataanKepribadian::findOrFail($id);
+        if ($request->isMethod('post')) {
+            PernyataanKepribadian::where(['id' => $id])->delete();
+            return redirect()->back()->with('diky_hapus', 'Hapus Data Berhasil');
+        }
+    }
 
-        $data->delete();
-        return redirect()->back()->with('success', 'Data berhasil dihapus');
+    public function hapus(Request $request, $id)
+    {
+        if ($request->isMethod('post')) {
+            PernyataanKepribadian::where(['id' => $id])->delete();
+            return redirect()->back()->with('success', 'Update Berhasil');
+        }
+        return redirect()->back()->with('success', 'Update Berhasil');
     }
 }

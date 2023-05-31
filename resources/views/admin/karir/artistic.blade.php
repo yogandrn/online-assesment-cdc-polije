@@ -21,7 +21,7 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                @foreach($questions as $item)
+                                @foreach($karir as $item)
                                 <tbody>
                                     <tr>
                                         <td>{{$loop -> iteration}}</td>

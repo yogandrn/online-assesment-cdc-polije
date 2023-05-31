@@ -21,8 +21,8 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                @foreach($questions as $item)
                                 <tbody>
+                                    @foreach($questions as $item)
                                     <tr>
                                         <td>{{$loop -> iteration}}</td>
                                         <td>{{$item -> pernyataan}}</td>
@@ -35,13 +35,14 @@
                                                 |
                                             </a>
 
-                                            <a href="javascript:;" class="text-danger font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#hapusmodal" data-original-title="Hapus user">
+                                            <a href="javascript:;" class="text-danger font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#hapusmodal{{ $item->id }}" data-original-title="Hapus user">
                                                 Delete
                                             </a>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
-
+                                @foreach($questions as $item)
                                 <!-- Edit Modal -->
                                 <div class="modal fade" id="editmodal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editmodalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
@@ -72,22 +73,21 @@
                                 </div>
 
                                 <!-- Modal Hapus -->
-                                <div class="modal fade" id="hapusmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal fade" id="hapusmodal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Hapus</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <form method="POST" action="{{url('admin/kepribadiandestroy/'.$item->id)}}">
+                                                    @csrf
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Hapus</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
+                                                <H6>Apakah Anda Yakin Ingin Menghapus Data Dengan Id {{ $item->id }}</H6>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <form method="POST" action="{{url('admin/kepribadiandestroy', $item->id) }}" enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
-                                                    @method('DELETE')
-                                                    <button class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
+                                                <button type="submit" class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
                                                 </form>
                                             </div>
                                         </div>

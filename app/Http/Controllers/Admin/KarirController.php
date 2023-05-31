@@ -13,11 +13,46 @@ class KarirController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function realistic()
     {
-        $questions = PernyataanMinatKarir::find(1)->get();
-        $title = 'Minat Karir';
-        return view('admin.karir', compact('questions'))->with('title', $title);
+        $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "1")->get();
+        $title = 'Realistic';
+        return view('admin.karir.realistic', compact('karir'))->with('title', $title);
+    }
+
+    public function investigative()
+    {
+        $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "2")->get();
+        $title = 'Investigative';
+        return view('admin.karir.investigative', compact('karir'))->with('title', $title);
+    }
+
+    public function artistic()
+    {
+        $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "3")->get();
+        $title = 'Artistic';
+        return view('admin.karir.artistic', compact('karir'))->with('title', $title);
+    }
+
+    public function social()
+    {
+        $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "4")->get();
+        $title = 'Social';
+        return view('admin.karir.social', compact('karir'))->with('title', $title);
+    }
+
+    public function enterprising()
+    {
+        $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "5")->get();
+        $title = 'Enterprising';
+        return view('admin.karir.enterprising', compact('karir'))->with('title', $title);
+    }
+
+    public function conventional()
+    {
+        $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "6")->get();
+        $title = 'Conventional';
+        return view('admin.karir.conventional', compact('karir'))->with('title', $title);
     }
 
     /**
@@ -38,7 +73,17 @@ class KarirController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'pernyataan' => 'required',
+            'minat_karir_id' => 'required',
+        ]);
+        $data = PernyataanMinatKarir::create([
+            'pernyataan' => $request->pernyataan,
+            'minat_karir_id' => $request->minat_karir_id,
+        ]);
+        if ($data) {
+            return redirect()->back()->with('success', 'Berhasil Ditambahkan');
+        }
     }
 
     /**
@@ -70,9 +115,15 @@ class KarirController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id = null)
     {
-        //
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            PernyataanMinatKarir::where(['id' => $id])->update([
+                'pernyataan' => $data['pernyataan'],
+            ]);
+            return redirect()->back()->with('success', 'Update Berhasil');
+        }
     }
 
     /**
@@ -81,8 +132,11 @@ class KarirController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->isMethod('post')) {
+            PernyataanMinatKarir::where(['id' => $id])->delete();
+            return redirect()->back()->with('success', 'Update Berhasil');
+        }
     }
 }
