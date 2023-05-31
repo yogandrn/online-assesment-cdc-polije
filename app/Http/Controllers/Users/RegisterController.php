@@ -13,7 +13,17 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return view('users.register');
+        return view('users.register', ['title' => 'Register | CDC Polije']);
+    }
+
+    public function umum()
+    {   
+        return view('users.register-umum', ['title' => 'Register | CDC Polije']);
+    }
+
+    public function polije()
+    {   
+        return view('users.register-polije', ['title' => 'Register | CDC Polije']);
     }
 
     public function register(Request $request)
@@ -24,11 +34,11 @@ class RegisterController extends Controller
             'password' => 'required|string|alpha_num',
             'no_telp' => 'required|numeric|string|unique:users',
             'nim' => 'nullable|string|min:6|max:15',
-            'jurusan' => 'string|nullable|min:6|max:255',
-            'program_studi' => 'string|nullable|min:6|max:255',
+            'jurusan' => 'string|min:6|max:255',
+            'program_studi' => 'string|min:6|max:255',
             'url_linkedin' => 'string|nullable|min:6|max:255',
-            'jenis_kandidat' => 'string|nullable|min:4|max:255',
-            'perguruan_tinggi' => 'string|nullable|min:4|max:255',
+            'jenis_kandidat' => 'string|min:4|max:255',
+            'perguruan_tinggi' => 'string|min:4|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -42,6 +52,7 @@ class RegisterController extends Controller
             // }
             User::create([
                 'nama' => $request->nama,
+                'jenis_kandidat' => $request->jenis_kandidat,
                 'email' => $request->email,
                 'no_telp' => $request->no_telp,
                 'jenjang' => $request->jenjang,
@@ -49,7 +60,7 @@ class RegisterController extends Controller
                 'program_studi' => $request->program_studi,
                 'nim' => $request->nim,
                 'password' => Hash::make($request->password),
-                // 'perguruan_tinggi' => $request->campus,
+                'perguruan_tinggi' => $request->perguruan_tinggi,
             ]);
 
             $request->session()->flash('success', 'Registrasi berhasil. Silakan login');

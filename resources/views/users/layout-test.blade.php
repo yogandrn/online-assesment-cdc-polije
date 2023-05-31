@@ -6,10 +6,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{url('/assets/img/logo_polije.png')}}">
-  <link rel="icon" type="image/png" sizes="76x76" href="{{url('/assets/img/logo_polije.png')}}">
-  
+  <link rel="icon" type="image/png" href="{{url('/assets/img/logo_polije.png')}}">
   <title>
-    {{$title}}
+    Online Assessment Test - CDC Polije
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -24,7 +23,7 @@
 
 <body class="index-page">
   <!-- Navbar -->
-  @include('users.navbar')
+  @include('users.navbar-test')
 
   <!-- End Navbar -->
   <div class="wrapper">

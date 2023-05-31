@@ -18,8 +18,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/logo_polije.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{url('/assets/img/logo_polije.png')}}">
+  <link rel="icon" type="image/png" href="{{url('/assets/img/logo_polije.png')}}">
   <title>
     {{ $title }}
   </title>
@@ -96,14 +96,14 @@
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto">
             <h1 class="text-white mb-2 mt-3">Welcome!</h1>
-            <h5 class="text-lead text-white"> Online Assessment Test CDC Polije</h5>
+            <p class="text-lead text-white">Isi data diri Anda untuk membuat akun baru di Online Assessment Test CDC Polije</p>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-10 mx-auto ">
+        <div class="col-xl-8 col-lg-9 col-md-9 mx-auto">
           @if (session()->has('success'))
                   <div class="alert alert-success alert-dismissable fade show justify-content-between" role="alert">
                     {{session('success')}}
@@ -116,24 +116,113 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end; display:inline-flex; "></button>
                   </div>
               @endif
-          <div class="card z-index-0 text-center shadow-lg">
+          <div class="card z-index-0">
             <div class="card-header text-center pt-4">
-              <h5>Daftar Sekarang</h5>
+              <h5>Register Now</h5>
             </div>
-            <p>Silakan pilih jenis kandidat</p>
-            <div class="row d-flex justify-content-around px-6 pb-6">
-                    <a href="/register/polije" class="btn btn-outline-dark col-5 text-center mx-2  shadow">
-                        <img src="{{url('/assets/img/kandidat-polije.png')}}" alt="Mahasiswa/Alumni Polije" height="84px">
-                        <p>
-                            Mahasiswa/Alumni Polije
-                        </p>
-                    </a>
-                    <a href="/register/umum" class="btn btn-outline-dark col-5 text-center mx-2 shadow">
-                        <img src="{{url('/assets/img/kandidat-umum.png')}}" alt="Umum" height="84px">
-                        <p>Umum</p>
-                    </a>
+ 
+            <div class="card-body">
+              <form role="form" method="post" action="/register">
+                @csrf
+                <input type="hidden" name="jenis_kandidat" value="Umum">
+                
+                <div class="mb-3">
+                  <label for="nama">Nama Lengkap</label>
+                  <input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Lengkap" aria-label="Name" value="{{old('nama')}}" name="nama" id="nama" required >
+                  @error('nama')
+                    <div class="invalid-feedback text-start" >{{$message}}</div>
+                  @enderror
+                </div>
+
+
+                <div class="mb-3">
+                  <label for="perguruan_tinggi">Asal Perguruan Tinggi</label>
+                  <input type="text" class="form-control @error('perguruan_tinggi') is-invalid @enderror" placeholder="Perguruan Tinggi" aria-label="Perguruan Tinggi" value="{{old('perguruan_tinggi')}}" name="perguruan_tinggi" id="perguruan_tinggi" required >
+                  @error('perguruan_tinggi')
+                    <div class="invalid-feedback text-start" >{{$message}}</div>
+                  @enderror
+                </div>
+                
+                <div class="mb-3" id="input-jenjang">
+                  <label for="jenjang">Jenjang</label>
+                  <select name="jenjang" id="jenjang" aria-label="jenjang" class="form-control">
+                    <option value="D1" selected>D1</option>
+                    <option value="D2">D2</option>
+                    <option value="D3">D3</option>
+                    <option value="D4/S1">D4/S1</option>
+                  </select>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6 col-md-12" >
+                  </div>
+                  <div class="col-lg-6 col-md-12" >
+                  </div>
+                </div>
+                
+                {{-- Input Jurusan dan Prodi  --}}
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-12" id="input-jurusan">
+                    <div class="mb-3">
+                      <label for="jurusan">Jurusan/Fakultas</label>
+                      <input type="text" class="form-control @error('jurusan') is-invalid @enderror" placeholder="Jurusan/Fakultas" aria-label="Jurusan" name="jurusan" id="jurusan" value="{{old('jurusan')}}" required minlength="4" maxlength="255">
+                      @error('jurusan')
+                        <div class="invalid-feedback text-start" >{{$message}}</div>
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-12" id="input-prodi">
+                    <div class="mb-3">
+                      <label for="program_studi">Program Studi</label>
+                      <input type="text" class="form-control @error('program_studi') is-invalid @enderror" placeholder="Program Studi" aria-label="Program Studi" name="program_studi" id="program_studi" value="{{old('program_studi')}}" required minlength="5" maxlength="255">
+                      @error('program_studi')
+                        <div class="invalid-feedback text-start" >{{$message}}</div>
+                      @enderror
+                    </div>
+                  </div>
+                </div>
+
+                {{-- Email dan No. Telp  --}}
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-12">
+                    <div class="mb-3">
+                      <label for="email">Email</label>
+                      <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email" aria-label="Email" name="email" id="email" value="{{old('email')}}" required minlength="4" maxlength="255">
+                      @error('email')
+                        <div class="invalid-feedback text-start" >{{$message}}</div>
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-12">
+                    <div class="mb-3">
+                      <label for="no_telp">Nomor Telepon</label>
+                      <input type="tel" class="form-control no_telp" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp" value="{{old('no_telp')}}" required minlength="9" maxlength="15">
+                      @error('no_telp')
+                      <div class="invalid-feedback text-start" >{{$message}}</div>
+                      @enderror
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" aria-label="Password" name="password" id="password" required minlength="8" maxlength="255">
+                  @error('password')
+                  <div class="invalid-feedback text-start" >{{$message}}</div>
+                  @enderror
+                </div>
+          
+                <div class="form-check form-check-info text-start">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                  <label class="form-check-label" for="flexCheckDefault">
+                    I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                  </label>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2" role="button">Sign up</button>
+                </div>
+                <p class="text-sm mt-3 mb-0">Already have an account? <a href="/login" class="text-dark font-weight-bolder">Sign in</a></p>
+              </form>
             </div>
-            
           </div>
         </div>
       </div>

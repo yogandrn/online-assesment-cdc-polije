@@ -14,7 +14,7 @@ class HasilKepribadianController extends Controller
     public function detail($token)
     {
         $result = HasilKepribadian::where('test_token', $token)->with(['kepribadian','user'])->first();
-        return view('users.hasil-kepribadian', ['hasil' => $result, ]);
+        return view('users.hasil-kepribadian', ['hasil' => $result, 'title' => 'Hasil Tes Gaya Kepribadian | CDC Polije']);
         // return response()->json(['hasil' => $result, ]);
     }
 
@@ -24,6 +24,7 @@ class HasilKepribadianController extends Controller
 
         TestHistory::where('id', $request->test_history_id)->update([
             'status' => 'FINISHED',
+            'finished_at' => now(),
             'updated_at' => now(),
         ]);
 
@@ -32,10 +33,10 @@ class HasilKepribadianController extends Controller
 
         for ($i=1; $i <= count($pernyataan); $i++) { // iterasi untuk menjumlah score
             $assc = strval($i); 
-            $score = $score + intval($request[$assc] ?? 0);
+            $score = $score + intval($data[$assc] ?? 0);
         }
 
-        $tingkat = floatval($score / count($pernyataan) * 100); // hitung jumlah persentase
+        $tingkat = floatval(($score / count($pernyataan)) * 100); // hitung jumlah persentase
         if ($tingkat >= 50.00) {
             $kepribadian_id = 1; // jika lebih dari 50%
         } else {
@@ -54,7 +55,7 @@ class HasilKepribadianController extends Controller
         ]);
         
 
-        return redirect('/users/gayakepribadian/result/' . $hasil['token']);
+        return redirect('/users/gayakepribadian/result/' . $request->token);
 
     }
 }

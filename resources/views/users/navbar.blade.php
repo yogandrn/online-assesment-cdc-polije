@@ -2,7 +2,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="/" rel="tooltip" title="Designed and Coded by JTI ASIK Tim" data-placement="bottom" target="self">
-          <span>CDC Polije•</span> Online Assessment Test
+          <span>CDC Polije •</span> Online Assessment Test
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar bar1"></span>
@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a>
-                Welcome•
+                Welcome •
               </a>
             </div>
             <div class="col-6 collapse-close text-right">
@@ -51,26 +51,26 @@
             <div class="dropdown-menu dropdown-with-icons">
               <!-- <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
               </a> -->
-              <a href="/users/gayakepribadian" class="dropdown-item">
+              <a href="/users/gayakepribadian" class="dropdown-item" style="color: #00081d;">
                 <i class="tim-icons icon-bullet-list-67"></i>Gaya Kepribadian
               </a>
-              <a href="/users/minatkarir" class="dropdown-item">
+              <a href="/users/minatkarir" class="dropdown-item" style="color: #00081d;">
                 <i class="tim-icons icon-image-02"></i>Minat Karir
               </a>
             </div>
           </li>
 
           <li class="dropdown nav-item">
-            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-              <i class="fa fa-cogs d-lg-none d-xl-none"></i> Hallo {{auth()->user()->nama}}
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" >
+              <i class="fa fa-cogs d-lg-none d-xl-none"></i> Halo, {{auth()->user()->nama}}
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              <a href="/users/profile/{{ auth()->user()->id }}" class="dropdown-item">
+              <a href="/users/profile/{{ auth()->user()->id }}" class="dropdown-item" style="color: #00081d;">
                 <i class="tim-icons icon-single-02"></i>View Profile
               </a>
               <form action="/logout" method="post">
                 @csrf
-                <button type="submit" class="dropdown-item" onclick="return confirm('Apakah Anda yakin ingin logout?');">
+                <button type="submit" class="dropdown-item" onclick="return confirm('Apakah Anda yakin ingin logout?');" style="color: #00081d;">
                   <i class="tim-icons icon-minimal-right"></i>Logout 
                 </button>
              

@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('users.login');
+        return view('users.login', ['title' => 'Login | CDC Polije']);
     }
 
     public function authenticate(Request $request)

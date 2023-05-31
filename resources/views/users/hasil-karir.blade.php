@@ -1,69 +1,43 @@
+@extends('users.main')
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+@section('container')
 
-    <title>Tes Minat Karir | CDC Polije</title>
-  </head>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-    body {
-        font-family: 'Inter', Arial, sans-serif
-    }
-    .p-l {
-        padding: 1.5rem 1.8rem 1.5rem 1.8rem; 
-    }
-
-    .button {
-        display: inline-block;
-        font-weight: 400;
-        color: #212529;
-        text-align: center;
-        vertical-align: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background-color: transparent;
-        border: 1px solid transparent;
-        padding: 0.5rem 0.8rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        border-radius: 0.25rem;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-
-    .btn-outlined-dark {
-        color: #343a40;
-        border-color: #343a40;
-    }
-
-    .btn-outlined-dark:hover {
-        color: #fff;
-        background-color: #343a40;
-        border-color: #343a40;
-    }
-</style>
-  <body style="background-color: #494FBF;">
-
-    
-    <div class="row justify-content-center container mx-auto " style="margin-top: 5rem">
-        <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow">
-            {{-- <h2>{{$test_data['test_history_id']}}</h2> --}}
+    <div class="row justify-content-center mx-auto " style="margin-top: 3rem; ">
+        <div class="col-xl-9 col-lg-9 col-md-10 px-5 py-4 border rounded shadow-lg" style="background-color: #fff;margin-bottom: 4rem;">
             <br>
-            <h2>{{$test_data['user']['nama']}}</h2>
-            
+            <h3 style="color: #00081d" class="text-center"><strong>Hasil Tes Minat Karir </strong></h3>
+            <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Waktu Pelaksanaan : {{\Carbon\Carbon::parse($test_data['started_at'])->format('d M Y H:i:s');}}</p>
+            <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nama Lengkap : {{$test_data['user']['nama']}}</p>
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Alamat Email : {{$test_data['user']['email']}}</p>
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nomor Telepon : {{$test_data['user']['no_telp']}}</p>
+            <div class="mt-4 mb-1" style="border: 0.2px solid #818181;"></div>
+            <p  style="color: #606060; text-align:left; " >*Berikut adalah hasil dari 2 jenis kepribadian yang menonjol pada diri anda beserta dengan saran karir yang sesuai.</p>
+            <br>
             @foreach ($hasil as $item)
-                <h5>{{ $item['minat_karir']['name'] }}</h5>
-                <p>{!! $item['minat_karir']['description'] !!}</p>
-                <p>Karir yang disarankan : {{ $item['minat_karir']['saran_karir'] }}</p>
+            <div class="rounded px-4 py-4" style="border: 1px solid #00081d; margin-bottom: 2rem;">
+                
+                <h6 style="color: #00081d; font-size: 1.2rem">{{ $item['minat_karir']['name'] }}</h6>
+                {{-- Hasil kepribadian --}}
+                <div class="progress-container">
+                    <span class="progress-badge" style="color:#00081d; font-size:0.8rem;">Persentase </span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" arial-valuenow="{{ intval($item['point']) * 10 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{intval($item['point']) * 10}}%;">
+                            <span class="progress-value" style="color:#00081d; font-size:0.9rem;"><strong>{{intval($item['point']) * 10}} %</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <p style="color: #00081d; font-size: 1.08rem;">{!! $item['minat_karir']['description'] !!}</p>
+                <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
+                <p style="color: #00081d; font-size: 1.08rem; ">Karir yang disarankan : <strong>{{ $item['minat_karir']['saran_karir'] }}</strong></p>
+            </div>
             @endforeach
         </div>
-    </div>
-  </body>
-</html>
+        </div>
+        <br>
+        <br>
+
+    
+    
+@endsection

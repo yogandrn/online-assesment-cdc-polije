@@ -1,66 +1,39 @@
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+@extends('users.main')
 
-    <title>Tes Minat Karir | CDC Polije</title>
-  </head>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-    body {
-        font-family: 'Inter', Arial, sans-serif
-    }
-    .p-l {
-        padding: 1.5rem 1.8rem 1.5rem 1.8rem; 
-    }
-
-    .button {
-        display: inline-block;
-        font-weight: 400;
-        color: #212529;
-        text-align: center;
-        vertical-align: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background-color: transparent;
-        border: 1px solid transparent;
-        padding: 0.5rem 0.8rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        border-radius: 0.25rem;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-
-    .btn-outlined-dark {
-        color: #343a40;
-        border-color: #343a40;
-    }
-
-    .btn-outlined-dark:hover {
-        color: #fff;
-        background-color: #343a40;
-        border-color: #343a40;
-    }
-</style>
-  <body style="background-color: #494FBF;">
-
-    
-    <div class="row justify-content-center container mx-auto " style="margin-top: 5rem">
-        <div class="col-xl-9 col-lg-9 col-md-10 p-l bg-light border rounded shadow">
-            <br>
-            <h2>{{$hasil['user']['nama']}}</h2>
-            <h5>{{ $hasil['kepribadian']['name'] }}</h5>
-            <p>{!! $hasil['kepribadian']['description'] !!}</p>
-            <hr>
-            <p>Karir yang disarankan : {!! $hasil['kepribadian']['saran_karir'] !!}</p>
-        </div>
+  @section('container')
+  <div class="row justify-content-center mx-auto " style="margin-top: 3rem; ">
+    <div class="col-xl-9 col-lg-9 col-md-10 px-5 py-4 border rounded shadow-lg" style="background-color: #fff;margin-bottom: 4rem;">
+        <br>
+        <h3 style="color: #00081d" class="text-center"><strong>Hasil Tes Kepribadian </strong></h3>
+        <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
+        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Waktu Pelaksanaan : {{\Carbon\Carbon::parse($hasil['started_at'])->format('d M Y H:i:s');}}</p>
+        <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
+        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nama Lengkap : {{$hasil['user']['nama']}}</p>
+        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Alamat Email : {{$hasil['user']['email']}}</p>
+        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nomor Telepon : {{$hasil['user']['no_telp']}}</p>
+        <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
+          <div class="row justify-content-around">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+            </div>
+          </div>
+          <h6 style="color: #00081d; font-size: 1.2rem;">{{ $hasil['kepribadian']['name'] }}</h6>
+          {{-- Hasil kepribadian --}}
+          <div class="progress-container">
+              <span class="progress-badge" style="color:#00081d; font-size: 0.8rem">Presentase</span>
+              <div class="progress">
+                  <div class="progress-bar progress-bar-warning" role="progressbar" arial-valuenow="{{ $hasil['tingkat'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{$hasil['tingkat']}}%;">
+                      <span class="progress-value" style="color:#00081d; font-size: 0.9rem"><strong>{{$hasil['tingkat']}} %</strong></span>
+                  </div>
+              </div>
+          </div>
+          
+          <p style="color: #00081d; font-size: 1rem">{!! $hasil['kepribadian']['description'] !!}</p>
+          <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
+          <p style="color: #00081d; font-size: 1rem">Karir yang disarankan : <strong>{!! $hasil['kepribadian']['saran_karir'] !!}</strong></p><br>
+      </div>
     </div>
-  </body>
-</html>
+    <br>
+    <br>
+    
+@endsection

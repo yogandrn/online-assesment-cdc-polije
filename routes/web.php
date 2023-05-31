@@ -41,6 +41,8 @@ Route::get('/', [HomeController::class, 'index'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::get('/register/umum', [RegisterController::class, 'umum'])->middleware('guest');
+Route::get('/register/polije', [RegisterController::class, 'polije'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
@@ -59,8 +61,12 @@ Route::name('users.')->prefix('users')->group(function () {
         Route::post('/gayakepribadian/start', [GayakepribadianController::class, 'startTest']);
         Route::get('/gayakepribadian/test/{token}', [GayakepribadianController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/gayakepribadian/store', [HasilKepribadianController::class, 'store']);
+<<<<<<< Updated upstream
         Route::get('/gayakepribadian/result/{id}', [HasilKepribadianController::class, 'detail']);
         Route::get('/profile', [ProfileController::class, 'index']);
+=======
+        Route::get('/gayakepribadian/result/{token}', [HasilKepribadianController::class, 'detail']);
+>>>>>>> Stashed changes
     });
 });
 

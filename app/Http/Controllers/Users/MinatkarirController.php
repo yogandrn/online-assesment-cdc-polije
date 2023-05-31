@@ -21,14 +21,14 @@ class MinatkarirController extends Controller
         if (!$tesMinatKarir) {
             $isMinatKarirAvailable = 'true';
         } else {
-            if (\Carbon\Carbon::now()->subDays(90) <  $tesMinatKarir['created_at']) {
+            if (\Carbon\Carbon::now()->subDays(90) <  $tesMinatKarir['started_at']) {
                 $isMinatKarirAvailable = 'false';
-                $minatkarirAvailableAt = \Carbon\Carbon::parse($tesMinatKarir['created_at'])->addDays(90)->format('d M Y H:i:s');
+                $minatkarirAvailableAt = \Carbon\Carbon::parse($tesMinatKarir['started_at'])->addDays(90)->format('d M Y H:i:s');
             } else {
                 $isMinatKarirAvailable = 'true';
             }
         }
-        return view('users.minatkarir', ['is_available' => $isMinatKarirAvailable, 'available_at' => $minatkarirAvailableAt]);
+        return view('users.minatkarir', ['title' => 'Tes Minat Karir | CDC Polije','is_available' => $isMinatKarirAvailable, 'available_at' => $minatkarirAvailableAt]);
     }
 
     public function start()
@@ -45,6 +45,7 @@ class MinatkarirController extends Controller
             'jenis_test' => 'Minat Karir',
             'token' => Str::random(40),
             'status' => 'STARTED',
+            'started_at' => now(),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -114,7 +115,7 @@ class MinatkarirController extends Controller
             return redirect()->intended('/users');
         }
 
-        return view('users.test-minat', ['questions' => $data, 'token' => $token, 'test_id' => $test->id]);
+        return view('users.test-minat', ['title' => 'Tes Minat Karir | CDC Polije','questions' => $data, 'token' => $token, 'test_id' => $test->id]);
     }
 
 }

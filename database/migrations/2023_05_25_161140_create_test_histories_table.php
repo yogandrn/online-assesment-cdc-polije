@@ -19,6 +19,8 @@ class CreateTestHistoriesTable extends Migration
             $table->string('jenis_test');
             $table->string('token');
             $table->string('status');
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('finished_at')->nullable();
             $table->timestamps();
         });
     }

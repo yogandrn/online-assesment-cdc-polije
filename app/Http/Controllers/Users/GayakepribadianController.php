@@ -19,14 +19,14 @@ class GayakepribadianController extends Controller
         if (!$tesKepribadian) {
             $isKepribadianAvailable = 'true';
         } else {
-            if (\Carbon\Carbon::now()->subDays(90) <  $tesKepribadian['created_at']) {
+            if (\Carbon\Carbon::now()->subDays(90) <  $tesKepribadian['started_at']) {
                 $isKepribadianAvailable = 'false';
-                $kepribadianAvailableAt = \Carbon\Carbon::parse($tesKepribadian['created_at'])->addDays(90)->format('d M Y H:i:s');
+                $kepribadianAvailableAt = \Carbon\Carbon::parse($tesKepribadian['started_at'])->addDays(90)->format('d M Y H:i:s');
             } else {
                 $isKepribadianAvailable = 'true';
             }
         }
-        return view('users.gayakepribadian', ['is_available' => $isKepribadianAvailable, 'available_at' => $kepribadianAvailableAt]);
+        return view('users.gayakepribadian', ['title' => 'Tes Gaya Kepribadian | CDC Polije','is_available' => $isKepribadianAvailable, 'available_at' => $kepribadianAvailableAt]);
     }
 
     public function start()
@@ -41,13 +41,14 @@ class GayakepribadianController extends Controller
             'jenis_test' => 'Gaya Kepribadian',
             'token' => Str::random(40),
             'status' => 'STARTED',
+            'started_at' => now(),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         // $request->session()->put('test', $test->token);
 
-        return redirect('/users/gayakepribadian/test/' . $test->token);
+        return redirect('/users/gayakepribadian/test/' . $test['token']);
     }
 
     public function doingTest($token)
@@ -70,12 +71,6 @@ class GayakepribadianController extends Controller
             ['text' => 'Tidak', 'point' => 0],
         ];
         $query = PernyataanKepribadian::get();
-        $realistic = array();
-        $investigative = array();
-        $artistic = array();
-        $social = array();
-        $enterprise = array();
-        $conventional = array();
         
         // foreach ($query1 as $item) :
         //     array_push($realistic, ['pernyataan' => $item['pernyataan'], 'answers' => $answer]);
@@ -106,6 +101,6 @@ class GayakepribadianController extends Controller
         if (!$test) {
             return redirect()->intended('/users');
         }
-        return view('users.test-kepribadian', ['questions' => $data,'token' => $token, 'test_id' => $test->id]);
+        return view('users.test-kepribadian', ['title' => 'Tes Gaya Kepribadian | CDC Polije','questions' => $data,'token' => $token, 'test_id' => $test['id']]);
     }
 }

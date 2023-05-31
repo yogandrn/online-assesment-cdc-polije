@@ -11,6 +11,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('users.index');
+        return view('users.index', ['title' => 'Online Asessment Tes CDC Polije']);
     }
 }
