@@ -3,7 +3,8 @@
 @section('container')
     <div class="section container text-center col-md-9 col-lg-8 col-xl-8 col-sm-10">
         <h2>Tes Minat Karir</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea exercitationem, odio beatae iste nulla sapiente, amet recusandae voluptate a enim adipisci! Doloribus possimus officiis et!</p>
+        <p style="font-size: 1rem;">Mohon Perhatian !!</p>
+        <p>Tes Minat Karir ini sebagai perkiraan untuk memberikan gambaran umum tentang minat dan preferensi karir.Hasil tes ini bersifat perkiraan atau estimasi saja karena minat karir adalah hal yang kompleks dan dipengaruhi oleh banyak faktor, termasuk minat pribadi, keterampilan, nilai-nilai, dan pengalaman hidup.Tes ini tidak bertujuan untuk memberikan keputusan pasti hanya sebagai panduan tambahan dalam proses pengambilan keputusan karir. Untuk mengetahui secara lebih detail anda harus berkonsultasi ke profesional atau psikolog.</p>
         <br>
         <div class="" style="border: 0.4px solid #adaaaa; height: 1px"></div>
         <br>
