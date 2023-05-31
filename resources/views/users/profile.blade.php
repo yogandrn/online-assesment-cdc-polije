@@ -3,13 +3,12 @@
 @section('container')
 <div class="container">
 <section class="section">
-      <div class="container">
+    <div class="container">
         <div class="row">
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
                 <h1 class="profile-title text-left">Profile</h1>
-                
               </div>
               <div class="card-body">
                 <form entype="multipart/form-data">
@@ -84,11 +83,12 @@
                     </div>
                     
                   </div>
-                  <button type="submit" class="btn btn-primary btn-round float-right" rel="tooltip" data-original-title="Can't wait for your message" data-placement="right">Send text</button>
+                  <button type="submit" class="btn btn-warning btn-round float-right" rel="tooltip" data-original-title="Can't wait for your message" data-placement="right">Send text</button>
                 </form>
               </div>
             </div>
           </div>
+          <!-- edit foto profile -->
           <div class="col-lg-4 col-md-6 ml-auto mr-auto">
             <div class="card card-coin ">
               <div class="card-header">
@@ -96,7 +96,7 @@
                 <h4 class="title">{{auth()->user()->nama}}</h4>
               </div>
               <div class="card-body">
-                <ul class="nav nav-tabs nav-tabs-primary justify-content-center">
+                <ul class="nav nav-tabs nav-tabs-warning justify-content-center">
                   <li class="nav-item">
                     <a class="nav-link " data-toggle="tab" href="#linkb">
                       Edit
@@ -116,15 +116,14 @@
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-simple btn-primary btn-icon btn-round float-right"><i class="tim-icons icon-send"></i></button>
+                    <button type="submit" class="btn btn-simple btn-warning btn-icon btn-round float-right"><i class="tim-icons icon-send"></i></button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      
+    </div>   
 </section>
 </div>
 @endsection
