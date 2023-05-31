@@ -12,7 +12,6 @@
                             <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                             <span class="btn-inner--text">Tambah</span>
                         </button>
-                        {{csrf_field()}}
                         <div class="table-responsive">
                             <table id="example" class="display" style="font-size: 12px">
                                 <thead>
@@ -22,13 +21,13 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                @foreach($pernyataanKepribadian as $item)
+                                @foreach($questions as $item)
                                 <tbody>
                                     <tr>
                                         <td>{{$loop -> iteration}}</td>
                                         <td>{{$item -> pernyataan}}</td>
                                         <td>
-                                            <a href="/admin/editgayakepribadian/{{ $item->id }}" class="text-warning font-weight-bold text-xs">
+                                            <a href="javascript:;" class="text-warning font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#editmodal{{ $item->id }}" data-original-title="Edit user">
                                                 Edit
                                             </a>
 
@@ -51,15 +50,14 @@
                                                 <h5 class="modal-title" id="editmodalLabel">Edit Pernyataan Gaya Kepribadian</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <form method="POST" action="{{ url('admin/kepribadian/'. $item->id) }}">
-                                                @csrf
-                                                @method('PUT')
+                                            <form action="{{url('admin/kepribadianupdate/'.$item->id)}}" method="POST">
+                                                {{ csrf_field() }}
                                                 <div class="modal-body">
                                                     <div class="row">
                                                         <div class="col-">
                                                             <div class="form-group">
-                                                                <label for="example-text-input" class="form-control-label">Pertanyaan</label>
-                                                                <textarea class="form-control" name="input_pernyataan_kepribadian" id="pertanyaan_kepribadian" type="text">{{ $item->pernyataan }}</textarea>
+                                                                <label for="example-text-input" class="form-control-label">Pernyataan</label>
+                                                                <textarea class="form-control" name="input_pernyataan_kepribadian" id="pernyataan_kepribadian" type="text">{{ $item->pernyataan }}</textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -86,7 +84,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <form method="POST" action="{{url('admin/kepribadiandestroy/', $item->id) }}" enctype="multipart/form-data">
+                                                <form method="POST" action="{{url('admin/kepribadiandestroy', $item->id) }}" enctype="multipart/form-data">
                                                     {{ csrf_field() }}
                                                     @method('DELETE')
                                                     <button class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
@@ -115,13 +113,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="{{url('admin/kepribadianstore/')}}" method="POST">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Pernyataan</label>
-                                <textarea class="form-control" name="input_pernyataan_kepribadian" id="pernyataan_kepribadian" type="text"></textarea>
+                                <textarea class="form-control" name="pernyataan" id="pernyataan" type="text" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -130,36 +128,6 @@
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary">Tambah</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<!-- Hapus Modal -->
-<div class="modal fade" id="hapusmodal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="hapusmodal" aria-hidden="true">
-    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="modal-title-notification">Hapus Data</h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="py-3 text-center">
-                    <i class="ni ni-fat-remove ni-3x"></i>
-                    <h6 class="text-gradient text-danger mt-4">Apakah Anda yakin untuk menghapus data ini?</h6>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary">Hapus</button>
             </div>
         </div>
     </div>
