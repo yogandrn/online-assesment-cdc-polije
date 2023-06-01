@@ -16,42 +16,42 @@ class KarirController extends Controller
     public function realistic()
     {
         $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "1")->get();
-        $title = 'Realistic';
+        $title = 'Data Realistic';
         return view('admin.karir.realistic', compact('karir'))->with('title', $title);
     }
 
     public function investigative()
     {
         $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "2")->get();
-        $title = 'Investigative';
+        $title = 'Data Investigative';
         return view('admin.karir.investigative', compact('karir'))->with('title', $title);
     }
 
     public function artistic()
     {
         $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "3")->get();
-        $title = 'Artistic';
+        $title = 'Data Artistic';
         return view('admin.karir.artistic', compact('karir'))->with('title', $title);
     }
 
     public function social()
     {
         $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "4")->get();
-        $title = 'Social';
+        $title = 'Data Social';
         return view('admin.karir.social', compact('karir'))->with('title', $title);
     }
 
     public function enterprising()
     {
         $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "5")->get();
-        $title = 'Enterprising';
+        $title = 'Data Enterprising';
         return view('admin.karir.enterprising', compact('karir'))->with('title', $title);
     }
 
     public function conventional()
     {
         $karir = PernyataanMinatKarir::where("minat_karir_id", "=", "6")->get();
-        $title = 'Conventional';
+        $title = 'Data Conventional';
         return view('admin.karir.conventional', compact('karir'))->with('title', $title);
     }
 

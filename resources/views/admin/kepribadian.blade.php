@@ -48,7 +48,7 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="editmodalLabel">Edit Pernyataan Gaya Kepribadian</h5>
+                                                <h5 class="modal-title" id="editmodalLabel">Edit Pernyataan</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <form action="{{url('admin/kepribadianupdate/'.$item->id)}}" method="POST">
@@ -79,7 +79,7 @@
                                             <div class="modal-header">
                                                 <form method="POST" action="{{url('admin/kepribadiandestroy/'.$item->id)}}">
                                                     @csrf
-                                                    <h5 class="modal-title" id="staticBackdropLabel">Hapus</h5>
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Hapus Pernyataan</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -109,7 +109,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tambahmodalLabel">Tambah Pernyataan Gaya Kepribadian</h5>
+                <h5 class="modal-title" id="tambahmodalLabel">Tambah Pernyataan</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

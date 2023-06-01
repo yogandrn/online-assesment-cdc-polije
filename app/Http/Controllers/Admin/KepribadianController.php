@@ -16,7 +16,7 @@ class KepribadianController extends Controller
     public function index()
     {
         $questions = PernyataanKepribadian::get();
-        $title = 'Gaya Kepribadian';
+        $title = 'Data Gaya Kepribadian';
         return view('admin.kepribadian', compact('questions'))->with('title', $title);
     }
 
