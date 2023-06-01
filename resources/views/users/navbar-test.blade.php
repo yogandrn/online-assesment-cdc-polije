@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-transparent" color-on-scroll="dark">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="/" rel="tooltip" title="Designed and Coded by JTI ASIK Tim" data-placement="bottom" target="self">
+        <a class="navbar-brand" href="/" rel="tooltip" title="Designed and Coded by JTI ASIK Tim" data-placement="bottom" target="_self">
           <span>CDC Polije •</span> Online Assessment Test
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">

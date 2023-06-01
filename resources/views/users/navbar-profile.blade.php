@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-transparent" color-on-scroll="dark">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="/" rel="tooltip" title="Designed and Coded by JTI ASIK Tim" data-placement="bottom" target="self">
+        <a class="navbar-brand" href="/" rel="tooltip" title="Designed and Coded by JTI ASIK Tim" data-placement="bottom" target="_self">
           <span>CDC Polije •</span> Online Assessment Test
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,19 +13,26 @@
       <div class="collapse navbar-collapse justify-content-end" id="navigation">
         
         <ul class="navbar-nav">
-
           <li class="dropdown nav-item">
-            <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown" >
-              <i class="fa fa-cogs d-lg-none d-xl-none"></i> <strong>{{auth()->user()->nama}}</strong>
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="fa fa-cogs d-lg-none d-xl-none"></i> Services
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              <form action="/logout" method="post">
-                @csrf
-                <button type="submit" class="dropdown-item" onclick="return confirm('Apakah Anda yakin ingin logout?');" style="color: #00081d;">
-                  <i class="tim-icons icon-minimal-right"></i>Logout 
-                </button>
-             
+              <a href="/users/gayakepribadian" class="dropdown-item" style="color: #00081d;">
+                <i class="tim-icons icon-bullet-list-67"></i>Gaya Kepribadian
+              </a>
+              <a href="/users/minatkarir" class="dropdown-item" style="color: #00081d;">
+                <i class="tim-icons icon-image-02"></i>Minat Karir
+              </a>
             </div>
+          </li>
+          <li class="nav-item">
+            <form action="/logout" method="post">
+              @csrf
+              <button type="submit" class="btn btn-warning " onclick="return confirm('Apakah Anda yakin ingin logout?');" >
+                Logout 
+              </button>
+            </form>
           </li>
    
         </ul>

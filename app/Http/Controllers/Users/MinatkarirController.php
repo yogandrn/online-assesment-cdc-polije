@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Models\HasilMinatKarir;
 use App\Models\MinatKarir;
 use App\Models\PernyataanMinatKarir;
 use App\Models\Question;
@@ -13,6 +14,7 @@ use Illuminate\Support\Str;
 
 class MinatkarirController extends Controller
 {
+
     public function index()
     {
         $tesMinatKarir = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Minat Karir')->first();
@@ -117,5 +119,6 @@ class MinatkarirController extends Controller
 
         return view('users.test-minat', ['title' => 'Tes Minat Karir | CDC Polije','questions' => $data, 'token' => $token, 'test_id' => $test->id]);
     }
+
 
 }

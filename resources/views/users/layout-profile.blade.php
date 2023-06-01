@@ -6,33 +6,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{url('/assets/img/logo_polije.png')}}">
-  <link rel="icon" type="image/png" sizes="76x76" href="{{url('/assets/img/logo_polije.png')}}">
-  
+  <link rel="icon" type="image/png" href="{{url('/assets/img/logo_polije.png')}}">
   <title>
-    {{$title}}
+    {{ $title }}
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <!-- Font Awesome Icons -->
-  {{-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> --}}
   <!-- Nucleo Icons -->
   <link href="{{url('/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{url('/assets/css/blk-design-system.css?v=1.0.0')}}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{url('/assets/demo/demo.css')}}" rel="stylesheet" />
-  <style>
-    .text {
-      color: #00081d;
-    }
-  </style>
 </head>
 
 <body class="index-page">
   <!-- Navbar -->
-  @include('users.navbar')
+  @include('users.navbar-profile')
 
   <!-- End Navbar -->
   <div class="wrapper">

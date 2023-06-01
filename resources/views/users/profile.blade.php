@@ -1,4 +1,4 @@
-@extends('users.main')
+@extends('users.layout-profile')
 
 @section('container')
 
@@ -20,10 +20,14 @@
         <p style="color: #00081d; text-align: ; font-size: 1.05em;">{{ auth()->user()->email }}</p>
         <p style="color: #00081d; text-align: ; font-size: 1.05em;">{{ auth()->user()->no_telp }}</p>
         <p style="color: #00081d; text-align: ; font-size: 1.05em;">{{ auth()->user()->perguruan_tinggi }}</p>
-        <p style="color: #00081d; text-align: ; font-size: 0.965em;">{{ auth()->user()->jurusan }}</p>
-        <p style="color: #00081d; text-align: ; font-size: 0.96em;">{{ auth()->user()->program_studi }}</p>
+        <p style="color: #00081d; text-align: ; font-size: 1.05em;">{{ auth()->user()->jurusan }}</p>
+        <p style="color: #00081d; text-align: ; font-size: 1.05em;">{{ auth()->user()->program_studi }}</p>
         {{-- <div class=" mt-3 mb-3" style="border:1px solid #929292;"></div> --}}
+<<<<<<< Updated upstream
         <a href="/users/profile/{{auth()->user()->id}}/edit" class="btn btn-warning w-100 mb-3 mt-3">Edit</a>
+=======
+        <a href="/users/profile/{{auth()->user()->id}}/edit" class="btn btn-primary w-100 mb-3 mt-3" style="font-size: 1.05rem;"><i class="bi bi-pencil-square" ></i> Edit</a>
+>>>>>>> Stashed changes
       </div>
     </div>
     <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 container rounded shadow-lg pb-4" style="background-color: beige;">
@@ -31,7 +35,7 @@
       <div class="row rounded-top px-3 py-2" style="background-color: #c6c6c6;">
         {{-- Foto user  --}}
        <div class="d-flex" style="">
-        <i class="bi bi-gear-fill" style="font-size: 1.7rem; color:#00081d; align-self: center;"></i>
+        <i class="bi bi-slack" style="font-size: 1.6rem; color:#00081d; align-self: center;"></i>
         <p style="color: #00081d; text-align: ; font-size: 1.25em; align-self: center;" class="ml-3"><strong>Riwayat Tes</strong></p>
        </div>
       </div>

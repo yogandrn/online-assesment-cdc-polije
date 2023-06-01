@@ -11,6 +11,18 @@ use Illuminate\Support\Facades\Auth;
 
 class HasilKepribadianController extends Controller
 {
+
+    // method menampilkan history test user
+    public function history()
+    {   
+        $result = HasilKepribadian::where('user_id', Auth::user()->id)->with([ 'test', 'kepribadian'])->paginate(10);
+        // if (!$result) {
+        //     $result = [];
+        // } 
+        return view('users.riwayat-kepribadian', ['title' => 'Riwayat Tes Gaya Kepribadian | CDC Polije', 'hasil' => $result]);
+        // return response()->json(['riwayat' => $result]);
+    }
+    
     public function detail($token)
     {
         $result = HasilKepribadian::where('test_token', $token)->with(['kepribadian','user'])->first();

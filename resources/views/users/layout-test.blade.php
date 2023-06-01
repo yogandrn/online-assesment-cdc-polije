@@ -8,11 +8,12 @@
   <link rel="apple-touch-icon" sizes="76x76" href="{{url('/assets/img/logo_polije.png')}}">
   <link rel="icon" type="image/png" href="{{url('/assets/img/logo_polije.png')}}">
   <title>
-    Online Assessment Test - CDC Polije
+    {{$title}}
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <!-- Nucleo Icons -->
   <link href="{{url('/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <!-- CSS Files -->

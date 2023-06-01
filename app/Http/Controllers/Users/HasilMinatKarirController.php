@@ -25,6 +25,18 @@ class HasilMinatKarirController extends Controller
         // ]);
     }
 
+    
+    public function history()
+    {
+        $tempKarir = [];
+        $tempHistori = [];
+        $results = [];
+        $result = HasilMinatKarir::where('user_id', Auth::user()->id)->with('test')->get();
+
+        return view('users.riwayat-minatkarir', ['hasil' => $result, 'title' => 'Riwayat Tes Minat Karir | CDC Polije']);
+        // return response()->json(['hasil' => $result]);
+    }
+
     public function store(Request $request)
     {
 
