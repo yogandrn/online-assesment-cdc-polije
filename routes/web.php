@@ -73,6 +73,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::group(['middleware' => ['auth', 'admin']], function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
+
         Route::get('/kepribadian', [KepribadianController::class, 'index'])->name("kepribadian");
         Route::post('/kepribadianupdate/{id}', [KepribadianController::class, 'update'])->name("kepribadianupdate");
         Route::post('/kepribadianstore', [KepribadianController::class, 'store'])->name("kepribadianstore");
@@ -90,6 +91,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/karir/conventional', [KarirController::class, 'conventional']);
 
         Route::get('/user', [UserController::class, 'index']);
+
         Route::get('/logout', [LoginAdminController::class, 'logout']);
     });
 });

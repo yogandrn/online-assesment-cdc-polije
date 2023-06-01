@@ -83,7 +83,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <H6>Apakah Anda Yakin Ingin Menghapus Data Dengan Id {{ $item->id }}</H6>
+                                                <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

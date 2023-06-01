@@ -103,32 +103,6 @@
     </div>
 </div>
 
-
-
-<!-- Hapus Modal -->
-<div class="modal fade" id="hapusmodal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="hapusmodal" aria-hidden="true">
-    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="modal-title-notification">Hapus Data</h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="py-3 text-center">
-                    <i class="ni ni-fat-remove ni-3x"></i>
-                    <h6 class="text-gradient text-danger mt-4">Apakah Anda yakin untuk menghapus data ini?</h6>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary">Hapus</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Modal -->
 <!-- Tambah Modal -->
 <div class="modal fade" id="tambahmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="tambahmodalLabel" aria-hidden="true">
@@ -148,10 +122,8 @@
                                 <textarea class="form-control" name="pernyataan" id="pernyataan" type="text" required></textarea>
                                 <input type="text" id="minat_karir_id" class="form-control" name="minat_karir_id" value="1" hidden>
                             </div>
-
                         </div>
                     </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

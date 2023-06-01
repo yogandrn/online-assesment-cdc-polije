@@ -1,7 +1,7 @@
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href=" / " target="_blank">
+        <a class="navbar-brand m-0" href="{{ url('/admin/dashboard') }}">
             <img src="{{url('assets/img/logo_polije_lengkap.png')}}" class="navbar-brand-img h-100" alt="main_logo">
         </a>
     </div>
@@ -61,11 +61,36 @@
                 </a>
             </li>
         </ul>
-        <form action="{{url('logout')}}" method="POST" class="mx-2">
+        <!-- <form action="{{url('logout')}}" method="POST" class="mx-2">
             @csrf
             <div class="d-flex align-items-center">
                 <button type="submit" class="btn btn-primary btn-sl btn-sl w-100 mt-3 mb-0"> <i class="fas fa-power-off text-white text-sm opacity-10"></i> Logout</button>
             </div>
-        </form>
+        </form> -->
+        <div class="d-flex align-items-center p-4">
+            <button type="button" class="btn btn-primary btn-sl btn-sl w-100 mb-0" data-bs-toggle="modal" data-bs-target="#logout" data-original-title="Logout"> <i class="fas fa-power-off text-white text-sm opacity-10"></i> Logout</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <form action="{{url('logout')}}" method="POST" class="mx-2">
+                        @csrf
+                        <h5 class="modal-title" id="staticBackdropLabel">Logout</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <H6>Apakah Anda Yakin Ingin Logout?</H6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn bg-primary border-0 pe-3 ps-3">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </aside>
