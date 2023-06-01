@@ -95,13 +95,6 @@ class KepribadianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
-    {
-        if ($request->isMethod('post')) {
-            PernyataanKepribadian::where(['id' => $id])->delete();
-            return redirect()->back()->with('diky_hapus', 'Hapus Data Berhasil');
-        }
-    }
 
     public function hapus(Request $request, $id)
     {
