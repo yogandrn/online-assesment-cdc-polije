@@ -65,7 +65,7 @@
               <i class="fa fa-cogs d-lg-none d-xl-none"></i> Halo, {{auth()->user()->nama}}
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              <a href="/users/profile/{{ auth()->user()->id }}" class="dropdown-item" style="color: #00081d;">
+              <a href="/users/profile" class="dropdown-item" style="color: #00081d;">
                 <i class="tim-icons icon-single-02"></i>View Profile
               </a>
               <form action="/logout" method="post">

@@ -49,20 +49,26 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 Route::name('users.')->prefix('users')->group(function () {
     Route::group(['middleware' => ['auth']], function () {
+        // Route Minat Karir 
         Route::get('/', [MenuController::class, 'index'])->name('home');
-        Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
         Route::get('/minatkarir', [MinatkarirController::class, 'index']);
-        // Route::get('/minatkarir/start', [MinatkarirController::class, 'start']);
+        Route::get('/minatkarir/histories', [MinatkarirController::class, 'history']);
         Route::post('/minatkarir/start', [MinatkarirController::class, 'startTest']);
         Route::get('/minatkarir/test/{token}', [MinatkarirController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/minatkarir/store', [HasilMinatKarirController::class, 'store']);
         Route::get('/minatkarir/result/{token}', [HasilMinatKarirController::class, 'detail']);
-        // Route::get('/gayakepribadian/start', [GayakepribadianController::class, 'start']);
+
+        // Route Gaya Kepribadian 
+        Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
+        Route::get('/gayakepribadian/histories', [GayakepribadianController::class, 'history']);
         Route::post('/gayakepribadian/start', [GayakepribadianController::class, 'startTest']);
         Route::get('/gayakepribadian/test/{token}', [GayakepribadianController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/gayakepribadian/store', [HasilKepribadianController::class, 'store']);
-        Route::get('/profile/{id}', [ProfileController::class, 'index']);
         Route::get('/gayakepribadian/result/{token}', [HasilKepribadianController::class, 'detail']);
+
+        // Route Profile 
+        Route::get('/profile', [ProfileController::class, 'index']);
+        Route::get('/profile/{id}/edit', [ProfileController::class, 'edit']);
     });
 });
 

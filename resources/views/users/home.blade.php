@@ -12,29 +12,29 @@
           </div>
         </div>
         <div class="space-20"></div>
-        <br></br>
+        <br>
         <div class="container text-center">
           <div class="row">
             <div class="col-sm-6">
-              <a href="examples/Gaya Kepribadian">
-                <img src="{{url('assets/img/kepribadian.jpg')}}" alt="Image" class="img-raised" width="350">
+              <a href="/users/gayakepribadian" >
+                <img src="{{url('assets/img/kepribadian.jpg')}}" alt="gaya-kepribadian" class="img-raised" width="350">
               </a>
-              <br></br>
-              <a href="/users/gayakepribadian" class="btn btn-warning">Tes Gaya Kepribadian</a>
+              <br>
+              <a href="/users/gayakepribadian" class="btn btn-warning mt-4">Tes Gaya Kepribadian</a>
               {{-- <button class="btn btn-warning" data-toggle="modal" data-target="#myModal">
                 Test Gaya Kepribadian
               </button> --}}
               <!-- <a href="examples/landing-page.html" class="btn btn-simple btn-primary btn-round">Test Gaya Kepribadian</a> -->
             </div>
             <div class="col-sm-6">
-              <a href="examples/Minat Karir">
-                <img src="{{ url('assets/img/minatkarir.jpg')}}" alt="Image" class="img-raised" width="350">
+              <a href="/users/minatkarir" >
+                <img src="{{ url('assets/img/minatkarir.jpg')}}" alt="minat-karir" class="img-raised" width="350">
               </a>
-              <br></br>
+              <br>
               {{-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modalku">
                 Test Minat Karir
               </button> --}}
-              <a href="/users/minatkarir" class="btn btn-warning">Tes Minat Karir</a>
+              <a href="/users/minatkarir" class="btn btn-warning mt-4">Tes Minat Karir</a>
 
               <!-- <a href="examples/profile-page.html" class="btn btn-simple btn-primary btn-round">Test Minat Karir</a> -->
             </div>

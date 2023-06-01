@@ -14,11 +14,11 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <!-- Nucleo Icons -->
-  <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="{{ url('/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="/assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
+  <link href="{{ url('/assets/css/blk-design-system.css?v=1.0.0')}}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="/assets/demo/demo.css" rel="stylesheet" />
+  <link href="{{ url('/assets/demo/demo.css')}}" rel="stylesheet" />
 </head>
 
 <body class="index-page">
@@ -27,7 +27,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="https://demos.creative-tim.com/blk-design-system/index.html" rel="tooltip" title="Designed and Coded by JTI ASIK Tim" data-placement="bottom" target="_blank">
-          <span>CDC Polije•</span> Online Assessment Test
+          <span>CDC Polije •</span> Online Assessment Test
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar bar1"></span>
@@ -76,10 +76,10 @@
             <div class="dropdown-menu dropdown-with-icons">
               <!-- <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
               </a> -->
-              <a href="examples/register-page.html" class="dropdown-item">
+              <a href="/users/gayakepribadian" class="dropdown-item">
                 <i class="tim-icons icon-bullet-list-67"></i>Gaya Kepribadian
               </a>
-              <a href="examples/landing-page.html" class="dropdown-item">
+              <a href="/users/minatkarir" class="dropdown-item">
                 <i class="tim-icons icon-image-02"></i>Minat Karir
               </a>
             </div>

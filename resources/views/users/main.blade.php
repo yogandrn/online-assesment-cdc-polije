@@ -14,6 +14,9 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Font Awesome Icons -->
+  {{-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> --}}
   <!-- Nucleo Icons -->
   <link href="{{url('/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
@@ -24,6 +27,12 @@
 
 <body class="index-page">
   <!-- Navbar -->
+  @if (Request::is('/users/minatkarir/test/...') || Request::is('/users/gayakepribadian/test/...'))
+      @include('users.navbar-test')
+  @endif
+  @if (Request::is('/users/profile'))
+      @include('users.navbar-profile')
+  @endif
   @include('users.navbar')
 
   <!-- End Navbar -->

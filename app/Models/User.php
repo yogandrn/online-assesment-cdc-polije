@@ -46,6 +46,6 @@ class User extends Authenticatable
 
     public function test_histories()
     {
-        return $this->hasMany('test_histories', 'user_id', 'id');
+        return $this->hasMany(TestHistory::class, 'user_id', 'id');
     }
 }

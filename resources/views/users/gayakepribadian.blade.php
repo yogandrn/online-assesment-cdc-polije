@@ -4,6 +4,8 @@
 
     <div class="section container text-center col-md-9 col-lg-8 col-xl-8 col-sm-10">
         <h2>Tes Gaya Kepribadian</h2>
+        <div class="" style="border: 0.4px solid #adaaaa; height: 1px"></div>
+        <br>
         <p style="font-size: 1rem;"> Mohon Perhatian !!</p>
         <p>Tes Gaya Kepribadian ini akan memberikan gambaran seberapa tinggi tingkat kepribadian Concientiousnes yang anda miliki, kepribadian tersebut dapat membantu anda mengetahui gambaran karakter anda. Tes ini tidak bisa dianggap sepenuhnya valid karena kepribadian seseorang dapat dipengaruhi oleh konteks dan situasi tertentu. Hasil tes bisa jadi terasa kurang tepat atau berbeda dengan tes lain. Untuk mengetahui secara lebih detail anda harus berkonsultasi ke profesional atau psikolog</p>
         <br>
@@ -16,7 +18,7 @@
             </button>      
         @else
         <h6 style="font-size: 1.08rem;">Kamu sudah melakukan tes. Tes ini bisa dilakukan dalam 90 hari lagi.</h6>
-        <h6 style="font-size: 1.08rem;">{{ $available_at}}</h6>
+        <h6 style="font-size: 1.08rem;">Available at : {{ $available_at}}</h6>
           
         @endif
     </div>
