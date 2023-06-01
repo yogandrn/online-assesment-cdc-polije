@@ -45,7 +45,7 @@ class KepribadianController extends Controller
             'pernyataan' => $request->pernyataan,
         ]);
         if ($data) {
-            return redirect()->back()->with('success', 'Berhasil Ditambahkan');
+            return redirect()->back()->with('toast_success', 'Berhasil Ditambahkan');
         }
     }
 
@@ -85,7 +85,7 @@ class KepribadianController extends Controller
             PernyataanKepribadian::where(['id' => $id])->update([
                 'pernyataan' => $data['input_pernyataan_kepribadian'],
             ]);
-            return redirect()->back()->with('success', 'Update Berhasil');
+            return redirect()->back()->with('toast_success', 'Update Berhasil');
         }
     }
 
@@ -107,8 +107,8 @@ class KepribadianController extends Controller
     {
         if ($request->isMethod('post')) {
             PernyataanKepribadian::where(['id' => $id])->delete();
-            return redirect()->back()->with('success', 'Update Berhasil');
+            return redirect()->back()->with('toast_success', 'Hapus Data Berhasil');
         }
-        return redirect()->back()->with('success', 'Update Berhasil');
+        return redirect()->back()->with('toast_success', 'Hapus Data Berhasil');
     }
 }

@@ -76,10 +76,10 @@
             <div class="dropdown-menu dropdown-with-icons">
               <!-- <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
               </a> -->
-              <a href="/users/gayakepribadian" class="dropdown-item">
+              <a href="examples/register-page.html" class="dropdown-item">
                 <i class="tim-icons icon-bullet-list-67"></i>Gaya Kepribadian
               </a>
-              <a href="/users/minatkarir" class="dropdown-item">
+              <a href="examples/landing-page.html" class="dropdown-item">
                 <i class="tim-icons icon-image-02"></i>Minat Karir
               </a>
             </div>
@@ -146,12 +146,12 @@
                     <div class="carousel-item active">
                       <img class="d-block w-100" src="assets/login/img/Gedung-Pascasarjana-2.jpg" alt="First slide">
                     </div>
-                    <div class="carousel-item">
+                    <!-- <div class="carousel-item">
                       <img class="d-block w-100" src="assets/img/fabien-bazanegue.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
                       <img class="d-block w-100" src="assets/img/mark-finn.jpg" alt="Third slide">
-                    </div>
+                    </div> -->
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                     <i class="tim-icons icon-minimal-left"></i>

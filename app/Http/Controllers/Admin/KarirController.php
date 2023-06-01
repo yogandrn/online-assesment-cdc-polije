@@ -82,7 +82,7 @@ class KarirController extends Controller
             'minat_karir_id' => $request->minat_karir_id,
         ]);
         if ($data) {
-            return redirect()->back()->with('success', 'Berhasil Ditambahkan');
+            return redirect()->back()->with('toast_success', 'Berhasil Ditambahkan');
         }
     }
 
@@ -122,7 +122,7 @@ class KarirController extends Controller
             PernyataanMinatKarir::where(['id' => $id])->update([
                 'pernyataan' => $data['pernyataan'],
             ]);
-            return redirect()->back()->with('success', 'Update Berhasil');
+            return redirect()->back()->with('toast_success', 'Update Berhasil');
         }
     }
 
@@ -136,7 +136,7 @@ class KarirController extends Controller
     {
         if ($request->isMethod('post')) {
             PernyataanMinatKarir::where(['id' => $id])->delete();
-            return redirect()->back()->with('success', 'Update Berhasil');
+            return redirect()->back()->with('toast_success', 'Hapus Data Berhasil');
         }
     }
 }
