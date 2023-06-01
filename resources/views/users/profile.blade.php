@@ -23,11 +23,7 @@
         <p style="color: #00081d; text-align: ; font-size: 1.05em;">{{ auth()->user()->jurusan }}</p>
         <p style="color: #00081d; text-align: ; font-size: 1.05em;">{{ auth()->user()->program_studi }}</p>
         {{-- <div class=" mt-3 mb-3" style="border:1px solid #929292;"></div> --}}
-<<<<<<< Updated upstream
-        <a href="/users/profile/{{auth()->user()->id}}/edit" class="btn btn-warning w-100 mb-3 mt-3">Edit</a>
-=======
-        <a href="/users/profile/{{auth()->user()->id}}/edit" class="btn btn-primary w-100 mb-3 mt-3" style="font-size: 1.05rem;"><i class="bi bi-pencil-square" ></i> Edit</a>
->>>>>>> Stashed changes
+    <a href="/users/profile/{{auth()->user()->id}}/edit" class="btn btn-primary w-100 mb-3 mt-3" style="font-size: 1.05rem;"><i class="bi bi-pencil-square" ></i> Edit</a>
       </div>
     </div>
     <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 container rounded shadow-lg pb-4" style="background-color: beige;">
