@@ -7,7 +7,7 @@
         <br>
         <h3 style="color: #00081d" class="text-center"><strong>Hasil Tes Kepribadian </strong></h3>
         <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
-        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Waktu Pelaksanaan : {{\Carbon\Carbon::parse($hasil['started_at'])->format('d M Y H:i:s');}}</p>
+        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Waktu Pelaksanaan : {{\Carbon\Carbon::parse($hasil['test']['started_at'])->format('d M Y H:i:s');}}</p>
         <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
         <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nama Lengkap : {{$hasil['user']['nama']}}</p>
         <p style="color: #00081d; text-align:left; font-size: 1rem;" >Alamat Email : {{$hasil['user']['email']}}</p>

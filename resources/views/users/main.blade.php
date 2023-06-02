@@ -21,6 +21,7 @@
   <link href="{{url('/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{url('/assets/css/blk-design-system.css?v=1.0.0')}}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url('/assets/css/blk-design-system.css')}}">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{url('/assets/demo/demo.css')}}" rel="stylesheet" />
   <style>

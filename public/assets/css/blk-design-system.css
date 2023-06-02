@@ -1495,22 +1495,26 @@ pre code {
   width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
+  color: #00081d;
 }
 
 .table th,
 .table td {
   padding: 1rem;
   vertical-align: top;
-  border-top: 0.0625rem solid #e3e3e3;
+  border-top: 0.0625rem solid #505050;
+  color: #00081d;
 }
 
 .table thead th {
   vertical-align: bottom;
-  border-bottom: 0.125rem solid #e3e3e3;
+  border-bottom: 0.125rem solid #505050;
+  color: #00081d;
 }
 
 .table tbody+tbody {
-  border-top: 0.125rem solid #e3e3e3;
+  border-top: 0.125rem solid #505050;
+  color: #00081d;
 }
 
 .table .table {
@@ -1523,12 +1527,12 @@ pre code {
 }
 
 .table-bordered {
-  border: 0.0625rem solid #e3e3e3;
+  border: 0.0625rem solid #505050;
 }
 
 .table-bordered th,
 .table-bordered td {
-  border: 0.0625rem solid #e3e3e3;
+  border: 0.0625rem solid #505050;
 }
 
 .table-bordered thead th,
@@ -14662,7 +14666,7 @@ hr {
 }
 
 .table>tbody>tr>td {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: #00081d !important;
 }
 
 .table>tbody>tr>td .photo {
@@ -14750,7 +14754,7 @@ hr {
   text-transform: uppercase;
   font-weight: 700;
   border: 0;
-  color: rgba(255, 255, 255, 0.7);
+  color: #00081d;
 }
 
 .table .radio,
@@ -14780,7 +14784,7 @@ hr {
 .table>thead>tr>td,
 .table>tbody>tr>td,
 .table>tfoot>tr>td {
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: #505050;
   padding: 12px 7px;
   vertical-align: middle;
 }

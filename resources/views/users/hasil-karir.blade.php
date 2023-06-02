@@ -7,7 +7,7 @@
             <br>
             <h3 style="color: #00081d" class="text-center"><strong>Hasil Tes Minat Karir </strong></h3>
             <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
-            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Waktu Pelaksanaan : {{\Carbon\Carbon::parse($test_data['started_at'])->format('d M Y H:i:s');}}</p>
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Waktu Pelaksanaan : {{\Carbon\Carbon::parse($test_data['test']['started_at'])->format('d M Y H:i:s');}}</p>
             <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
             <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nama Lengkap : {{$test_data['user']['nama']}}</p>
             <p style="color: #00081d; text-align:left; font-size: 1rem;" >Alamat Email : {{$test_data['user']['email']}}</p>
