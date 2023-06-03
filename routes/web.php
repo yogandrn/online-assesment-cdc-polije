@@ -48,7 +48,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 
 Route::name('users.')->prefix('users')->group(function () {
-    Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['auth', 'user']], function () {
         // Route Minat Karir 
         Route::get('/', [MenuController::class, 'index'])->name('home');
         Route::get('/minatkarir', [MinatkarirController::class, 'index']);
@@ -69,15 +69,19 @@ Route::name('users.')->prefix('users')->group(function () {
         // Route Profile 
         Route::get('/profile', [ProfileController::class, 'index']);
         Route::get('/profile/{id}/edit', [ProfileController::class, 'edit']);
+        Route::post('/profile/update/{id}', [ProfileController::class, 'update']);
     });
 });
 
 // Route for Admin 
 Route::name('admin.')->prefix('admin')->group(function () {
+    Route::get('/', function() {
+        return redirect('/admin/dashboard');
+    });
     Route::get('/login', [LoginAdminController::class, 'index']);
     Route::post('/login', [LoginAdminController::class, 'login']);
 
-    Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::group(['middleware' => ['auth-admin', 'admin']], function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
 
         Route::get('/kepribadian', [KepribadianController::class, 'index'])->name("kepribadian");

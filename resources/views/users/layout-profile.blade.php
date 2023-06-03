@@ -19,7 +19,9 @@
   <!-- CSS Files -->
   <link href="{{url('/assets/css/blk-design-system.css?v=1.0.0')}}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{url('/assets/demo/demo.css')}}" rel="stylesheet" />
+  {{-- <link href="{{url('/assets/demo/demo.css')}}" rel="stylesheet" /> --}}
+  <link rel="stylesheet" href="{{url('/assets/css/form.css')}}">
+  
 </head>
 
 <body class="index-page">

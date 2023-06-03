@@ -1,6 +1,127 @@
-@extends('users.main')
+@extends('users.layout-profile')
 
 @section('container')
+<div class="container">
+
+    <div class="container  row justify-content-between mt-4">
+      <div class="col-md-7 col-lg-7 bg-w rounded shadow-lg my-3">
+        <div class="row rounded-top px-3 py-2" style="background-color: #c6c6c6;">
+          <div class="d-flex" style="">
+            <i class="bi bi-person-circle" style="font-size: 1.7rem; color:#00081d; align-self: center;"></i>
+            <p style="color: #00081d; text-align: ; font-size: 1.25em; align-self: center;" class="ml-3"><strong>Data Diri</strong></p>
+          </div>
+        </div>
+        <form action="/users/profile/update/{{ $user->id }}" enctype="multipart/form-data" method="post" class="px-3 py-3">
+          {{-- Input Nama Lengkap  --}}
+          <div class="form-group mb-3 ">
+            <label for="nama" class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" placeholder="Nama Lengkap" aria-label="Nama Lengkap" id="nama" name="nama" required value="{{ $user->nama }}">
+          </div>
+
+          {{-- Input No. Telp   --}}
+          <div class="form-group mb-3 ">
+            <label for="no_telp" class="form-label">Nomor Telepon</label>
+            <input type="tel" class="form-control" placeholder="Nomor Telepon" aria-label="Nomor Telepon" id="no_telp" name="no_telp" required value="{{ $user->no_telp }}">
+          </div>
+
+          {{-- Input Perguruan Tinggi --}}
+          <div class="form-group mb-3 ">
+            <label for="perguruan_tinggi" class="form-label">Perguruan Tinggi</label>
+            <input type="text" class="form-control" placeholder="Perguruan Tinggi" aria-label="Perguruan Tinggi" id="perguruan_tinggi" name="perguruan_tinggi" required value="{{ $user->perguruan_tinggi }}">
+          </div>
+          
+          <div class="row">
+            {{-- Input Nim  --}}
+            <div class="col-6">
+              <div class="form-group mb-3 ">
+                <label for="nim" class="form-label">NIM/NPM</label>
+                <input type="text" class="form-control" placeholder="Nim atau Npm" aria-label="Nim atau Npm" id="nim" name="nim" value="{{ $user->nim }}">
+              </div>
+            </div>
+            {{-- Input Jenjang  --}}
+            <div class="col-6">
+              <div class="form-group mb-3">
+                <label for="jenjang" class="form-label">Jenjang</label>
+                <select class="form-select" aria-label="Jenjang" name="jenjang">
+                  <option @if ($user->jenjang == 'D1') selected @endif>D1</option>
+                  <option @if ($user->jenjang == 'D2') selected @endif>D2</option>
+                  <option @if ($user->jenjang == 'D3') selected @endif>D3</option>
+                  <option @if ($user->jenjang == 'D4/S1') selected @endif>D4/S1</option>
+                </select>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row">
+            {{-- Input Jurusan / Fakultas  --}}
+            <div class="col-6">
+              <div class="form-group mb-3 ">
+                <label for="jurusan" class="form-label">Jurusan/Fakultas</label>
+                <input type="text" class="form-control" placeholder="Jurusan/Fakultas" aria-label="Jurusan/Fakultas" id="jurusan" name="jurusan" required value="{{ $user->jurusan }}">
+              </div>
+            </div>
+            
+            {{-- Input Prodi  --}}
+            <div class="col-6">
+              <div class="form-group mb-3 ">
+                <label for="program_studi" class="form-label">Program Studi</label>
+                <input type="text" class="form-control" placeholder="Program Studi" aria-label="Program Studi" id="program_studi" name="program_studi" required value="{{ $user->program_studi }}">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            {{-- Upload File Ijazah / KTM  --}}
+            <div class="col-6">
+              <div class="mb-3" >
+                <label for="ijazah" class="form-label">Ijazah atau KTM</label>
+                @if ($user->ijazah != null) 
+                <img src="{{url($user->ijazah)}}" alt="ijazah" class="img-fluid mb-2" style="max-height: ">  
+                @else
+                <img src="{{url('/assets/img/ktm-dummy.jpg')}}" alt="ijazah" class="img-fluid mb-2" style="max-height: 9rem">
+                @endif
+                <input class="form-control" type="file" id="ijazah" name="ijazah">
+              </div>
+            </div>
+            
+            {{-- Upload File KTP  --}}
+            <div class="col-6">
+              <div class="mb-3" >
+                <label for="ktp" class="form-label">File e-KTP</label>
+                @if ($user->ktp != null) 
+                  <img src="{{url($user->ktp)}}" alt="KTP" class="img-fluid mb-2" style="max-height: ">  
+                @else
+                  <img src="{{url('/assets/img/ktp-dummy.png')}}" alt="KTP" class="img-fluid mb-2" style="max-height: 9rem">
+                @endif
+                <input class="form-control" type="file" id="ktp" name="ktp">
+              </div>
+            </div>
+          </div>
+
+          {{-- Input URL LinkedIn --}}
+          <div class="form-group mb-3 ">
+            <label for="url_linkedin" class="form-label">URL LinkedIn</label>
+            <input type="text" class="form-control" placeholder="URL LinkedIn" aria-label="URL LinkedIn" id="url_linkedin" name="url_linkedin" value="{{ $user->url_linkedin }}">
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-4  my-3">
+        <div class="card rounded shadow-lg bg-w ml-auto " style="">
+          <div class="row rounded-top px-3 py-2" style="background-color: #c6c6c6;">
+            <div class="d-flex" style="">
+              <i class="bi bi-person-circle" style="font-size: 1.7rem; color:#00081d; align-self: center;"></i>
+              <p style="color: #00081d; text-align: ; font-size: 1.25em; align-self: center;" class="ml-3"><strong>Foto Profil</strong></p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+</div>
+
 <div class="container">
 <section class="section">
     <div class="container">

@@ -29,7 +29,9 @@
           </tr>
           
           @empty 
-            <p class="text">Belum ada riwayat tes</p>
+          <tr>
+            <td colspan="5" class="text-center">Belum ada riwayat</td>
+          </tr>
           @endforelse
         </tbody>
 
