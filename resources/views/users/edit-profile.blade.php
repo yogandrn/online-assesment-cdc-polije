@@ -4,14 +4,32 @@
 <div class="container">
 
     <div class="container  row justify-content-between mt-4">
+
       <div class="col-md-7 col-lg-7 bg-w rounded shadow-lg my-3">
+
         <div class="row rounded-top px-3 py-2" style="background-color: #c6c6c6;">
           <div class="d-flex" style="">
             <i class="bi bi-person-circle" style="font-size: 1.7rem; color:#00081d; align-self: center;"></i>
             <p style="color: #00081d; text-align: ; font-size: 1.25em; align-self: center;" class="ml-3"><strong>Data Diri</strong></p>
           </div>
         </div>
+        <div class="px-3 mt-4">
+          @if (session()->has('success'))
+              <div class="alert alert-success alert-dismissable fade show justify-content-between mb-1" role="alert">
+                {{session('success')}}
+                <button type="button" class="close " data-bs-dismiss="alert" aria-label="Close" style="text-align: end"><i class="tim-icons icon-simple-remove"></i></button>
+              </div>
+          @endif
+          @if (session()->has('update-error'))
+              <div class="alert alert-danger alert-dismissable fade show justify-content-between mb-1" role="alert">
+                {{session('update-error')}}
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end; display:inline-flex; "><i class="tim-icons icon-simple-remove"></i></button>
+              </div>
+          @endif
+        </div>
         <form action="/users/profile/update/{{ $user->id }}" enctype="multipart/form-data" method="post" class="px-3 py-3">
+          @csrf
+          <input type="hidden" name="email" value="{{$user->email}}">
           {{-- Input Nama Lengkap  --}}
           <div class="form-group mb-3 ">
             <label for="nama" class="form-label">Nama Lengkap</label>
@@ -104,7 +122,9 @@
             <input type="text" class="form-control" placeholder="URL LinkedIn" aria-label="URL LinkedIn" id="url_linkedin" name="url_linkedin" value="{{ $user->url_linkedin }}">
           </div>
 
-        </div>
+          <button type="submit" class="btn btn-info ml-auto d-block">Simpan</button>
+
+        </form>
       </div>
 
 
