@@ -37,6 +37,31 @@
     @include('users.footer')
     <!-- end footer -->
   </div>
+
+  <!-- Modal untuk Logout-->
+  <div class="modal fade" id="modal-logout" tabindex="0" role="dialog" aria-labelledby="modal-logout-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title text-center" id="modal-logout-label">Log Out</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="tim-icons icon-simple-remove"></i></span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p><b>Apakah Anda yakin ingin logout ?</b></p>  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
+          <form action="/logout" method="post">
+            @csrf
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--   Core JS Files   -->
   <script src="{{url('/assets/js/core/jquery.min.js')}}" type="text/javascript"></script>
   <script src="{{url('/assets/js/core/popper.min.js')}}" type="text/javascript"></script>

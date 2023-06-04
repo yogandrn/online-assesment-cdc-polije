@@ -27,12 +27,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <form action="/logout" method="post">
-              @csrf
-              <button type="submit" class="btn btn-warning " onclick="return confirm('Apakah Anda yakin ingin logout?');" >
-                Logout 
-              </button>
-            </form>
+            <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modal-logout" ></button>
           </li>
    
         </ul>

@@ -68,13 +68,9 @@
               <a href="/users/profile" class="dropdown-item" style="color: #00081d;">
                 <i class="tim-icons icon-single-02"></i>View Profile
               </a>
-              <form action="/logout" method="post">
-                @csrf
-                <button type="submit" class="dropdown-item" onclick="return confirm('Apakah Anda yakin ingin logout?');" style="color: #00081d;">
+                <button type="submit" class="dropdown-item" data-toggle="modal" data-target="#modal-logout" style="color: #00081d;">
                   <i class="tim-icons icon-minimal-right"></i>Logout 
                 </button>
-              </form>
-             
             </div>
           </li>
           
