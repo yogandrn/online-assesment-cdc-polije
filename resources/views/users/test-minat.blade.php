@@ -5,7 +5,17 @@
 
   <div class="row justify-content-center mx-auto " style="margin-top: 3rem; margin-bottom:4rem;">
       <div class="col-xl-9 col-lg-9 col-md-10 px-5 py-5 border rounded shadow-lg" style="background-color: #fff; color: #00081d;">
-          <h2 class="font-weight-bold" style="color: #00081d">Test Minat Karir</h2>
+        <div class="row justify-content-between">
+            {{-- // Judul Test  --}}
+            <div class="col-8">
+                <h2 class="font-weight-bold" style="color: #00081d">Test Minat Karir</h2>
+            </div>
+
+            {{-- Timer  --}}
+            <div class="col-3 text-center w-50" >
+                <h3 class="text px-3 py-2 rounded " style="background-color: #1a3c9250"><span id="timer" style="; align-self: center">00:00</span></h3>
+            </div>
+        </div>  
 
           <form action="/users/minatkarir/store" method="post">
           @csrf
@@ -45,5 +55,34 @@
           </form>
       </div>
   </div>
+
+<script>
+    let timerDuration = 60 * 5; // 30 menit dalam detik
+    let timerDisplay = document.getElementById('timer');
+    startTimer(timerDuration, timerDisplay);
+    function startTimer(duration, display) {
+        let timer = duration, hours, minutes, seconds;
+        setInterval(function () {
+            hours = parseInt(timer / 3600, 10);
+            minutes = parseInt((timer % 3600) / 60, 10);
+            seconds = parseInt((timer % 3600) % 60, 10);
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent =  minutes + ":" + seconds;
+
+            if (--timer < 0) {
+            // Timer berakhir, lakukan tindakan sesuai kebutuhanmu
+            // Contoh: Munculkan peringatan, kirim jawaban otomatis, dll.
+            // Untuk menghentikan timer setelah mencapai 0, tambahkan kode berikut:
+            // clearInterval(timerInterval);
+            let button = document.getElementById('next-button');
+            button.click();
+            }
+        }, 1000);
+    }
+</script>
     
 @endsection

@@ -20,6 +20,11 @@
   <link href="{{url('/assets/css/blk-design-system.css?v=1.0.0')}}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{url('/assets/demo/demo.css')}}" rel="stylesheet" />
+  <style>
+    .text {
+      color: #00081d !important;
+    }
+  </style>
 </head>
 
 <body class="index-page">
