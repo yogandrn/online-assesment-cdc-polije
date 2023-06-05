@@ -430,5 +430,5 @@
     </div>   
 </section> -->
 </div>
-
+@include('sweetalert::alert')
 @endsection
