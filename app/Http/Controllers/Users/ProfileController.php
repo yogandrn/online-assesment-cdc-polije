@@ -57,7 +57,7 @@ class ProfileController extends Controller
                 'url_linkedin' => $request->url_linkedin,
                 'updated_at' => now(),
             ]);
-            return redirect('/users/profile')->with('success', 'Berhasil memperbarui data');
+            return redirect('/users/profile')->with('toast_success', 'Berhasil memperbarui data');
         }
     }
 }

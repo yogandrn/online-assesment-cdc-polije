@@ -143,7 +143,7 @@
 </div>
 
 <div class="container">
-<section class="section">
+<!-- <section class="section">
     <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -231,7 +231,7 @@
               </div>
             </div>
           </div>
-          <!-- edit foto profile -->
+          edit foto profile
           <div class="col-lg-4 col-md-6 ml-auto mr-auto">
             <div class="card card-coin ">
               <div class="card-header">
@@ -271,6 +271,7 @@
           </div>
         </div>
     </div>   
-</section>
+</section> -->
 </div>
+
 @endsection
