@@ -27,7 +27,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modal-logout" ></button>
+            <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modal-logout" >Logout</button>
           </li>
    
         </ul>

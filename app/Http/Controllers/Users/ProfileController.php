@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\TestHistory;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -30,22 +32,23 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'nama' => 'required|string|max:255|min:3',
-            'no_telp' => ['string', 'required', 'numeric', Rule::unique('users')->ignore($id)],
-            'nim' => ['string', 'required', 'nullable', 'min:4', 'max:12', Rule::unique('users')->ignore($id)],
-            'jurusan' => 'string|min:6|max:255',
-            'jurusan' => 'string|required|max:255',
-            'program_studi' => 'string|min:6|max:255',
-            'url_linkedin' => 'string|nullable|min:6|max:255',
-            'jenis_kandidat' => 'string|min:4|max:255',
-            'perguruan_tinggi' => 'string|min:4|max:255',
-        ]);
 
-        if ($validator->fails()) {
-            $error = $validator->errors()->first();
-            return Redirect::back()->with('update-error', $error);
-        } else {
+        try {
+            $user = Auth::user();
+            $ijazah = null;
+            $ktp = null;
+            $validator = Validator::make($request->all(), [
+                'nama' => 'required|string|max:255|min:3',
+                'no_telp' => ['string', 'required', 'numeric', Rule::unique('users')->ignore($id)],
+                'nim' => ['string', 'required', 'nullable', 'min:4', 'max:12', Rule::unique('users')->ignore($id)],
+                'jurusan' => 'string|min:6|max:255',
+                'jurusan' => 'string|required|max:255',
+                'program_studi' => 'string|min:6|max:255',
+                'url_linkedin' => 'string|nullable|min:6|max:255',
+                'jenis_kandidat' => 'string|min:4|max:255',
+                'perguruan_tinggi' => 'string|min:4|max:255',
+            ]);
+
             User::where('id', $id)->update([
                 'nama' => $request->nama,
                 'nim' => $request->nim,
@@ -58,6 +61,8 @@ class ProfileController extends Controller
                 'updated_at' => now(),
             ]);
             return redirect('/users/profile')->with('toast_success', 'Berhasil memperbarui data');
+        } catch (Exception $error) {
+            return back()->with('update-error', $error);
         }
     }
 }

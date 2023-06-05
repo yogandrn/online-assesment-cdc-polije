@@ -21,6 +21,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   {{-- <link href="{{url('/assets/demo/demo.css')}}" rel="stylesheet" /> --}}
   <link rel="stylesheet" href="{{url('/assets/css/form.css')}}">
+  <link rel="stylesheet" href="{{url('/assets/css/modal.css')}}">
   
 </head>
 
