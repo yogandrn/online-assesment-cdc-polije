@@ -33,6 +33,10 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
 
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return Redirect::back()->with('toast_error', 'update-error', $error);
+        } else {
         try {
             $user = Auth::user();
             $ijazah = null;
@@ -62,7 +66,7 @@ class ProfileController extends Controller
 
             if ($validator->fails()) {
                 $error = $validator->errors()->first();
-                return Redirect::back()->with('update-error', $error);
+                return Redirect::back()->with('toast_error', 'update-error', $error);
             }
 
             User::where('id', $id)->update([
@@ -78,7 +82,7 @@ class ProfileController extends Controller
             ]);
             return redirect('/users/profile')->with('toast_success', 'Berhasil memperbarui data');
         } catch (Exception $error) {
-            return back()->with('update-error', $error);
+            return back()->with('toast_error', 'update-error', $error);
         }
     }
 
