@@ -2172,14 +2172,14 @@ textarea.form-control {
 .form-control.is-invalid,
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
-  border-color: #ff8d72;
+  border-color: #cf3333;
 }
 
 .was-validated .form-control:invalid:focus,
 .form-control.is-invalid:focus,
 .was-validated .custom-select:invalid:focus,
 .custom-select.is-invalid:focus {
-  border-color: #ff8d72;
+  border-color: #cf3333;
   box-shadow: 0 0 0 0 rgba(255, 141, 114, 0.25);
 }
 
@@ -2203,7 +2203,7 @@ textarea.form-control {
 
 .was-validated .form-check-input:invalid~.form-check-label,
 .form-check-input.is-invalid~.form-check-label {
-  color: #ff8d72;
+  color: #cf3333;
 }
 
 .was-validated .form-check-input:invalid~.invalid-feedback,
@@ -2215,7 +2215,7 @@ textarea.form-control {
 
 .was-validated .custom-control-input:invalid~.custom-control-label,
 .custom-control-input.is-invalid~.custom-control-label {
-  color: #ff8d72;
+  color: #cf3333;
 }
 
 .was-validated .custom-control-input:invalid~.custom-control-label::before,

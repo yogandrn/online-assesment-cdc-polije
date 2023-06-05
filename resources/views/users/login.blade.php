@@ -126,9 +126,12 @@
                     @error('email')
                         <div class="invalid-feedback" >{{$message}}</div>
                     @enderror
-                    </div>
-                    <div class="mb-3">
-                      <input type="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" name="password" required maxlength="255" >
+                  </div>
+                  <div class="mb-3">
+                    <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="Password" aria-label="Password" name="password" required maxlength="255" >
+                    @error('password')
+                        <div class="invalid-feedback" >{{$message}}</div>
+                    @enderror
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe">

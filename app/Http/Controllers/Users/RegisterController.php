@@ -28,7 +28,20 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        // $validator = Validator::make($request->all(), [
+        //     'nama' => 'required|string|max:255|',
+        //     'email' => 'unique:users|required|string|email:dns',
+        //     'password' => 'required|string|alpha_num',
+        //     'no_telp' => 'required|numeric|string|unique:users',
+        //     'nim' => 'nullable|string|min:6|max:15',
+        //     'jurusan' => 'string|min:6|max:255',
+        //     'program_studi' => 'string|min:6|max:255',
+        //     'url_linkedin' => 'string|nullable|min:6|max:255',
+        //     'jenis_kandidat' => 'string|min:4|max:255',
+        //     'perguruan_tinggi' => 'string|min:4|max:255',
+        // ]);
+        
+        $validated = $request->validate([
             'nama' => 'required|string|max:255|',
             'email' => 'unique:users|required|string|email:dns',
             'password' => 'required|string|alpha_num',
@@ -39,12 +52,13 @@ class RegisterController extends Controller
             'url_linkedin' => 'string|nullable|min:6|max:255',
             'jenis_kandidat' => 'string|min:4|max:255',
             'perguruan_tinggi' => 'string|min:4|max:255',
+
         ]);
 
-        if ($validator->fails()) {
-            $error = $validator->errors()->first();
-            return Redirect::back()->with('registerError', $error);
-        } else {
+        // if ($validator->fails()) {
+        //     $error = $validator->errors()->first();
+        //     return Redirect::back()->with('registerError', $error);
+        // } else {
             // if ($request->jenis_kandidat == 'Umum') {
             //     $campus = $request->perguruan_tinggi;
             // } else {
@@ -66,7 +80,7 @@ class RegisterController extends Controller
             $request->session()->flash('success', 'Registrasi berhasil. Silakan login');
 
             return redirect('/login');
-        }
+        // }
 
         $validated = $request->validate([
             'nama' => 'required|string|max:255|alpha',

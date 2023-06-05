@@ -37,17 +37,33 @@ class ProfileController extends Controller
             $user = Auth::user();
             $ijazah = null;
             $ktp = null;
+            // $validated = $request->validate([
+            //     'nama' => 'required|string|max:255|min:4',
+            //     'no_telp' => ['string', 'required', 'numeric', Rule::unique('users')->ignore($id)],
+            //     'nim' => ['string', 'nullable', 'min:4', 'max:12', Rule::unique('users')->ignore($id)],
+            //     'jenjang' => 'string|required|max:255',
+            //     'jurusan' => 'string|required|max:255|min:6',
+            //     'program_studi' => 'string|min:6|max:255|required',
+            //     'url_linkedin' => 'string|nullable|min:6|max:255',
+            //     'jenis_kandidat' => 'string|min:4|max:255',
+            //     'perguruan_tinggi' => 'string|min:4|max:255',
+            // ]);
             $validator = Validator::make($request->all(), [
-                'nama' => 'required|string|max:255|min:3',
+                'nama' => 'required|string|max:255|min:4',
                 'no_telp' => ['string', 'required', 'numeric', Rule::unique('users')->ignore($id)],
-                'nim' => ['string', 'required', 'nullable', 'min:4', 'max:12', Rule::unique('users')->ignore($id)],
-                'jurusan' => 'string|min:6|max:255',
-                'jurusan' => 'string|required|max:255',
-                'program_studi' => 'string|min:6|max:255',
+                'nim' => ['string', 'nullable', 'min:4', 'max:12', Rule::unique('users')->ignore($id)],
+                'jenjang' => 'string|required|max:255',
+                'jurusan' => 'string|required|max:255|min:6',
+                'program_studi' => 'string|min:6|max:255|required',
                 'url_linkedin' => 'string|nullable|min:6|max:255',
                 'jenis_kandidat' => 'string|min:4|max:255',
                 'perguruan_tinggi' => 'string|min:4|max:255',
             ]);
+
+            if ($validator->fails()) {
+                $error = $validator->errors()->first();
+                return Redirect::back()->with('update-error', $error);
+            }
 
             User::where('id', $id)->update([
                 'nama' => $request->nama,
@@ -65,4 +81,20 @@ class ProfileController extends Controller
             return back()->with('update-error', $error);
         }
     }
+
+    public function uploadFoto(Request $request)
+    {
+        # code...
+    }
+
+    public function uploadIjazah(Request $request)
+    {
+        # code...
+    }
+
+    public function uploadKtp(Request $request)
+    {
+        # code...
+    }
+    
 }

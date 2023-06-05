@@ -17,13 +17,13 @@
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissable fade show justify-content-between mb-1" role="alert">
                   {{session('success')}}
-                  <button type="button" class="close " data-bs-dismiss="alert" aria-label="Close" style="text-align: end"><i class="tim-icons icon-simple-remove"></i></button>
+                  <button type="button" class="close " data-dismiss="alert" aria-label="Close" style="text-align: end"><i class="tim-icons icon-simple-remove"></i></button>
                 </div>
             @endif
             @if (session()->has('update-error'))
                 <div class="alert alert-danger alert-dismissable fade show justify-content-between mb-1" role="alert">
                   {{session('update-error')}}
-                  <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close" style="text-align: end; display:inline-flex; "><i class="tim-icons icon-simple-remove"></i></button>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="text-align: end; display:inline-flex; "><i class="tim-icons icon-simple-remove"></i></button>
                 </div>
             @endif
           </div>
@@ -33,27 +33,31 @@
             {{-- Input Nama Lengkap  --}}
             <div class="form-group mb-3 ">
               <label for="nama" class="form-label">Nama Lengkap</label>
-              <input type="text" class="form-control" placeholder="Nama Lengkap" aria-label="Nama Lengkap" id="nama" name="nama" required value="{{ $user->nama }}">
+              <input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Lengkap" aria-label="Nama Lengkap" id="nama" name="nama" required value="{{ $user->nama }}" >
+              @error('nama') <div class="invalid-feedback">{{$message}}</div> @enderror
             </div>
   
             {{-- Input No. Telp   --}}
             <div class="form-group mb-3 ">
               <label for="no_telp" class="form-label">Nomor Telepon</label>
-              <input type="tel" class="form-control" placeholder="Nomor Telepon" aria-label="Nomor Telepon" id="no_telp" name="no_telp" required value="{{ $user->no_telp }}">
+              <input type="tel" class="form-control @error('no_telp') is-invalid @enderror" placeholder="Nomor Telepon" aria-label="Nomor Telepon" id="no_telp" name="no_telp" required value="{{ $user->no_telp }}" minlength="9" maxlength="15">
+              @error('no_telp') <div class="invalid-feedback">{{$message}}</div> @enderror
             </div>
   
             {{-- Input Perguruan Tinggi --}}
             <div class="form-group mb-3 ">
               <label for="perguruan_tinggi" class="form-label">Perguruan Tinggi</label>
-              <input type="text" class="form-control" placeholder="Perguruan Tinggi" aria-label="Perguruan Tinggi" id="perguruan_tinggi" name="perguruan_tinggi" required value="{{ $user->perguruan_tinggi }}">
+              <input type="text" class="form-control @error('perguruan_tinggi') is-invalid @enderror" placeholder="Perguruan Tinggi" aria-label="Perguruan Tinggi" id="perguruan_tinggi" name="perguruan_tinggi" required value="{{ $user->perguruan_tinggi }}" minlength="4" maxlength="100">
+              @error('perguruan_tinggi') <div class="invalid-feedback">{{$message}}</div> @enderror
             </div>
             
             <div class="row">
               {{-- Input Nim  --}}
               <div class="col-6">
                 <div class="form-group mb-3 ">
-                  <label for="nim" class="form-label">NIM/NPM</label>
-                  <input type="text" class="form-control" placeholder="Nim atau Npm" aria-label="Nim atau Npm" id="nim" name="nim" value="{{ $user->nim }}">
+                  <label for="nim" class="form-label @error('nim') is-invalid @enderror">NIM/NPM</label>
+                  <input type="text" class="form-control" placeholder="Nim atau Npm" aria-label="Nim atau Npm" id="nim" name="nim" value="{{ $user->nim }}" minlength="4" maxlength="15">
+                  @error('nim') <div class="invalid-feedback">{{$message}}</div> @enderror
                 </div>
               </div>
               {{-- Input Jenjang  --}}
@@ -75,7 +79,8 @@
               <div class="col-6">
                 <div class="form-group mb-3 ">
                   <label for="jurusan" class="form-label">Jurusan/Fakultas</label>
-                  <input type="text" class="form-control" placeholder="Jurusan/Fakultas" aria-label="Jurusan/Fakultas" id="jurusan" name="jurusan" required value="{{ $user->jurusan }}">
+                  <input type="text" class="form-control @error('jurusan') is-invalid @enderror" placeholder="Jurusan/Fakultas" aria-label="Jurusan/Fakultas" id="jurusan" name="jurusan" required value="{{ $user->jurusan }}" minlength="4" maxlength="99">
+                  @error('jurusan') <div class="invalid-feedback">{{$message}}</div> @enderror
                 </div>
               </div>
               
@@ -83,7 +88,8 @@
               <div class="col-6">
                 <div class="form-group mb-3 ">
                   <label for="program_studi" class="form-label">Program Studi</label>
-                  <input type="text" class="form-control" placeholder="Program Studi" aria-label="Program Studi" id="program_studi" name="program_studi" required value="{{ $user->program_studi }}">
+                  <input type="text" class="form-control @error('program_studi') is-invalid @enderror" placeholder="Program Studi" aria-label="Program Studi" id="program_studi" name="program_studi" required value="{{ $user->program_studi }}" minlength="4" maxlength="99">
+                  @error('program_studi') <div class="invalid-feedback">{{$message}}</div> @enderror
                 </div>
               </div>
             </div>
@@ -91,7 +97,8 @@
             {{-- Input URL LinkedIn --}}
             <div class="form-group mb-3 ">
               <label for="url_linkedin" class="form-label">URL LinkedIn</label>
-              <input type="text" class="form-control" placeholder="URL LinkedIn" aria-label="URL LinkedIn" id="url_linkedin" name="url_linkedin" value="{{ $user->url_linkedin }}">
+              <input type="text" class="form-control @error('url_linkedin') is-invalid @enderror" placeholder="URL LinkedIn" aria-label="URL LinkedIn" id="url_linkedin" name="url_linkedin" value="{{ $user->url_linkedin }}" minlength="6" maxlength="255">
+              @error('url_linkedin') <div class="invalid-feedback">{{$message}}</div> @enderror
             </div>
   
             <button type="submit" class="btn btn-info ml-auto d-block">Simpan</button>
@@ -113,7 +120,7 @@
             </div>
           </div>
           <div class="bg-w py-3 px-4 rounded shadow-lg">
-            <form action="/users/profile/upload/photo" method="post" entype="multipart/form-data">
+            <form action="/users/profile/{{$user->id}}/upload/photo" method="post" entype="multipart/form-data">
               @csrf
               @if ($user->foto != null) 
                 <img src="{{url($user->foto)}}" alt="{{ $user->nama }}" class="img-fluid mb-2 img-center rounded-center" style="max-height: ">  
@@ -135,7 +142,7 @@
             </div>
           </div>
           <div class="bg-w py-3 px-4 rounded shadow-lg">
-            <form action="/users/profile/upload/ijazah" method="post" entype="multipart/form-data">
+            <form action="/users/profile/{{$user->id}}/upload/ijazah" method="post" entype="multipart/form-data">
               @csrf
               <label for="ijazah" class="form-label">Ijazah atau KTM</label>
               @if ($user->ijazah != null) 
@@ -157,7 +164,7 @@
             </div>
           </div>
           <div class="bg-w py-3 px-4 rounded shadow-lg">
-            <form action="/users/profile/upload/ktp" method="post" entype="multipart/form-data">
+            <form action="/users/profile/{{$user->id}}/upload/ktp" method="post" entype="multipart/form-data">
               @csrf
               <label for="ktp" class="form-label">File e-KTP</label>
               @if ($user->ktp != null) 
