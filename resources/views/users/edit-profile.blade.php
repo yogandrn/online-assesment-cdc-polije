@@ -129,7 +129,7 @@
             <form action="/users/profile/{{$user->id}}/upload/photo" method="post" entype="multipart/form-data">
               @csrf
               @if ($user->foto != null) 
-                <a href="{{ '/storage/' . $user->foto}}"><img src="{{'/storage/' . $user->foto}}" alt="{{ $user->nama }}" class="img-fluid mb-2 img-center rounded-center" style="max-height: ">  </a>
+                <a href="{{ url('/' . $user->foto) }}" target="_blank" rel="noopener noreferrer"><img src="{{url('/' . $user->foto)}}" alt="{{ $user->nama }}" class="img-thumbnail mb-2 img-center rounded-circle" style="max-width: 10rem">  </a>
               @else
                 <img src="{{url('/assets/img/default-user.jpg')}}" alt="{{ $user->nama }}" class="img-thumbnail mb-2 img-center rounded-circle" style="max-height: 10rem">
               @endif
@@ -152,38 +152,14 @@
               @csrf
               <label for="ijazah" class="form-label">Ijazah atau KTM</label>
               @if ($user->ijazah != null) 
-              <img src="{{url($user->ijazah)}}" alt="Ijazah/KTM" class="img-fluid mb-2 img-center rounded-center" style="max-height: ">  
+                <a href="{{ url('/' . $user->ijazah) }}" target="_blank" rel="noopener noreferrer"><img src="{{url('/'.$user->ijazah)}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center rounded" style="max-widht: 100%">  </a>
               @else
                 <img src="{{url('/assets/img/ktm-dummy.jpg')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
                 @endif
-              <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#modal-foto">Ubah file</button>
+              <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#modal-ijazah">Ubah file</button>
             </form>
           </div>
         </div>
-        
-        {{-- File e-KTP  --}}
-        <div class=" rounded shadow-lg bg-w mb-4" style="max-width: 100%">
-          <div class=" rounded-top px-3 py-2" style="background-color: #c6c6c6;">
-            <div class="d-flex" style="">
-              <i class="bi bi-person-circle" style="font-size: 1.7rem; color:#00081d; align-self: center;"></i>
-              <p style="color: #00081d; text-align: ; font-size: 1.25em; align-self: center;" class="ml-3"><strong>e-KTP</strong></p>
-            </div>
-          </div>
-          <div class="bg-w py-3 px-4 rounded shadow-lg">
-            <form action="/users/profile/{{$user->id}}/upload/ktp" method="post" entype="multipart/form-data">
-              @csrf
-              <label for="ktp" class="form-label">File e-KTP</label>
-              @if ($user->ktp != null) 
-                <img src="{{url($user->ktp)}}" alt="e-KTP" class="img-fluid mb-2 img-center rounded-center" style="max-height: ">  
-              @else
-                <img src="{{url('/assets/img/ktp-dummy.png')}}" alt="e-KTP" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
-              @endif
-              <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#modal-foto">Ubah file</button>
-            </form>
-          </div>
-        </div>
-
-        
         
       </div>
     </div>
@@ -204,9 +180,9 @@
         <div class="modal-body">
             {{-- <p><b>Unggah Ijazah atau Kartu Tanda Mahasiswa</b></p>   --}}
             @if ($user->foto != null) 
-              <img src="{{url($user->foto)}}" alt="Ijazah/KTM" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
+              <img src="{{url('/' .$user->foto)}}" alt="{{$user->nama}}" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
             @else
-              <img src="{{url('/assets/img/default-user.jpg')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
+              <img src="{{url('/assets/img/default-user.jpg')}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
             @endif
             <input type="file" name="foto" id="foto" class="form-control">
         </div>
@@ -280,136 +256,5 @@
 </div>
 
 
-<div class="container">
-<!-- <section class="section">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header">
-                <h1 class="profile-title text-left">Profile</h1>
-              </div>
-              <div class="card-body">
-                <form entype="multipart/form-data">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Your Name</label>
-                        <input type="text" class="form-control" value="Mike">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Email address</label>
-                        <input type="email" class="form-control" placeholder="mike@email.com" readonly>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" value="001-12321345">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Perguruan Tinggi</label>
-                        <input type="text" class="form-control" value="CreativeTim">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Jurusan</label>
-                        <input type="text" class="form-control" value="CreativeTim">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Program Studi</label>
-                        <input type="text" class="form-control" value="CreativeTim">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="nim">Nim</label>
-                        <input type="text" id="nim"class="form-control" value="Mike" readonly>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="">Jenjang</label>
-                        <input type="text" id="" class="form-control" value="Nim" readonly>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                    <div class="input-group">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text">Ijazah/KTM</label>
-                    </div>
-                    <input type="file" class="form-control" >
-                    </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Url LinkedIn</label>
-                        <input type="url" class="form-control" @if ($user->url_linkedin != null)
-                            value="{{ $user->url_linkedin}}"
-                        @else value="" @endif  placeholder="Url LinkedIn">
-                      </div>
-                    </div>
-                    
-                  </div>
-                  <button type="submit" class="btn btn-warning btn-round float-right" rel="tooltip" data-original-title="Can't wait for your message" data-placement="right">Send text</button>
-                </form>
-              </div>
-            </div>
-          </div>
-          edit foto profile
-          <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-            <div class="card card-coin ">
-              <div class="card-header">
-                @if ($user->foto != null)
-                  <img src="{{ url($user->foto) }}" class="img-center img-fluid rounded-circle">  
-                @else
-                  <img src="{{ url('/assets/img/user.png')}}" class="img-center img-fluid rounded-circle" style="background-color: #fff">
-                @endif
-                <h4 class="title">{{auth()->user()->nama}}</h4>
-              </div>
-              <div class="card-body">
-                <ul class="nav nav-tabs nav-tabs-warning justify-content-center">
-                  <li class="nav-item">
-                    <a class="nav-link " data-toggle="tab" href="#linkb">
-                      Edit
-                    </a>
-                  </li>
-                </ul>
-                <div class="tab-content tab-subcategories">
-                  <div class="tab-pane" id="linkb">
-                    <div class="row">
-                      <label class="col-sm-4 col-form-label">Ubah Foto</label>
-                      <div class="col-sm-9">
-                      <div class="input-group">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text">Pilih</label>
-                            </div>
-                        <input type="file" class="form-control" placeholder="With Font Awesome Icons">
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-simple btn-warning btn-icon btn-round float-right"><i class="tim-icons icon-send"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>   
-</section> -->
-</div>
 @include('sweetalert::alert')
 @endsection

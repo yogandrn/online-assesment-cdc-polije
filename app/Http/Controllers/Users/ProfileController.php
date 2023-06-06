@@ -84,16 +84,6 @@ class ProfileController extends Controller
         }
     }
 
-    public function uploadIjazah(Request $request, $id)
-    {
-        # code...
-    }
-
-    public function uploadKtp(Request $request, $id)
-    {
-        # code...
-    }
-
     public function uploadFoto(Request $request, $id)
     {
         try {
@@ -122,18 +112,110 @@ class ProfileController extends Controller
                 // Simpan gambar yang telah diubah ke dalam direktori yang diinginkan
                 $filename = date('Ymd') . Str::random(24) . '.' . $gambar->getClientOriginalExtension();
                 $image->save($dir .'/' . $filename, 70);
-                // $foto = $request->file('foto')->storeAs($dir, date('Ymd') . Str::random(36) . '.' . $gambar->getClientOriginalExtension(), 'public');
-                // Lanjutkan dengan logika lainnya
-                // User::where('id', $id)->update([
-                    //     'foto' => $foto,
-                    // ]);
-                $user->foto = $dir .'/'.$filename;
-                $user->save();
-                
+
+                // Hapus file lama
                 if ($user->foto != null) {
                     unlink($fileToDelete);
                 }
 
+                // Update data user
+                $user->foto = $dir .'/'.$filename;
+                $user->save();
+
+                return redirect()->back()->with('toast_success', 'Berhasil mengunggah gambar');
+            }
+
+            return redirect()->back()->with('toast_error', 'Terjadi kesalahan saat mengunggah gambar.');
+        } catch (Exception $e) {
+            
+            return redirect()->back()->with('toast_error', $e->getMessage());
+        }
+    }
+    
+
+    public function uploadIjazah(Request $request, $id)
+    {
+        try {
+            $user = User::find($id);
+
+            $this->validate($request, [
+                'ijazah' => 'required|image|mimes:jpg,png,jpeg|max:2048'
+            ]);
+
+            $fileToDelete = $user->ijazah;
+            
+            if ($request->hasFile('ijazah')) {
+                $gambar = $request->file('ijazah');
+
+                // Buat objek gambar menggunakan intervention/image
+                $image = Image::make($gambar);
+                
+                $dir = 'assets/img/user/ijazah'; 
+                if (!file_exists(public_path($dir))) { //Verify if the directory exists
+                    mkdir(public_path($dir), 777, true); //create it if do not exists
+                }
+
+                // Simpan gambar yang telah diubah ke dalam direktori yang diinginkan
+                $filename = date('Ymd') . Str::random(24) . '.' . $gambar->getClientOriginalExtension();
+                $image->save($dir .'/' . $filename, 80);
+
+                // Hapus file lama
+                if ($user->ijazah != null) {
+                    unlink($fileToDelete);
+                }
+                // Update data user
+                $user->ijazah = $dir .'/'.$filename;
+                $user->save();
+                
+
+                return redirect()->back()->with('toast_success', 'Berhasil mengunggah gambar');
+            }
+
+            return redirect()->back()->with('toast_error', 'Terjadi kesalahan saat mengunggah gambar.');
+
+        } catch (Exception $e) {
+            
+            return redirect()->back()->with('toast_error', $e->getMessage());
+        }
+    }
+    
+
+    public function uploadKtp(Request $request, $id)
+    {
+        try {
+            $user = User::find($id);
+
+            // validasi input
+            $this->validate($request, [
+                'ktp' => 'required|image|mimes:jpg,png,jpeg|max:1024'
+            ]);
+
+            $fileToDelete = $user->ktp; // ambil nama file lama
+            
+            if ($request->hasFile('ktp')) {
+                $gambar = $request->file('ktp');
+
+                // Buat objek gambar menggunakan intervention/image
+                $image = Image::make($gambar);
+                
+                $dir = 'assets/img/user/ktp'; 
+                if (!file_exists(public_path($dir))) { //Verify if the directory exists
+                    mkdir(public_path($dir), 777, true); //create it if do not exists
+                }
+
+                // Simpan gambar yang telah diubah ke dalam direktori yang diinginkan
+                $filename = date('Ymd') . Str::random(24) . '.' . $gambar->getClientOriginalExtension();
+                $image->save($dir .'/' . $filename, 80);
+                
+                // Hapus file lama
+                if ($user->ktp != null) {
+                    unlink($fileToDelete);
+                }
+
+                // Update data user
+                $user->ktp = $dir .'/'.$filename;
+                $user->save();
+                
                 return redirect()->back()->with('toast_success', 'Berhasil mengunggah gambar');
             }
 
