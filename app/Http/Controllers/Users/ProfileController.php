@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
@@ -33,10 +35,6 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
 
-        if ($validator->fails()) {
-            $error = $validator->errors()->first();
-            return Redirect::back()->with('toast_error', 'update-error', $error);
-        } else {
         try {
             $user = Auth::user();
             $ijazah = null;
@@ -66,7 +64,7 @@ class ProfileController extends Controller
 
             if ($validator->fails()) {
                 $error = $validator->errors()->first();
-                return Redirect::back()->with('toast_error', 'update-error', $error);
+                return Redirect::back()->with('toast_error',  $error);
             }
 
             User::where('id', $id)->update([
@@ -82,23 +80,68 @@ class ProfileController extends Controller
             ]);
             return redirect('/users/profile')->with('toast_success', 'Berhasil memperbarui data');
         } catch (Exception $error) {
-            return back()->with('toast_error', 'update-error', $error);
+            return back()->with('toast_error',  $error);
         }
     }
 
-    public function uploadFoto(Request $request)
+    public function uploadIjazah(Request $request, $id)
     {
         # code...
     }
 
-    public function uploadIjazah(Request $request)
+    public function uploadKtp(Request $request, $id)
     {
         # code...
     }
 
-    public function uploadKtp(Request $request)
+    public function uploadFoto(Request $request, $id)
     {
-        # code...
+        try {
+            $user = User::find($id);
+
+            $this->validate($request, [
+                'foto' => 'required|image|mimes:jpg,png,jpeg|max:1024'
+            ]);
+
+            $fileToDelete = $user->foto;
+            
+            if ($request->hasFile('foto')) {
+                $gambar = $request->file('foto');
+
+                // Buat objek gambar menggunakan intervention/image
+                $image = Image::make($gambar);
+                
+                // Ubah ukuran gambar menjadi 400x400 piksel dengan rasio 1:1
+                $image->fit(500, 500);
+                
+                $dir = 'assets/img/user/photos'; 
+                if (!file_exists(public_path($dir))) { //Verify if the directory exists
+                    mkdir(public_path($dir), 777, true); //create it if do not exists
+                }
+
+                // Simpan gambar yang telah diubah ke dalam direktori yang diinginkan
+                $filename = date('Ymd') . Str::random(24) . '.' . $gambar->getClientOriginalExtension();
+                $image->save($dir .'/' . $filename, 70);
+                // $foto = $request->file('foto')->storeAs($dir, date('Ymd') . Str::random(36) . '.' . $gambar->getClientOriginalExtension(), 'public');
+                // Lanjutkan dengan logika lainnya
+                // User::where('id', $id)->update([
+                    //     'foto' => $foto,
+                    // ]);
+                $user->foto = $dir .'/'.$filename;
+                $user->save();
+                
+                if ($user->foto != null) {
+                    unlink($fileToDelete);
+                }
+
+                return redirect()->back()->with('toast_success', 'Berhasil mengunggah gambar');
+            }
+
+            return redirect()->back()->with('toast_error', 'Terjadi kesalahan saat mengunggah gambar.');
+        } catch (Exception $e) {
+            
+            return redirect()->back()->with('toast_error', $e->getMessage());
+        }
     }
     
 }

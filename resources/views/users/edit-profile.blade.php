@@ -120,10 +120,16 @@
             </div>
           </div>
           <div class="bg-w py-3 px-4 rounded shadow-lg">
+            @if (session()->has('update-photo-error'))
+              <div class="alert alert-danger alert-dismissable fade show justify-content-between mb-1" role="alert">
+                {{session('update-photo-error')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="text-align: end; display:inline-flex; "><i class="tim-icons icon-simple-remove"></i></button>
+              </div>
+            @endif
             <form action="/users/profile/{{$user->id}}/upload/photo" method="post" entype="multipart/form-data">
               @csrf
               @if ($user->foto != null) 
-                <img src="{{url($user->foto)}}" alt="{{ $user->nama }}" class="img-fluid mb-2 img-center rounded-center" style="max-height: ">  
+                <a href="{{ '/storage/' . $user->foto}}"><img src="{{'/storage/' . $user->foto}}" alt="{{ $user->nama }}" class="img-fluid mb-2 img-center rounded-center" style="max-height: ">  </a>
               @else
                 <img src="{{url('/assets/img/default-user.jpg')}}" alt="{{ $user->nama }}" class="img-thumbnail mb-2 img-center rounded-circle" style="max-height: 10rem">
               @endif
@@ -187,7 +193,8 @@
 <div class="modal fade" id="modal-foto" tabindex="-1" aria-labelledby="modal-fotoLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="/user/profile/upload/foto" method="post" enctype="multipart/form-data">
+      <form action="/users/profile/{{$user->id}}/upload/photo" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="modal-header">
             <h4 class="modal-title text-center" id="modal-upload-foto-label">Foto Profil</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -216,7 +223,8 @@
 <div class="modal fade" id="modal-ijazah" tabindex="-1" aria-labelledby="modal-ijazahLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="/user/profile/upload/ijazah" method="post" enctype="multipart/form-data">
+      <form action="/users/profile/{{$user->id}}/upload/ijazah" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="modal-header">
             <h4 class="modal-title text-center" id="modal-upload-ijazah-label">Ijazah atau KTM</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -245,7 +253,8 @@
 <div class="modal fade" id="modal-ktp" tabindex="-1" aria-labelledby="modal-ktpLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="/user/profile/upload/ktp" method="post" enctype="multipart/form-data">
+      <form action="/users/profile/{{$user->id}}/upload/ktp" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="modal-header">
             <h4 class="modal-title text-center" id="modal-upload-ktp-label">e-KTP</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -270,34 +279,6 @@
   </div>
 </div>
 
-<!-- Modal untuk Logout-->
-<div class="modal fade" id="modal-upload-ijazah" tabindex="-1" role="dialog" aria-labelledby="modal-upload-ijazah-label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form action="/user/profile/upload/ijazah" method="post" enctype="multipart/form-data">
-        <div class="modal-header">
-            <h4 class="modal-title text-center" id="modal-upload-ijazah-label">Ijazah atau KTM</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="tim-icons icon-simple-remove"></i></span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <p><b>Apakah Anda yakin ingin logout ?</b></p>  
-            @if ($user->ijazah != null) 
-              <img src="{{url($user->ijazah)}}" alt="Ijazah/KTM" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
-            @else
-              <img src="{{url('/assets/img/ktm-dummy.jpg')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
-            @endif
-            <input type="file" name="ijazah" id="ijazah" class="form-control">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-          <button type="submit" class="btn btn-danger">Simpan</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 
 <div class="container">
 <!-- <section class="section">

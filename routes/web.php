@@ -70,7 +70,7 @@ Route::name('users.')->prefix('users')->group(function () {
         Route::get('/profile', [ProfileController::class, 'index']);
         Route::get('/profile/{id}/edit', [ProfileController::class, 'edit']);
         Route::post('/profile/update/{id}', [ProfileController::class, 'update']);
-        Route::post('/profile/{id}/upload/photo', [ProfileController::class, 'uploadFoto']);
+        Route::post('/profile/{id}/upload/photo', [ProfileController::class, 'upload']);
         Route::post('/profile/{id}/upload/ijazah', [ProfileController::class, 'uploadIjazah']);
         Route::post('/profile/{id}/upload/ktp', [ProfileController::class, 'uploadKtp']);
     });
