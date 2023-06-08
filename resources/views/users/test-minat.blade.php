@@ -57,7 +57,7 @@
   </div>
 
 <script>
-    let timerDuration = 60 * 5; // 30 menit dalam detik
+    let timerDuration = 60 * 10; // 30 menit dalam detik
     let timerDisplay = document.getElementById('timer');
     startTimer(timerDuration, timerDisplay);
     function startTimer(duration, display) {
