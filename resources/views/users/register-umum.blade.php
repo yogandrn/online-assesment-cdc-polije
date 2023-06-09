@@ -210,12 +210,15 @@
                   <div class="invalid-feedback text-start" >{{$message}}</div>
                   @enderror
                 </div>
-          
+                
                 <div class="form-check form-check-info text-start">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
-                  <label class="form-check-label" for="flexCheckDefault">
-                    I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                  <input class="form-check-input @error('agree') is-invalid @enderror" type="checkbox" id="checkbox-agree" name="agree" required>
+                  <label class="form-check-label" for="checkbox-agree">
+                    I agree the <a href="" class="text-dark font-weight-bolder">Terms and Conditions</a>
                   </label>
+                  @error('agree')
+                  <div class="invalid-feedback text-start" >{{$message}}</div>
+                  @enderror
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2" role="button">Sign up</button>

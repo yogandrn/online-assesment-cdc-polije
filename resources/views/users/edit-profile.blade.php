@@ -115,11 +115,11 @@
         <div class=" rounded shadow-lg bg-w mb-4" style="max-width: 100%">
           <div class=" rounded-top px-3 py-2" style="background-color: #c6c6c6;">
             <div class="d-flex" style="">
-              <i class="bi bi-person-circle" style="font-size: 1.7rem; color:#00081d; align-self: center;"></i>
+              <i class="bi bi-person-video" style="font-size: 1.7rem; color:#00081d; align-self: center;"></i>
               <p style="color: #00081d; text-align: ; font-size: 1.25em; align-self: center;" class="ml-3"><strong>Foto Profil</strong></p>
             </div>
           </div>
-          <div class="bg-w py-3 px-4 rounded shadow-lg">
+          <div class="bg-w py-3 px-4 rounded shadow-lg text-center">
             @if (session()->has('update-photo-error'))
               <div class="alert alert-danger alert-dismissable fade show justify-content-between mb-1" role="alert">
                 {{session('update-photo-error')}}
@@ -131,10 +131,10 @@
               @if ($user->foto != null) 
                 <a href="{{ url('/' . $user->foto) }}" target="_blank" rel="noopener noreferrer"><img src="{{url('/' . $user->foto)}}" alt="{{ $user->nama }}" class="img-thumbnail mb-2 img-center rounded-circle" style="max-width: 10rem">  </a>
               @else
-                <img src="{{url('/assets/img/default-user.jpg')}}" alt="{{ $user->nama }}" class="img-thumbnail mb-2 img-center rounded-circle" style="max-height: 10rem">
+                <img src="{{url('/assets/img/user/photos/default-user.jpg')}}" alt="{{ $user->nama }}" class="img-thumbnail mb-2 img-center rounded-circle" style="max-height: 10rem">
               @endif
               {{-- <input type="file" name="foto" id="foto" class="form-control"> --}}
-              <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#modal-foto">Ubah Foto</button>
+              <button type="button" class="btn btn-dark " data-toggle="modal" data-target="#modal-foto">Ubah Foto</button>
             </form>
           </div>
         </div>
@@ -143,20 +143,20 @@
         <div class=" rounded shadow-lg bg-w mb-4" style="max-width: 100%">
           <div class=" rounded-top px-3 py-2" style="background-color: #c6c6c6;">
             <div class="d-flex" style="">
-              <i class="bi bi-person-circle" style="font-size: 1.7rem; color:#00081d; align-self: center;"></i>
+              <i class="bi bi-person-vcard-fill" style="font-size: 1.7rem; color:#00081d; align-self: center;"></i>
               <p style="color: #00081d; text-align: ; font-size: 1.25em; align-self: center;" class="ml-3"><strong>Ijazah atau KTM</strong></p>
             </div>
           </div>
-          <div class="bg-w py-3 px-4 rounded shadow-lg">
+          <div class="bg-w py-3 px-4 rounded shadow-lg text-center">
             <form action="/users/profile/{{$user->id}}/upload/ijazah" method="post" entype="multipart/form-data">
               @csrf
               <label for="ijazah" class="form-label">Ijazah atau KTM</label>
               @if ($user->ijazah != null) 
                 <a href="{{ url('/' . $user->ijazah) }}" target="_blank" rel="noopener noreferrer"><img src="{{url('/'.$user->ijazah)}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center rounded" style="max-widht: 100%">  </a>
               @else
-                <img src="{{url('/assets/img/ktm-dummy.jpg')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
+                <img src="{{url('/assets/img/user/ijazah/default-ktm.png')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
                 @endif
-              <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#modal-ijazah">Ubah file</button>
+              <button type="button" class="btn btn-dark " data-toggle="modal" data-target="#modal-ijazah">Ubah file</button>
             </form>
           </div>
         </div>
@@ -182,7 +182,7 @@
             @if ($user->foto != null) 
               <img src="{{url('/' .$user->foto)}}" alt="{{$user->nama}}" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
             @else
-              <img src="{{url('/assets/img/default-user.jpg')}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
+              <img src="{{url('/assets/img/user/photos/default-user.jpg')}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
             @endif
             <input type="file" name="foto" id="foto" class="form-control">
         </div>
@@ -212,7 +212,7 @@
             @if ($user->ijazah != null) 
               <img src="{{url($user->ijazah)}}" alt="Ijazah/KTM" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
             @else
-              <img src="{{url('/assets/img/ktm-dummy.jpg')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
+              <img src="{{url('/assets/img/user/ijazah/default-ktm.png')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
             @endif
             <input type="file" name="ijazah" id="ijazah" class="form-control">
         </div>
