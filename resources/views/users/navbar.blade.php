@@ -65,12 +65,12 @@
               <i class="fa fa-cogs d-lg-none d-xl-none"></i> Halo, {{auth()->user()->nama}}
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-              <a href="/users/profile" class="dropdown-item" style="color: #00081d;">
+              <a href="/users/profile" class="dropdown-item" >
                 <i class="tim-icons icon-single-02"></i>View Profile
               </a>
-                <button type="submit" class="dropdown-item" data-toggle="modal" data-target="#modal-logout" style="color: #00081d;">
-                  <i class="tim-icons icon-minimal-right"></i>Logout 
-                </button>
+              <a class="dropdown-item" href="" role="button" data-toggle="modal" data-target="#modal-logout">
+                <i class="tim-icons icon-minimal-right"></i>Logout 
+              </a>
             </div>
           </li>
           

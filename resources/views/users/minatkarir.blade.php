@@ -1,7 +1,7 @@
 @extends('users.main')
 
 @section('container')
-    <div class="section container text-center col-md-9 col-lg-8 col-xl-8 col-sm-10">
+    <div class="section container text-center col-md-9 col-lg-8 col-xl-8 col-sm-10 px-4">
         <h2>Tes Minat Karir</h2>
         <div class="" style="border: 0.4px solid #adaaaa; height: 1px"></div><br>
         <p style="font-size: 1.2rem; font-weight: bold;">Mohon Perhatian !!</p>

@@ -15,7 +15,7 @@
         <br>
         <div class="container text-center">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6 mb-5">
               <a href="/users/gayakepribadian" >
                 <img src="{{url('assets/img/kepribadian.jpg')}}" alt="gaya-kepribadian" class="img-raised" width="350">
               </a>
@@ -26,7 +26,7 @@
               </button> --}}
               <!-- <a href="examples/landing-page.html" class="btn btn-simple btn-primary btn-round">Test Gaya Kepribadian</a> -->
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 mb-5">
               <a href="/users/minatkarir" >
                 <img src="{{ url('assets/img/minatkarir.jpg')}}" alt="minat-karir" class="img-raised" width="350">
               </a>

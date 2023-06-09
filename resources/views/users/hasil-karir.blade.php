@@ -2,8 +2,8 @@
 
 @section('container')
 
-    <div class="row justify-content-center mx-auto " style="margin-top: 3rem; ">
-        <div class="col-xl-9 col-lg-9 col-md-10 px-5 py-4 border rounded shadow-lg" style="background-color: #fff;margin-bottom: 4rem;">
+    <div class="row justify-content-center mx-auto px-4" style="margin-top: 3rem; ">
+        <div class="col-xl-9 col-lg-9 col-md-10 col-sm-11 px-5 py-4 border rounded shadow-lg" style="background-color: #fff;margin-bottom: 4rem;">
             <br>
             <h3 style="color: #00081d" class="text-center"><strong>Hasil Tes Minat Karir </strong></h3>
             <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>

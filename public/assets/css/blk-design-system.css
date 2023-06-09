@@ -12409,7 +12409,12 @@ fieldset[disabled] .btn-link.active {
 
 @media screen and (min-width: 992px) {
   .dropdown-menu .dropdown-item {
-    color: #9A9A9A;
+    color: #00081d;
+    /* color: #9A9A9A; */
+  }
+  .dropdown-menu a .dropdown-item {
+    color: #00081d;
+    /* color: #9A9A9A; */
   }
 }
 
