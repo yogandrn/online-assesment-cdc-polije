@@ -6,15 +6,15 @@
       <div class="col-xl-9 col-lg-9 col-md-10 px-5 py-5 border rounded shadow-lg" style="background-color: #fff; color: #00081d;">
         <div class="row justify-content-between">
             {{-- // Judul Test  --}}
-            <div class="col-8">
+            <div class="col-lg-8 col-md-7 col-sm-12">
                 <h2 class="font-weight-bold" style="color: #00081d">Test Gaya Kepribadian</h2>
             </div>
 
             {{-- Timer  --}}
-            <div class="col-3 text-center" >
+            <div class="col-lg-4 col-md-5 col-sm-12 text-center w-50" >
                 <h3 class="text px-3 py-2 rounded " style="background-color: #1a3c9250"><span id="timer" style="; align-self: center">00:00</span></h3>
             </div>
-        </div>  
+        </div> 
           
           <form action="/users/gayakepribadian/store" method="post">
           @csrf
