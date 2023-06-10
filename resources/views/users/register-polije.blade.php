@@ -343,6 +343,9 @@
       </div>
     </div>
   </footer>
+
+  @include('sweetalert::alert')
+  
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->
   <script src="{{url('assets/login/js/core/popper.min.js')}}"></script>

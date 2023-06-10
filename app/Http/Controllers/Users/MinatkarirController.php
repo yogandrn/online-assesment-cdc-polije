@@ -45,7 +45,7 @@ class MinatkarirController extends Controller
         $test = TestHistory::create([
             'user_id' => Auth::user()->id,
             'jenis_test' => 'Minat Karir',
-            'token' => Str::random(40),
+            'token' => $this->createToken(),
             'status' => 'STARTED',
             'started_at' => now(),
             'created_at' => now(),
@@ -55,6 +55,16 @@ class MinatkarirController extends Controller
         // $request->session()->put('test', $test->token);
 
         return redirect('/users/minatkarir/test/' . $test->token);
+    }
+
+    public function createToken() : String
+    {
+        $token = Str::random(40);
+        $check = TestHistory::where('token', $token)->count();
+        if ($check > 0) {
+            $this->createToken();
+        }
+        return $token;
     }
     
     public function doingTest($token)

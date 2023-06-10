@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'url_linkedin' => 'string|nullable|min:6|max:255',
             'jenis_kandidat' => 'string|min:4|max:255',
             'perguruan_tinggi' => 'string|min:4|max:255',
+            'agree' => 'required',
 
         ]);
 
@@ -77,7 +78,7 @@ class RegisterController extends Controller
                 'perguruan_tinggi' => $request->perguruan_tinggi,
             ]);
 
-            $request->session()->flash('success', 'Registrasi berhasil. Silakan login');
+            $request->session()->flash('toast_success', 'Registrasi berhasil. Silakan login');
 
             return redirect('/login');
         // }

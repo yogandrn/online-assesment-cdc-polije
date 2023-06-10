@@ -26,7 +26,7 @@ class LoginController extends Controller
             return redirect()->intended('/users');
         }
  
-        return back()->with('loginError', 'Failed to login!');
+        return back()->with('toast_error', 'Failed to login!');
     }
 
     public function logout(Request $request)

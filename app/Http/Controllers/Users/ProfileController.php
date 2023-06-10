@@ -53,7 +53,7 @@ class ProfileController extends Controller
             $validator = Validator::make($request->all(), [
                 'nama' => 'required|string|max:255|min:4',
                 'no_telp' => ['string', 'required', 'numeric', Rule::unique('users')->ignore($id)],
-                'nim' => ['string', 'nullable', 'min:4', 'max:12', Rule::unique('users')->ignore($id)],
+                'nim' => ['string', 'nullable', 'min:4', 'max:16', Rule::unique('users')->ignore($id)],
                 'jenjang' => 'string|required|max:255',
                 'jurusan' => 'string|required|max:255|min:6',
                 'program_studi' => 'string|min:6|max:255|required',

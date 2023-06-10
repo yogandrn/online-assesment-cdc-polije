@@ -39,7 +39,7 @@ class GayakepribadianController extends Controller
         $test = TestHistory::create([
             'user_id' => Auth::user()->id,
             'jenis_test' => 'Gaya Kepribadian',
-            'token' => Str::random(40),
+            'token' => $this->createToken(),
             'status' => 'STARTED',
             'started_at' => now(),
             'created_at' => now(),
@@ -48,6 +48,16 @@ class GayakepribadianController extends Controller
 
         // redirect ke halaman test
         return redirect('/users/gayakepribadian/test/' . $test['token']);
+    }
+
+    public function createToken() : String
+    {
+        $token = Str::random(40);
+        $check = TestHistory::where('token', $token)->count();
+        if ($check > 0) {
+            $this->createToken();
+        }
+        return $token;
     }
 
     // method untuk menampilkan halaman test
