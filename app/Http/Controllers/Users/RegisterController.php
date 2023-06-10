@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'url_linkedin' => 'string|nullable|min:6|max:255',
             'jenis_kandidat' => 'string|min:4|max:255',
             'perguruan_tinggi' => 'string|min:4|max:255',
-            'agree' => 'required',
+            
 
         ]);
 
