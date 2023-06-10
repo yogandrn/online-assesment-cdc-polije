@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\DetailHasilMinatKarir;
 use App\Models\HasilMinatKarir;
-use App\Models\MinatKarir;
 use App\Models\PernyataanMinatKarir;
 use App\Models\TestHistory;
 use Illuminate\Http\Request;
@@ -20,36 +19,31 @@ class HasilMinatKarirController extends Controller
         $minatkarir = DetailHasilMinatKarir::where('hasil_minat_karir_id', $result['id'])->orderBy('point', 'desc')->limit(2)->get();
 
         return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
-        // return response()->json([
-        //     'test_data' => $result, 'hasil' => $minatkarir
-        // ]);
     }
 
-    
+    // method menampilkan history test user
     public function history()
     {
-        $tempKarir = [];
-        $tempHistori = [];
-        $results = [];
         $result = HasilMinatKarir::where('user_id', Auth::user()->id)->with('test')->get();
 
         return view('users.riwayat-minatkarir', ['hasil' => $result, 'title' => 'Riwayat Tes Minat Karir | CDC Polije']);
-        // return response()->json(['hasil' => $result]);
     }
 
+    // method untuk meghitung hasil test dan menyimpan ke database
     public function store(Request $request)
     {
 
+        // cari data history test dan ubah statusnya menjadi finished
         TestHistory::where('id', $request->test_history_id)->update([
             'status' => 'FINISHED',
             'finished_at' => now(),
             'updated_at' => now(),
         ]);
 
-        $pernyataan = PernyataanMinatKarir::get();
-        // $minatkarir = MinatKarir::orderBy('id', 'asc')->get('id');
-        $arrayOfJenis = [];
+        $pernyataan = PernyataanMinatKarir::get(); // ambil data pernyataan minat karir
+        $arrayOfJenis = []; // buat temporary array untuk menampung score data karir
 
+        // score dari masing masing kepribadian
         $score1 = 0;
         $score2 = 0;
         $score3 = 0;
@@ -57,16 +51,20 @@ class HasilMinatKarirController extends Controller
         $score5 = 0;
         $score6 = 0;
 
-        $data = $request->all();
-        $temp = [];
+        $data = $request->all(); // ambil semua jawaban dari request
+        $temp = []; // array untuk menyimpan score masing masing kepribadian
+
+        // masukkan data query ke variable $temp  
         foreach($pernyataan as $item) :
             $temp[strval($item->id)] = $item->minat_karir_id;
         endforeach;
-        $arrayOfJenis = $temp;
+        $arrayOfJenis = $temp; // masukkan ke dalam array score 
         
         
         foreach ($pernyataan as $item) :
             $key = strval($item->id); // mengubah index menjadi array key
+            
+            // menambahkan score sesuai dengan jenis kepribadian
             if ($arrayOfJenis[$key] == 1 ) {
                 $score1 = $score1 + intval($data[$key]);
             } 
@@ -124,9 +122,7 @@ class HasilMinatKarirController extends Controller
 
         // }
 
-        $score = array($score1, $score2, $score3, $score4, $score5, $score6);
-        $sorted = rsort($score); 
-
+        // insert hasil ke database
         $hasil = HasilMinatKarir::create([
             'test_history_id' => $request->test_history_id,
             'user_id' => Auth::user()->id,
@@ -135,6 +131,8 @@ class HasilMinatKarirController extends Controller
             'updated_at' => now(),
         ]);
         
+        // insert detail hasil nya sesuai dengan masing-maing score
+        // kepribadian 1 - 6
         DetailHasilMinatKarir::create([
             'hasil_minat_karir_id' => $hasil['id'],
             'minat_karir_id' => 1,
@@ -183,8 +181,7 @@ class HasilMinatKarirController extends Controller
             'updated_at' => now(),
         ]);
 
-        $test = TestHistory::find($request->test_history_id);
-
+        // menampilkan hasil test 
         return redirect('/users/minatkarir/result/' . $request['token']);
 
     }

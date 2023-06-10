@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Models\HasilMinatKarir;
-use App\Models\MinatKarir;
 use App\Models\PernyataanMinatKarir;
-use App\Models\Question;
 use App\Models\TestHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,33 +12,48 @@ use Illuminate\Support\Str;
 class MinatkarirController extends Controller
 {
 
+    // halaman menu tes minat karir
     public function index()
     {
+        // cari history test
         $tesMinatKarir = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Minat Karir')->first();
-        $isMinatKarirAvailable = 'false';
+        
+        // set default test tidak tersedia untuk user
+        $isMinatKarirAvailable = 'false'; 
         $minatkarirAvailableAt = \Carbon\Carbon::now();
-        if (!$tesMinatKarir) {
-            $isMinatKarirAvailable = 'true';
+
+        
+        if (!$tesMinatKarir) { // jika belum pernah tes
+            $isMinatKarirAvailable = 'true'; // tes tersedia untuk user
         } else {
+
+            // jika ada history test, dan belum tenggat 90 hari
             if (\Carbon\Carbon::now()->subDays(90) <  $tesMinatKarir['started_at']) {
+                // test tidak tersedia
                 $isMinatKarirAvailable = 'false';
-                $minatkarirAvailableAt = \Carbon\Carbon::parse($tesMinatKarir['started_at'])->addDays(90)->format('d M Y H:i:s');
+                // tampilkan kapan test bisa diakses lagi
+                $minatkarirAvailableAt = \Carbon\Carbon::parse($tesMinatKarir['started_at'])->addDays(90)->format('d M Y H:i:s'); 
+
             } else {
+                // test tersedia
                 $isMinatKarirAvailable = 'true';
             }
         }
         return view('users.minatkarir', ['title' => 'Tes Minat Karir | CDC Polije','is_available' => $isMinatKarirAvailable, 'available_at' => $minatkarirAvailableAt]);
     }
 
-    public function start()
-    {
-        return view('users.start', ['title' => 'Minat Karir', 'route' => '/users/minatkarir/start']);
+    
+    // public function start()
+    // {
+    //     return view('users.start', ['title' => 'Minat Karir', 'route' => '/users/minatkarir/start']);
         
-        // return redirect('/minatkarir/test/' . $test->id);
-    }
+    //     // return redirect('/minatkarir/test/' . $test->id);
+    // }
 
+    // method untuk membuat sesi test 
     public function startTest(Request $request)
     {
+        // buat history test 
         $test = TestHistory::create([
             'user_id' => Auth::user()->id,
             'jenis_test' => 'Minat Karir',
@@ -52,11 +64,11 @@ class MinatkarirController extends Controller
             'updated_at' => now(),
         ]);
 
-        // $request->session()->put('test', $test->token);
-
+        // tampilkan halaman test
         return redirect('/users/minatkarir/test/' . $test->token);
     }
 
+    // method untuk generate unique token
     public function createToken() : String
     {
         $token = Str::random(40);
@@ -66,67 +78,31 @@ class MinatkarirController extends Controller
         }
         return $token;
     }
-    
+
+    // menampilkan data pernyataan dan jawaban di halaman test
     public function doingTest($token)
     {
-        
-        //create test session
-        // $test = TestHistory::create([
-        //     'user_id' => Auth::user()->id,
-        //     'jenis_test' => 'Minat Karir',
-        //     'created_at' => now(),
-        //     'updated_at' => now(),
-        // ]);
-
-        $data = array();
+        $data = array(); // array kosong
+        // array untuk opsi jawaban
         $answer = [
             ['text' => 'Ya', 'point' => 1],
             ['text' => 'Tidak', 'point' => 0],
         ];
-        $query = PernyataanMinatKarir::get();
-        $realistic = array();
-        $investigative = array();
-        $artistic = array();
-        $social = array();
-        $enterprise = array();
-        $conventional = array();
-        $query1 = PernyataanMinatKarir::where('minat_karir_id', '1')->get();
-        $query2 = PernyataanMinatKarir::where('minat_karir_id', '2')->get();
-        $query3 = PernyataanMinatKarir::where('minat_karir_id', '3')->get();
-        $query4 = PernyataanMinatKarir::where('minat_karir_id', '4')->get();
-        $query5 = PernyataanMinatKarir::where('minat_karir_id', '5')->get();
-        $query6 = PernyataanMinatKarir::where('minat_karir_id', '6')->get();
-        
-        // foreach ($query1 as $item) :
-        //     array_push($realistic, ['pernyataan' => $item['pernyataan'], 'answers' => $answer]);
-        // endforeach;
-        // foreach ($query2 as $item) :
-        //     array_push($investigative, ['pernyataan' => $item['pernyataan'], 'answers' => $answer]);
-        // endforeach;
-        // foreach ($query3 as $item) :
-        //     array_push($artistic, ['pernyataan' => $item['pernyataan'], 'answers' => $answer]);
-        // endforeach;
-        // foreach ($query4 as $item) :
-        //     array_push($social, ['pernyataan' => $item['pernyataan'], 'answers' => $answer]);
-        // endforeach;
-        // foreach ($query5 as $item) :
-        //     array_push($enterprise, ['pernyataan' => $item['pernyataan'], 'answers' => $answer]);
-        // endforeach;
-        // foreach ($query6 as $item) :
-        //     array_push($conventional, ['pernyataan' => $item['pernyataan'], 'answers' => $answer]);
-        // endforeach;
 
-        // array_push($data, $realistic, $investigative, $artistic, $social, $enterprise, $conventional);
+        $query = PernyataanMinatKarir::get(); // ambil data pernyataan
 
+        // masukkan data pernyataan ke dalam array
         foreach ($query as $qst) :
             array_push($data,['id'=> $qst['id'], 'pernyataan' => $qst['pernyataan'], 'type' => $qst['minat_karir_id'], 'answers' => $answer]);
         endforeach;
-        
+
+        // cari apakah ada test dengan token yang di minta
         $test = TestHistory::where('token', $token)->first();
-        if (!$test) {
+        if (!$test) { // jika tidak, redirect ke home
             return redirect()->intended('/users');
         }
 
+        // menampilkan halaman test
         return view('users.test-minat', ['title' => 'Tes Minat Karir | CDC Polije','questions' => $data, 'token' => $token, 'test_id' => $test->id]);
     }
 

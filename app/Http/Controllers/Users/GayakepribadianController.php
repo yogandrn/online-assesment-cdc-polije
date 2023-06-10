@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Models\HasilKepribadian;
 use App\Models\PernyataanKepribadian;
 use App\Models\TestHistory;
 use Illuminate\Http\Request;

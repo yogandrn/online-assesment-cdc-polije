@@ -5900,11 +5900,11 @@ button.close {
 .modal {
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
   z-index: 1050;
   display: none;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   outline: 0;
 }
@@ -5918,7 +5918,7 @@ button.close {
 
 .modal.fade .modal-dialog {
   transition: transform 0.3s ease-out;
-  transform: translate(0, -25%);
+  transform: translate(0, -20%);
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
@@ -5945,8 +5945,10 @@ button.close {
 
 .modal-content {
   position: relative;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
+  -ms-flex-direction: column;
   width: 100%;
   pointer-events: auto;
   background-color: #ffffff;
@@ -5964,6 +5966,8 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1040;
+  width: 100vw;
+  height: 100vh;
   background-color: #222a42;
 }
 
@@ -5992,11 +5996,12 @@ button.close {
 
 .modal-title {
   margin-bottom: 0;
-  line-height: 1.1;
+  line-height: 1.25;
 }
 
 .modal-body {
   position: relative;
+  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 24px 24px 16px 24px;
 }
@@ -12745,7 +12750,7 @@ img {
 }
 
 .modal-content .modal-body {
-  line-height: 1.9;
+  line-height: 1.5;
 }
 
 .modal-content .modal-body p {

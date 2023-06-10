@@ -84,24 +84,21 @@
               </a>
             </div>
           </li>
-          @auth
-          
-          <li class="nav-item">
-            <form action="/logout" method="post">
-              @csrf
-            <button type="submit" class="nav-link btn btn-default d-none d-lg-block"role="button">Logout</button></form>
-            {{-- <a class="nav-link btn btn-default d-none d-lg-block" href="javascript:void(0)" >
-               Logout
-            </a> --}}
-          </li>
-          @else
 
+          @auth      
+            <li class="nav-item">
+              <form action="/logout" method="post">
+                @csrf
+              <button type="submit" class="nav-link btn btn-default d-none d-lg-block"role="button">Logout</button></form>
+            </li>
+          @else
           <li class="nav-item">
-            <a class="nav-link btn btn-warning d-none d-lg-block" href="/login">
+            <a class="nav-link btn btn-warning d-none d-lg-block px-4 py-2" href="/login">
               Login
             </a>
           </li>
           @endauth
+
         </ul>
       </div>
     </div>
@@ -118,9 +115,9 @@
       <div class="squares square7"></div>
       <div class="container">
         <div class="content-center brand">
-          <h2c class="h1-seo">Welcome</h2c>
+          <h2 class="h1-seo">Welcome</h2>
           <h3>Selamat Datang Pengguna fasilitas layanan Online Personal Assessment Test CDC Polije.</h3>
-            <a href="#about" class="btn btn-warning btn-sm" data-target="#about" role="button">
+            <a href="#about" class="btn btn-warning btn-sm px-5 py-3" data-target="#about" role="button">
               About us
             </a>
         </div>
@@ -153,14 +150,14 @@
                       <img class="d-block w-100" src="assets/img/mark-finn.jpg" alt="Third slide">
                     </div> -->
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  {{-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                     <i class="tim-icons icon-minimal-left"></i>
                     <span class="sr-only">Previous</span>
                   </a>
                   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                     <i class="tim-icons icon-minimal-right"></i>
                     <span class="sr-only">Next</span>
-                  </a>
+                  </a> --}}
                 </div>
               </div>
             </div>

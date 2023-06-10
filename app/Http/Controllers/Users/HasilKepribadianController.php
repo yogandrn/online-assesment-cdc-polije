@@ -16,32 +16,30 @@ class HasilKepribadianController extends Controller
     public function history()
     {   
         $result = HasilKepribadian::where('user_id', Auth::user()->id)->with([ 'test', 'kepribadian'])->paginate(10);
-        // if (!$result) {
-        //     $result = [];
-        // } 
         return view('users.riwayat-kepribadian', ['title' => 'Riwayat Tes Gaya Kepribadian | CDC Polije', 'hasil' => $result]);
-        // return response()->json(['riwayat' => $result]);
     }
     
+    // method untuk menampilkan detail hasil test
     public function detail($token)
     {
         $result = HasilKepribadian::where('test_token', $token)->with(['kepribadian','user'])->first();
         return view('users.hasil-kepribadian', ['hasil' => $result, 'title' => 'Hasil Tes Gaya Kepribadian | CDC Polije']);
-        // return response()->json(['hasil' => $result, ]);
     }
 
+    // method untuk menghitung hasil test dan menyimpan ke database
     public function store(Request $request)
     {
-        $score = 0;
+        $score = 0; 
 
+        // cari test history lalu ubah status nya menjadi selesai
         TestHistory::where('id', $request->test_history_id)->update([
             'status' => 'FINISHED',
             'finished_at' => now(),
             'updated_at' => now(),
         ]);
 
-        $data = $request->all();
-        $pernyataan = PernyataanKepribadian::get();
+        $data = $request->all(); // ambil semua jawaban dari request
+        $pernyataan = PernyataanKepribadian::get(); // query mengambil data pernyataan
 
         for ($i=1; $i <= count($pernyataan); $i++) { // iterasi untuk menjumlah score
             $assc = strval($i); 
@@ -66,7 +64,7 @@ class HasilKepribadianController extends Controller
             'updated_at' => now(),
         ]);
         
-
+        // redirect ke halaman hasil test
         return redirect('/users/gayakepribadian/result/' . $request->token);
 
     }

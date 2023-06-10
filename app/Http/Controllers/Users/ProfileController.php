@@ -9,7 +9,6 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
@@ -34,22 +33,8 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
-
         try {
-            $user = Auth::user();
-            $ijazah = null;
-            $ktp = null;
-            // $validated = $request->validate([
-            //     'nama' => 'required|string|max:255|min:4',
-            //     'no_telp' => ['string', 'required', 'numeric', Rule::unique('users')->ignore($id)],
-            //     'nim' => ['string', 'nullable', 'min:4', 'max:12', Rule::unique('users')->ignore($id)],
-            //     'jenjang' => 'string|required|max:255',
-            //     'jurusan' => 'string|required|max:255|min:6',
-            //     'program_studi' => 'string|min:6|max:255|required',
-            //     'url_linkedin' => 'string|nullable|min:6|max:255',
-            //     'jenis_kandidat' => 'string|min:4|max:255',
-            //     'perguruan_tinggi' => 'string|min:4|max:255',
-            // ]);
+            // validasi input form
             $validator = Validator::make($request->all(), [
                 'nama' => 'required|string|max:255|min:4',
                 'no_telp' => ['string', 'required', 'numeric', Rule::unique('users')->ignore($id)],
@@ -62,11 +47,14 @@ class ProfileController extends Controller
                 'perguruan_tinggi' => 'string|min:4|max:255',
             ]);
 
+            // jika validasi gagal
             if ($validator->fails()) {
+                // tampilkan pesan error
                 $error = $validator->errors()->first();
                 return Redirect::back()->with('toast_error',  $error);
             }
 
+            // update data user
             User::where('id', $id)->update([
                 'nama' => $request->nama,
                 'nim' => $request->nim,
@@ -78,8 +66,12 @@ class ProfileController extends Controller
                 'url_linkedin' => $request->url_linkedin,
                 'updated_at' => now(),
             ]);
+
+            // tampilkan pesan success
             return redirect('/users/profile')->with('toast_success', 'Berhasil memperbarui data');
+
         } catch (Exception $error) {
+            // tampilkan pesan error
             return back()->with('toast_error',  $error);
         }
     }
@@ -87,16 +79,18 @@ class ProfileController extends Controller
     public function uploadFoto(Request $request, $id)
     {
         try {
+            // ambil data user
             $user = User::find($id);
 
+            // validasi file yang diunggah
             $this->validate($request, [
                 'foto' => 'required|image|mimes:jpg,png,jpeg|max:1024'
             ]);
 
-            $fileToDelete = $user->foto;
+            $fileToDelete = $user->foto; // file lama yang tidak terpakai
             
             if ($request->hasFile('foto')) {
-                $gambar = $request->file('foto');
+                $gambar = $request->file('foto'); // ambil file yang diunggah
 
                 // Buat objek gambar menggunakan intervention/image
                 $image = Image::make($gambar);
@@ -122,12 +116,15 @@ class ProfileController extends Controller
                 $user->foto = $dir .'/'.$filename;
                 $user->save();
 
+                // pesan success
                 return redirect()->back()->with('toast_success', 'Berhasil mengunggah gambar');
             }
 
+            // tampilkan pesan error
             return redirect()->back()->with('toast_error', 'Terjadi kesalahan saat mengunggah gambar.');
-        } catch (Exception $e) {
             
+        } catch (Exception $e) {
+            // tampilkan pesan error
             return redirect()->back()->with('toast_error', $e->getMessage());
         }
     }
@@ -136,16 +133,18 @@ class ProfileController extends Controller
     public function uploadIjazah(Request $request, $id)
     {
         try {
+            // ambil data user
             $user = User::find($id);
 
+            // validasi file yang diunggah
             $this->validate($request, [
                 'ijazah' => 'required|image|mimes:jpg,png,jpeg|max:2048'
             ]);
 
-            $fileToDelete = $user->ijazah;
+            $fileToDelete = $user->ijazah; // file lama yang akan dihapus
             
             if ($request->hasFile('ijazah')) {
-                $gambar = $request->file('ijazah');
+                $gambar = $request->file('ijazah'); // ambil file yang diunggah 
 
                 // Buat objek gambar menggunakan intervention/image
                 $image = Image::make($gambar);
@@ -167,14 +166,15 @@ class ProfileController extends Controller
                 $user->ijazah = $dir .'/'.$filename;
                 $user->save();
                 
-
+                // pesan berhasil
                 return redirect()->back()->with('toast_success', 'Berhasil mengunggah gambar');
             }
 
+            // pesan error
             return redirect()->back()->with('toast_error', 'Terjadi kesalahan saat mengunggah gambar.');
-
-        } catch (Exception $e) {
             
+        } catch (Exception $e) {
+            // pesan error
             return redirect()->back()->with('toast_error', $e->getMessage());
         }
     }
