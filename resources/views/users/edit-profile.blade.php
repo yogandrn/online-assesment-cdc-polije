@@ -180,7 +180,7 @@
         <div class="modal-body">
             {{-- <p><b>Unggah Ijazah atau Kartu Tanda Mahasiswa</b></p>   --}}
             @if ($user->foto != null) 
-              <img id="image-profile" src="{{url('/' .$user->foto)}}" alt="{{$user->nama}}" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
+              <img id="image-profile" src="{{url('/' .$user->foto)}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-height: 100%;">  
             @else
               <img id="image-profile" src="{{url('/assets/img/user/photos/default-user.jpg')}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
             @endif
