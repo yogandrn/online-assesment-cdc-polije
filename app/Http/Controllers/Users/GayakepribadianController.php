@@ -15,7 +15,7 @@ class GayakepribadianController extends Controller
     // method halaman utama menu kepribadian
     public function index()
     {
-        $tesKepribadian = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Gaya Kepribadian')->first();
+        $tesKepribadian = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Gaya Kepribadian')->orderBy('started_at', 'desc')->first();
         $isKepribadianAvailable = 'false';
         $kepribadianAvailableAt = \Carbon\Carbon::now();
         if (!$tesKepribadian) {

@@ -24,7 +24,7 @@ class HasilMinatKarirController extends Controller
     // method menampilkan history test user
     public function history()
     {
-        $result = HasilMinatKarir::where('user_id', Auth::user()->id)->with('test')->get();
+        $result = HasilMinatKarir::where('user_id', Auth::user()->id)->with('test')->orderBy('created_at', 'desc')->paginate(10);
 
         return view('users.riwayat-minatkarir', ['hasil' => $result, 'title' => 'Riwayat Tes Minat Karir | CDC Polije']);
     }

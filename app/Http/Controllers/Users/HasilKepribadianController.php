@@ -15,7 +15,7 @@ class HasilKepribadianController extends Controller
     // method menampilkan history test user
     public function history()
     {   
-        $result = HasilKepribadian::where('user_id', Auth::user()->id)->with([ 'test', 'kepribadian'])->paginate(10);
+        $result = HasilKepribadian::where('user_id', Auth::user()->id)->with([ 'test', 'kepribadian'])->orderBy('created_at', 'desc')->paginate(10);
         return view('users.riwayat-kepribadian', ['title' => 'Riwayat Tes Gaya Kepribadian | CDC Polije', 'hasil' => $result]);
     }
     

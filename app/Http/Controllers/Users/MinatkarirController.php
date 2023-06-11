@@ -16,7 +16,7 @@ class MinatkarirController extends Controller
     public function index()
     {
         // cari history test
-        $tesMinatKarir = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Minat Karir')->first();
+        $tesMinatKarir = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Minat Karir')->orderBy('started_at', 'desc')->first();
         
         // set default test tidak tersedia untuk user
         $isMinatKarirAvailable = 'false'; 

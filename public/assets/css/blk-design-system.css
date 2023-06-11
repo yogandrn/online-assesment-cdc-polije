@@ -15334,14 +15334,26 @@ hr {
   cursor: pointer;
   text-transform: uppercase;
   outline: none;
+  color: #707070 ;
+  font-size: 1rem;
+}
+
+.pagination .page-item [aria-label="« Previous"] {
+  font-size: 1.6rem !important;
+  align-self: center;
+}
+.pagination .page-item [aria-label="Next »"] {
+  font-size: 1.6rem !important;
+  align-self: center !important;
 }
 
 .pagination .page-item .page-link:hover,
 .pagination .page-item .page-link:focus {
   background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  color: #808080;
   border: none;
   box-shadow: none;
+  font-size: 1rem;
 }
 
 .pagination .arrow-margin-left,
@@ -15365,7 +15377,7 @@ hr {
 .pagination .page-item.active>.page-link,
 .pagination .page-item.active>.page-link:focus,
 .pagination .page-item.active>.page-link:hover {
-  background: #e14eca;
+  background: #5e72e4 !important;
   background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
   background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
   background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
@@ -15382,7 +15394,7 @@ hr {
 .pagination.pagination-info .page-item.active>.page-link,
 .pagination.pagination-info .page-item.active>.page-link:focus,
 .pagination.pagination-info .page-item.active>.page-link:hover {
-  background: #1d8cf8;
+  background: #5e72e4;
   background-image: -webkit-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8);
   background-image: -o-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8);
   background-image: -moz-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8);
@@ -15394,7 +15406,7 @@ hr {
 .pagination.pagination-success .page-item.active>.page-link,
 .pagination.pagination-success .page-item.active>.page-link:focus,
 .pagination.pagination-success .page-item.active>.page-link:hover {
-  background: #00f2c3;
+  background: #5e72e4;
   background-image: -webkit-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3);
   background-image: -o-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3);
   background-image: -moz-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3);
@@ -15406,7 +15418,7 @@ hr {
 .pagination.pagination-primary .page-item.active>.page-link,
 .pagination.pagination-primary .page-item.active>.page-link:focus,
 .pagination.pagination-primary .page-item.active>.page-link:hover {
-  background: #e14eca;
+  background: #5e72e4;
   background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
   background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
   background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
@@ -15418,7 +15430,7 @@ hr {
 .pagination.pagination-warning .page-item.active>.page-link,
 .pagination.pagination-warning .page-item.active>.page-link:focus,
 .pagination.pagination-warning .page-item.active>.page-link:hover {
-  background: #ff8d72;
+  background: #5e72e4;
   background-image: -webkit-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72);
   background-image: -o-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72);
   background-image: -moz-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72);
@@ -15430,7 +15442,7 @@ hr {
 .pagination.pagination-danger .page-item.active>.page-link,
 .pagination.pagination-danger .page-item.active>.page-link:focus,
 .pagination.pagination-danger .page-item.active>.page-link:hover {
-  background: #fd5d93;
+  background: #5e72e4;
   background-image: -webkit-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93);
   background-image: -o-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93);
   background-image: -moz-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93);

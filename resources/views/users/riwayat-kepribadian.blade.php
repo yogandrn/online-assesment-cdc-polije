@@ -36,6 +36,9 @@
         </tbody>
 
       </table>
+      <div class=" pagination justify-content-center">
+        {{ $hasil->links() }}
+      </div>
     </div>
   </div>
 </div>
