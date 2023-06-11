@@ -180,11 +180,12 @@
         <div class="modal-body">
             {{-- <p><b>Unggah Ijazah atau Kartu Tanda Mahasiswa</b></p>   --}}
             @if ($user->foto != null) 
-              <img src="{{url('/' .$user->foto)}}" alt="{{$user->nama}}" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
+              <img id="image-profile" src="{{url('/' .$user->foto)}}" alt="{{$user->nama}}" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
             @else
-              <img src="{{url('/assets/img/user/photos/default-user.jpg')}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
+              <img id="image-profile" src="{{url('/assets/img/user/photos/default-user.jpg')}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
             @endif
-            <input type="file" name="foto" id="foto" class="form-control">
+            <input type="file" name="foto" id="foto" class="form-control" onchange="previewFoto(event)">
+            <label class="mt-2">Unggah file .jpg, .jpeg, atau .png maximal 1MB</label>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
@@ -198,7 +199,7 @@
 <!-- Modal Upload Ijazah -->
 <div class="modal fade" id="modal-ijazah" tabindex="-1" aria-labelledby="modal-ijazahLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content px-3 pt-2 pb-3">
       <form action="/users/profile/{{$user->id}}/upload/ijazah" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-header">
@@ -210,11 +211,12 @@
         <div class="modal-body">
             {{-- <p><b>Unggah Ijazah atau Kartu Tanda Mahasiswa</b></p>   --}}
             @if ($user->ijazah != null) 
-              <img src="{{url($user->ijazah)}}" alt="Ijazah/KTM" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
+              <img id="image-ijazah" src="{{url($user->ijazah)}}" alt="Ijazah/KTM" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
             @else
-              <img src="{{url('/assets/img/user/ijazah/default-ktm.png')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
+              <img id="image-ijazah" src="{{url('/assets/img/user/ijazah/default-ktm.png')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
             @endif
-            <input type="file" name="ijazah" id="ijazah" class="form-control">
+            <input type="file" name="ijazah" id="ijazah" class="form-control" onchange="previewIjazah(event)">
+            <label class="mt-2">Unggah file .jpg, .jpeg, atau .png maximal 1MB</label>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
@@ -232,7 +234,7 @@
       <form action="/users/profile/{{$user->id}}/upload/ktp" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-header">
-            <h4 class="modal-title text-center" id="modal-upload-ktp-label">e-KTP</h4>
+          <h4 class="modal-title text-center" id="modal-upload-ktp-label">e-KTP</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><i class="tim-icons icon-simple-remove"></i></span>
             </button>
@@ -255,6 +257,30 @@
   </div>
 </div>
 
+<script>
+  function previewIjazah(event) {
+  let input = event.target;
+  let reader = new FileReader();
+
+  reader.onload = function () {
+    let imagePreview = document.getElementById('image-ijazah');
+    imagePreview.src = reader.result;
+  };
+
+  reader.readAsDataURL(input.files[0]);
+  }
+  function previewFoto(event) {
+  let input = event.target;
+  let reader = new FileReader();
+
+  reader.onload = function () {
+    let imagePreview = document.getElementById('image-profile');
+    imagePreview.src = reader.result;
+  };
+
+  reader.readAsDataURL(input.files[0]);
+}
+</script>
 
 @include('sweetalert::alert')
 @endsection
