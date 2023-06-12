@@ -19,7 +19,7 @@ class LoginController extends Controller
     {
         // validasi input user
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email:dns'],
             'password' => ['required', 'min:8', 'max:255'],
         ]);
  
@@ -28,7 +28,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             
             // jika berhasil, arahkan ke halaman home
-            return redirect()->intended('/users');
+            return redirect()->intended('/users')->with('toast_success', 'Login berhasil.');
         }
  
         // jika gagal, tampilkan pesan error

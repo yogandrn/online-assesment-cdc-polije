@@ -77,7 +77,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <form action="{{url('logout')}}" method="POST" class="mx-2">
+                    <form action="/admin/logout" method="POST" class="mx-2">
                         @csrf
                         <h5 class="modal-title" id="staticBackdropLabel">Logout</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

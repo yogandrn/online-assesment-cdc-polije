@@ -7,6 +7,7 @@ use App\Models\PernyataanMinatKarir;
 use App\Models\TestHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class MinatkarirController extends Controller
@@ -15,8 +16,13 @@ class MinatkarirController extends Controller
     // halaman menu tes minat karir
     public function index()
     {
+        $cacheKey = 'history-minatkarir';
+        $cacheTime = 30;
+
         // cari history test
-        $tesMinatKarir = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Minat Karir')->orderBy('started_at', 'desc')->first();
+        $tesMinatKarir = Cache::remember($cacheKey, $cacheTime, function () {
+            return TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Minat Karir')->orderBy('started_at', 'desc')->first();
+        });
         
         // set default test tidak tersedia untuk user
         $isMinatKarirAvailable = 'false'; 
@@ -28,11 +34,11 @@ class MinatkarirController extends Controller
         } else {
 
             // jika ada history test, dan belum tenggat 90 hari
-            if (\Carbon\Carbon::now()->subDays(90) <  $tesMinatKarir['started_at']) {
+            if (\Carbon\Carbon::now()->subDays(1) <  $tesMinatKarir['started_at']) {
                 // test tidak tersedia
                 $isMinatKarirAvailable = 'false';
                 // tampilkan kapan test bisa diakses lagi
-                $minatkarirAvailableAt = \Carbon\Carbon::parse($tesMinatKarir['started_at'])->addDays(90)->format('d M Y H:i:s'); 
+                $minatkarirAvailableAt = \Carbon\Carbon::parse($tesMinatKarir['started_at'])->addDays(1)->format('d M Y H:i:s'); 
 
             } else {
                 // test tersedia

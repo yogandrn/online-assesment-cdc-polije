@@ -7,6 +7,7 @@ use App\Models\PernyataanKepribadian;
 use App\Models\TestHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class GayakepribadianController extends Controller
@@ -15,16 +16,31 @@ class GayakepribadianController extends Controller
     // method halaman utama menu kepribadian
     public function index()
     {
-        $tesKepribadian = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Gaya Kepribadian')->orderBy('started_at', 'desc')->first();
+        $cacheKey = 'history-gayakepribadian';
+        $cacheTime = 30;
+
+        // cari history test
+        $tesKepribadian = Cache::remember($cacheKey, $cacheTime, function () {
+            return TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Gaya Kepribadian')->orderBy('started_at', 'desc')->first();
+        });
+
+        // set default test tidak tersedia untuk user
         $isKepribadianAvailable = 'false';
         $kepribadianAvailableAt = \Carbon\Carbon::now();
-        if (!$tesKepribadian) {
-            $isKepribadianAvailable = 'true';
+
+        if (!$tesKepribadian) { // jika belum pernah tes
+            $isKepribadianAvailable = 'true'; // tes tersedia untuk user
         } else {
-            if (\Carbon\Carbon::now()->subDays(90) <  $tesKepribadian['started_at']) {
+
+            // jika ada history test, dan belum tenggat 90 hari
+            if (\Carbon\Carbon::now()->subDays(1) <  $tesKepribadian['started_at']) {
+                // test tidak tersedia
                 $isKepribadianAvailable = 'false';
-                $kepribadianAvailableAt = \Carbon\Carbon::parse($tesKepribadian['started_at'])->addDays(90)->format('d M Y H:i:s');
+                // tampilkan kapan test bisa diakses lagi
+                $kepribadianAvailableAt = \Carbon\Carbon::parse($tesKepribadian['started_at'])->addDays(1)->format('d M Y H:i:s');
+            
             } else {
+                // test tersedia
                 $isKepribadianAvailable = 'true';
             }
         }

@@ -51,10 +51,10 @@
             <div class="dropdown-menu dropdown-with-icons">
               <!-- <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
               </a> -->
-              <a href="/users/gayakepribadian" class="dropdown-item" style="color: #00081d;">
+              <a href="/users/gayakepribadian" class="dropdown-item">
                 <i class="tim-icons icon-bullet-list-67"></i>Gaya Kepribadian
               </a>
-              <a href="/users/minatkarir" class="dropdown-item" style="color: #00081d;">
+              <a href="/users/minatkarir" class="dropdown-item">
                 <i class="tim-icons icon-image-02"></i>Minat Karir
               </a>
             </div>
