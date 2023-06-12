@@ -106,7 +106,8 @@
                     <div class="mb-3" id="input-jenjang">
                       <label for="jenjang">Jenjang</label>
                       <select name="jenjang" id="jenjang" aria-label="jenjang" class="form-control">
-                        <option value="D4/S1" selected>D4/S1</option>
+                        <option value="S2 Magister Terapan" selected>S2 Magister Terapan</option>
+                        <option value="D4" selected>D4</option>
                         <option value="D3">D3</option>
                         <option value="D2">D2</option>
                         <option value="D1">D1</option>
