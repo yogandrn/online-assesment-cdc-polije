@@ -134,6 +134,7 @@
                         <option value="Bahasa, Komunikasi & Pariwisata">Bahasa, Komunikasi & Pariwisata</option>
                         <option value="Kesehatan">Kesehatan</option>
                         <option value="Teknik">Teknik</option>
+                        <option value="Bisnis">Bisnis</option>
                       </select>
                     </div>
 
@@ -143,12 +144,12 @@
                       <label for="program_studi">Program Studi</label>
   
                       <select name="program_studi" id="program_studi" aria-label="program_studi" class="form-control">
-                        <option value="Teknik Informatika" selected>Teknik Informatika</option>
+                        {{-- <option value="Teknik Informatika" selected>Teknik Informatika</option>
                         <option value="Manajemen Informatika">Manajemen Informatika</option>
                         <option value="Teknik Komputer">Teknik Komputer</option>
-                        <option value="Teknik Informatika - Bondowoso">Teknik Informatika - Bondowoso</option>
-                        <option value="Teknik Informatika - Nganjuk">Teknik Informatika - Nganjuk</option>
-                        <option value="Teknik Informatika - Sidoarjo">Teknik Informatika - Sidoarjo</option>
+                        <option value="Teknik Informatika - PSDKU Bondowoso">Teknik Informatika -PSDKU Bondowoso</option>
+                        <option value="Teknik Informatika - PSDKU Nganjuk">Teknik Informatika -PSDKU Nganjuk</option>
+                        <option value="Teknik Informatika - PSDKU Sidoarjo">Teknik Informatika -PSDKU Sidoarjo</option>
                         <option value="Teknik Informatika - Internasional">Teknik Informatika - Internasional</option>
                         <option value="Manajemen Informatika - Internasional">Manajemen Informatika - Internasional</option>
                         <option value="Teknik Komputer - Internasional">Teknik Komputer - Internasional</option>
@@ -167,7 +168,7 @@
                         <option value="Keteknikan Pertanian">Keteknikan Pertanian</option>
                         <option value="Teknologi Industri Pangan">Teknologi Industri Pangan</option>
                         <option value="Teknologi Rekayasa Pangan">Teknologi Rekayasa Pangan</option>
-                        <option value="Teknologi Industri Pangan - Bondowoso">Teknologi Industri Pangan - Bondowoso</option>
+                        <option value="Teknologi Industri Pangan - PSDKU Bondowoso">Teknologi Industri Pangan - PSDKU Bondowoso</option>
                         <option value="Produksi Ternak">Produksi Ternak</option>
                         <option value="Manajemen Bisnis Unggas">Manajemen Bisnis Unggas</option>
                         <option value="Teknologi Pakan Ternak">Teknologi Pakan Ternak</option>
@@ -175,13 +176,13 @@
                         <option value="Manajemen Agroindustri">Manajemen Agroindustri</option>
                         <option value="Akuntansi Sektor Publik">Akuntansi Sektor Publik</option>
                         <option value="Manjemen Pemasaran Internasional">Manjemen Pemasaran Internasional</option>
-                        <option value="Manjemen Agribisnis - Bondowoso">Manjemen Agribisnis - Bondowoso</option>
-                        <option value="Manjemen Agribisnis - Nganjuk">Manjemen Agribisnis - Nganjuk</option>
-                        <option value="Manjemen Agroindustri - Sidoarjo">Manjemen Agroindustri - Sidoarjo</option>
+                        <option value="Manjemen Agribisnis -PSDKU Bondowoso">Manjemen Agribisnis -PSDKU Bondowoso</option>
+                        <option value="Manjemen Agribisnis -PSDKU Nganjuk">Manjemen Agribisnis -PSDKU Nganjuk</option>
+                        <option value="Manjemen Agroindustri -PSDKU Sidoarjo">Manjemen Agroindustri -PSDKU Sidoarjo</option>
                         <option value="Manjemen Agroindustri - Internasional">Manjemen Agroindustri - Internasional</option>
-                        <option value="Agribisnis S2">Agribisnis S2</option>
+                        <option value="S2 Agribisnis">S2 Agribisnis</option>
                         <option value="Bahasa Inggris Terapan">Bahasa Inggris Terapan</option>
-                        <option value="Destinasi Pariwisata">Destinasi Pariwisata</option>
+                        <option value="Destinasi Pariwisata">Destinasi Pariwisata</option> --}}
                         
                       </select>
                     </div>
@@ -263,8 +264,75 @@
   <script src="{{url('assets/login/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{url('assets/login/js/plugins/smooth-scrollbar.min.js')}}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
- 
+      $(document).ready(function() {
+          // Menangkap perubahan pada select jurusan
+          $('#jurusan').change(function() {
+              let jurusan = $(this).val();
+              
+              // Kosongkan opsi program studi saat memilih jurusan baru
+              $('#program_studi').empty();
+              
+              // Ambil data program studi sesuai dengan jurusan yang dipilih
+              if (jurusan === 'Produksi Pertanian') {
+                  // Opsi program studi untuk jurusan 1
+                  $('#program_studi').append('<option value="Produksi Tanaman Hortikultura">Produksi Tanaman Hortikultura</option>');
+                  $('#program_studi').append('<option value="Produksi Tanaman Perkebunan">Produksi Tanaman Perkebunan</option>');
+                  $('#program_studi').append('<option value="Teknik Produksi Benih">Teknik Produksi Benih</option>');
+                  $('#program_studi').append('<option value="Teknologi Produksi Tanaman Pangan">Teknologi Produksi Tanaman Pangan</option>');
+                  $('#program_studi').append('<option value="Budidaya Tanaman Perkebunan">Budidaya Tanaman Perkebunan</option>');
+                  $('#program_studi').append('<option value="Pengelolaan Perkebunan Kopi">Pengelolaan Perkebunan Kopi</option>');
+                  // Tambahkan opsi program studi lainnya untuk jurusan 1
+              } else if (jurusan === 'Teknologi Pertanian') {
+                $('#program_studi').append('<option value="Keteknikan Peternatian">Keteknikan Peternatian</option>');
+                $('#program_studi').append('<option value="Teknologi Industri Pangan">Teknologi Industri Pangan</option>');
+                $('#program_studi').append('<option value="Teknologi Rekayasa Pangan">Teknologi Rekayasa Pangan</option>');
+                
+              } else if (jurusan === 'Peternakan') {
+                $('#program_studi').append('<option value="Produksi Ternak">Produksi Ternak</option>');
+                $('#program_studi').append('<option value="Manajemen Bisnis Unggas">Manajemen Bisnis Unggas</option>');
+                $('#program_studi').append('<option value="Teknologi Pakan Ternak">Teknologi Pakan Ternak</option>');
+                
+              } else if (jurusan === 'Manajemen Agribisnis') {
+                $('#program_studi').append('<option value="Manajemen Agribisnis - PSDKU Bondowoso">Manajemen Agribisnis - PSDKU Bondowoso</option>');
+                $('#program_studi').append('<option value="Manajemen Agribisnis - PSDKU Nganjuk">Manajemen Agribisnis - PSDKU Nganjuk</option>');
+                $('#program_studi').append('<option value="Manajemen Agroindustri - PSDKU Sidoarjo">Manajemen Agroindustri - PSDKU Sidoarjo</option>');
+                $('#program_studi').append('<option value="Manajemen Agroindustri - Internasional">Manajemen Agroindustri - Internasional</option>');
+                $('#program_studi').append('<option value="S2 Agribisnis">S2 Agribisnis</option>');
+                
+              }  else if (jurusan === 'Teknologi Informasi') {
+                $('#program_studi').append('<option value="Teknik Komputer">Teknik Komputer</option>');
+                $('#program_studi').append('<option value="Manajemen Informatika">Manajemen Informatika</option>');
+                $('#program_studi').append('<option value="Teknik Informatika">Teknik Informatika</option>');
+                $('#program_studi').append('<option value="Teknik Komputer - Internasional">Teknik Komputer</option>');
+                $('#program_studi').append('<option value="Manajemen Informatika - Internasional">Manajemen Informatika</option>');
+                $('#program_studi').append('<option value="Teknik Informatika - Internasional">Teknik Informatika</option>');
+                $('#program_studi').append('<option value="Teknik Informatika - PSDKU Bondowoso">Teknik Informatika - PSDKU Bondowoso</option>');
+                $('#program_studi').append('<option value="Teknik Informatika - PSDKU Nganjuk">Teknik Informatika - PSDKU Nganjuk</option>');
+                $('#program_studi').append('<option value="Teknik Informatika - PSDKU Sidoarjo">Teknik Informatika - PSDKU Sidoarjo</option>');
+
+              } else if (jurusan === 'Bahasa, Komunikasi dan Pariwisata') {
+                  // Opsi program studi untuk jurusan 2
+                  $('#program_studi').append('<option value="Bahasa Inggris">Bahasa Inggris</option>');
+                  $('#program_studi').append('<option value="Destinasi Pariwisata">Destinasi Pariwisata</option>');
+                }  else if (jurusan === 'Kesehatan') {
+                $('#program_studi').append('<option value="Manajemen Informasi Kesehatan">Manajemen Informasi Kesehatan</option>');
+                $('#program_studi').append('<option value="Gizi Klinik">Gizi Klinik</option>');
+                $('#program_studi').append('<option value="Promosi Kesehatan">Promosi Kesehatan</option>');
+                
+              }  else if (jurusan === 'Teknik') {
+                $('#program_studi').append('<option value="Teknik Energi Terbarukan">Teknik Energi Terbarukan</option>');
+                $('#program_studi').append('<option value="Mesin Otomotif">Mesin Otomotif</option>');
+                $('#program_studi').append('<option value="Teknologi Rekayasa Mekatronika">Teknologi Rekayasa Mekatronika</option>');
+                
+              } else if (jurusan === 'Bisnis') {
+                $('#program_studi').append('<option value="Akuntansi Sektor Publik">Akuntansi Sektor Publik</option>');
+                $('#program_studi').append('<option value="Manajemen Pemasaran Internasional">Manajemen Pemasaran Internasional</option>');
+
+              }
+          });
+      });
   </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
