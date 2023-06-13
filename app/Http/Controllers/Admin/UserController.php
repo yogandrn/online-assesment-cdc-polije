@@ -78,11 +78,16 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->isMethod('post')) {
+            User::where(['id' => $id])->delete();
+            return redirect()->back()->with('toast_success', 'Hapus Data Berhasil');
+        }
+        return redirect()->back()->with('toast_success', 'Hapus Data Berhasil');
     }
 }

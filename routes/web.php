@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\KepribadianController;
 use App\Http\Controllers\Admin\KarirController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\LoginAdminController;
+use App\Http\Controllers\AdminUserPageController;
 use App\Http\Controllers\Users\LoginController;
 use App\Http\Controllers\Users\RegisterController;
 use App\Http\Controllers\Users\HomeController;
@@ -78,7 +79,7 @@ Route::name('users.')->prefix('users')->group(function () {
 
 // Route for Admin 
 Route::name('admin.')->prefix('admin')->group(function () {
-    Route::get('/', function() {
+    Route::get('/', function () {
         return redirect('/admin/dashboard');
     });
     Route::get('/login', [LoginAdminController::class, 'index']);
@@ -104,6 +105,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/karir/conventional', [KarirController::class, 'conventional']);
 
         Route::get('/user', [UserController::class, 'index']);
+        Route::post('/userdestroy/{id}', [UserController::class, 'destroy'])->name("userdestroy");
 
         Route::get('/logout', [LoginAdminController::class, 'logout']);
     });
