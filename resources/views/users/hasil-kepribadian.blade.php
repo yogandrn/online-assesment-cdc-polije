@@ -7,11 +7,33 @@
         <br>
         <h3 style="color: #00081d" class="text-center"><strong>Hasil Tes Kepribadian </strong></h3>
         <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
-        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Waktu Pelaksanaan : {{\Carbon\Carbon::parse($hasil['test']['started_at'])->format('d M Y H:i:s');}}</p>
+        <div class="row justify-content-between">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Waktu Pelaksanaan : {{\Carbon\Carbon::parse($hasil['test']['started_at'])->format('d M Y H:i:s');}}</p>
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-0"></div>
+          <div class="col-lg-5 col-md-5 col-sm-6">
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Durasi Test : {{$hasil['durasi_test']}}</p>
+          </div>
+        </div>
         <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
-        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nama Lengkap : {{$hasil['user']['nama']}}</p>
-        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Alamat Email : {{$hasil['user']['email']}}</p>
-        <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nomor Telepon : {{$hasil['user']['no_telp']}}</p>
+        <div class="row justify-content-start">
+          <div class="col-lg-2 col-md-2 col-sm-3">
+            @if ($hasil->user->foto != null) 
+              <a href="{{ url('/' . $hasil->user->foto) }}" target="_blank" rel="noopener noreferrer"><img src="{{url('/' . $hasil->user->foto)}}" alt="{{ $hasil->user->nama }}" class="img-fluid mb-2 img-center" style="max-width: 8rem">  </a>
+            @else
+              <img src="{{url('/assets/img/user/photos/default-user.jpg')}}" alt="{{ $hasil->user->nama }}" class="img-fluid mb-2 img-center" style="max-height: 8rem">
+            @endif
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9">
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nama Lengkap : {{$hasil['user']['nama']}}</p>
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Alamat Email : {{$hasil['user']['email']}}</p>
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nomor Telepon : {{$hasil['user']['no_telp']}}</p>
+            <p style="color: #00081d; text-align:left; font-size: 1rem;" >Asal Instansi : {{$hasil['user']['perguruan_tinggi']}}</p>
+            {{-- <p style="color: #00081d; text-align:left; font-size: 1rem;" >Fakultas / Jurusan : {{$hasil['user']['jurusan']}}</p>  --}}
+            {{-- <p style="color: #00081d; text-align:left; font-size: 1rem;" >Program Studi : {{$hasil['user']['program_studi']}}</p>  --}}
+          </div>
+        </div>
         <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
           <div class="row justify-content-around">
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">

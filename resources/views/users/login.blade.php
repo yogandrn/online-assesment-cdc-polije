@@ -114,8 +114,8 @@
               @endif
               <div class="card card-plain">
                 <div class="card-header pb-0 text-start">
-                  <h4 class="font-weight-bolder">Sign In</h4>
-                  <p class="mb-0">Enter your email and password to sign in</p>
+                  <h4 class="font-weight-bolder">Login</h4>
+                  <p class="mb-0">Masukkan email dan password untuk masuk.</p>
                 </div>
                 <div class="card-body">
                   <form role="form" action="/login" method="post">
@@ -138,14 +138,14 @@
                       <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div> --}}
                     <div class="text-center">
-                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Masuk</button>
                     </div>
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
-                    Don't have an account?
-                    <a href="/register" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                    Belum mempunyai akun?
+                    <a href="/register" class="text-primary text-gradient font-weight-bold">Daftar Sekarang</a>
                   </p>
                 </div>
               </div>

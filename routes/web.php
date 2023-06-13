@@ -58,6 +58,7 @@ Route::name('users.')->prefix('users')->group(function () {
         Route::get('/minatkarir/test/{token}', [MinatkarirController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/minatkarir/store', [HasilMinatKarirController::class, 'store']);
         Route::get('/minatkarir/result/{token}', [HasilMinatKarirController::class, 'detail']);
+        Route::get('/minatkarir/print/{token}', [HasilMinatKarirController::class, 'printPDF']);
 
         // Route Gaya Kepribadian 
         Route::get('/gayakepribadian', [GayakepribadianController::class, 'index']);
@@ -66,6 +67,7 @@ Route::name('users.')->prefix('users')->group(function () {
         Route::get('/gayakepribadian/test/{token}', [GayakepribadianController::class, 'doingTest'])->middleware(['isDoingTest']);
         Route::post('/gayakepribadian/store', [HasilKepribadianController::class, 'store']);
         Route::get('/gayakepribadian/result/{token}', [HasilKepribadianController::class, 'detail']);
+        Route::get('/gayakepribadian/print/{token}', [HasilKepribadianController::class, 'printPDF']);
 
         // Route Profile 
         Route::get('/profile', [ProfileController::class, 'index']);

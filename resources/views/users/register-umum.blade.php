@@ -165,7 +165,7 @@
                 <div class="form-check form-check-info text-start">
                   <input class="form-check-input @error('agree') is-invalid @enderror" type="checkbox" id="checkbox-agree" name="agree" required>
                   <label class="form-check-label" for="checkbox-agree">
-                    I agree the <a href="" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                    Saya menyutujui syarat dan ketentuan yang berlaku
                   </label>
                   @error('agree')
                   <div class="invalid-feedback text-start" >{{$message}}</div>
@@ -173,7 +173,7 @@
                 </div>
                 <div class="text-center">
                   <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#example">
-                    Register
+                    Daftar
                   </button>
                 </div>
                 <p class="text-sm mt-3 mb-0">Sudah mempunyai akun? <a href="/login" class="text-dark font-weight-bolder">Login</a></p>

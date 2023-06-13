@@ -268,6 +268,7 @@
 
   reader.readAsDataURL(input.files[0]);
   }
+  
   function previewFoto(event) {
   let input = event.target;
   let reader = new FileReader();

@@ -13,12 +13,29 @@ use Illuminate\Support\Facades\Auth;
 class HasilMinatKarirController extends Controller
 {
 
+    // method menampilkan detail hasil test
     public function detail($token)
+    {
+        $result = HasilMinatKarir::where('test_token', $token)->with(['user', 'test', 'detail'])->first(); // ambil data hasil test
+        $minatkarir = DetailHasilMinatKarir::where('hasil_minat_karir_id', $result['id'])->orderBy('point', 'desc')->limit(2)->get(); // ambil detail hasil
+
+        $startedAt = \Carbon\Carbon::parse($result->test->started_at);
+        $finishedAt = \Carbon\Carbon::parse($result->test->finished_at);
+
+        $durasisec = $startedAt->diffInSeconds($finishedAt); // ambil data durasi test dalam detik
+        $durasimin = $startedAt->diffInMinutes($finishedAt); // ambil data durasi test dalam menit
+        $result['durasi_test'] = $durasimin . ' menit ' . $durasisec % 60 . ' detik'; // data durasi
+
+        // return response()->json(['test_data' => $result, 'hasil' => $minatkarir, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
+        return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
+    }
+
+    public function printPDF($token)
     {
         $result = HasilMinatKarir::where('test_token', $token)->with(['user'])->first();
         $minatkarir = DetailHasilMinatKarir::where('hasil_minat_karir_id', $result['id'])->orderBy('point', 'desc')->limit(2)->get();
 
-        return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
+        return view('users.cetak-minatkarir', ['test_data' => $result, 'hasil' => $minatkarir, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
     }
 
     // method menampilkan history test user

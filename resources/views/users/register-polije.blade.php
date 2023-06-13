@@ -85,7 +85,7 @@
                 
                 <div class="mb-3">
                   <label for="nama">Nama Lengkap</label>
-                  <input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Lengkap" aria-label="Name" value="{{old('nama')}}" name="nama" id="nama" required >
+                  <input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Lengkap" aria-label="Name" value="{{old('nama')}}" name="nama" id="nama" required onchange="validate()">
                   @error('nama')
                     <div class="invalid-feedback text-start" >{{$message}}</div>
                   @enderror
@@ -193,12 +193,13 @@
                 <div class="form-check form-check-info text-start">
                   <input class="form-check-input" type="checkbox" value="" id="agree" name="agree" required>
                   <label class="form-check-label" for="agree">
-                    I agree the <a href="" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                    Saya menyutujui syarat dan ketentuan yang berlaku
+                    {{-- Saya menyutujui <a href="" class="text-dark font-weight-bolder">Syarat dan Ketentuan</a> yang berlaku --}}
                   </label>
                 </div>
                 <div class="text-center">
                   <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#example">
-                    Register
+                    Daftar
                   </button>
                 </div>
                 <p class="text-sm mt-3 mb-0">Sudah mempunyai akun? <a href="/login" class="text-dark font-weight-bolder">Login</a></p>
@@ -258,6 +259,22 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
       $(document).ready(function() {
+        
+        function validate() {
+          let nama = document.getElementById('nama');
+          let value = nama.value;
+          console.log(value);
+
+          
+        }
+
+        $('#nama').change(function () {
+          let nama = $(this).val();
+          if (nama.length < 4 && nama.length > 50) {
+            $(this).addClass('is-invalid');
+          }
+        });
+
           // Menangkap perubahan pada select jurusan
           $('#jurusan').change(function() {
               let jurusan = $(this).val();
