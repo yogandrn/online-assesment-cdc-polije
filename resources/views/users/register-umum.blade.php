@@ -51,6 +51,8 @@
     </div>
     <div class="container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
+        <form role="form" method="post" action="/register">
+          @csrf
         <div class="col-xl-8 col-lg-9 col-md-9 mx-auto">
           @if (session()->has('success'))
                   <div class="alert alert-success alert-dismissable fade show justify-content-between" role="alert">
@@ -66,12 +68,10 @@
               @endif
           <div class="card z-index-0">
             <div class="card-header text-center pt-4">
-              <h5>Register Now</h5>
+              <h5>Daftar Sekarang</h5>
             </div>
  
             <div class="card-body">
-              <form role="form" method="post" action="/register">
-                @csrf
                 <input type="hidden" name="jenis_kandidat" value="Umum">
                 
                 <div class="mb-3">
@@ -172,14 +172,37 @@
                   @enderror
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2" role="button">Sign up</button>
+                  <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#example">
+                    Register
+                  </button>
                 </div>
-                <p class="text-sm mt-3 mb-0">Already have an account? <a href="/login" class="text-dark font-weight-bolder">Sign in</a></p>
-              </form>
+                <p class="text-sm mt-3 mb-0">Sudah mempunyai akun? <a href="/login" class="text-dark font-weight-bolder">Login</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {{-- Modal Konfirmasi Data  --}}
+        <div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleLabel">Konfirmasi Data</h5>
+              {{-- <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close" style="color: brown"><i class="tim-icons icon-simple-remove"></i></button> --}}
+            </div>
+            <div class="modal-body">
+              <p>Apakah Anda yakin semua data sudah benar ?</p>
+              <p>Data yang Anda masukkan tidak akan bisa dirubah.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-primary">Daftar</button>
             </div>
           </div>
         </div>
       </div>
+      
+    </form>
     </div>
   </main>
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->

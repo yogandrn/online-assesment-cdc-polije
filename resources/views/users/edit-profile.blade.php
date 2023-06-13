@@ -33,7 +33,7 @@
             {{-- Input Nama Lengkap  --}}
             <div class="form-group mb-3 ">
               <label for="nama" class="form-label">Nama Lengkap</label>
-              <input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Lengkap" aria-label="Nama Lengkap" id="nama" name="nama" required value="{{ $user->nama }}" >
+              <input type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Lengkap" aria-label="Nama Lengkap" id="nama" name="nama" required value="{{ $user->nama }}"  readonly>
               @error('nama') <div class="invalid-feedback">{{$message}}</div> @enderror
             </div>
   
@@ -47,29 +47,28 @@
             {{-- Input Perguruan Tinggi --}}
             <div class="form-group mb-3 ">
               <label for="perguruan_tinggi" class="form-label">Perguruan Tinggi</label>
-              <input type="text" class="form-control @error('perguruan_tinggi') is-invalid @enderror" placeholder="Perguruan Tinggi" aria-label="Perguruan Tinggi" id="perguruan_tinggi" name="perguruan_tinggi" required value="{{ $user->perguruan_tinggi }}" minlength="4" maxlength="100">
+              <input type="text" class="form-control @error('perguruan_tinggi') is-invalid @enderror" placeholder="Perguruan Tinggi" aria-label="Perguruan Tinggi" id="perguruan_tinggi" name="perguruan_tinggi" required value="{{ $user->perguruan_tinggi }}" minlength="4" maxlength="100" readonly>
               @error('perguruan_tinggi') <div class="invalid-feedback">{{$message}}</div> @enderror
             </div>
             
             <div class="row">
+              @if ($user->nim != null)
               {{-- Input Nim  --}}
-              <div class="col-6">
+              <div class="col">
                 <div class="form-group mb-3 ">
                   <label for="nim" class="form-label @error('nim') is-invalid @enderror">NIM/NPM</label>
-                  <input type="text" class="form-control" placeholder="Nim atau Npm" aria-label="Nim atau Npm" id="nim" name="nim" value="{{ $user->nim }}" minlength="4" maxlength="15">
+                  <input type="text" class="form-control" placeholder="Nim atau Npm" aria-label="Nim atau Npm" id="nim" name="nim" value="{{ $user->nim }}" minlength="4" maxlength="15" readonly>
                   @error('nim') <div class="invalid-feedback">{{$message}}</div> @enderror
                 </div>
               </div>
+              @else
+                  <div class=""></div>
+              @endif
               {{-- Input Jenjang  --}}
-              <div class="col-6">
+              <div class="col">
                 <div class="form-group mb-3">
                   <label for="jenjang" class="form-label">Jenjang</label>
-                  <select class="form-select" aria-label="Jenjang" name="jenjang">
-                    <option @if ($user->jenjang == 'D1') selected @endif>D1</option>
-                    <option @if ($user->jenjang == 'D2') selected @endif>D2</option>
-                    <option @if ($user->jenjang == 'D3') selected @endif>D3</option>
-                    <option @if ($user->jenjang == 'D4/S1') selected @endif>D4/S1</option>
-                  </select>
+                  <input type="text" class="form-control" name="jenjang" id="jenjang" value="{{$user->jenjang}}" readonly>
                 </div>
               </div>
             </div>
@@ -79,7 +78,7 @@
               <div class="col-6">
                 <div class="form-group mb-3 ">
                   <label for="jurusan" class="form-label">Jurusan/Fakultas</label>
-                  <input type="text" class="form-control @error('jurusan') is-invalid @enderror" placeholder="Jurusan/Fakultas" aria-label="Jurusan/Fakultas" id="jurusan" name="jurusan" required value="{{ $user->jurusan }}" minlength="4" maxlength="99">
+                  <input type="text" class="form-control @error('jurusan') is-invalid @enderror" placeholder="Jurusan/Fakultas" aria-label="Jurusan/Fakultas" id="jurusan" name="jurusan" required value="{{ $user->jurusan }}" minlength="4" maxlength="99" readonly>
                   @error('jurusan') <div class="invalid-feedback">{{$message}}</div> @enderror
                 </div>
               </div>
@@ -88,7 +87,7 @@
               <div class="col-6">
                 <div class="form-group mb-3 ">
                   <label for="program_studi" class="form-label">Program Studi</label>
-                  <input type="text" class="form-control @error('program_studi') is-invalid @enderror" placeholder="Program Studi" aria-label="Program Studi" id="program_studi" name="program_studi" required value="{{ $user->program_studi }}" minlength="4" maxlength="99">
+                  <input type="text" class="form-control @error('program_studi') is-invalid @enderror" placeholder="Program Studi" aria-label="Program Studi" id="program_studi" name="program_studi" required value="{{ $user->program_studi }}" minlength="4" maxlength="99" readonly>
                   @error('program_studi') <div class="invalid-feedback">{{$message}}</div> @enderror
                 </div>
               </div>
