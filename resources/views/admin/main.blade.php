@@ -35,6 +35,31 @@
 
     <!-- Datatables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
+
+    {{-- Link Chart Js  --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css">
+
+    <style>
+        .chart-container {
+            padding: 0.5rem 1.6rem;
+            margin: 0 auto;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 8px rgba(0,0,0, 0.35);
+            border-radius: 10px;
+            max-height: 6rem;
+            height: 12rem;
+            width: 50% !important;
+            max-width: 70%;
+        }
+
+        .chart-container h2 .chart-heading {
+            text-align: center;
+            text-transform: uppercase;
+            padding-bottom: 0.8rem;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">

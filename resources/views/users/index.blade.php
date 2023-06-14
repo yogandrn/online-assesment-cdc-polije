@@ -40,7 +40,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a>
-                Weelcome•
+                Welcome •
               </a>
             </div>
             <div class="col-6 collapse-close text-right">
@@ -84,8 +84,13 @@
               </a>
             </div>
           </li>
+          <li class="nav-item p-0 d-sm-block">
+            <a class="nav-link btn btn-warning d-lg-block px-4 py-2" href="/login" data-placement="bottom">
+              Login
+            </a>
+          </li>
 
-          @auth      
+          {{-- @auth      
             <li class="nav-item">
               <form action="/logout" method="post">
                 @csrf
@@ -97,7 +102,7 @@
               Login
             </a>
           </li>
-          @endauth
+          @endauth --}}
 
         </ul>
       </div>

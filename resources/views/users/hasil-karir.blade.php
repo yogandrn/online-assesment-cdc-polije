@@ -35,16 +35,27 @@
                 </div>
               </div>
             <div class="mt-4 mb-1" style="border: 0.2px solid #818181;"></div>
-              <div class="row justify-content-center " style="height: 16rem; max-height: 16rem;">
-                <div class="col-1 rounded-top" style="height: 100%; align-self:baseline;"></div> 
-                <div class="col-1 rounded-top" style="background-color: #449196;height: {{$test_data['detail'][0]['point'] * 10}}%; align-self:baseline;"></div>
-                <div class="col-1 rounded-top" style="background-color: #bd6a6a;height: {{$test_data['detail'][1]['point'] * 10}}%; align-self:baseline;"></div>
-                <div class="col-1 rounded-top" style="background-color: #55a36a;height: {{$test_data['detail'][2]['point'] * 10}}%; align-self:baseline;"></div>
-                <div class="col-1 rounded-top" style="background-color: #a39755;height: {{$test_data['detail'][3]['point'] * 10}}%; align-self:baseline;"></div>
-                <div class="col-1 rounded-top" style="background-color: #8355a3;height: {{$test_data['detail'][4]['point'] * 10}}%; align-self:baseline;"></div>
-                <div class="col-1 rounded-top" style="background-color: #8c443b;height: {{$test_data['detail'][5]['point'] * 10}}%; align-self:baseline;"></div>
-                <div class="col-1 rounded-top" style="height: 100%; align-self:baseline;"></div>
+            {{-- Diagram semua kepribadian  --}}
+              <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
+                  <div class="chart-container w-100">
+                    <h2 class="chart-heading" style="color: #00081d;">
+                      Diagram Kepribadian
+                    </h2>
+                    <canvas id="myChart"></canvas>
+                  </div>
+                </div>
               </div>
+            {{-- <div class="row justify-content-center " style="height: 16rem; max-height: 16rem;">
+              <div class="col-1 rounded-top" style="height: 100%; align-self:baseline;"></div> 
+              <div class="col-1 rounded-top" style="background-color: #449196;height: {{$test_data['detail'][0]['point'] * 10}}%; align-self:baseline;"></div>
+              <div class="col-1 rounded-top" style="background-color: #bd6a6a;height: {{$test_data['detail'][1]['point'] * 10}}%; align-self:baseline;"></div>
+              <div class="col-1 rounded-top" style="background-color: #55a36a;height: {{$test_data['detail'][2]['point'] * 10}}%; align-self:baseline;"></div>
+              <div class="col-1 rounded-top" style="background-color: #a39755;height: {{$test_data['detail'][3]['point'] * 10}}%; align-self:baseline;"></div>
+              <div class="col-1 rounded-top" style="background-color: #8355a3;height: {{$test_data['detail'][4]['point'] * 10}}%; align-self:baseline;"></div>
+              <div class="col-1 rounded-top" style="background-color: #8c443b;height: {{$test_data['detail'][5]['point'] * 10}}%; align-self:baseline;"></div>
+              <div class="col-1 rounded-top" style="height: 100%; align-self:baseline;"></div>
+            </div> --}}
             <div class="mt-4 mb-1" style="border: 0.2px solid #818181;"></div>
             <p  style="color: #606060; text-align:left; " >*Berikut adalah hasil dari 2 jenis kepribadian yang menonjol pada diri anda beserta dengan saran karir yang sesuai.</p>
             <br>
@@ -108,5 +119,55 @@
         </div>
         <br>
         <br>
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  {{-- <script src="{{url('/assets/js/Chart.js')}}"></script> --}}
+  <script>
+    let ctx = document.getElementById('myChart').getContext('2d');
+    let myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Realistic', 'Investigative', 'Artistic', 'Social', 'Enterprise', 'Conventional'],
+            datasets: [{
+                label: 'Persentase (%)',
+                data: [70, 60, 20, 10, 30, 70],
+                backgroundColor: [
+                  'rgba(210, 180, 140, 0.8)',
+                  'rgba(128, 128, 0, 0.8)',
+                  'rgba(204, 85, 0, 0.8)',
+                  'rgba(183, 65, 14, 0.8)',
+                  'rgba(204, 204, 0, 0.8)',
+                  'rgba(138, 154, 91, 0.8)'
+                ],
+                borderColor: [
+                  'rgba(210, 180, 140, 1)',
+                  'rgba(128, 128, 0, 1)',
+                  'rgba(204, 85, 0, 1)',
+                  'rgba(183, 65, 14, 1)',
+                  'rgba(204, 204, 0, 1)',
+                  'rgba(138, 154, 91, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+            categoryPercentage: 0.8,
+            barPercentage: 0.9
+        }]
+            }
+        }
+    });
+    </script>
     
 @endsection
