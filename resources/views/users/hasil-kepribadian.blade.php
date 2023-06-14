@@ -53,6 +53,9 @@
           <p style="color: #00081d; font-size: 1rem">{!! $hasil['kepribadian']['description'] !!}</p>
           <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
           <p style="color: #00081d; font-size: 1rem">Karir yang disarankan : <strong>{!! $hasil['kepribadian']['saran_karir'] !!}</strong></p><br>
+          <div class="row justify-content-center">
+            <a href="/users/gayakepribadian/print/{{$hasil->test_token}}" target="_blank" rel="noopener noreferrer" class="btn btn-dark d-block mx-auto" role="button">Unduh PDF</a>
+          </div>
       </div>
     </div>
     <br>

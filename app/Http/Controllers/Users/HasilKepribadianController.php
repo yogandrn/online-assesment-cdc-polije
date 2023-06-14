@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\HasilKepribadian;
 use App\Models\PernyataanKepribadian;
 use App\Models\TestHistory;
+// use Barryvdh\DomPDF\Facade\Pdf;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\PDF;
 
 class HasilKepribadianController extends Controller
 {
@@ -37,8 +40,24 @@ class HasilKepribadianController extends Controller
     
     public function printPDF($token)
     {
-        $result = HasilKepribadian::where('test_token', $token)->with(['kepribadian','user'])->first();
-        return view('users.cetak-kepribadian', ['hasil' => $result, 'title' => 'Hasil Tes Gaya Kepribadian | CDC Polije']);
+        $result = HasilKepribadian::where('test_token', $token)->with(['kepribadian','user', 'test'])->first(); // ambil data hasil test
+    
+        $startedAt = \Carbon\Carbon::parse($result->test->started_at);
+        $finishedAt = \Carbon\Carbon::parse($result->test->finished_at);
+    
+        $durasisec = $startedAt->diffInSeconds($finishedAt); // ambil data durasi test dalam detik
+        $durasimin = $startedAt->diffInMinutes($finishedAt); // ambil data durasi test dalam menit
+        $result['durasi_test'] = $durasimin . ' menit ' . $durasisec % 60 . ' detik'; // data durasi
+    
+        // Pdf::setOptions(['defaultFont' => 'sans-serif', 'isRemoteEnabled' => TRUE, 'enable_javascript' => TRUE]);
+        // $pdf = new Dompdf();
+        // $html = view('users.cetak-kepribadian', ['hasil' => $result, 'title' => 'Hasil Tes Gaya Kepribadian | CDC Polije',])->render();
+        // $pdf->loadHtml($html);
+        // $pdf->render();
+        // $pdf = PDF::loadView('users.cetak-kepribadian', ['hasil' => $result, 'title' => 'Hasil Tes Gaya Kepribadian | CDC Polije',])->setOptions(['defaultFont' => 'sans-serif', 'isHtml5ParserEnabled' => true,]);
+        // return $pdf->download(uniqid(). '.pdf');
+        return view('users.cetak-kepribadian', ['hasil' => $result, 'title' => 'Hasil Tes Gaya Kepribadian | CDC Polije',]);
+       
     }
 
     // method untuk menghitung hasil test dan menyimpan ke database

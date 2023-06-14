@@ -13,7 +13,7 @@
         </div>
         <div class="space-20"></div>
         <br>
-        <div class="container text-center">
+        <div class="container text-center px-6">
           <div class="row">
             <div class="col-sm-6 mb-5">
               <a href="/users/gayakepribadian" >
@@ -39,8 +39,14 @@
               <!-- <a href="examples/profile-page.html" class="btn btn-simple btn-primary btn-round">Test Minat Karir</a> -->
             </div>
           </div>
+          <div class="row justify-content-center px-4">
+            <div class="col-lg-8 col-sm-12 px-4 py-3 mb-5 rounded " style="border: 2px solid #fff">
+              <h4><strong>Perhatian!</strong></h4>
+              <div class="my-3" style="border: 1px solid #fff; height: 1px;"></div>
+              <p>Data akan dihaous selama Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus exercitationem aspernatur, excepturi deserunt optio porro similique consequatur at, laboriosam suscipit dolores architecto iure enim voluptate? Quis, aspernatur. Consequuntur, illum expedita!</p>
+            </div>
         </div>
-    </div>    
+    </div>  </div>  
 
     <!-- isi popup -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
