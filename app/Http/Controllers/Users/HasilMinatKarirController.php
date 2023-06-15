@@ -27,6 +27,15 @@ class HasilMinatKarirController extends Controller
             intval($minatkarir[5]['point'] * 10),
         ];
 
+        $colors = [
+            'Realistic' => '#54599e',
+            'Investigative' => '#845EC2',
+            'Artistic' => '#D65DB1',
+            'Social' => '#FF6F91',
+            'Enterprise' => '#FF9671',
+            'Conventional' => '#FFC75F',
+        ];
+
         $startedAt = \Carbon\Carbon::parse($result->test->started_at);
         $finishedAt = \Carbon\Carbon::parse($result->test->finished_at);
 
@@ -35,7 +44,7 @@ class HasilMinatKarirController extends Controller
         $result['durasi_test'] = $durasimin . ' menit ' . $durasisec % 60 . ' detik'; // data durasi
 
         // return response()->json(['test_data' => $result, 'hasil' => $minatkarir, 'data_diagram'=>$data_diagram, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
-        return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir, 'data_diagram'=>$data_diagram, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
+        return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir, 'data_diagram'=>$data_diagram, 'colors' => $colors, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
     }
     
     public function printPDF($token)

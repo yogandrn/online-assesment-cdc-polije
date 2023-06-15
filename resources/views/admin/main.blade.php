@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css">
 
-    <style>
+    {{-- <style>
         .chart-container {
             padding: 0.5rem 1.6rem;
             margin: 0 auto;
@@ -59,7 +59,7 @@
             padding-bottom: 0.8rem;
             color: #000;
         }
-    </style>
+    </style> --}}
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">

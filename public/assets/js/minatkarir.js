@@ -14,23 +14,23 @@ let ctx = document.getElementById('myChart').getContext('2d');
             datasets: [{
                 label: 'Persentase (%)',
                 // data:@json($data_diagram);
-                data : [data1.value, data2.value, data3.value, data4.value, data5.value, data5.value],
+                data : [data1.value, data2.value, data3.value, data4.value, data5.value, data6.value],
                 // data: [70, 60, 20, 10, 30, 70],
                 backgroundColor: [
-                  'rgba(210, 180, 140, 0.8)',
-                  'rgba(128, 128, 0, 0.8)',
-                  'rgba(204, 85, 0, 0.8)',
-                  'rgba(183, 65, 14, 0.8)',
-                  'rgba(204, 204, 0, 0.8)',
-                  'rgba(138, 154, 91, 0.8)'
+                  'rgba(84, 89, 158, 1)',
+                  'rgba(132, 94, 194, 1)',
+                  'rgba(214, 93, 177, 1)',
+                  'rgba(255, 111, 145, 1)',
+                  'rgba(255, 150, 113, 1)',
+                  'rgba(255, 199, 95, 1)',
                 ],
                 borderColor: [
-                  'rgba(210, 180, 140, 1)',
-                  'rgba(128, 128, 0, 1)',
-                  'rgba(204, 85, 0, 1)',
-                  'rgba(183, 65, 14, 1)',
-                  'rgba(204, 204, 0, 1)',
-                  'rgba(138, 154, 91, 1)'
+                  'rgba(84, 89, 158, 1)',
+                  'rgba(132, 94, 194, 1)',
+                  'rgba(214, 93, 177, 1)',
+                  'rgba(255, 111, 145, 1)',
+                  'rgba(255, 150, 113, 1)',
+                  'rgba(255, 199, 95, 1)',
                 ],
                 borderWidth: 1,
                 borderRadius: Number.MAX_VALUE,

@@ -87,7 +87,7 @@
                 <div class="progress-container">
                     <div class="row justify-content-between">
                         <div class="col-3">
-                            <span class="progress-badge" style="color:#00081d; font-size: 0.9rem">Prosentase</span>
+                            <span class="progress-badge" style="color:#00081d; font-size: 0.9rem">Persentase</span>
                         </div>
                         <div class="col-3 text-right">
                             <span class="progress-value" style="color:#00081d; font-size: 0.9rem"><strong>{{intval($hasil[0]['point']) * 10}} %</strong></span>
@@ -108,7 +108,7 @@
                 <div class="progress-container">
                     <div class="row justify-content-between">
                         <div class="col-3">
-                            <span class="progress-badge" style="color:#00081d; font-size: 0.9rem">Prosentase</span>
+                            <span class="progress-badge" style="color:#00081d; font-size: 0.9rem">Persentase</span>
                         </div>
                         <div class="col-3 text-right">
                             <span class="progress-value" style="color:#00081d; font-size: 0.9rem"><strong>{{intval($hasil[1]['point']) * 10}} %</strong></span>
@@ -130,7 +130,7 @@
                     <div class="progress-container">
                         <div class="row justify-content-between">
                             <div class="col-3">
-                                <span class="progress-badge" style="color:#00081d; font-size: 0.9rem">Prosentase</span>
+                                <span class="progress-badge" style="color:#00081d; font-size: 0.9rem">Persentase</span>
                             </div>
                             <div class="col-3 text-right">
                                 <span class="progress-value" style="color:#00081d; font-size: 0.9rem"><strong>{{intval($hasil[2]['point']) * 10}} %</strong></span>

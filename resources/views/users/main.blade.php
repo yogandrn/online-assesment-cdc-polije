@@ -26,7 +26,11 @@
   <link href="{{url('/assets/demo/demo.css')}}" rel="stylesheet" />
   <style>
     .text {
-      color: #00081d;
+      color: #00081d !important;
+    }
+
+    .text-white {
+      color #fff !important;
     }
     .chart {
       width: 90%;

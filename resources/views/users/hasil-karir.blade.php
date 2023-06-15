@@ -3,7 +3,7 @@
 @section('container')
 
     <div class="row justify-content-center mx-auto px-4" style="margin-top: 3rem; ">
-        <div class="col-xl-9 col-lg-9 col-md-10 col-sm-11 px-5 py-4 border rounded shadow-lg" style="background-color: #fff;margin-bottom: 4rem;">
+        <div class="col-xl-9 col-lg-9 col-md-10 col-sm-11 px-sm-4 px-lg-5 py-3 border rounded shadow-lg" style="background-color: #fff;margin-bottom: 4rem;">
             <br>
             <h3 style="color: #00081d" class="text-center"><strong>Hasil Tes Minat Karir </strong></h3>
             <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
@@ -37,24 +37,16 @@
             <div class="mt-4 mb-1" style="border: 0.2px solid #818181;"></div>
             {{-- Dummy Form untuk mengambil value by id dalam javascript  --}}
             <form action="" method="post">
-              <input type="hidden" name="realistic" id="realistic" value="{{$data_diagram[0]}}">
-              <input type="hidden" name="investigative" id="investigative" value="{{$data_diagram[1]}}">
-              <input type="hidden" name="artistic" id="artistic" value="{{$data_diagram[2]}}">
-              <input type="hidden" name="social" id="social" value="{{$data_diagram[3]}}">
-              <input type="hidden" name="enterprise" id="enterprise" value="{{$data_diagram[4]}}">
-              <input type="hidden" name="conventional" id="conventional" value="{{$data_diagram[5]}}">
+              <input type="hidden" name="realistic" id="realistic" value="{{$test_data['detail'][0]['point'] * 10}}">
+              <input type="hidden" name="investigative" id="investigative" value="{{$test_data['detail'][1]['point'] * 10}}">
+              <input type="hidden" name="artistic" id="artistic" value="{{$test_data['detail'][2]['point'] * 10}}">
+              <input type="hidden" name="social" id="social" value="{{$test_data['detail'][3]['point'] * 10}}">
+              <input type="hidden" name="enterprise" id="enterprise" value="{{$test_data['detail'][4]['point'] * 10}}">
+              <input type="hidden" name="conventional" id="conventional" value="{{$test_data['detail'][5]['point'] * 10}}">
             </form>
             {{-- Diagram semua kepribadian  --}}
-
-            {{-- <div class="chart">
-  <div class="bar" style="height: 80%;"></div>
-  <div class="bar" style="height: 60%;"></div>
-  <div class="bar" style="height: 90%;"></div>
-  <div class="bar" style="height: 75%;"></div>
-  <div class="bar" style="height: 85%;"></div>
-</div> --}}
-              <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
+              <div class="row justify-content-center px-3">
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
                   <div class="chart-container w-100">
                     <h6 class="chart-heading mt-3 font-weight-bold" style="color: #00081d; text-align: center; font-size: 1rem;">
                       Diagram Kepribadian
@@ -74,7 +66,7 @@
               <div class="col-1 rounded-top" style="height: 100%; align-self:baseline;"></div>
             </div> --}}
             <div class="mt-4 mb-1" style="border: 0.2px solid #818181;"></div>
-            <p  style="color: #606060; text-align:left; " >*Berikut adalah hasil dari 2 jenis kepribadian yang menonjol pada diri anda beserta dengan saran karir yang sesuai.</p>
+            <p  style="color: #606060; text-align:left; " >*Berikut adalah hasil dari jenis kepribadian yang menonjol pada diri anda beserta dengan saran karir yang sesuai.</p>
             <br>
 
             {{-- Hasil tertinggi pertama  --}}
@@ -88,13 +80,13 @@
                         </div>
                     </div>
                 </div>
-                <p style="color: #00081d; font-size: 1.08rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                <p style="color: #00081d; font-size: 1.0rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
                 <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
-                <p style="color: #00081d; font-size: 1.08rem; ">Karir yang disarankan : <strong>{{ $hasil[0]['minat_karir']['saran_karir'] }}</strong></p>
+                <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[0]['minat_karir']['saran_karir'] }}</strong></p>
               </div>
 
             {{-- Hasil Kedua tertinggi  --}}
-            <div class="rounded px-4 py-4" style="border: 1px solid #00081d; margin-bottom: 2rem;">
+            <div class=" px-4 py-4" style="border-radius: 1rem; border: 1px solid #00081d; margin-bottom: 2rem;">
                 <h6 style="color: #00081d; font-size: 1.2rem">{{ $hasil[1]['minat_karir']['name'] }}</h6>
                 <div class="progress-container">
                     <span class="progress-badge" style="color:#00081d; font-size:0.8rem;">Persentase </span>
@@ -104,9 +96,9 @@
                         </div>
                     </div>
                 </div>
-                <p style="color: #00081d; font-size: 1.08rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                <p style="color: #00081d; font-size: 1.0rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
                 <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
-                <p style="color: #00081d; font-size: 1.08rem; ">Karir yang disarankan : <strong>{{ $hasil[1]['minat_karir']['saran_karir'] }}</strong></p>
+                <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[1]['minat_karir']['saran_karir'] }}</strong></p>
               </div>
               
               @if ($hasil[1]['point'] == $hasil[2]['point'])
@@ -121,9 +113,9 @@
                             </div>
                         </div>
                     </div>
-                    <p style="color: #00081d; font-size: 1.08rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                    <p style="color: #00081d; font-size: 1.0rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
                     <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
-                    <p style="color: #00081d; font-size: 1.08rem; ">Karir yang disarankan : <strong>{{ $hasil[2]['minat_karir']['saran_karir'] }}</strong></p>
+                    <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[2]['minat_karir']['saran_karir'] }}</strong></p>
                   </div>
               @else
                  <div></div> 
