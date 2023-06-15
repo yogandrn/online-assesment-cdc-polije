@@ -11,6 +11,7 @@ use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\PDF;
+use Illuminate\Support\Facades\Cache;
 
 class HasilKepribadianController extends Controller
 {
@@ -18,7 +19,22 @@ class HasilKepribadianController extends Controller
     // method menampilkan history test user
     public function history()
     {   
-        $result = HasilKepribadian::where('user_id', Auth::user()->id)->with([ 'test', 'kepribadian'])->orderBy('created_at', 'desc')->paginate(10);
+        $cacheKey = 'history-gayakepribadian';
+        $cacheTime = 30;
+
+        $result = Cache::remember($cacheKey, $cacheTime, function () {
+            return HasilKepribadian::where('user_id', Auth::user()->id)->with([ 'test', 'kepribadian'])->orderBy('created_at', 'desc')->paginate(10);
+        });
+
+        for ($i = 0; $i < count($result); $i++) {
+            $startedAt = \Carbon\Carbon::parse($result[$i]['test']['started_at']);
+            $finishedAt = \Carbon\Carbon::parse($result[$i]['test']['finished_at']);
+        
+            $durasisec = $startedAt->diffInSeconds($finishedAt); // ambil data durasi test dalam detik
+            $durasimin = $startedAt->diffInMinutes($finishedAt); // ambil data durasi test dalam menit
+            $result[$i]['durasi_test'] = $durasimin . 'mnt ' . $durasisec % 60 . 'dtk' ; // 
+        } 
+        
         return view('users.riwayat-kepribadian', ['title' => 'Riwayat Tes Gaya Kepribadian | CDC Polije', 'hasil' => $result]);
     }
     

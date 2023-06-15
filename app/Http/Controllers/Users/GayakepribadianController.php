@@ -16,13 +16,9 @@ class GayakepribadianController extends Controller
     // method halaman utama menu kepribadian
     public function index()
     {
-        $cacheKey = 'history-gayakepribadian';
-        $cacheTime = 30;
 
         // cari history test
-        $tesKepribadian = Cache::remember($cacheKey, $cacheTime, function () {
-            return TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Gaya Kepribadian')->orderBy('started_at', 'desc')->first();
-        });
+        $tesKepribadian = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Gaya Kepribadian')->orderBy('started_at', 'desc')->first();
 
         // set default test tidak tersedia untuk user
         $isKepribadianAvailable = 'false';

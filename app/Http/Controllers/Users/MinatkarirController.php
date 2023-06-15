@@ -16,13 +16,9 @@ class MinatkarirController extends Controller
     // halaman menu tes minat karir
     public function index()
     {
-        $cacheKey = 'history-minatkarir';
-        $cacheTime = 30;
 
         // cari history test
-        $tesMinatKarir = Cache::remember($cacheKey, $cacheTime, function () {
-            return TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Minat Karir')->orderBy('started_at', 'desc')->first();
-        });
+        $tesMinatKarir = TestHistory::where('user_id', Auth::user()->id)->where('jenis_test', 'Minat Karir')->orderBy('started_at', 'desc')->first();
         
         // set default test tidak tersedia untuk user
         $isMinatKarirAvailable = 'false'; 

@@ -9,6 +9,7 @@ use App\Models\PernyataanMinatKarir;
 use App\Models\TestHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class HasilMinatKarirController extends Controller
 {
@@ -65,9 +66,24 @@ class HasilMinatKarirController extends Controller
 
     // method menampilkan history test user
     public function history()
-    {
-        $result = HasilMinatKarir::where('user_id', Auth::user()->id)->with('test')->orderBy('created_at', 'desc')->paginate(10);
+    {   
+        $cacheKey = 'history-minatkarir';
+        $cacheTime = 30;
 
+        $result = Cache::remember($cacheKey, $cacheTime, function() {
+            return HasilMinatKarir::where('user_id', Auth::user()->id)->with('test')->orderBy('created_at', 'desc')->paginate(10);
+        });
+        
+        for ($i = 0; $i < count($result); $i++) {
+            $startedAt = \Carbon\Carbon::parse($result[$i]['test']['started_at']);
+            $finishedAt = \Carbon\Carbon::parse($result[$i]['test']['finished_at']);
+        
+            $durasisec = $startedAt->diffInSeconds($finishedAt); // ambil data durasi test dalam detik
+            $durasimin = $startedAt->diffInMinutes($finishedAt); // ambil data durasi test dalam menit
+            $result[$i]['durasi_test'] = $durasimin . 'mnt ' . $durasisec % 60 . 'dtk' ; // 
+        } 
+
+        // return response()->json(['hasil' => $result, 'title' => 'Riwayat Tes Minat Karir | CDC Polije']);
         return view('users.riwayat-minatkarir', ['hasil' => $result, 'title' => 'Riwayat Tes Minat Karir | CDC Polije']);
     }
 
