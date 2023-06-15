@@ -23,13 +23,19 @@ class HomeController extends Controller
                 'caption' => 'foto 3',
             ],
         ];
+<<<<<<< Updated upstream
         return view('users.index', ['title' => 'Online Asessment Tes CDC Polije', 'slides' => $slides]);
     }
 
     public function active ()
     {
         return view('users.index', compact('slides'));
+=======
+        return view('users.index', compact('slides'), ['title' => 'Online Asessment Tes CDC Polije']);
+>>>>>>> Stashed changes
     }
+
+    
 
 
 

@@ -6400,6 +6400,11 @@ button.close {
   transition: transform 0.6s ease;
 }
 
+.carousel-inner .carousel-item img {
+  /* box-shadow: 0px 0px 10px rgba(0.5, 0.5, 0.5, 0.5); */
+  filter: drop-shadow(100px 100px 100px black);
+}
+
 .carousel-item.active,
 .carousel-item-next,
 .carousel-item-prev {
