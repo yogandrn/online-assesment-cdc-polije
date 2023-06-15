@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="container">
-      <form role="form" method="post" action="/register" id="myForm">
+      <form role="form" method="post" action="/register" id="">
         @csrf
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
         <div class="col-xl-8 col-lg-9 col-md-9 mx-auto">
