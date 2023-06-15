@@ -109,7 +109,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/user', [UserController::class, 'index']);
         Route::post('/userdestroy/{id}', [UserController::class, 'destroy'])->name("userdestroy");
 
-        Route::get('/logout', [LoginAdminController::class, 'logout']);
+        Route::post('/logout', [LoginAdminController::class, 'logout']);
     });
 });
 
