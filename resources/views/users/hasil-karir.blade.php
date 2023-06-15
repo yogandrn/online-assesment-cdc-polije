@@ -29,19 +29,36 @@
                   <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nama Lengkap : {{$test_data['user']['nama']}}</p>
                   <p style="color: #00081d; text-align:left; font-size: 1rem;" >Alamat Email : {{$test_data['user']['email']}}</p>
                   <p style="color: #00081d; text-align:left; font-size: 1rem;" >Nomor Telepon : {{$test_data['user']['no_telp']}}</p>
-                  <p style="color: #00081d; text-align:left; font-size: 1rem;" >Asal Instansi : {{$test_data['user']['perguruan_tinggi']}}</p>
+                  <p style="color: #00081d; text-align:left; font-size: 1rem;" >Asal Instansi : {{$test_data['user']['perguruan_tinggi'] ?? 'Tidak Diketahui'}}</p>
                   {{-- <p style="color: #00081d; text-align:left; font-size: 1rem;" >Fakultas / Jurusan : {{$test_data['user']['jurusan']}}</p>  --}}
                   {{-- <p style="color: #00081d; text-align:left; font-size: 1rem;" >Program Studi : {{$test_data['user']['program_studi']}}</p>  --}}
                 </div>
               </div>
             <div class="mt-4 mb-1" style="border: 0.2px solid #818181;"></div>
+            {{-- Dummy Form untuk mengambil value by id dalam javascript  --}}
+            <form action="" method="post">
+              <input type="hidden" name="realistic" id="realistic" value="{{$data_diagram[0]}}">
+              <input type="hidden" name="investigative" id="investigative" value="{{$data_diagram[1]}}">
+              <input type="hidden" name="artistic" id="artistic" value="{{$data_diagram[2]}}">
+              <input type="hidden" name="social" id="social" value="{{$data_diagram[3]}}">
+              <input type="hidden" name="enterprise" id="enterprise" value="{{$data_diagram[4]}}">
+              <input type="hidden" name="conventional" id="conventional" value="{{$data_diagram[5]}}">
+            </form>
             {{-- Diagram semua kepribadian  --}}
+
+            {{-- <div class="chart">
+  <div class="bar" style="height: 80%;"></div>
+  <div class="bar" style="height: 60%;"></div>
+  <div class="bar" style="height: 90%;"></div>
+  <div class="bar" style="height: 75%;"></div>
+  <div class="bar" style="height: 85%;"></div>
+</div> --}}
               <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
                   <div class="chart-container w-100">
-                    <h2 class="chart-heading" style="color: #00081d;">
+                    <h6 class="chart-heading mt-3 font-weight-bold" style="color: #00081d; text-align: center; font-size: 1rem;">
                       Diagram Kepribadian
-                    </h2>
+                    </h6>
                     <canvas id="myChart"></canvas>
                   </div>
                 </div>
@@ -126,48 +143,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
   {{-- <script src="{{url('/assets/js/Chart.js')}}"></script> --}}
+  <script type="text/javascript" src="{{url('/assets/js/minatkarir.js')}}"></script>
   <script>
-    let ctx = document.getElementById('myChart').getContext('2d');
-    let myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Realistic', 'Investigative', 'Artistic', 'Social', 'Enterprise', 'Conventional'],
-            datasets: [{
-                label: 'Persentase (%)',
-                data: [70, 60, 20, 10, 30, 70],
-                backgroundColor: [
-                  'rgba(210, 180, 140, 0.8)',
-                  'rgba(128, 128, 0, 0.8)',
-                  'rgba(204, 85, 0, 0.8)',
-                  'rgba(183, 65, 14, 0.8)',
-                  'rgba(204, 204, 0, 0.8)',
-                  'rgba(138, 154, 91, 0.8)'
-                ],
-                borderColor: [
-                  'rgba(210, 180, 140, 1)',
-                  'rgba(128, 128, 0, 1)',
-                  'rgba(204, 85, 0, 1)',
-                  'rgba(183, 65, 14, 1)',
-                  'rgba(204, 204, 0, 1)',
-                  'rgba(138, 154, 91, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }],
-                xAxes: [{
-            categoryPercentage: 0.8,
-            barPercentage: 0.9
-        }]
-            }
-        }
-    });
+    
     </script>
     
 @endsection

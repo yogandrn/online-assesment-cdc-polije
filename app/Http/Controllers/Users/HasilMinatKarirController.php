@@ -18,6 +18,14 @@ class HasilMinatKarirController extends Controller
     {
         $result = HasilMinatKarir::where('test_token', $token)->with(['user', 'test', 'detail'])->first(); // ambil data hasil test
         $minatkarir = DetailHasilMinatKarir::where('hasil_minat_karir_id', $result['id'])->orderBy('point', 'desc')->get(); // ambil detail hasil
+        $data_diagram = [
+            intval($minatkarir[0]['point'] * 10),
+            intval($minatkarir[1]['point'] * 10),
+            intval($minatkarir[2]['point'] * 10),
+            intval($minatkarir[3]['point'] * 10),
+            intval($minatkarir[4]['point'] * 10),
+            intval($minatkarir[5]['point'] * 10),
+        ];
 
         $startedAt = \Carbon\Carbon::parse($result->test->started_at);
         $finishedAt = \Carbon\Carbon::parse($result->test->finished_at);
@@ -26,8 +34,8 @@ class HasilMinatKarirController extends Controller
         $durasimin = $startedAt->diffInMinutes($finishedAt); // ambil data durasi test dalam menit
         $result['durasi_test'] = $durasimin . ' menit ' . $durasisec % 60 . ' detik'; // data durasi
 
-        // return response()->json(['test_data' => $result, 'hasil' => $minatkarir, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
-        return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
+        // return response()->json(['test_data' => $result, 'hasil' => $minatkarir, 'data_diagram'=>$data_diagram, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
+        return view('users.hasil-karir', ['test_data' => $result, 'hasil' => $minatkarir, 'data_diagram'=>$data_diagram, 'title' => 'Hasil Tes Minat Karir | CDC Polije']);
     }
     
     public function printPDF($token)

@@ -6,30 +6,29 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    // halaman beranda user setelah login
+    // halaman beranda utama
     public function index()
     {
-        return view('users.index', ['title' => 'Online Asessment Tes CDC Polije']);
+        $slides = [
+            [
+                'image' => 'carousel-1.jpg',
+                'caption' => 'foto 1',
+            ],
+            [
+                'image' => 'carousel-2.jpg',
+                'caption' => 'foto 2',
+            ],
+            [
+                'image' => 'carousel-3.jpg',
+                'caption' => 'foto 3',
+            ],
+        ];
+        return view('users.index', ['title' => 'Online Asessment Tes CDC Polije', 'slides' => $slides]);
     }
 
     public function active ()
     {
-        $slides = [
-        [
-            'image' => 'carousel-1.jpg',
-            'caption' => 'foto 1',
-        ],
-        [
-            'image' => 'carousel-2.jpg',
-            'caption' => 'foto 2',
-        ],
-        [
-            'image' => 'carousel-3.jpg',
-            'caption' => 'foto 3',
-        ],
-    ];
-
-    return view('users.index', compact('slides'));
+        return view('users.index', compact('slides'));
     }
 
 

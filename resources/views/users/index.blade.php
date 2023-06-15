@@ -119,13 +119,16 @@
       <div class="squares square6"></div>
       <div class="squares square7"></div>
       <div class="container">
-        <div class="content-center brand">
-          <h2 class="h1-seo">Welcome</h2>
-          <h3>Selamat Datang Pengguna fasilitas layanan Online Personal Assessment Test CDC Polije.</h3>
-            <a href="#about" class="btn btn-warning btn-sm px-5 py-3" data-target="#about" role="button">
-              About us
-            </a>
-        </div>
+        <div class="content-center  row justify-content-center">
+              <div class="col-xl-8 col-lg 8 col-md-9 col-sm-12">
+              <h2 class="font-weight-bold" style="color: white; font-size: 3.6rem;">Welcome</h2>
+              <h3 class="mx-3">Selamat Datang pengguna fasilitas layanan <em>Online Personal Assessment Test</em> CDC Polije.</h3>
+              <a href="#about" class="btn btn-warning btn-sm px-5 py-3" data-target="#about" role="button">
+                About us
+              </a>
+            </div>
+            
+          </div>
       </div>
     </div>
 
@@ -153,9 +156,9 @@
                   <div class="carousel-inner">
                     @foreach ($slides as $active => $slide)
                       <div class="carousel-item @if ($active === 0) active @endif">
-                        <img src="{{ asset('login/img/' . $slide['image']) }}" alt="{{ $slide['caption'] }}">
+                        <img src="{{ url('/assets/login/img/' . $slide['image']) }}" alt="{{ $slide['caption'] }}">
                         <div class="carousel-caption">
-                            <h3>{{ $slide['caption'] }}</h3>
+                            <h4>{{ $slide['caption'] }}</h4>
                         </div>
                       </div>
                     @endforeach

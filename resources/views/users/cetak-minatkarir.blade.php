@@ -20,7 +20,7 @@
         .progress {
             width: 100%;
             height: 1.5rem;
-            border: 1px solid #616161;
+            border: 1px solid #3d5faf;
             border-radius: 0.35rem;
             background-color: #ececec;
             margin-bottom: 0.4rem;
@@ -29,7 +29,7 @@
         .progress-bar {
             height: 1.5rem;
             border-radius: 0.35rem;
-            background-color: #414141;
+            background-color: #3d5faf;
         }
 
     </style>
@@ -38,7 +38,17 @@
 <body>
     <div class="container">
         <div class=" border border-dark mt-4 mx-auto px-4 py-3">
-            <h4 class="text-center">Hasil Test Minat Karir</h4>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <img src="{{url('/assets/img/logo_polije.png')}}" alt="Logo Polije" class="img-fluid img-center" style="max-width: 4.5rem;align-self: center;">
+                </div>
+                <div class="col-9">
+                    <h4 class="text-center">Hasil Test Minat Karir</h4>
+                    <p class="text-center"><em>Online Personal Assesment Test</em> | CDC POLIJE</p>
+                </div>
+                <div class="col-1">
+                </div>
+            </div>
         </div>
         <div class=" border border-dark my-3 mx-auto px-4 py-3">
             <div class="row justify-content-between">
@@ -64,7 +74,7 @@
                   <p style="color: #00081d; text-align:left; font-size: 1rem; line-height: 1;" >Nama Lengkap : {{$test_data['user']['nama']}}</p>
                   <p style="color: #00081d; text-align:left; font-size: 1rem; line-height: 1;" >Alamat Email : {{$test_data['user']['email']}}</p>
                   <p style="color: #00081d; text-align:left; font-size: 1rem; line-height: 1;" >Nomor Telepon : {{$test_data['user']['no_telp']}}</p>
-                  <p style="color: #00081d; text-align:left; font-size: 1rem; line-height: 1;" >Asal Instansi : {{$test_data['user']['perguruan_tinggi']}}</p>
+                  <p style="color: #00081d; text-align:left; font-size: 1rem; line-height: 1;" >Asal Instansi : {{$test_data['user']['perguruan_tinggi'] ?? 'Tidak Diketahui'}}</p>
                   {{-- <p style="color: #00081d; text-align:left; font-size: 1rem;" >Fakultas / Jurusan : {{$test_data['user']['jurusan']}}</p>  --}}
                   {{-- <p style="color: #00081d; text-align:left; font-size: 1rem;" >Program Studi : {{$test_data['user']['program_studi']}}</p>  --}}
                 </div>

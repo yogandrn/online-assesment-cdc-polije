@@ -28,6 +28,43 @@
     .text {
       color: #00081d;
     }
+    .chart {
+      width: 90%;
+      max-width: 90%;
+      height: 20rem;
+      max-height: 20rem;
+      /* border: 1px solid #ccc; */
+      display: flex;
+      /* flex-direction: column-reverse; */
+    }
+
+    .bar {
+      align-self: baseline;
+      /* flex-grow: 1; */
+      width: 25%;
+      background-color: #2196F3;
+      margin: 0 1.5rem;
+    }
+    /* .chart {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .bar {
+      width: 20px;
+      background-color: #2196F3;
+      display: flex;
+      justify-content: center;
+    }
+
+    .fill {
+      width: 100%;
+      background-color: #2196F3;
+    } */
   </style>
 </head>
 
