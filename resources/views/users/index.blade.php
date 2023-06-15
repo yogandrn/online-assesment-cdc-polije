@@ -143,26 +143,40 @@
                 <!-- <a href="./docs/1.0/components/alerts.html" class="btn btn-warning mt-4"></a> -->
               </div>
               <div class="col-lg-6">
-                <div id="carouselExampleControls" class="carousel slide">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <!-- indicators -->
+                  <ol class="carousel-indicators">
+                    @foreach ($slides as $active => $slide)
+                      <li data-target="#carouselExampleControls" data-slide-to="{{ $active }}" @if ($active == 0) class="active" @endif></li>
+                    @endforeach
+                  </ol>
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img class="d-block w-100" src="assets/login/img/Gedung-Pascasarjana-2.jpg" alt="First slide">
-                    </div>
-                    <!-- <div class="carousel-item">
-                      <img class="d-block w-100" src="assets/img/fabien-bazanegue.jpg" alt="Second slide">
+                    @foreach ($slides as $active => $slide)
+                      <div class="carousel-item @if ($active === 0) active @endif">
+                        <img src="{{ asset('login/img/' . $slide['image']) }}" alt="{{ $slide['caption'] }}">
+                        <div class="carousel-caption">
+                            <h3>{{ $slide['caption'] }}</h3>
+                        </div>
+                      </div>
+                    @endforeach
+                    <!-- <div class="carousel-item active">
+                      <img class="d-block w-100" src="assets/login/img/carousel-1.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" src="assets/img/mark-finn.jpg" alt="Third slide">
+                      <img class="d-block w-100" src="assets/login/img/carousel-2.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="assets/login/img/carousel-3.jpg" alt="Third slide">
                     </div> -->
                   </div>
-                  {{-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                     <i class="tim-icons icon-minimal-left"></i>
                     <span class="sr-only">Previous</span>
                   </a>
                   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                     <i class="tim-icons icon-minimal-right"></i>
                     <span class="sr-only">Next</span>
-                  </a> --}}
+                  </a>
                 </div>
               </div>
             </div>
@@ -177,7 +191,7 @@
             <h5>Gedung Pasca Sarjana Lt 1 <br>Jl. Mastrip 164 Jember, Indonesia</h5>
           </div>
           <div class="col-md-3"></div>
-          <div class="col-md-3"></div>
+          
           <div class="col-md-2">
             <h4 class="title">Follow us:</h4>
             <div class="btn-wrapper profile">
@@ -191,6 +205,14 @@
                 <i class="fab fa-linkedin"></i>
               </a>
             </div>
+          </div>
+          <div class="col-md-2">
+          <h4 class="title">Back to CDC:</h4>
+              <div class="btn-wrapper back">
+                <a target="_blank" href="https://pusatkarir.polije.ac.id/ " class="btn btn-icon btn-neutral  btn-round btn-simple" data-toggle="tooltip" data-original-title="go back to cdc">
+                  <i class="fab fa-telegram"></i>
+                </a>
+              </div>
           </div>
         </div>
       </div>
@@ -229,6 +251,13 @@
       }
     }
   </script>
+  <script>
+    $(document).ready(function() {
+        $('.carousel').carousel({
+            interval: 3000 // Interval waktu dalam milidetik (misalnya, 3000 untuk 3 detik)
+        });
+    });
+</script>
 </body>
 
 </html>

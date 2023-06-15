@@ -43,7 +43,7 @@
             <div class="col-lg-8 col-sm-12 px-4 py-3 mb-5 rounded " style="border: 2px solid #fff">
               <h4><strong>Perhatian!</strong></h4>
               <div class="my-3" style="border: 1px solid #fff; height: 1px;"></div>
-              <p>Data akan dihaous selama Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus exercitationem aspernatur, excepturi deserunt optio porro similique consequatur at, laboriosam suscipit dolores architecto iure enim voluptate? Quis, aspernatur. Consequuntur, illum expedita!</p>
+              <p>Mohon menjadi perhatian bahwa data tes anda akan kami simpan dalam jangka waktu 1 tahun kemudian akan kami hapus!</p>
             </div>
         </div>
     </div>  </div>  
