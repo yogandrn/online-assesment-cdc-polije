@@ -17,7 +17,7 @@
                 Mulai
             </button>      
         @else
-        <h6 style="font-size: 1.08rem;">Kamu sudah melakukan tes. Tes ini bisa dilakukan dalam 90 hari lagi.</h6>
+        <h6 style="font-size: 1.08rem;">Anda sudah melakukan tes. Tes ini bisa dilakukan kembali dalam jangka 1 hari lagi.</h6>
         <h6 style="font-size: 1.08rem;">Available at : {{ $available_at}}</h6>
         <a role="button" href="/users/gayakepribadian/histories" class="btn btn-secondary">Lihat Riwayat Tes</a>
         @endif

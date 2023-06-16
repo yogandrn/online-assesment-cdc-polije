@@ -154,12 +154,6 @@
                     @endforeach
                   </ol>
                   <div class="carousel-inner">
-                    {{-- @foreach ($slides as $active => $slide)
-                      <div class="carousel-item @if ($active === 0) active @endif">
-                        <img src="{{ url('/assets/login/img/' . $slide['image']) }}" alt="{{ $slide['caption'] }}">
-                        <div class="carousel-caption">
-                            <h4>{{ $slide['caption'] }}</h4>
-                        </div> --}}
                     @foreach ($slides as $index => $slide)
                       <div class="carousel-item @if ($index === 0) active @endif" id="carousel-item">
                         <img class="d-block w-100" src="{{ asset('assets/img/' . $slide['image']) }}" alt="{{ $slide['caption'] }}" class="carousel-image">

@@ -41,7 +41,7 @@
           </div>
           <h6 style="color: #00081d; font-size: 1.2rem;">{{ $hasil['kepribadian']['name'] }}</h6>
           {{-- Hasil kepribadian --}}
-          <div class="progress-container">
+          <div class="progress-container progress-warning">
               <span class="progress-badge" style="color:#00081d; font-size: 0.8rem">Presentase</span>
               <div class="progress">
                   <div class="progress-bar progress-bar-warning" role="progressbar" arial-valuenow="{{ $hasil['tingkat'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{$hasil['tingkat']}}%;">
