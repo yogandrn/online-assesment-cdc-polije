@@ -73,30 +73,30 @@
             <div class="rounded px-4 py-4" style="border: 1px solid #00081d; margin-bottom: 2rem;">
                 <h6 style="color: #00081d; font-size: 1.2rem">{{ $hasil[0]['minat_karir']['name'] }}</h6>
                 <div class="progress-container progress-warning">
-                    <span class="progress-badge" style="color:#00081d; font-size:0.8rem;">Persentase </span>
+                    <span class="progress-badge" style="color:#00081d; font-size:0.75rem;">Persentase </span>
                     <div class="progress">
                         <div class="progress-bar progress-bar-warning" role="progressbar" arial-valuenow="{{ intval($hasil[0]['point']) * 10 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{intval($hasil[0]['point']) * 10}}%;">
                             <span class="progress-value" style="color:#00081d; font-size:0.9rem;"><strong>{{intval($hasil[0]['point']) * 10}} %</strong></span>
                         </div>
                     </div>
                 </div>
-                <p style="color: #00081d; font-size: 1.0rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
                 <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
                 <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[0]['minat_karir']['saran_karir'] }}</strong></p>
               </div>
 
             {{-- Hasil Kedua tertinggi  --}}
-            <div class=" px-4 py-4" style="border-radius: 1rem; border: 1px solid #00081d; margin-bottom: 2rem;">
+            <div class="rounded px-4 py-4" style=" border: 1px solid #00081d; margin-bottom: 2rem;">
                 <h6 style="color: #00081d; font-size: 1.2rem">{{ $hasil[1]['minat_karir']['name'] }}</h6>
                 <div class="progress-container progress-warning">
-                    <span class="progress-badge" style="color:#00081d; font-size:0.8rem;">Persentase </span>
+                    <span class="progress-badge" style="color:#00081d; font-size:0.75rem;">Persentase </span>
                     <div class="progress">
                         <div class="progress-bar progress-bar-warning" role="progressbar" arial-valuenow="{{ intval($hasil[1]['point']) * 10 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{intval($hasil[1]['point']) * 10}}%;">
                             <span class="progress-value" style="color:#00081d; font-size:0.9rem;"><strong>{{intval($hasil[1]['point']) * 10}} %</strong></span>
                         </div>
                     </div>
                 </div>
-                <p style="color: #00081d; font-size: 1.0rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
                 <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
                 <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[1]['minat_karir']['saran_karir'] }}</strong></p>
               </div>
@@ -106,14 +106,14 @@
                 <div class="rounded px-4 py-4" style="border: 1px solid #00081d; margin-bottom: 2rem;">
                     <h6 style="color: #00081d; font-size: 1.2rem">{{ $hasil[2]['minat_karir']['name'] }}</h6>
                     <div class="progress-container progress-warning">
-                        <span class="progress-badge" style="color:#00081d; font-size:0.8rem;">Persentase </span>
+                        <span class="progress-badge" style="color:#00081d; font-size:0.75rem;">Persentase </span>
                         <div class="progress">
                             <div class="progress-bar progress-bar-warning" role="progressbar" arial-valuenow="{{ intval($hasil[2]['point']) * 10 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{intval($hasil[2]['point']) * 10}}%;">
                                 <span class="progress-value" style="color:#00081d; font-size:0.9rem;"><strong>{{intval($hasil[2]['point']) * 10}} %</strong></span>
                             </div>
                         </div>
                     </div>
-                    <p style="color: #00081d; font-size: 1.0rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                    <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
                     <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
                     <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[2]['minat_karir']['saran_karir'] }}</strong></p>
                   </div>
