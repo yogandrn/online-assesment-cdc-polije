@@ -35,7 +35,7 @@
         <div class="rounded-top px-3 py-2" style="background-color: #c6c6c6;">
           {{-- Foto user  --}}
          <div class="d-flex" style="">
-          <i class="bi bi-slack" style="font-size: 1.6rem; color:#00081d; align-self: center;"></i>
+          <i class="bi bi-clipboard2-data-fill" style="font-size: 1.6rem; color:#00081d; align-self: center;"></i>
           <p style="color: #00081d; text-align: ; font-size: 1.25em; align-self: center;" class="ml-3"><strong>Riwayat Tes</strong></p>
          </div>
         </div>
