@@ -49,51 +49,50 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="editmodalLabel">Edit Pernyataan</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form action="{{url('admin/kepribadianupdate/'.$item->id)}}" method="POST">
-                                                {{ csrf_field() }}
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-">
-                                                            <div class="form-group">
-                                                                <label for="example-text-input" class="form-control-label">Pernyataan</label>
-                                                                <textarea class="form-control" name="input_pernyataan_kepribadian" id="pernyataan_kepribadian" type="text">{{ $item->pernyataan }}</textarea>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button </div>
+                                                <form action="{{url('admin/kepribadianupdate/'.$item->id)}}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-">
+                                                                <div class="form-group">
+                                                                    <label for="example-text-input" class="form-control-label">Pernyataan</label>
+                                                                    <textarea class="form-control" name="input_pernyataan_kepribadian" id="pernyataan_kepribadian" type="text">{{ $item->pernyataan }}</textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Modal Hapus -->
-                                <div class="modal fade" id="hapusmodal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <form method="POST" action="{{url('admin/kepribadiandestroy/'.$item->id)}}">
-                                                    @csrf
-                                                    <h5 class="modal-title" id="staticBackdropLabel">Hapus Pernyataan</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                @endforeach
+
+                                    <!-- Modal Hapus -->
+                                    <div class="modal fade" id="hapusmodal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <form method="POST" action="{{url('admin/kepribadiandestroy/'.$item->id)}}">
+                                                        @csrf
+                                                        <h5 class="modal-title" id="staticBackdropLabel">Hapus Pernyataan</h5>
+
+                                                </div>
+                                                <div class="modal-body">
+                                                    <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
                             </table>
                         </div>
                     </div>
@@ -110,7 +109,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tambahmodalLabel">Tambah Pernyataan</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
             </div>
             <div class="modal-body">
                 <form action="{{url('admin/kepribadianstore/')}}" method="POST">

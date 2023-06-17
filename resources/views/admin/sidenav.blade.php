@@ -67,12 +67,38 @@
                 <button type="submit" class="btn btn-primary btn-sl btn-sl w-100 mt-3 mb-0"> <i class="fas fa-power-off text-white text-sm opacity-10"></i> Logout</button>
             </div>
         </form> -->
-        <div class="d-flex align-items-center p-4">
-            <button type="button" class="btn btn-primary btn-sl btn-sl w-100 mb-0" data-bs-toggle="modal" data-bs-target="#logout" data-original-title="Logout"> <i class="fas fa-power-off text-white text-sm opacity-10"></i> Logout</button>
+        <div class="d-flex align-items-center mt-4 me-4 ms-4">
+            <button type="button" class="btn btn-primary btn-sl btn-sl w-100 mb-0" data-bs-toggle="modal" data-bs-target="#backup" data-original-title="Backup"> <i class="fas fa-archive text-white text-sm opacity-10 me-1"></i> Backup</button>
+        </div>
+        <div class="d-flex align-items-center mt-4 me-4 ms-4">
+            <button type="button" class="btn btn-danger btn-sl btn-sl w-100 mb-0" data-bs-toggle="modal" data-bs-target="#logout" data-original-title="Logout"> <i class="fas fa-power-off text-white text-sm opacity-10 me-1"></i> Logout</button>
         </div>
     </div>
 
     <!-- Modal -->
+    <!-- Logout -->
+    <div class="modal fade" id="backup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <form action="" method="" class="mx-2">
+                        @csrf
+                        <h5 class="modal-title" id="staticBackdropLabel">Backup Data</h5>
+
+                </div>
+                <div class="modal-body">
+                    <H6>Apakah Anda Yakin Inging Membackup Data Hasil Tes User?</H6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn bg-primary border-0 pe-3 ps-3">Backup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout -->
     <div class="modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -80,14 +106,14 @@
                     <form action="/admin/logout" method="POST" class="mx-2">
                         @csrf
                         <h5 class="modal-title" id="staticBackdropLabel">Logout</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 </div>
                 <div class="modal-body">
                     <H6>Apakah Anda Yakin Ingin Logout?</H6>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn bg-primary border-0 pe-3 ps-3">Logout</button>
+                    <button type="submit" class="btn bg-danger border-0 pe-3 ps-3">Logout</button>
                     </form>
                 </div>
             </div>

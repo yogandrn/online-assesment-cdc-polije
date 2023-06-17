@@ -65,7 +65,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="tambahmodalLabel">Edit Data</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                                                 </div>
                                                 <div class="modal-body">
                                                     <form class="row g-3">
@@ -208,7 +208,7 @@
                                                     <form method="POST" action="{{url('admin/userdestroy/'.$item->id)}}">
                                                         @csrf
                                                         <h5 class="modal-title" id="staticBackdropLabel">Hapus Data</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                                                 </div>
                                                 <div class="modal-body">
                                                     <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
@@ -239,7 +239,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tambahmodalLabel">Tambah Data</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
             </div>
             <div class="modal-body">
                 <form class="row g-3">

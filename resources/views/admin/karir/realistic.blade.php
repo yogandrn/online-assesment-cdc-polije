@@ -49,7 +49,7 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="editmodalLabel">Edit Pernyataan</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                                             </div>
                                             <form action="{{url('admin/minatkarirupdate/'.$item->id)}}" method="POST">
                                                 {{ csrf_field() }}
@@ -80,7 +80,7 @@
                                                 <form method="POST" action="{{url('admin/minatkarirdestroy/'.$item->id)}}">
                                                     @csrf
                                                     <h5 class="modal-title" id="staticBackdropLabel">Hapus Pernyataan</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                                             </div>
                                             <div class="modal-body">
                                                 <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
@@ -110,7 +110,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tambahmodalLabel">Tambah Pernyataan</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
             </div>
             <div class="modal-body">
                 <form action="{{url('admin/minatkarirstore/')}}" method="POST">
