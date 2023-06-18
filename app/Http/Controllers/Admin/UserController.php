@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use File;
 
 class UserController extends Controller
 {
@@ -38,7 +40,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = $request->all();
+        $posthashpw = Hash::make($request->password);
+        $post['password'] = $posthashpw;
+
+        if ($request->hasfile('foto')) {
+            $file = $request->file('foto');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = 'cdc-' . time() . '.' . $extenstion;
+            $file->move('images', $filename);
+            $post['foto'] = $filename;
+        }
+        User::create($post);
+        return redirect('/admin/user');
+
+        // $this->validate($request, [
+        //     'nama' => 'required',
+        //     'foto' => 'required',
+        //     'no_telp' => 'required',
+        //     'email' => 'required',
+        //     'password' => 'required',
+        // ]);
+        // $data = User::create([
+        //     'pernyataan' => $request->pernyataan,
+        // ]);
+        // if ($data) {
+        //     return redirect()->back()->with('toast_success', 'Berhasil Ditambahkan');
+        // }
     }
 
     /**
@@ -60,7 +88,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::where('id', $id)->get();
+        $title = 'User Edit';
+        return view('admin.useredit', ['data' => $data, 'title' => $title]);
     }
 
     /**
@@ -72,7 +102,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = User::find($id);
+        $image_path = public_path('images/' . $data->foto);
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $post = $request->all();
+        $posthashpw = Hash::make($request->password);
+        $post['password'] = $posthashpw;
+
+        if ($request->hasfile('foto')) {
+            $file = $request->file('foto');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = 'cdc-' . time() . '.' . $extenstion;
+            $file->move('images', $filename);
+            $post['foto'] = $filename;
+        }
+        User::findOrFail($id)->update($post);
+        return redirect('/admin/user');
     }
 
     /**
@@ -84,6 +131,11 @@ class UserController extends Controller
      */
     public function destroy(Request $request, $id)
     {
+        $data = User::find($id);
+        $image_path = public_path('images/' . $data->foto);
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
         if ($request->isMethod('post')) {
             User::where(['id' => $id])->delete();
             return redirect()->back()->with('toast_success', 'Hapus Data Berhasil');

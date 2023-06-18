@@ -24,12 +24,28 @@ class User extends Authenticatable
     // ];
 
     protected $guarded = ['id'];
-    
+
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
+
+    protected $fillable = [
+        'jenis_kandidat',
+        'nim',
+        'nama',
+        'jenjang',
+        'perguruan_tinggi',
+        'jurusan',
+        'program_studi',
+        'foto',
+        'no_telp',
+        'url_linkedin',
+        'email',
+        'password',
+    ];
+
     protected $hidden = [
         'password',
         'remember_token',

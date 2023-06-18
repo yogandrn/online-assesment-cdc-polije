@@ -107,6 +107,9 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/karir/conventional', [KarirController::class, 'conventional']);
 
         Route::get('/user', [UserController::class, 'index']);
+        Route::get('/useredit/{id}', [UserController::class, 'edit']);
+        Route::post('/userupdate/{id}', [UserController::class, 'update']);
+        Route::post('/userstore', [UserController::class, 'store'])->name("userstore");
         Route::post('/userdestroy/{id}', [UserController::class, 'destroy'])->name("userdestroy");
 
         Route::post('/logout', [LoginAdminController::class, 'logout']);
