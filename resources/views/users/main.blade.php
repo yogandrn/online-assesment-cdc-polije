@@ -15,8 +15,6 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <!-- Font Awesome Icons -->
-  {{-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> --}}
   <!-- Nucleo Icons -->
   <link href="{{url('/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
@@ -128,6 +126,8 @@
   <script src="{{url('/assets/demo/demo.js')}}"></script>
   <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
   <script src="{{url('/assets/js/blk-design-system.min.js?v=1.0.0')}}" type="text/javascript"></script>
+  <script src="{{url('/assets/js/jquery.js')}}" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function() {
       blackKit.initDatePicker();

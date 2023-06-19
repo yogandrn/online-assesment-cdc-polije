@@ -100,12 +100,12 @@ class ProfileController extends Controller
                 
                 $dir = 'assets/img/user/photos'; 
                 if (!file_exists(public_path($dir))) { //Verify if the directory exists
-                    mkdir(public_path($dir), 777, true); //create it if do not exists
+                    mkdir(public_path($dir)); //create it if do not exists
                 }
 
                 // Simpan gambar yang telah diubah ke dalam direktori yang diinginkan
                 $filename = date('Ymd') . Str::random(24) . '.' . $gambar->getClientOriginalExtension();
-                $image->save($dir .'/' . $filename, 70);
+                $image->save($dir .'/' . $filename, 60);
 
                 // Hapus file lama
                 if ($user->foto != null) {
@@ -151,12 +151,12 @@ class ProfileController extends Controller
                 
                 $dir = 'assets/img/user/ijazah'; 
                 if (!file_exists(public_path($dir))) { //Verify if the directory exists
-                    mkdir(public_path($dir), 777, true); //create it if do not exists
+                    mkdir(public_path($dir)); //create it if do not exists
                 }
 
                 // Simpan gambar yang telah diubah ke dalam direktori yang diinginkan
                 $filename = date('Ymd') . Str::random(24) . '.' . $gambar->getClientOriginalExtension();
-                $image->save($dir .'/' . $filename, 80);
+                $image->save($dir .'/' . $filename, 70);
 
                 // Hapus file lama
                 if ($user->ijazah != null) {

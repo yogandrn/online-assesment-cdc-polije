@@ -4,45 +4,79 @@
     <div class="section container text-center col-md-9 col-lg-8 col-xl-8 col-sm-10 px-4">
         <h2>Tes Minat Karir</h2>
         <div class="" style="border: 0.4px solid #adaaaa; height: 1px"></div><br>
-        <p style="font-size: 1.2rem; font-weight: bold;">Mohon Perhatian !!</p>
-        <p>Tes Minat Karir ini sebagai perkiraan untuk memberikan gambaran umum tentang minat dan preferensi karir.Hasil tes ini bersifat perkiraan atau estimasi saja karena minat karir adalah hal yang kompleks dan dipengaruhi oleh banyak faktor, termasuk minat pribadi, keterampilan, nilai-nilai, dan pengalaman hidup.Tes ini tidak bertujuan untuk memberikan keputusan pasti hanya sebagai panduan tambahan dalam proses pengambilan keputusan karir. Untuk mengetahui secara lebih detail anda harus berkonsultasi ke profesional atau psikolog.</p>
+        <p style="font-size: 1.2rem; font-weight: bold;">Perhatian !!</p>
+        <p>Tes Minat Karir ini sebagai perkiraan untuk memberikan gambaran umum tentang minat dan preferensi karir.Hasil tes ini bersifat perkiraan atau estimasi saja karena minat karir adalah hal yang kompleks dan dipengaruhi oleh banyak faktor, termasuk minat pribadi, keterampilan, nilai-nilai, dan pengalaman hidup.Tes ini tidak bertujuan untuk memberikan keputusan pasti hanya sebagai panduan tambahan dalam proses pengambilan keputusan karir. Untuk mengetahui secara lebih detail Anda harus berkonsultasi ke profesional atau psikolog.</p>
         <br>
         <div class="" style="border: 0.4px solid #adaaaa; height: 1px"></div>
         <br>
 
         {{-- // jika tes bisa diakses --}}
         @if ($is_available == 'true') 
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-minatkarir">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-info">
                 Mulai
             </button>     
         {{-- // jika sudah pernah tes   --}}
         @else
-            <h6 style="font-size: 1.08rem;">Kamu sudah melakukan tes. Tes ini bisa dilakukan dalam 90 hari lagi.</h6>
+            <h6 style="font-size: 1.08rem;">Kamu sudah melakukan tes. Tes ini bisa dilakukan 14 hari kemudian.</h6>
             <h6 style="font-size: 1.08rem;">Available at : {{ $available_at}}</h6>
             <a role="button" href="/users/minatkarir/histories" class="btn btn-secondary">Lihat Riwayat Tes</a>
         @endif
 
     </div>
 
-    {{-- Modal Popup Test  --}}
-  <div class="modal fade" id="modal-minatkarir" tabindex="-1" aria-labelledby="modal-minatkarirLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="modal-minatkarirLabel">Warning!</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  {{-- Modal Petunjuk Test  --}}
+  <div class="modal fade" id="modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-info-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title text-center" id="modal-info-label">Petunjuk Tes</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="tim-icons icon-simple-remove"></i></span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <p>• Tes Minat Karir ini berisi 60 pernyataan yang harus Anda berikan pilihan jawaban <strong>"Ya"</strong> untuk yang sesuai dengan diri Anda dan <strong>"Tidak"</strong> untuk yang tidak sesuai dengan diri Anda.</p>
+          <p>• Tes berikut diperkirakan membutuhkan waktu sekitar 10 menit untuk Anda selesaikan.</p>
+          <p>• Apabila Anda tidak memberikan pilihan jawaban terhadap pernyataan yang ada, maka sistem secara otomatis memberikan jawaban <strong>"Tidak"</strong>. </p>
+          {{-- <ol style="list-style: true;list-style-type: disc; list-style-color: #00081d">
+            <li>
+              <p>Tes Minat Karir ini berisi 60 pernyataan yang harus Anda berikan pilihan jawaban "Ya" untuk yang sesuai dengan diri Anda dan "Tidak" untuk yang tidak sesuai dengan diri Anda.</p>
+            </li>
+            <li>
+              <p>Tes berikut diperkirakan membutuhkan waktu sekitar 10 menit untuk Anda selesaikan.</p>
+            </li>
+            <li>
+              <p>Apabila Anda tidak memberikan pilihan jawaban terhadap pernyataan yang ada, maka sistem secara otomatis memberikan jawaban "Tidak". </p>
+            </li>
+          </ol> --}}
       </div>
-      <div class="modal-body">
-        <p><b>Apakah kamu berada dalam situasi yang tenang?</b></p>
-        <p>Untuk hasil optimal, kamu harus mengerjakan setiap soal dalam kondisi stamina yang fit dan pikiran fokus. Situasi tenang akan mendukung pikiran kamu untuk fokus. Pastikan pula kamu tidak sedang mengerjakan aktivitas lain saat mengerjakan asesmen ini.
-        </p>
-        
-        <p><b>Apakah saluran internet kamu lancar?</b></p>
-        <p>Setiap soal memiliki waktu pengerjaannya sendiri. Koneksi internet yang lancar akan mendukung kamu untuk mengerjakan soal dengan tepat dan hasilnya pun akan valid.</p>
-        <br>
-        <p><b>•	Apakah kamu fokus untuk mengerjakan asesmen ini tanpa ada aktivitas lainnya?</b></p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+        <button type="button" class="btn btn-info" id="btn-next" data-toggle="modal" data-target="#modal-start" data-dismiss="modal">Lanjutkan</button>
+      </div>
+      </div>
+    </div>
+  </div>  
+
+  {{-- Modal Start Test  --}}
+  <div class="modal fade" id="modal-start" tabindex="-1" role="dialog" aria-labelledby="modal-start-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title text-center" id="modal-start-label">Warning!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="tim-icons icon-simple-remove"></i></span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <p><b>Apakah kamu berada dalam situasi yang tenang?</b></p>
+          <p>Untuk hasil optimal, kamu harus mengerjakan setiap soal dalam kondisi stamina yang fit dan pikiran fokus. Situasi tenang akan mendukung pikiran kamu untuk fokus. Pastikan pula kamu tidak sedang mengerjakan aktivitas lain saat mengerjakan asesmen ini.
+          </p>
+          
+          <p><b>Apakah saluran internet kamu lancar?</b></p>
+          <p>Setiap soal memiliki waktu pengerjaannya sendiri. Koneksi internet yang lancar akan mendukung kamu untuk mengerjakan soal dengan tepat dan hasilnya pun akan valid.</p>
+          <br>
+          <p><b>•	Apakah kamu fokus untuk mengerjakan asesmen ini tanpa ada aktivitas lainnya?</b></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
@@ -51,8 +85,8 @@
               <button type="submit" class="btn btn-info">Mulai Tes</button>
         </form>
       </div>
+      </div>
     </div>
-    </div>
-  </div>
+  </div>    
 
 @endsection

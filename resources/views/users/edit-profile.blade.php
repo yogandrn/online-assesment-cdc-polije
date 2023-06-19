@@ -183,7 +183,7 @@
             @else
               <img id="image-profile" src="{{url('/assets/img/user/photos/default-user.jpg')}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
             @endif
-            <input type="file" name="foto" id="foto" class="form-control" onchange="previewFoto(event)">
+            <input type="file" name="foto" id="foto" class="form-control" onchange="previewFoto(event)" accept=".jpg, .jpeg, .png">
             <label class="mt-2">Unggah file .jpg, .jpeg, atau .png maximal 1MB</label>
         </div>
         <div class="modal-footer">
@@ -214,7 +214,7 @@
             @else
               <img id="image-ijazah" src="{{url('/assets/img/user/ijazah/default-ktm.png')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
             @endif
-            <input type="file" name="ijazah" id="ijazah" class="form-control" onchange="previewIjazah(event)">
+            <input type="file" name="ijazah" id="ijazah" class="form-control" onchange="previewIjazah(event)" accept=".jpg, .jpeg, .png">
             <label class="mt-2">Unggah file .jpg, .jpeg, atau .png maximal 1MB</label>
         </div>
         <div class="modal-footer">

@@ -49,7 +49,7 @@
                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
                   <div class="chart-container w-100">
                     <h6 class="chart-heading mt-3 font-weight-bold" style="color: #00081d; text-align: center; font-size: 1rem;">
-                      Diagram Kepribadian
+                      Diagram Minat Karir
                     </h6>
                     <canvas id="myChart"></canvas>
                   </div>

@@ -135,7 +135,7 @@
     <div class="section" id="about">
           <div class="container">
             <div class="title" >
-              <h3>About us</h3>
+              {{-- <h3>About us</h3> --}}
             </div>
             <div class="row justify-content-between align-items-center">
               <div class="col-lg-5 mb-5 mb-lg-0 ">

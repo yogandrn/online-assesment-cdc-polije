@@ -30,11 +30,11 @@ class MinatkarirController extends Controller
         } else {
 
             // jika ada history test, dan belum tenggat 90 hari
-            if (\Carbon\Carbon::now()->subDays(1) <  $tesMinatKarir['started_at']) {
+            if (\Carbon\Carbon::now()->subDays(14) <  $tesMinatKarir['started_at']) {
                 // test tidak tersedia
                 $isMinatKarirAvailable = 'false';
                 // tampilkan kapan test bisa diakses lagi
-                $minatkarirAvailableAt = \Carbon\Carbon::parse($tesMinatKarir['started_at'])->addDays(1)->format('d M Y H:i:s'); 
+                $minatkarirAvailableAt = \Carbon\Carbon::parse($tesMinatKarir['started_at'])->addDays(14)->format('d M Y H:i:s'); 
 
             } else {
                 // test tersedia
