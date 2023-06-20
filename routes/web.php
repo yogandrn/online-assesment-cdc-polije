@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\KarirController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\LoginAdminController;
 use App\Http\Controllers\AdminUserPageController;
+use App\Http\Controllers\Admin\RiwayatController;
 use App\Http\Controllers\Users\LoginController;
 use App\Http\Controllers\Users\RegisterController;
 use App\Http\Controllers\Users\HomeController;
@@ -105,6 +106,8 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/karir/social', [KarirController::class, 'social']);
         Route::get('/karir/enterprising', [KarirController::class, 'enterprising']);
         Route::get('/karir/conventional', [KarirController::class, 'conventional']);
+
+        Route::get('/riwayat', [RiwayatController::class, 'index']);
 
         Route::get('/user', [UserController::class, 'index']);
         Route::get('/useredit/{id}', [UserController::class, 'edit']);

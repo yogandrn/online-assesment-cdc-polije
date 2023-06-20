@@ -52,7 +52,7 @@ class UserController extends Controller
             $post['foto'] = $filename;
         }
         User::create($post);
-        return redirect('/admin/user');
+        return redirect()->back()->with('toast_success', 'Berhasil Ditambahkan');
 
         // $this->validate($request, [
         //     'nama' => 'required',
@@ -119,7 +119,7 @@ class UserController extends Controller
             $post['foto'] = $filename;
         }
         User::findOrFail($id)->update($post);
-        return redirect('/admin/user');
+        return redirect('/admin/user')->back()->with('toast_success', 'Update Berhasil');
     }
 
     /**

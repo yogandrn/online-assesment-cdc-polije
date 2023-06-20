@@ -66,38 +66,38 @@
         </div>
     </div>
 </div>
+
 @foreach($users as $item)
-<!-- Modal Hapus -->
+
+<!-- Hapus Modal -->
 <div class="modal fade" id="hapusmodal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <form method="POST" action="{{url('admin/userdestroy/'.$item->id)}}">
-                    @csrf
-                    <h5 class="modal-title" id="staticBackdropLabel">Hapus Data</h5>
-
+                <h5 class="modal-title" id="staticBackdropLabel">Hapus Data</h5>
             </div>
-            <div class="modal-body">
-                <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
-                </form>
-            </div>
+            <form method="POST" action="{{url('admin/userdestroy/'.$item->id)}}">
+                @csrf
+                <div class="modal-body">
+                    <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 @endforeach
 
-<!-- Modal -->
 <!-- Tambah Modal -->
 <div class="modal fade" id="tambahmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="tambahmodalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tambahmodalLabel">Tambah Data</h5>
-
             </div>
             <div class="modal-body">
                 <form action="{{url('admin/userstore/')}}" method="POST" enctype="multipart/form-data" class="row g-3">
@@ -123,7 +123,7 @@
 
                     <div class="col-md-4" id="inputjenjang">
                         <label for="jenjang" class="form-label">Jenjang</label>
-                        <input type="text" class="form-control" id="jenjang" name="jenjang">
+                        <input type="text" class="form-control" placeholder="D3/D4/S1/S2" id="jenjang" name="jenjang">
                     </div>
 
                     <div class="col-md-6" id="inputperting">
@@ -131,8 +131,9 @@
                         <input type="text" class="form-control" id="perguruan_tinggi2" name="perguruan_tinggi">
                     </div>
 
+                    <!-- Dropdown Jurusan -->
                     <div class="col-md-6" id="jur">
-                        <label for="jurusan" class="form-label">Jurusan</label>
+                        <label for="jurusan" class="form-label">Jurusan/Fakultas</label>
                         <select id="jurusan" class="form-select" onchange="myFunction(event)">
                             <option value="Produksi Pertanian" selected>Pilih</option>
                             <option value="Produksi Pertanian">Produksi Pertanian</option>
@@ -147,6 +148,7 @@
                         </select>
                     </div>
 
+                    <!-- Dropdown Prodi -->
                     <div class="col-md-6" id="pro">
                         <label for="program_studi" class="form-label">Program Studi</label>
                         <select id="program_srtudi" class="form-select" onchange="myFunction2(event)">
@@ -193,11 +195,13 @@
                         </select>
                     </div>
 
+                    <!-- Form Input Jurusan -->
                     <div class="col-md-6" id="injur">
-                        <label for="jurusanumum" class="form-label">Jurusan</label>
+                        <label for="jurusanumum" class="form-label">Jurusan/Fakultas</label>
                         <input type="text" class="form-control" id="jurusanumum" readonly name="jurusan">
                     </div>
 
+                    <!-- Form Input Prodi -->
                     <div class="col-md-6" id="inpro">
                         <label for="prodiumum" class="form-label">Program Studi</label>
                         <input type="text" class="form-control" id="prodiumum" readonly name="program_studi">

@@ -41,7 +41,7 @@
                                     <input type="password" class="form-control" value="{{$data->password}}" id="password" name="password">
                                 </div>
 
-                                <div class="card-footer">
+                                <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">SImpan</button>
                                 </div>
                             </form>
