@@ -135,7 +135,7 @@ let testChart = document.getElementById('testChart').getContext('2d');
         data: {
             labels: [day1.value, day2.value, day3.value, day4.value, day5.value, day6.value, day7.value],
             datasets: [{
-                label: 'Persentase (%)',
+                label: '# Jumlah',
                 data : [jml1.value, jml2.value, jml3.value, jml4.value, jml5.value, jml6.value, jml7.value],
                 backgroundColor: [
                   'rgba(84, 89, 158, 1)',
