@@ -10,26 +10,31 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="example" class="display" style="font-size: 12px">
-
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama User</th>
-                                        <th>Pilihan Tes</th>
-                                        <th>Waktu Tes</th>
+                                        <th>User ID</th>
+                                        <th>Jenis Tes</th>
+                                        <th>Token</th>
+                                        <th>Status</th>
+                                        <th>Started At</th>
+                                        <th>Finished At</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    @foreach($questions as $item)
+                                    @foreach($data as $item)
                                     <tr>
                                         <td>{{$loop -> iteration}}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{$item -> user_id}}</td>
+                                        <td>{{$item -> jenis_test}}</td>
+                                        <td>{{$item -> token}}</td>
+                                        <td>{{$item -> status}}</td>
+                                        <td>{{$item -> started_at}}</td>
+                                        <td>{{$item -> finished_at}}</td>
                                         <td>
-                                            <a href="javascript:;" class="text-info font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="" data-original-title="Detail Riwayat">
+                                            <a href="javascript:;" class="text-success font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="" data-original-title="Detail Riwayat">
                                                 Detail
                                             </a>
 
@@ -45,24 +50,23 @@
                                     @endforeach
                                 </tbody>
 
-                                @foreach($questions as $item)
+                                @foreach($data as $item)
                                 <div class="modal fade" id="hapusmodal{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <form method="POST" action="{{url('admin/kepribadiandestroy/'.$item->id)}}">
-                                                    @csrf
-                                                    <h5 class="modal-title" id="staticBackdropLabel">Hapus Pernyataan</h5>
-
-                                            </div>
-                                            <div class="modal-body">
-                                                <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
-                                                </form>
-                                            </div>
+                                            <form method="POST" action="{{url('admin/riwayatdestroy/'.$item->id)}}">
+                                                @csrf
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Hapus Riwayat Tes User</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

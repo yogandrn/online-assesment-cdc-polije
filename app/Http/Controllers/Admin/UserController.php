@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use File;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        $title = 'User';
+        $title = 'Data User';
         return view('admin.user', compact('users'))->with('title', $title);
     }
 
@@ -89,7 +89,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $data = User::where('id', $id)->get();
-        $title = 'User Edit';
+        $title = 'Edit Data User';
         return view('admin.useredit', ['data' => $data, 'title' => $title]);
     }
 
@@ -119,7 +119,7 @@ class UserController extends Controller
             $post['foto'] = $filename;
         }
         User::findOrFail($id)->update($post);
-        return redirect('/admin/user')->back()->with('toast_success', 'Update Berhasil');
+        return redirect('/admin/user')->with('toast_success', 'Update Berhasil');
     }
 
     /**

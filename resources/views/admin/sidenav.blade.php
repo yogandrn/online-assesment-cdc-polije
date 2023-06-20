@@ -76,9 +76,15 @@
                 <button type="submit" class="btn btn-primary btn-sl btn-sl w-100 mt-3 mb-0"> <i class="fas fa-power-off text-white text-sm opacity-10"></i> Logout</button>
             </div>
         </form> -->
+
         <div class="d-flex align-items-center mt-4 me-4 ms-4">
             <button type="button" class="btn btn-primary btn-sl btn-sl w-100 mb-0" data-bs-toggle="modal" data-bs-target="#backup" data-original-title="Backup"> <i class="fas fa-archive text-white text-sm opacity-10 me-1"></i> Backup</button>
         </div>
+
+        <div class="d-flex align-items-center mt-4 me-4 ms-4">
+            <button type="button" class="btn btn-success btn-sl btn-sl w-100 mb-0" data-bs-toggle="modal" data-bs-target="#restore" data-original-title="Backup"> <i class="fas fa-retweet text-white text-sm opacity-10 me-1"></i> Restore</button>
+        </div>
+
         <div class="d-flex align-items-center mt-4 me-4 ms-4">
             <button type="button" class="btn btn-danger btn-sl btn-sl w-100 mb-0" data-bs-toggle="modal" data-bs-target="#logout" data-original-title="Logout"> <i class="fas fa-power-off text-white text-sm opacity-10 me-1"></i> Logout</button>
         </div>

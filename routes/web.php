@@ -108,6 +108,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('/karir/conventional', [KarirController::class, 'conventional']);
 
         Route::get('/riwayat', [RiwayatController::class, 'index']);
+        Route::post('/riwayatdestroy/{id}', [RiwayatController::class, 'destroy']);
 
         Route::get('/user', [UserController::class, 'index']);
         Route::get('/useredit/{id}', [UserController::class, 'edit']);

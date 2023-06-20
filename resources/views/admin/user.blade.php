@@ -298,7 +298,6 @@
 
     function myFunction(event) {
         console.log(event.target.value)
-
         if (event.target.value === "Produksi Pertanian") {
             document.getElementById("jurusanumum").value = "Produksi Pertanian";
         } else if (event.target.value === "Teknologi Pertanian") {
@@ -322,7 +321,6 @@
 
     function myFunction2(event) {
         console.log(event.target.value)
-
         if (event.target.value === "Teknik Informatika") {
             document.getElementById("prodiumum").value = "Teknik Informatika";
         } else if (event.target.value === "Manajemen Informatika") {

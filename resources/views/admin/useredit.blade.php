@@ -10,7 +10,7 @@
                         <div class="card-body">
 
                             @if ($data->jenis_kandidat == 'Administrator')
-                            <form action="{{url('admin/userupdate/')}}" method="POST" enctype="multipart/form-data" class="row g-3">
+                            <form action="{{url('admin/userupdate', $data->id)}}" method="POST" enctype="multipart/form-data" class="row g-3">
                                 @csrf
                                 <div class="col-md-4">
                                     <label for="jenis_kandidat2" class="form-label">Jenis Kandidat</label>
@@ -42,7 +42,7 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">SImpan</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
 
@@ -106,13 +106,13 @@
                                     <input type="password" class="form-control" value="{{$data->password}}" id="password" name="password">
                                 </div>
 
-                                <div class="card-footer">
+                                <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
-                            @else
 
-                            <form action="{{url('admin/userupdate/')}}" method="POST" enctype="multipart/form-data" class="row g-3">
+                            @else
+                            <form action="{{url('admin/userupdate', $data->id)}}" method="POST" enctype="multipart/form-data" class="row g-3">
                                 @csrf
                                 <div class="col-md-4">
                                     <label for="jenis_kandidat2" class="form-label">Jenis Kandidat</label>
@@ -238,12 +238,11 @@
                                     <input type="password" class="form-control" value="{{$data->password}}" id="password" name="password">
                                 </div>
 
-                                <div class="card-footer">
+                                <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
                             @endif
-
                         </div>
                     </div>
                 </div>

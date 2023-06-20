@@ -15,9 +15,9 @@ class RiwayatController extends Controller
      */
     public function index()
     {
-        $questions = TestHistory::get();
+        $data = TestHistory::get();
         $title = 'Data Riwayat Tes';
-        return view('admin.riwayat', compact('questions'))->with('title', $title);
+        return view('admin.riwayat', compact('data'))->with('title', $title);
     }
 
     /**
@@ -81,8 +81,12 @@ class RiwayatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->isMethod('post')) {
+            TestHistory::where(['id' => $id])->delete();
+            return redirect()->back()->with('toast_success', 'Hapus Data Berhasil');
+        }
+        return redirect()->back()->with('toast_success', 'Hapus Data Berhasil');
     }
 }
