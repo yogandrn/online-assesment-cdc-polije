@@ -15,7 +15,7 @@ class TestHistory extends Model
 
     public function user()
     {
-        return $this->belongsTo('users', 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     

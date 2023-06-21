@@ -13,7 +13,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>User ID</th>
+                                        <th>Email</th>
                                         <th>Jenis Tes</th>
                                         <th>Token</th>
                                         <th>Status</th>
@@ -27,22 +27,24 @@
                                     @foreach($data as $item)
                                     <tr>
                                         <td>{{$loop -> iteration}}</td>
-                                        <td>{{$item -> user_id}}</td>
+                                        <td>{{$item -> user -> email}}</td>
                                         <td>{{$item -> jenis_test}}</td>
                                         <td>{{$item -> token}}</td>
                                         <td>{{$item -> status}}</td>
                                         <td>{{$item -> started_at}}</td>
                                         <td>{{$item -> finished_at}}</td>
                                         <td>
-                                            <a href="javascript:;" class="text-success font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="" data-original-title="Detail Riwayat">
-                                                Detail
-                                            </a>
+                                            @if ($item->jenis_test == 'Minat Karir')
+                                            <a href={{'/admin/riwayat/minatkarir/' . $item->id}} class="text-success font-weight-bold text-xs"  data-original-title="Detail Riwayat">Detail</a>
+                                            @else
+                                            <a href={{'/admin/riwayat/gayakepribadian/' . $item->id}} class="text-success font-weight-bold text-xs"  data-original-title="Detail Riwayat">Detail</a>
+                                            @endif
 
                                             <a class="text-secondary font-weight-bold text-xs">
                                                 |
                                             </a>
 
-                                            <a href="javascript:;" class="text-danger font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#hapusmodal{{ $item->id }}" data-original-title="Hapus Riwayat">
+                                            <a href="" class="text-danger font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#hapusmodal{{ $item->id }}" data-original-title="Hapus Riwayat">
                                                 Delete
                                             </a>
                                         </td>
@@ -63,7 +65,8 @@
                                                     <H6>Apakah Anda Yakin Ingin Menghapus Data Ini?</H6>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <input type="hidden" name="type" value="{{ $item->jenis_test }}">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                                                     <button type="submit" class="btn bg-danger border-0 pe-3 ps-3">Hapus</button>
                                                 </div>
                                             </form>

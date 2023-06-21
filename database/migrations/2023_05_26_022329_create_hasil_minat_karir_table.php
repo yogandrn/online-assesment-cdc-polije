@@ -15,8 +15,10 @@ class CreateHasilMinatKarirTable extends Migration
     {
         Schema::create('hasil_minat_karir', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('test_history_id')->constrained('test_histories');
-            $table->foreignId('user_id')->constrained('users');
+            $table->unsignedBigInteger('test_history_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('test_history_id')->references('id')->on('test_histories')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('test_token');
             $table->timestamps();
         });

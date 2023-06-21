@@ -15,8 +15,10 @@ class CreateDetailHasilMinatKarirTable extends Migration
     {
         Schema::create('detail_hasil_minat_karir', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hasil_minat_karir_id')->constrained('hasil_minat_karir');
-            $table->foreignId('minat_karir_id')->constrained('minat_karir');
+            $table->unsignedBigInteger('hasil_minat_karir_id');
+            $table->unsignedBigInteger('minat_karir_id');
+            $table->foreign('hasil_minat_karir_id')->references('id')->on('hasil_minat_karir')->onDelete('cascade');
+            $table->foreign('minat_karir_id')->references('id')->on('minat_karir')->onDelete('cascade');
             $table->integer('point');
             $table->timestamps();
         });

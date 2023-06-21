@@ -118,7 +118,7 @@
                         <div class="progress-bar" style="width: {{$hasil[1]['point'] * 10 . '%'}}"></div>
                     </div>
                 </div>
-                <p style="color: #00081d; font-size: 0.96rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                <p style="color: #00081d; font-size: 0.96rem;">{!! $hasil[1]['minat_karir']['description'] !!}</p>
                 <div class="mt-3 mb-3" style="border: 0.2px solid #818181;"></div>
                 <p style="color: #00081d; font-size: 1.08rem; ">Karir yang disarankan : <strong>{{ $hasil[1]['minat_karir']['saran_karir'] }}</strong></p>
               </div>
@@ -140,7 +140,7 @@
                             <div class="progress-bar" style="width: {{$hasil[2]['point'] * 10 . '%'}}"></div>
                         </div>
                     </div>
-                    <p style="color: #00081d; font-size: 0.96rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                    <p style="color: #00081d; font-size: 0.96rem;">{!! $hasil[2]['minat_karir']['description'] !!}</p>
                     <div class="mt-3 mb-3" style="border: 0.2px solid #818181;"></div>
                     <p style="color: #00081d; font-size: 1.08rem; ">Karir yang disarankan : <strong>{{ $hasil[2]['minat_karir']['saran_karir'] }}</strong></p>
                   </div>
