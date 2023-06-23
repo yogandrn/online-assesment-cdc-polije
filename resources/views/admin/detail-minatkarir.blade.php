@@ -70,7 +70,7 @@
                             <h6 style="color: #00081d; font-size: 1.2rem">{{ $hasil[0]['minat_karir']['name'] }}</h6>
                             <div class="progress-container">
                                 <div class="row justify-content-between">
-                                    <div class="col-3">
+                                    <div class="col-5">
                                         <span class="progress-badge" style="color:#00081d; font-size: 0.9rem">Persentase</span>
                                     </div>
                                     <div class="col-3 text-end">
@@ -81,7 +81,7 @@
                                     <div class="progress-bar" style="width: {{$hasil[0]['point'] * 10 . '%'}};height: 1.5rem; border-radius: 0.35rem; background-color: #3d5faf;"></div>
                                 </div>
                             </div>
-                            <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                            {{-- <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p> --}}
                             <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
                             <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[0]['minat_karir']['saran_karir'] }}</strong></p>
                         </div>
@@ -92,7 +92,7 @@
                         <h6 style="color: #00081d; font-size: 1.2rem">{{ $hasil[1]['minat_karir']['name'] }}</h6>
                         <div class="progress-container">
                             <div class="row justify-content-between">
-                                <div class="col-3">
+                                <div class="col-5">
                                     <span class="progress-badge" style="color:#00081d; font-size: 0.9rem">Persentase</span>
                                 </div>
                                 <div class="col-3 text-end">
@@ -103,7 +103,7 @@
                                 <div class="progress-bar" style="width: {{$hasil[1]['point'] * 10 . '%'}};height: 1.5rem; border-radius: 0.35rem; background-color: #3d5faf;"></div>
                             </div>
                         </div>
-                        <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[1]['minat_karir']['description'] !!}</p>
+                        {{-- <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[1]['minat_karir']['description'] !!}</p> --}}
                         <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
                         <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[1]['minat_karir']['saran_karir'] }}</strong></p>
                       </div>
@@ -114,7 +114,7 @@
                             <h6 style="color: #00081d; font-size: 1.2rem">{{ $hasil[2]['minat_karir']['name'] }}</h6>
                             <div class="progress-container">
                                 <div class="row justify-content-between">
-                                    <div class="col-3">
+                                    <div class="col-5">
                                         <span class="progress-badge" style="color:#00081d; font-size: 0.9rem">Persentase</span>
                                     </div>
                                     <div class="col-3 text-end">
@@ -125,7 +125,7 @@
                                     <div class="progress-bar" style="width: {{$hasil[2]['point'] * 10 . '%'}};height: 1.5rem; border-radius: 0.35rem; background-color: #3d5faf;"></div>
                                 </div>
                             </div>
-                            <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[2]['minat_karir']['description'] !!}</p>
+                            {{-- <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[2]['minat_karir']['description'] !!}</p> --}}
                             <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
                             <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[2]['minat_karir']['saran_karir'] }}</strong></p>
                           </div>
@@ -148,7 +148,7 @@
                                 <div class="progress-bar" style="width: {{$hasil[0]['point'] * 10 . '%'}};height: 1.5rem; border-radius: 0.35rem; background-color: #3d5faf;"></div>
                             </div>
                         </div>
-                        <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p>
+                        {{-- <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[0]['minat_karir']['description'] !!}</p> --}}
                         <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
                         <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[0]['minat_karir']['saran_karir'] }}</strong></p>
                     </div>
@@ -171,7 +171,7 @@
                                 <div class="progress-bar" style="width: {{$hasil[1]['point'] * 10 . '%'}};height: 1.5rem; border-radius: 0.35rem; background-color: #3d5faf;"></div>
                             </div>
                         </div>
-                        <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[1]['minat_karir']['description'] !!}</p>
+                        {{-- <p style="color: #00081d; font-size: 0.9rem;">{!! $hasil[1]['minat_karir']['description'] !!}</p> --}}
                         <div class="mt-4 mb-4" style="border: 0.2px solid #818181;"></div>
                         <p style="color: #00081d; font-size: 1.0rem; ">Karir yang disarankan : <strong>{{ $hasil[1]['minat_karir']['saran_karir'] }}</strong></p>
                     </div>

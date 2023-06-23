@@ -137,16 +137,12 @@ let testChart = document.getElementById('testChart').getContext('2d');
             datasets: [{
                 label: '# Jumlah',
                 data : [jml1.value, jml2.value, jml3.value, jml4.value, jml5.value, jml6.value, jml7.value],
-                backgroundColor: [
-                  'rgba(84, 89, 158, 1)',
-                  'rgba(132, 94, 194, 1)',
-                  'rgba(214, 93, 177, 1)',
-                  'rgba(255, 111, 145, 1)',
-                  'rgba(255, 150, 113, 1)',
-                  'rgba(255, 199, 95, 1)',
-                  'rgba(255, 111, 145, 1)',
-                ],
-                borderWidth: 1,
+                backgroundColor: 'rgba(56,56, 56, 0.18)',
+              	borderColor: 'rgba(84, 89, 158, 1)',
+                borderWidth: 2,
+              	pointRadius: 5,    
+              	pointBackgroundColor: '#fa9c37', // Warna pointer
+    			pointBorderColor: '#fa9c37',
             }]
         },
         options: {
@@ -164,6 +160,7 @@ let testChart = document.getElementById('testChart').getContext('2d');
             }
         }
     });
+
 
 
 // Diagram User   

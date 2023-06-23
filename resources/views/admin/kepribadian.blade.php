@@ -27,7 +27,7 @@
                                         <td>{{$loop -> iteration}}</td>
                                         <td>{{$item -> pernyataan}}</td>
                                         <td>
-                                            <a href="javascript:;" class="text-warning font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#editmodal{{ $item->id }}" data-original-title="Edit user">
+                                            <a role="button" class="text-warning font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#editmodal{{ $item->id }}" data-original-title="Edit user">
                                                 Edit
                                             </a>
 
@@ -35,7 +35,7 @@
                                                 |
                                             </a>
 
-                                            <a href="javascript:;" class="text-danger font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#hapusmodal{{ $item->id }}" data-original-title="Hapus user">
+                                            <a role="button" class="text-danger font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#hapusmodal{{ $item->id }}" data-original-title="Hapus user">
                                                 Delete
                                             </a>
                                         </td>
@@ -49,7 +49,8 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="editmodalLabel">Edit Pernyataan</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button </div>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button >
+                                            </div>
                                                 <form action="{{url('admin/kepribadianupdate/'.$item->id)}}" method="POST">
                                                     {{ csrf_field() }}
                                                     <div class="modal-body">

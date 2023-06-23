@@ -151,7 +151,7 @@
               @csrf
               <label for="ijazah" class="form-label">Ijazah atau KTM</label>
               @if ($user->ijazah != null) 
-                <a href="{{ url('/' . $user->ijazah) }}" target="_blank" rel="noopener noreferrer"><img src="{{url('/'.$user->ijazah)}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center rounded" style="max-widht: 100%">  </a>
+                <a href="{{ url('/' . $user->ijazah) }}" target="_blank" rel="noopener noreferrer"><img src="{{url('/'.$user->ijazah)}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center" style="max-widht: 100%">  </a>
               @else
                 <img src="{{url('/assets/img/user/ijazah/default-ktm.png')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
                 @endif
@@ -179,9 +179,9 @@
         <div class="modal-body">
             {{-- <p><b>Unggah Ijazah atau Kartu Tanda Mahasiswa</b></p>   --}}
             @if ($user->foto != null) 
-              <img id="image-profile" src="{{url('/' .$user->foto)}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-height: 100%;">  
+              <img id="image-profile" src="{{url('/' .$user->foto)}}" alt="{{$user->nama}}" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
             @else
-              <img id="image-profile" src="{{url('/assets/img/user/photos/default-user.jpg')}}" alt="{{$user->nama}}" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
+              <img id="image-profile" src="{{url('/assets/img/user/photos/default-user.jpg')}}" alt="{{$user->nama}}" class="img-fluid mb-2 img-center " style="max-width: 100%">
             @endif
             <input type="file" name="foto" id="foto" class="form-control" onchange="previewFoto(event)" accept=".jpg, .jpeg, .png">
             <label class="mt-2">Unggah file .jpg, .jpeg, atau .png maximal 1MB</label>
@@ -212,7 +212,7 @@
             @if ($user->ijazah != null) 
               <img id="image-ijazah" src="{{url($user->ijazah)}}" alt="Ijazah/KTM" class="img-fluid mb-2 img-center " style="max-height: 100%;">  
             @else
-              <img id="image-ijazah" src="{{url('/assets/img/user/ijazah/default-ktm.png')}}" alt="Ijazah/KTM" class="img-thumbnail mb-2 img-center " style="max-width: 100%">
+              <img id="image-ijazah" src="{{url('/assets/img/user/ijazah/default-ktm.png')}}" alt="Ijazah/KTM" class="img-fluid mb-2 img-center " style="max-width: 100%">
             @endif
             <input type="file" name="ijazah" id="ijazah" class="form-control" onchange="previewIjazah(event)" accept=".jpg, .jpeg, .png">
             <label class="mt-2">Unggah file .jpg, .jpeg, atau .png maximal 1MB</label>

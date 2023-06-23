@@ -19,7 +19,7 @@ class RiwayatController extends Controller
      */
     public function index()
     {
-        $data = TestHistory::with('user')->get();
+        $data = TestHistory::with('user')->orderBy('started_at', 'desc')->get();
         $title = 'Data Riwayat Tes';
         return view('admin.riwayat', compact('data'))->with('title', $title);
     }

@@ -46,11 +46,13 @@ class GayakepribadianController extends Controller
     // method membuat sesi test 
     public function startTest(Request $request)
     {
+        $token = $this->createToken();
+        
         // membuat sesi tes baru
         $test = TestHistory::create([
             'user_id' => Auth::user()->id,
             'jenis_test' => 'Gaya Kepribadian',
-            'token' => $this->createToken(),
+            'token' => $token,
             'status' => 'STARTED',
             'started_at' => now(),
             'created_at' => now(),
@@ -58,7 +60,7 @@ class GayakepribadianController extends Controller
         ]);
 
         // redirect ke halaman test
-        return redirect('/users/gayakepribadian/test/' . $test['token']);
+        return redirect('/users/gayakepribadian/test/' . $token);
     }
 
     public function createToken() : String

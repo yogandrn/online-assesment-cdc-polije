@@ -87,7 +87,7 @@ class ProfileController extends Controller
                 'foto' => 'required|image|mimes:jpg,png,jpeg|max:1024'
             ]);
 
-            $fileToDelete = $user->foto; // file lama yang tidak terpakai
+            $fileToDelete = public_path($user->foto); // file lama yang tidak terpakai
             
             if ($request->hasFile('foto')) {
                 $gambar = $request->file('foto'); // ambil file yang diunggah
@@ -96,7 +96,7 @@ class ProfileController extends Controller
                 $image = Image::make($gambar);
                 
                 // Ubah ukuran gambar menjadi 400x400 piksel dengan rasio 1:1
-                $image->fit(500, 500);
+                $image->fit(480, 480);
                 
                 $dir = 'assets/img/user/photos'; 
                 if (!file_exists(public_path($dir))) { //Verify if the directory exists
@@ -104,7 +104,7 @@ class ProfileController extends Controller
                 }
 
                 // Simpan gambar yang telah diubah ke dalam direktori yang diinginkan
-                $filename = date('Ymd') . Str::random(24) . '.' . $gambar->getClientOriginalExtension();
+                $filename = date('Ymd_His') . '_' . uniqid() . '.' . $gambar->getClientOriginalExtension();
                 $image->save($dir .'/' . $filename, 60);
 
                 // Hapus file lama
@@ -138,16 +138,24 @@ class ProfileController extends Controller
 
             // validasi file yang diunggah
             $this->validate($request, [
-                'ijazah' => 'required|image|mimes:jpg,png,jpeg|max:2048'
+                'ijazah' => 'required|image|mimes:jpg,png,jpeg|max:1024'
             ]);
 
-            $fileToDelete = $user->ijazah; // file lama yang akan dihapus
+            $fileToDelete = public_path($user->ijazah); // file lama yang akan dihapus
             
             if ($request->hasFile('ijazah')) {
                 $gambar = $request->file('ijazah'); // ambil file yang diunggah 
 
                 // Buat objek gambar menggunakan intervention/image
                 $image = Image::make($gambar);
+
+                // Memeriksa lebar gambar
+                if ($image->width() > 1080) {
+                    // Mengubah lebar gambar menjadi 1080px dengan mempertahankan rasio aspek
+                    $image->resize(1080, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
                 
                 $dir = 'assets/img/user/ijazah'; 
                 if (!file_exists(public_path($dir))) { //Verify if the directory exists
@@ -155,7 +163,7 @@ class ProfileController extends Controller
                 }
 
                 // Simpan gambar yang telah diubah ke dalam direktori yang diinginkan
-                $filename = date('Ymd') . Str::random(24) . '.' . $gambar->getClientOriginalExtension();
+                $filename = date('Ymd_His') . '_' . uniqid() . '.' . $gambar->getClientOriginalExtension();
                 $image->save($dir .'/' . $filename, 70);
 
                 // Hapus file lama

@@ -55,11 +55,13 @@ class MinatkarirController extends Controller
     // method untuk membuat sesi test 
     public function startTest(Request $request)
     {
+        $token = $this->createToken();
+
         // buat history test 
         $test = TestHistory::create([
             'user_id' => Auth::user()->id,
             'jenis_test' => 'Minat Karir',
-            'token' => $this->createToken(),
+            'token' => $token,
             'status' => 'STARTED',
             'started_at' => now(),
             'created_at' => now(),
@@ -67,7 +69,7 @@ class MinatkarirController extends Controller
         ]);
 
         // tampilkan halaman test
-        return redirect('/users/minatkarir/test/' . $test->token);
+        return redirect('/users/minatkarir/test/' . $token);
     }
 
     // method untuk generate unique token
@@ -85,6 +87,7 @@ class MinatkarirController extends Controller
     public function doingTest($token)
     {
         $data = array(); // array kosong
+
         // array untuk opsi jawaban
         $answer = [
             ['text' => 'Ya', 'point' => 1],
