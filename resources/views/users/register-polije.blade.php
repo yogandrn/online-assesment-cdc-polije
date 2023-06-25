@@ -132,7 +132,7 @@
                         <option value="Peternakan">Peternakan</option>
                         <option value="Manajemen Agribisnis">Manajemen Agribisnis</option>
                         <option value="Teknologi Informasi">Teknologi Informasi</option>
-                        <option value="Bahasa, Komunikasi & Pariwisata">Bahasa, Komunikasi dan Pariwisata</option>
+                        <option value="Bahasa, Komunikasi dan Pariwisata">Bahasa, Komunikasi dan Pariwisata</option>
                         <option value="Kesehatan">Kesehatan</option>
                         <option value="Teknik">Teknik</option>
                         <option value="Bisnis">Bisnis</option>
@@ -174,7 +174,7 @@
                   <div class="col-xl-6 col-lg-6 col-md-12">
                     <div class="mb-3">
                       <label for="no_telp">Nomor Telepon</label>
-                      <input type="tel" class="form-control no_telp" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp" value="{{old('no_telp')}}" required minlength="9" maxlength="15">
+                      <input type="tel" class="form-control @error('no_telp') is-invalid @enderror" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp" value="{{old('no_telp')}}" required minlength="9" maxlength="15">
                       @error('no_telp')
                       <div class="invalid-feedback text-start" >{{$message}}</div>
                       @enderror
@@ -186,7 +186,7 @@
                   <label for="password">Password</label>
                   <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" aria-label="Password" name="password" id="password" required minlength="8" maxlength="255">
                   @error('password')
-                  <div class="invalid-feedback text-start" >{{$message}}</div>
+                  <div class="invalid-feedback text-start" >{{  $message}}</div>
                   @enderror
                 </div>
           
@@ -247,7 +247,7 @@
     </div>
   </footer>
 
-  @include('sweetalert::alert')
+  {{-- @include('sweetalert::alert') --}}
   
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->

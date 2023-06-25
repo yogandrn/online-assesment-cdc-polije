@@ -35,14 +35,19 @@ class RegisterController extends Controller
         $validated = $request->validate([
             'nama' => 'required|string|max:255|',
             'email' => 'unique:users|required|string|email:dns',
-            'password' => 'required|string|alpha_num',
-            'no_telp' => 'required|numeric|string|unique:users',
+            'password' => 'required|string|min:8|max:100|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$/',
+            // 'password' => ['required', 'string', 'min:8', 'max:100', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$/'],
+            'no_telp' => 'required|unique:users|string|regex:/^08[1-9]\d{8}$/',
             'nim' => 'nullable|string|min:6|max:15',
             'jurusan' => 'string|min:6|max:255',
             'program_studi' => 'string|min:6|max:255',
             'url_linkedin' => 'string|nullable|min:6|max:255',
             'jenis_kandidat' => 'string|min:4|max:255',
             'perguruan_tinggi' => 'string|min:4|max:255',
+        ], 
+        [
+            'password.regex' => 'Password harus terdiri dari minimal 8 karakter dengan kombinasi huruf besar, huruf kecil, dan angka.',
+            'no_telp.regex' => 'Format nomor telepon tidak valid.',
         ]);
         
         // insert data user ke database
@@ -80,7 +85,7 @@ class RegisterController extends Controller
                 'url_linkedin' => 'nullable|string|nullable|min:6|max:255',
                 'jenis_kandidat' => 'string|min:4|max:255',
                 'perguruan_tinggi' => 'string|min:4|max:255',
-            ]);
+            ],);
             } catch (\Throwable $throw) {
                 return response()->json([
                     'status' => 'error',

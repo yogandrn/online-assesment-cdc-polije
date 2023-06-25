@@ -146,7 +146,7 @@
                   <div class="col-xl-6 col-lg-6 col-md-12">
                     <div class="mb-3">
                       <label for="no_telp">Nomor Telepon</label>
-                      <input type="tel" class="form-control no_telp" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp" value="{{old('no_telp')}}" required minlength="9" maxlength="15">
+                      <input type="tel" class="form-control @error('no_telp') is-invalid @enderror" placeholder="No. Telp" aria-label="No. Telp" name="no_telp" id="no_telp" value="{{old('no_telp')}}" minlength="9" maxlength="15" required>
                       @error('no_telp')
                       <div class="invalid-feedback text-start" >{{$message}}</div>
                       @enderror
@@ -220,7 +220,7 @@
     </div>
   </footer>
 
-  @include('sweetalert::alert')
+  {{-- @include('sweetalert::alert') --}}
   
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->
