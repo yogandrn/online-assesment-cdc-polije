@@ -27,7 +27,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="https://demos.creative-tim.com/blk-design-system/index.html" rel="tooltip" title="Designed and Coded by JTI ASIK Tim" data-placement="bottom" target="_blank">
-          <span>CDC Polije •</span> Online Assessment Test
+          <span>CDC Polije •</span> Online Personal Test
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar bar1"></span>
@@ -122,7 +122,7 @@
         <div class="content-center  row justify-content-center">
               <div class="col-xl-8 col-lg 8 col-md-9 col-sm-12">
               <h2 class="font-weight-bold" style="color: white; font-size: 3.6rem;">Welcome</h2>
-              <h3 class="mx-3">Selamat Datang pengguna fasilitas layanan <em>Online Personal Assessment Test</em> CDC Polije.</h3>
+              <h3 class="mx-3">Selamat Datang pengguna fasilitas layanan <em>Online Personal Test</em> CDC Polije.</h3>
               <a href="#about" class="btn btn-warning btn-sm px-5 py-3" data-target="#about" role="button">
                 About us
               </a>
@@ -139,7 +139,7 @@
             </div>
             <div class="row justify-content-between align-items-center">
               <div class="col-lg-5 mb-5 mb-lg-0 ">
-                <h1 class="text-white font-weight-light">Online Assessment Test</h1>
+                <h1 class="text-white font-weight-light">Online Personal Test</h1>
                 <p class="text-white mt-4">Layanan ini merupakan salah satu bagian dari pusat karir milik CDC Polije,
                   saat ini kami memiliki layanan untuk personal test Gaya Kepribadian dan Test Minat Karir. Keduanya dapat
                    membantu pengguna untuk mengetahui kecenderungan bidang karir yang sesuai dengan diri pribadi  .</p>
