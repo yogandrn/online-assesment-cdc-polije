@@ -4,7 +4,7 @@
 
 <div class="container-fluid py-4">
   <div class="row">
-    <!-- <div class="col-6 col-md-4 mb-xl-0 mb-4">
+    <div class="col-6 col-md-4 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
           <div class="row">
@@ -19,8 +19,8 @@
           </div>
         </div>
       </div>
-    </div> -->
-    <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
           <div class="row">
@@ -35,8 +35,8 @@
           </div>
         </div>
       </div>
-    </div> -->
-    <!-- <div class="col-xl-3 col-sm-6">
+    </div>
+    <div class="col-xl-3 col-sm-6">
       <div class="card">
         <div class="card-body p-3">
           <div class="row">
@@ -51,10 +51,15 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 
   <div class="row mt-4">
+    {{-- <div class="col-lg-7 mb-lg-0 mb-4">
+      <div class="card z-index-2 h-100">
+        <img src="{{url('assets/img/dashboard.jpg')}}" style="width: 100%;">
+      </div>
+    </div> --}}
     <div class="col-lg-7 mb-lg-0 mb-4">
       <div class="card z-index-2 h-100">
         <div class="chart-container w-100">
@@ -83,8 +88,8 @@
       </div>
     </div>
     <div class="col-lg-5 mb-lg-0 mb-4">
-      <div class="card z-index-2 h-100">
-        <div class="chart-container w-100">
+        <div class="card z-index-2 h-100">
+          <div class="chart-container w-100">
           {{-- Dummy Form untuk mengambil value by id dalam javascript  --}}
           <form action="" method="post">
             <input type="hidden" name="mahasiswa" id="mahasiswa" value="{{$user['mahasiswa']}}">
@@ -107,21 +112,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <script type="text/javascript">
-  // Diagram Test 
-  let day1 = document.getElementById('day1');
-  let day2 = document.getElementById('day2');
-  let day3 = document.getElementById('day3');
-  let day4 = document.getElementById('day4');
-  let day5 = document.getElementById('day5');
-  let day6 = document.getElementById('day6');
-  let day7 = document.getElementById('day7');
-  let jml1 = document.getElementById('jml1');
-  let jml2 = document.getElementById('jml2');
-  let jml3 = document.getElementById('jml3');
-  let jml4 = document.getElementById('jml4');
-  let jml5 = document.getElementById('jml5');
-  let jml6 = document.getElementById('jml6');
-  let jml7 = document.getElementById('jml7');
 
 // Diagram Test 
 let day1 = document.getElementById('day1');
@@ -167,60 +157,60 @@ let testChart = document.getElementById('testChart').getContext('2d');
             categoryPercentage: 0.8,
             barPercentage: 0.9
         }]
-      }
-    }
-  });
+            }
+        }
+    });
 
 
-  // Diagram User   
-  let mhs = document.getElementById('mahasiswa');
-  let alumni = document.getElementById('alumni');
-  let umum = document.getElementById('umum');
+// Diagram User   
+let mhs = document.getElementById('mahasiswa');
+let alumni = document.getElementById('alumni');
+let umum = document.getElementById('umum');
 
-  let userChart = document.getElementById('userChart').getContext('2d');
-  let chart2 = new Chart(userChart, {
-    type: 'doughnut',
-    data: {
-      labels: ['Umum', 'Mahasiswa Polije', 'Alumni Polije', ],
-      datasets: [{
-        data: [umum.value, mhs.value, alumni.value, ],
-        // data: [70, 60, 20, 10, 30, 70],
-        backgroundColor: [
-          'rgba(255, 199, 95, 1)',
-          'rgba(137, 128, 245, 1)',
-          // 'rgba(132, 94, 194, 1)',
-          'rgba(59, 169, 156, 1)',
-          // 'rgba(255, 111, 145, 1)',
-          // 'rgba(255, 150, 113, 1)',
-        ],
-        borderColor: [
-          'rgba(255, 199, 95, 1)',
-          'rgba(137, 128, 245, 1)',
-          // 'rgba(132, 94, 194, 1)',
-          'rgba(59, 169, 156, 1)',
-          // 'rgba(255, 111, 145, 1)',
-          // 'rgba(255, 150, 113, 1)',
-        ],
-        borderWidth: 1,
-        borderRadius: Number.MAX_VALUE,
-        fill: true,
-        borderSkipped: false,
-      }]
-    },
-    // options: {
-    //     responsive: true,
-    //     scales: {
-    //         yAxes: [{
-    //             ticks: {
-    //                 beginAtZero: true
-    //             }
-    //         }],
-    //         xAxes: [{
-    //     categoryPercentage: 0.8,
-    //     barPercentage: 0.9
-    // }]
-    //     }
-    // }
-  });
+let userChart = document.getElementById('userChart').getContext('2d');
+    let chart2 = new Chart(userChart, {
+        type: 'doughnut',
+        data: {
+            labels: ['Umum', 'Mahasiswa Polije', 'Alumni Polije',],
+            datasets: [{
+                data : [umum.value, mhs.value, alumni.value,],
+                // data: [70, 60, 20, 10, 30, 70],
+                backgroundColor: [
+                  'rgba(255, 199, 95, 1)',
+                  'rgba(137, 128, 245, 1)',
+                  // 'rgba(132, 94, 194, 1)',
+                  'rgba(59, 169, 156, 1)',
+                  // 'rgba(255, 111, 145, 1)',
+                  // 'rgba(255, 150, 113, 1)',
+                ],
+                borderColor: [
+                  'rgba(255, 199, 95, 1)',
+                  'rgba(137, 128, 245, 1)',
+                  // 'rgba(132, 94, 194, 1)',
+                  'rgba(59, 169, 156, 1)',
+                  // 'rgba(255, 111, 145, 1)',
+                  // 'rgba(255, 150, 113, 1)',
+                ],
+                borderWidth: 1,
+                borderRadius: Number.MAX_VALUE,
+                fill: true,
+                borderSkipped: false,
+            }]
+        },
+        // options: {
+        //     responsive: true,
+        //     scales: {
+        //         yAxes: [{
+        //             ticks: {
+        //                 beginAtZero: true
+        //             }
+        //         }],
+        //         xAxes: [{
+        //     categoryPercentage: 0.8,
+        //     barPercentage: 0.9
+        // }]
+        //     }
+        // }
+    });
 </script>
 @endsection

@@ -54,11 +54,11 @@ class DatabaseBackupCommand extends Command
             
             // membuat backup data dengan spatie/db-dumper
             MySql::create()
-                ->setHost(env('DB_HOST', '127.0.0.1'))
-                ->setPort(env('DB_PORT', '3306'))
-                ->setDbName(env('DB_DATABASE', 'cdc-polije'))
-                ->setUserName(env('DB_USERNAME', 'root'))
-                ->setPassword(env('DB_PASSWORD', ''))
+                ->setHost(env('DB_HOST'))
+                ->setPort(env('DB_PORT'))
+                ->setDbName(env('DB_DATABASE'))
+                ->setUserName(env('DB_USERNAME'))
+                ->setPassword(env('DB_PASSWORD'))
                 ->includeTables('test_histories, hasil_kepribadian, hasil_minat_karir, detail_hasil_minat_karir')
                 ->doNotCreateTables()
                 ->addExtraOption('--skip-add-drop-table')
